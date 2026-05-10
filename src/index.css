@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-dark: #032879;
+  --brand-primary: #0160d8;
+  --brand-accent: #0160d8;
+}
+
+body {
+  @apply bg-gray-50 text-gray-800 antialiased selection:bg-brand-primary selection:text-white;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.glass-card {
+  @apply bg-white/10 backdrop-blur-md border border-white/20;
+}
+
+.glass-pill {
+  @apply bg-black/20 backdrop-blur-lg border border-white/10 rounded-full px-6 py-2;
+}
+
+.animate-spin-slow {
+  animation: spin 10s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mesh-gradient {
+  background-color: #032879;
+  background-image: radial-gradient(at 0% 0%, hsla(220, 100%, 15%, 1) 0, transparent 50%),
+    radial-gradient(at 50% 0%, hsla(215, 100%, 30%, 1) 0, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(210, 100%, 20%, 1) 0, transparent 50%);
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 50s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
