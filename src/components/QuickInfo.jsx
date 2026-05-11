@@ -31,7 +31,7 @@ const QuickInfo = () => {
         {/* Header Section */}
         <div className="flex flex-col mb-16">
           <span className="bg-brand-primary/10 text-brand-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-6 inline-block w-max">
-            Our Core Values
+            Workforce Reliability
           </span>
           
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-6">

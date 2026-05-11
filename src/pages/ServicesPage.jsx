@@ -49,7 +49,7 @@ const ServicesPage = () => {
             Our Services
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-[#1a202c] mt-6 mb-4 tracking-tight">
-            We Build Everything You Need
+            Operational Support Services
           </h2>
           <p className="text-gray-500 max-w-2xl mx-auto text-lg">
             We provide tailored construction solutions, designed to meet your needs and executed

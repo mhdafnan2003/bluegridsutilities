@@ -28,7 +28,7 @@ const roles = [
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
   },
   {
-    title: "Data Analysts",
+    title: "Operational Reporting & AnalyticsData Analysts",
     desc: "Analyze project metrics, track compliance, and generate insights to optimize workforce deployment.",
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
   }
@@ -38,7 +38,7 @@ const Workforce = () => {
   return (
     <section className="py-24 bg-[#fafafa]" id="workforce">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-6">
@@ -53,22 +53,22 @@ const Workforce = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {roles.map((role, index) => (
             <div key={index} className="group relative bg-white border border-gray-100 rounded-2xl p-8 lg:p-10 overflow-hidden shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300 h-full flex flex-col">
-              
+
               <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight z-10 relative">{role.title}</h3>
               <p className="text-gray-500 leading-relaxed mb-20 relative z-10 max-w-[85%]">{role.desc}</p>
-              
+
               <Link to="/apply" className="mt-auto flex items-center gap-4 relative z-10 w-fit">
                 <div className="w-12 h-12 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-gray-600 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white transition-all duration-300 bg-white">
                   <svg className="w-5 h-5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>
-                <span className="text-sm font-semibold text-gray-500 group-hover:text-brand-dark transition-colors duration-300">Apply Now</span>
+                <span className="text-sm font-semibold text-gray-500 group-hover:text-brand-dark transition-colors duration-300">Register Interest</span>
               </Link>
 
               {/* Decorative Circle Bottom Right */}
               <div className="absolute -bottom-16 -right-16 w-56 h-56 bg-slate-50 rounded-full transition-transform duration-700 ease-out group-hover:scale-110" />
-              
+
               {/* Decorative Icon */}
               <div className="absolute bottom-10 right-10 text-brand-primary opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-10">
                 <svg className="w-14 h-14" fill="none" stroke="currentColor" viewBox="0 0 24 24">

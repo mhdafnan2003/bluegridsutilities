@@ -21,7 +21,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 text-center">
         <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/15 border border-white/25 text-white text-sm mx-auto mb-10 backdrop-blur-md">
           <span className="w-2 h-2 bg-white rounded-full"></span>
-          Your Best-Construction Partner
+          Compliance-Focused Operational Support
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight max-w-5xl mx-auto">

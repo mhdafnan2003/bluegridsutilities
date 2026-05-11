@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <section className="py-24 bg-white relative w-full overflow-hidden" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">
@@ -16,7 +16,7 @@ const Contact = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start w-full">
-          
+
           {/* Left Side: Contact Directory */}
           <div className="space-y-6 w-full">
             {/* Contact Directory Card */}
@@ -54,7 +54,7 @@ const Contact = () => {
               <h4 className="text-xl font-bold mb-2">Ready to Join?</h4>
               <p className="text-blue-100/80 mb-6 text-sm">We are always looking for skilled operatives and partners.</p>
               <button className="bg-white text-brand-dark px-6 py-2 rounded-full font-bold text-sm hover:bg-blue-50 transition-colors">
-                Apply Now
+                Register Interest
               </button>
             </div>
           </div>
