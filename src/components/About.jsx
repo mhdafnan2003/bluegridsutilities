@@ -1,4 +1,5 @@
 import React from 'react';
+import aboutImage from '../assets/images/about.jpg';
 
 const About = () => {
   return (
@@ -21,7 +22,7 @@ const About = () => {
           {/* Left: Image */}
           <div className="w-full h-full min-h-[500px]">
             <img
-              src="./src/assets/images/about.jpg"
+              src={aboutImage}
               alt="Our Story Structure"
               className="w-full h-full object-cover rounded-sm"
               style={{ minHeight: '600px' }}
