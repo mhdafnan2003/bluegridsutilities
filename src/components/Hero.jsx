@@ -19,18 +19,18 @@ const Hero = () => {
       </div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 text-center">
-        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/15 border border-white/25 text-white text-sm mx-auto mb-10 backdrop-blur-md">
+        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/15 border border-white/25 text-white text-xs sm:text-sm mx-auto mb-10 backdrop-blur-md">
           <span className="w-2 h-2 bg-white rounded-full"></span>
           Compliance-Focused Operational Support
         </div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight max-w-5xl mx-auto">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight max-w-5xl mx-auto">
           Delivering Smarter Utility & Infrastructure
           <br />
           Workforce Solutions
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-white/80 mt-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-sm sm:text-lg md:text-xl text-white/80 mt-8 max-w-3xl mx-auto leading-relaxed">
           Blue Grid Utilities supports utility, water, telecoms, and infrastructure projects across the UK through trained workforce coordination, project support, compliance-focused onboarding, and operational delivery.
         </p>
 
