@@ -1,4 +1,5 @@
 import React from 'react';
+import MotionSection from './MotionSection';
 
 const QuickInfo = () => {
   const features = [
@@ -25,7 +26,7 @@ const QuickInfo = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative font-sans" id="values">
+    <MotionSection as="section" className="py-24 bg-white relative font-sans" id="values">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
@@ -79,7 +80,7 @@ const QuickInfo = () => {
         </div> */}
 
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

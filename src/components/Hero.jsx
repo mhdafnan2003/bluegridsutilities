@@ -1,9 +1,10 @@
 import React from 'react';
+import MotionSection from './MotionSection';
 import heroVideo from '../assets/videos/hero video.mp4';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen w-full flex items-center overflow-hidden bg-slate-900">
+    <MotionSection as="section" className="relative min-h-screen w-full flex items-center overflow-hidden bg-slate-900">
       <div className="absolute inset-0 z-0">
         <video
           className="w-full h-full object-cover"
@@ -52,7 +53,7 @@ const Hero = () => {
           </a>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

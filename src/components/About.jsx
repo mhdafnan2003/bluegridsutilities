@@ -1,9 +1,10 @@
 import React from 'react';
+import MotionSection from './MotionSection';
 import aboutImage from '../assets/images/about.jpg';
 
 const About = () => {
   return (
-    <section className="py-24 bg-white font-sans" id="about">
+    <MotionSection as="section" className="py-24 bg-white font-sans" id="about">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
         
         {/* Header Section */}
@@ -84,7 +85,7 @@ const About = () => {
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import MotionSection from './MotionSection';
 import img1 from '../assets/images/Water meter installation support.jfif';
 import img2 from '../assets/images/Smart meter workforce coordination.jfif';
 import img3 from '../assets/images/Utility infrastructure support.jpg';
@@ -120,7 +121,7 @@ const Services = () => {
   }, [currentIndex, totalItems, isMobile]);
 
   return (
-    <section className="py-20 bg-white w-full overflow-hidden" id="services-overview">
+    <MotionSection as="section" className="py-20 bg-white w-full overflow-hidden" id="services-overview">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 w-full">
         
         {isMobile ? (
@@ -151,7 +152,7 @@ const Services = () => {
         )}
 
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

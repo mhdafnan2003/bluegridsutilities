@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MotionSection from './MotionSection';
 
 const roles = [
   {
@@ -36,7 +37,7 @@ const roles = [
 
 const Workforce = () => {
   return (
-    <section className="py-24 bg-[#fafafa]" id="workforce">
+    <MotionSection as="section" className="py-24 bg-[#fafafa]" id="workforce">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header Section */}
@@ -90,7 +91,7 @@ const Workforce = () => {
         </div> */}
 
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

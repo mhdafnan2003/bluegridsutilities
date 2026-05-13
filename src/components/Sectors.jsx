@@ -1,4 +1,5 @@
 import React from 'react';
+import MotionSection from './MotionSection';
 import water from '../assets/images/Sectors/Water utilities.jpg';
 import imgWater from '../assets/images/Sectors/Smart Meter & Water Meter Project Support.jpg';
 import imgTelecoms from '../assets/images/Sectors/Incredible 8-Second Construction Hyper-Lapse (1).jfif';
@@ -54,7 +55,7 @@ const sectorsData = [
 
 const Sectors = () => {
   return (
-    <section className="py-24 bg-white overflow-hidden font-sans" id="sectors">
+    <MotionSection as="section" className="py-24 bg-white overflow-hidden font-sans" id="sectors">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Area */}
@@ -108,7 +109,7 @@ const Sectors = () => {
         </div>
 
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

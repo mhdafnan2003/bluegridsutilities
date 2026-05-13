@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import MotionSection from '../components/MotionSection';
 
 const SectionHeader = ({ number, title }) => (
   <div className="flex items-center gap-4 mb-8">
@@ -86,7 +87,7 @@ const ApplyPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] py-16 px-4 font-sans">
+    <MotionSection as="div" className="min-h-screen bg-[#f8fafc] py-16 px-4 font-sans">
       <div className="max-w-5xl mx-auto">
 
         {/* Page Header */}
@@ -292,7 +293,7 @@ const ApplyPage = () => {
 
         </form>
       </div>
-    </div>
+    </MotionSection>
   );
 };
 

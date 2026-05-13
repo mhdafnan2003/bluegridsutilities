@@ -1,8 +1,9 @@
 import React from 'react';
+import MotionSection from './MotionSection';
 
 const Contact = () => {
   return (
-    <section className="py-24 bg-white relative w-full overflow-hidden" id="contact">
+    <MotionSection as="section" className="py-24 bg-white relative w-full overflow-hidden" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
         {/* Header */}
@@ -23,8 +24,9 @@ const Contact = () => {
             <div className="rounded-[2rem] bg-slate-50 border border-slate-100 shadow-sm w-full overflow-hidden divide-y divide-slate-200">
               {[
                 { role: "Public / Website", email: "info@bluegridutilities.com" },
-                { role: "Recruitment", email: "recruitment@bluegridutilities.com" },
-                { role: "Operations", email: "operations@bluegridutilities.com" },
+                { role: "Recruitment & Workforce", email: "recruitment@bluegridutilities.com" },
+                // { role: "Operations", email: "operations@bluegridutilities.com" },
+                {role: "Public Enquiries", email: "enquiries@bluegridutilities.com"},
                 { role: "Director", email: "selbert@bluegridutilities.com" },
                 { role: "Project Manager", email: "raj.g@bluegridutilities.com" },
                 { role: "Assistant PM", email: "dsilva.a@bluegridutilities.com" },
@@ -32,12 +34,14 @@ const Contact = () => {
                 <div key={i} className="flex items-center justify-between gap-4 px-8 py-5 hover:bg-white transition-colors duration-200 group">
                   <div className="min-w-0">
                     <p className="text-sm font-bold text-gray-800 mb-1">{contact.role}</p>
-                    <a
-                      href={`mailto:${contact.email}`}
-                      className="text-gray-500 hover:text-brand-primary transition-colors break-all text-sm"
-                    >
-                      {contact.email}
-                    </a>
+                    {contact.email ? (
+                      <a
+                        href={`mailto:${contact.email}`}
+                        className="text-gray-500 hover:text-brand-primary transition-colors break-all text-sm"
+                      >
+                        {contact.email}
+                      </a>
+                    ) : null}
                   </div>
                   <div className="shrink-0 w-9 h-9 rounded-full bg-white shadow-sm border border-slate-100 flex items-center justify-center text-gray-300 group-hover:text-brand-primary group-hover:border-brand-primary/20 transition-all duration-300">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -48,14 +52,45 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Quick Support Badge */}
-            <div className="p-8 rounded-[2rem] bg-brand-dark text-white relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700" />
-              <h4 className="text-xl font-bold mb-2">Ready to Join?</h4>
-              <p className="text-blue-100/80 mb-6 text-sm">We are always looking for skilled operatives and partners.</p>
-              <button className="bg-white text-brand-dark px-6 py-2 rounded-full font-bold text-sm hover:bg-blue-50 transition-colors">
-                Register Interest
-              </button>
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
+              <div className="p-8 rounded-[2rem] bg-brand-dark text-white relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700" />
+                <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
+                  
+
+                  <div className="min-w-0 md:w-1/2">
+                    <h4 className="text-xl font-bold mb-2">Office Address</h4>
+                    <p className="text-blue-100/80 text-sm leading-relaxed">
+                      Stuart House, St Johns Street,
+                      <br />
+                      Peterborough, PE1 5DD,
+                      <br />
+                      United Kingdom
+                    </p>
+                  </div>
+                  <div className="min-w-0 md:w-1/2">
+                    <h4 className="text-xl font-bold mb-2">Office Number</h4>
+                    <a
+                      href="tel:+441442957500"
+                      className="text-blue-100/80 text-sm block hover:text-white transition-colors"
+                    >
+                      +44 1442 957500
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* <div className="p-8 rounded-[2rem] bg-brand-dark text-white relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-700" />
+                <h4 className="text-xl font-bold mb-2">Office Address</h4>
+                <p className="text-blue-100/80 text-sm leading-relaxed">
+                  Stuart House, St Johns Street,
+                  <br />
+                  Peterborough, PE1 5DD,
+                  <br />
+                  United Kingdom
+                </p>
+              </div> */}
             </div>
           </div>
 
@@ -93,7 +128,7 @@ const Contact = () => {
 
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 
