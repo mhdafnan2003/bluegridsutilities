@@ -78,7 +78,7 @@ const MemberCard = ({ member }) => {
         </div>
         
         {/* Content Overlay */}
-        <div className={`bg-white p-8 relative z-10 rounded-t-[2rem] border-t border-white/50 flex flex-col flex-grow transition-all duration-300 ${isOpen ? '-mt-24' : '-mt-16'}`}>
+        <div className={`bg-white p-8 absolute bottom-0 left-0 right-0 z-10 rounded-t-[2rem] border-t border-white/50 flex flex-col transition-all duration-500 ease-out will-change-transform ${isOpen ? 'translate-y-0' : 'translate-y-0'}`}>
           <div className="mb-4">
             <h3 className="text-xl md:text-2xl text-[#0B2545] font-black tracking-tight leading-none mb-2">{member.name}</h3>
             <p className="text-[12px] text-[#0EA5E9] font-bold tracking-widest uppercase">{member.role}</p>
@@ -135,7 +135,7 @@ const Management = () => {
         </div>
 
         {/* Leadership Carousel / Vertical Stack on Mobile */}
-        <div className="flex flex-col md:flex-row gap-8 md:overflow-x-auto pb-12 md:scrollbar-hide md:snap-x md:snap-mandatory items-start">
+        <div className="flex flex-col md:flex-row gap-8 md:overflow-x-auto pb-12 md:scrollbar-hide md:snap-x md:snap-mandatory items-stretch">
           {team.map((member, idx) => (
             <MemberCard key={idx} member={member} />
           ))}
