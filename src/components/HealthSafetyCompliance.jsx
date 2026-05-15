@@ -50,9 +50,9 @@ const HealthSafetyCompliance = () => {
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
         <div className="space-y-8">
           {/* Header */}
-          <div className="space-y-4">
+          <div className="space-y-4 text-center md:text-left">
             <h2 className="text-2xl md:text-4xl font-bold text-white uppercase tracking-tight">Health Safety & Compliance</h2>
-            <div className="h-1.5 w-24 bg-sky-500"></div>
+            <div className="h-1.5 w-24 bg-sky-500 mx-auto md:mx-0"></div>
           </div>
 
           {/* Compliance Grid */}

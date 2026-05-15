@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MotionSection from './MotionSection';
 import selbertImg from '../assets/images/updated/SELBERT GEORGE.jpeg';
 import gauthamImg from '../assets/images/updated/And goutham raj.jpeg';
@@ -46,6 +46,58 @@ const team = [
   }
 ];
 
+const MemberCard = ({ member }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
+  const isOpen = isHovered || isClicked;
+
+  return (
+    <div 
+      className="w-full md:w-[420px] flex-shrink-0 md:snap-center cursor-pointer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onClick={() => setIsClicked(!isClicked)}
+    >
+      <div className={`relative flex flex-col rounded-[2.5rem] overflow-hidden bg-white shadow-xl shadow-[#0B2545]/5 h-full border border-white/20 transition-shadow duration-300 ${isOpen ? 'shadow-2xl shadow-[#0B2545]/10' : ''}`}>
+        {/* Social Icons Overlay - Appear on Hover or Click */}
+        <div className={`absolute top-6 right-6 flex flex-col gap-3 transition-all duration-500 z-20 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <a href={member.social.linkedin} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+            <LinkedInIcon />
+          </a>
+          <a href={member.social.facebook} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+            <FacebookIcon />
+          </a>
+          <a href={member.social.instagram} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+            <InstagramIcon />
+          </a>
+        </div>
+
+        <div className="aspect-[4/5] w-full relative overflow-hidden">
+          <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700" src={member.img} />
+        </div>
+        
+        {/* Content Overlay */}
+        <div className={`bg-white p-8 relative z-10 rounded-t-[2rem] border-t border-white/50 flex flex-col flex-grow transition-all duration-300 ${isOpen ? '-mt-24' : '-mt-16'}`}>
+          <div className="mb-4">
+            <h3 className="text-xl md:text-2xl text-[#0B2545] font-black tracking-tight leading-none mb-2">{member.name}</h3>
+            <p className="text-[12px] text-[#0EA5E9] font-bold tracking-widest uppercase">{member.role}</p>
+          </div>
+          
+          {/* Hidden Description - Slides up on Hover or Click */}
+          <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[200px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}>
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+              {member.desc}
+            </p>
+          </div>
+
+          {/* Removed tags section */}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Management = () => {
   return (
     <MotionSection as="section" className="py-24 bg-[#f7f9fb] blueprint-bg relative overflow-hidden" id="management">
@@ -55,15 +107,15 @@ const Management = () => {
 
       <div className="max-w-[1400px] mx-auto px-6">
         {/* Header Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-2 mb-4">
+        <div className="mb-12 text-center lg:text-left">
+          <div className="flex items-center justify-center lg:justify-start gap-2 mb-4">
             <span className="w-10 h-0.5 bg-[#0EA5E9]"></span>
             <span className="text-[14px] font-semibold text-[#0B2545] uppercase tracking-widest">Leadership Profile</span>
           </div>
           <h2 className="text-4xl md:text-6xl font-bold text-[#0B2545] mb-6 tracking-tighter leading-tight">
             Leadership & Management
           </h2>
-          <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
             Experienced operational leadership driving workforce coordination, compliance standards, infrastructure deployment, and project delivery across utility operations.
           </p>
         </div>
@@ -82,46 +134,10 @@ const Management = () => {
           ))}
         </div>
 
-        {/* Leadership Carousel */}
-        <div className="flex gap-8 overflow-x-auto pb-12 scrollbar-hide snap-x snap-mandatory items-stretch">
+        {/* Leadership Carousel / Vertical Stack on Mobile */}
+        <div className="flex flex-col md:flex-row gap-8 md:overflow-x-auto pb-12 md:scrollbar-hide md:snap-x md:snap-mandatory items-start">
           {team.map((member, idx) => (
-            <div key={idx} className="w-[300px] md:w-[420px] flex-shrink-0 snap-center group">
-              <div className="relative flex flex-col rounded-[2.5rem] overflow-hidden bg-white shadow-xl shadow-[#0B2545]/5 h-full border border-white/20 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-[#0B2545]/10">
-                {/* Social Icons Overlay - Appear on Hover */}
-                <div className="absolute top-6 right-6 flex flex-col gap-3 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 z-20">
-                  <a href={member.social.linkedin} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
-                    <LinkedInIcon />
-                  </a>
-                  <a href={member.social.facebook} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
-                    <FacebookIcon />
-                  </a>
-                  <a href={member.social.instagram} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
-                    <InstagramIcon />
-                  </a>
-                </div>
-
-                <div className="aspect-[4/5] w-full relative overflow-hidden">
-                  <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={member.img} />
-                </div>
-                
-                {/* Content Overlay */}
-                <div className="bg-white p-8 relative z-10 rounded-t-[2rem] -mt-16 border-t border-white/50 flex flex-col flex-grow transition-all duration-500 group-hover:-mt-32">
-                  <div className="mb-4">
-                    <h3 className="text-2xl md:text-3xl text-[#0B2545] font-black tracking-tight leading-none mb-2">{member.name}</h3>
-                    <p className="text-[12px] text-[#0EA5E9] font-bold tracking-widest uppercase">{member.role}</p>
-                  </div>
-                  
-                  {/* Hidden Description - Slides up on Hover */}
-                  <div className="max-h-0 opacity-0 overflow-hidden transition-all duration-500 group-hover:max-h-[200px] group-hover:opacity-100 group-hover:mb-6">
-                    <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                      {member.desc}
-                    </p>
-                  </div>
-
-                  {/* Removed tags section */}
-                </div>
-              </div>
-            </div>
+            <MemberCard key={idx} member={member} />
           ))}
         </div>
       </div>

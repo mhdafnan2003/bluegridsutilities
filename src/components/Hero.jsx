@@ -25,13 +25,13 @@ const Hero = () => {
           Compliance-Focused Operational Support
         </div>
 
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight max-w-5xl mx-auto">
+        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight max-w-5xl mx-auto">
           Delivering Reliable Utility & Infrastructure
           <br />
            Operations Across the UK
         </h1>
 
-        <p className="text-sm sm:text-lg md:text-xl text-white/80 mt-8 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xs sm:text-base md:text-lg text-white/80 mt-8 max-w-3xl mx-auto leading-relaxed">
           BLUEGRID UTILITIES provides compliance-focused workforce coordination, water infrastructure operational support, project deployment, and utility workforce solutions across the UK. compliance-focused onboarding, and operational delivery.
         </p>
 

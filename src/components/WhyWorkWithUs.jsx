@@ -39,20 +39,12 @@ const WhyWorkWithUs = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Area */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="max-w-3xl">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-center md:text-left">
+          <div className="max-w-3xl mx-auto md:mx-0">
             <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">
              Why Work With Us
             </h2>
-            {/* <p className="text-gray-600 text-lg leading-relaxed">
-              Join a committed team at the forefront of the UK's utility and infrastructure sectors. At BlurGrid, we pride ourselves on a supportive culture, continuous development, and the opportunity to deliver essential services that keep communities connected.
-            </p> */}
           </div>
-          {/* <div className="shrink-0">
-            <button className="bg-brand-dark text-white px-8 py-3.5 rounded-full font-medium hover:bg-brand-primary transition-colors duration-300">
-              Join Now
-            </button>
-          </div> */}
         </div>
 
         {/* Cards Grid */}

@@ -8,11 +8,11 @@ const About = () => {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
 
         {/* Header Section */}
-        <div className="mb-14">
+        <div className="mb-14 text-center lg:text-left">
           <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-6">
             Our Story
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1a202c] max-w-4xl tracking-tight leading-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1a202c] max-w-4xl lg:mx-0 mx-auto tracking-tight leading-tight">
             About Bluegrid Utilities
           </h2>
         </div>
@@ -21,7 +21,7 @@ const About = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
 
           {/* Left: Image */}
-          <div className="w-full lg:h-[580px]">
+          <div className="w-full h-[320px] md:h-[450px] lg:h-[580px] max-w-lg mx-auto lg:max-w-none">
             <img
               src={aboutImage}
               alt="Our Story Structure"
@@ -30,7 +30,7 @@ const About = () => {
           </div>
 
           {/* Right: Content */}
-          <div className="flex flex-col">
+          <div className="flex flex-col text-center lg:text-left">
             <p className="text-gray-500 text-lg leading-relaxed mb-8">
               BlueGrid Utilities is the trading name of Bluegrid Technology Ltd, a UK-registered company focused on supporting utility and infrastructure operations. We work with project partners, contractors, and workforce teams to support the delivery of essential services across water, utilities, telecoms, and infrastructure sectors.
             </p>
