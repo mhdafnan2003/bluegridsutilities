@@ -1,120 +1,148 @@
 import React from 'react';
 import MotionSection from './MotionSection';
 
-const safetyItems = [
+const safetyModules = [
   {
+    id: "01",
     title: "PPE Standards",
-    desc: "Mandatory high-visibility clothing, head protection, and task-specific safety gear for all field operations.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-      </svg>
-    )
+    desc: "Mandatory high-visibility clothing, helmets, and task-specific safety gear.",
+    icon: "engineering"
   },
   {
+    id: "02",
     title: "RAMS Procedures",
-    desc: "Comprehensive Risk Assessments and Method Statements (RAMS) conducted for every site and specific task.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
-      </svg>
-    )
+    desc: "Comprehensive Risk Assessment Method Statements for all site activities.",
+    icon: "assignment_late"
   },
   {
+    id: "03",
     title: "NRSWA Compliance",
-    desc: "Strict adherence to the New Roads and Street Works Act (NRSWA) for all utility works on public highways.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-      </svg>
-    )
+    desc: "Strict adherence to New Roads and Street Works Act regulations.",
+    icon: "gavel"
   },
   {
+    id: "04",
     title: "Traffic Management",
-    desc: "Certified implementation of traffic control measures to ensure safety of the public and our workforce.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.132-3L13.132 6c-.77-1.333-2.694-1.333-3.464 0L3.34 17c-1.37 1.333-.408 3 1.132 3z" />
-      </svg>
-    )
+    desc: "Certified traffic control systems ensuring workforce and public safety.",
+    icon: "traffic"
   },
   {
+    id: "05",
     title: "Environmental Responsibilities",
-    desc: "Commitment to waste reduction, spill prevention, and minimizing the environmental impact of operations.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-      </svg>
-    )
+    desc: "Waste reduction, spill prevention, and environmentally responsible operations.",
+    icon: "eco"
   },
   {
+    id: "06",
     title: "Daily Toolbox Talks",
-    desc: "Routine safety briefings held every morning to address specific site risks and operational updates.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-      </svg>
-    )
+    desc: "Daily team safety briefings covering site-specific hazards and updates.",
+    icon: "groups",
+    active: true
   },
   {
+    id: "07",
     title: "Workforce Safety Monitoring",
-    desc: "Continuous supervision and QA audits to ensure maintaining the highest safety standards on-site.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-      </svg>
-    )
+    desc: "Real-time workforce supervision, audits, and compliance tracking.",
+    icon: "visibility"
   }
 ];
 
 const HealthSafetyCompliance = () => {
   return (
-    <MotionSection as="section" className="py-24 bg-brand-dark overflow-hidden" id="safety-compliance">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          {/* Left: Content */}
-          <div className="lg:w-1/2">
-            <div className="mb-12">
-              <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block">Our Unwavering Commitment</span>
-              <h2 className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-6">
-                Health, Safety & Compliance
-              </h2>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                Safety isn't just a priority; it's a fundamental part of our operational delivery. We maintain rigorous standards across all projects to protect our workforce and the public.
-              </p>
-            </div>
+    <MotionSection as="section" className="relative bg-brand-dark text-white min-h-screen overflow-hidden font-sans" id="safety-compliance">
+      
+      {/* Blueprint Background Effect */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+           style={{ 
+             backgroundImage: `linear-gradient(#0ea5e9 1px, transparent 1px), linear-gradient(90deg, #0ea5e9 1px, transparent 1px)`,
+             backgroundSize: '40px 40px' 
+           }}>
+      </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {safetyItems.map((item, index) => (
-                <div key={index} className="flex gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors duration-300 group">
-                  <div className="w-10 h-10 shrink-0 rounded-lg bg-white/10 flex items-center justify-center text-white group-hover:bg-brand-primary transition-all duration-300">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold mb-1">{item.title}</h4>
-                    <p className="text-gray-500 text-sm leading-snug">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 py-16 relative z-10">
+        
+        {/* Header Section */}
+        <section className="text-center mb-16 max-w-3xl mx-auto">
+          <span className="inline-block text-[10px] font-bold text-sky-400 tracking-[0.3em] mb-4 uppercase bg-sky-500/10 px-4 py-1.5 rounded-full border border-sky-500/20">Security Protocol V.4</span>
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6 tracking-tight">Health, Safety & Compliance</h2>
+          <p className="text-white/60 text-lg leading-relaxed">
+            Safety isn’t just a priority — it’s a core operational standard embedded into every project we deliver, ensuring workforce protection and regulatory excellence.
+          </p>
+        </section>
+
+        {/* Current Safety Pulse (Optional visual element) */}
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 flex flex-col items-center text-center shadow-xl group hover:bg-white/10 transition-all duration-500">
+            <span className="text-sky-400 font-bold uppercase text-[10px] tracking-widest mb-2">Operational Safety Score</span>
+            <div className="flex items-end gap-2 mb-2">
+              <span className="text-5xl font-black text-white leading-none">100</span>
+              <span className="text-2xl font-bold text-sky-400 leading-none">%</span>
+            </div>
+            <div className="flex items-center gap-2 text-emerald-400">
+              <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: "'FILL' 1" }}>verified</span>
+              <span className="font-bold text-[10px] uppercase tracking-wider">Audit Certified</span>
             </div>
           </div>
 
-          {/* Right: Induction Visuals Mockup */}
-          <div className="lg:w-1/2 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10">
-              <img 
-                src="/src/assets/images/Sectors/Incredible 8-Second Construction Hyper-Lapse (1).jfif" 
-                alt="Construction Safety" 
-                className="w-full h-[600px] object-cover transition-all duration-700"
-              />
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 flex items-center gap-6 shadow-xl group hover:bg-white/10 transition-all duration-500">
+            <div className="w-14 h-14 rounded-2xl bg-sky-500/20 flex items-center justify-center text-sky-400 shadow-[0_0_15px_rgba(14,165,233,0.1)]">
+              <span className="material-symbols-outlined text-3xl">target</span>
             </div>
-            
-            {/* Background Decoration */}
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-brand-primary/10 rounded-full blur-[100px] -z-10"></div>
+            <div>
+              <p className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-1">Focus</p>
+              <p className="text-xl font-bold text-white leading-tight">Zero Incident</p>
+            </div>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2rem] p-8 flex items-center gap-6 shadow-xl group hover:bg-white/10 transition-all duration-500">
+            <div className="w-14 h-14 rounded-2xl bg-sky-500/20 flex items-center justify-center text-sky-400 shadow-[0_0_15px_rgba(14,165,233,0.1)]">
+              <span className="material-symbols-outlined text-3xl">shield_with_heart</span>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold text-sky-400 uppercase tracking-widest mb-1">Standards</p>
+              <p className="text-xl font-bold text-white leading-tight">ISO Compliant</p>
+            </div>
+          </div>
+        </div> */}
+
+        {/* Modules Grid */}
+        <div className="mb-20">
+          <div className="flex items-center gap-4 mb-12">
+            <h3 className="text-2xl font-bold uppercase tracking-tight text-white">Safety Modules</h3>
+            <div className="h-1 w-20 bg-sky-500"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {safetyModules.map((module, index) => (
+              <div 
+                key={index} 
+                className={`bg-white/5 backdrop-blur-xl border ${module.active ? 'border-sky-500/50 border-l-4 border-l-sky-500' : 'border-white/10'} rounded-3xl p-8 hover:bg-white/10 transition-all duration-300 group cursor-default shadow-lg hover:-translate-y-2`}
+              >
+                <div className="flex justify-between items-start mb-6">
+                  <span className="material-symbols-outlined text-sky-400 text-4xl group-hover:scale-110 transition-transform">
+                    {module.icon}
+                  </span>
+                  <span className="text-[10px] font-bold text-gray-500 tracking-widest">{module.active ? 'ACTIVE' : module.id}</span>
+                </div>
+                <h4 className="text-lg font-bold text-white mb-3 uppercase tracking-wider">{module.title}</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">{module.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* CTA Section */}
+        {/* <div className="bg-sky-500 rounded-[2.5rem] p-10 lg:p-16 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-2xl shadow-sky-500/30">
+          <div className="text-center lg:text-left">
+            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight">Commitment Beyond Compliance</h3>
+            <p className="text-white/90 text-lg max-w-2xl leading-relaxed">
+              Our technical infrastructure projects are built on a foundation of rigorous safety protocols and continuous monitoring.
+            </p>
+          </div>
+          <button className="whitespace-nowrap px-10 py-5 bg-brand-dark text-white rounded-2xl font-bold uppercase tracking-widest hover:bg-black transition-all shadow-xl">
+            Review Audit History
+          </button>
+        </div> */}
 
       </div>
     </MotionSection>

@@ -1,112 +1,118 @@
 import React from 'react';
 import MotionSection from './MotionSection';
 
-const regions = [
-  { name: "Hertfordshire", pos: "top-1/2 left-1/2 -translate-x-4 -translate-y-4" },
-  { name: "Greater London", pos: "top-[55%] left-[52%]" },
-  { name: "Midlands", pos: "top-[40%] left-[45%]" },
-  { name: "Southern England", pos: "top-[65%] left-[40%]" }
-];
-
 const OperationalCoverage = () => {
   return (
-    <MotionSection as="section" className="py-24 bg-white overflow-hidden" id="coverage">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          
-          {/* Left: Content */}
-          <div className="lg:w-2/5">
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-6">
-              Operational Coverage
-            </h2>
-            <div className="h-1.5 w-20 bg-brand-primary rounded-full mb-8"></div>
-            <p className="text-xl text-gray-700 font-medium mb-6 leading-relaxed">
-              Strategic deployment and workforce coordination across operational regions.
-            </p>
-            <p className="text-gray-500 mb-10 leading-relaxed">
-              Our workforce is strategically positioned to provide rapid response and consistent service delivery across key UK infrastructure hubs. We maintain a robust presence in the following areas:
-            </p>
-            
+    <MotionSection as="section" className="py-24 bg-white overflow-hidden font-sans" id="coverage">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-20">
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
+
+          {/* Content Section */}
+          <div className="w-full lg:w-5/12 flex flex-col gap-8 order-1">
             <div className="space-y-4">
-              {["Hertfordshire", "Greater London", "Midlands", "Southern England"].map((area, index) => (
-                <div key={index} className="flex items-center gap-4 group">
-                  <div className="w-2 h-2 rounded-full bg-brand-primary group-hover:scale-150 transition-transform"></div>
-                  <span className="text-lg font-bold text-gray-800 group-hover:text-brand-primary transition-colors">{area}</span>
+              <div className="inline-block">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark tracking-tight leading-tight">
+                  Operational Coverage
+                </h2>
+                <div className="h-1.5 w-20 bg-brand-primary mt-2"></div>
+              </div>
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+                Our strategic deployment model ensures comprehensive infrastructure support across the United Kingdom. We maintain rigorous workforce coordination to deliver technical excellence and rapid response capabilities in high-demand regions.
+              </p>
+            </div>
+
+            {/* Coverage Areas List */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                { name: "Hertfordshire", icon: "location_on" },
+                { name: "Greater London", icon: "location_on" },
+                { name: "Midlands", icon: "location_on" },
+                { name: "Southern England", icon: "location_on" }
+              ].map((area, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 p-4 rounded-xl border border-gray-100 hover:bg-brand-light transition-colors group cursor-default"
+                >
+                  <span className="material-symbols-outlined text-brand-primary group-hover:scale-110 transition-transform">
+                    {area.icon}
+                  </span>
+                  <span className="font-bold text-brand-dark group-hover:text-brand-primary transition-colors italic">
+                    {area.name}
+                  </span>
                 </div>
               ))}
             </div>
 
-            <div className="mt-12 p-6 bg-slate-50 rounded-2xl border border-gray-100 italic text-gray-400 text-sm">
-              * Active project sites and mobile workforce units operational 24/7 across these key territories.
+            {/* Glassmorphic Information Card */}
+            <div className="bg-white/70 backdrop-blur-xl border-l-4 border-l-brand-primary border border-gray-100 p-6 rounded-xl flex gap-4 items-start shadow-sm shadow-brand-dark/5">
+              <span className="material-symbols-outlined text-brand-primary mt-1">info</span>
+              <p className="text-gray-600 italic leading-relaxed">
+                "Active project sites and mobile workforce units operational 24/7 across key territories."
+              </p>
             </div>
           </div>
 
-          {/* Right: Map Visual */}
-          <div className="lg:w-3/5 w-full relative">
-            <div className="relative bg-slate-50 rounded-[3rem] p-4 lg:p-12 overflow-hidden border border-gray-100 shadow-inner">
-               {/* Simplified UK Map SVG Placeholder Background */}
-               <svg viewBox="0 0 400 500" className="w-full h-auto opacity-10 filter grayscale">
-                 <path d="M150,50 L180,30 L210,40 L230,80 L250,120 L270,180 L260,250 L280,300 L250,350 L220,420 L180,450 L120,440 L80,400 L60,320 L70,250 L100,180 L120,100 Z" fill="currentColor" />
-               </svg>
+          {/* Map Section */}
+          <div className="w-full lg:w-7/12 order-2 relative group">
+            <div className="aspect-[4/5] md:aspect-[16/11] bg-slate-50 rounded-[2.5rem] overflow-hidden shadow-inner relative border border-gray-100">
+              <img
+                alt="UK Map Infrastructure"
+                className="w-full h-full object-cover opacity-20 grayscale brightness-125"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWVAusAfQRwhT__puaIo2scSOl2XVJ19jF5kDTGiXjFXN-yuBcEpekf3ABk7RBaJQngfuxGLSxmwSNdDE8F9HL6xayZi6wgqEIHOnPpve2VYpMut4CEN5Nu4VcR1ddXw68u9Q1SUc5vmuTFB1IwG8MRVBb9bhcIE4gbc7BpH_si9RHrpCoRE_S_2K9mY01v1FaswtS9Rsq91pD1TeM3un5moRKGtmh3JQMK-yYtnLyYqRRdHW3p0YPHfqFLaP6Fzl0iGEysOaPDWfw"
+              />
 
-               {/* Regional Pins */}
-               <div className="absolute inset-0">
-                  {/* Heatmap effect circle */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-primary/10 rounded-full blur-[80px]"></div>
-                  
-                  {/* Pins */}
-                  <div className="absolute top-[40%] left-[45%] group cursor-help">
-                    <div className="w-4 h-4 bg-brand-primary rounded-full animate-ping absolute"></div>
-                    <div className="w-4 h-4 bg-brand-primary rounded-full relative shadow-lg shadow-brand-primary/50"></div>
-                    <div className="absolute left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-white shadow-xl p-2 rounded border border-gray-100 transition-opacity whitespace-nowrap z-20">
-                      <span className="text-xs font-bold text-brand-dark">Midlands Hub</span>
-                    </div>
+              {/* Map Indicators Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                {/* Hertfordshire */}
+                <div className="absolute top-[65%] left-[52%]">
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-8 h-8 bg-brand-primary/20 rounded-full animate-ping"></div>
+                    <div className="w-3.5 h-3.5 bg-brand-primary rounded-full border-2 border-white shadow-md shadow-brand-dark/20"></div>
                   </div>
+                </div>
+                {/* London */}
+                <div className="absolute top-[68%] left-[53%]">
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-8 h-8 bg-brand-primary/20 rounded-full animate-ping"></div>
+                    <div className="w-3.5 h-3.5 bg-brand-primary rounded-full border-2 border-white shadow-md shadow-brand-dark/20"></div>
+                  </div>
+                </div>
+                {/* Midlands */}
+                <div className="absolute top-[55%] left-[45%]">
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-8 h-8 bg-brand-primary/20 rounded-full animate-ping"></div>
+                    <div className="w-3.5 h-3.5 bg-brand-primary rounded-full border-2 border-white shadow-md shadow-brand-dark/20"></div>
+                  </div>
+                </div>
+                {/* South */}
+                <div className="absolute top-[75%] left-[48%]">
+                  <div className="relative flex items-center justify-center">
+                    <div className="absolute w-8 h-8 bg-brand-primary/20 rounded-full animate-ping"></div>
+                    <div className="w-3.5 h-3.5 bg-brand-primary rounded-full border-2 border-white shadow-md shadow-brand-dark/20"></div>
+                  </div>
+                </div>
+              </div>
 
-                  <div className="absolute top-[52%] left-[54%] group cursor-help">
-                    <div className="w-4 h-4 bg-brand-primary rounded-full animate-ping absolute"></div>
-                    <div className="w-4 h-4 bg-brand-primary rounded-full relative shadow-lg shadow-brand-primary/50"></div>
-                    <div className="absolute left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-white shadow-xl p-2 rounded border border-gray-100 transition-opacity whitespace-nowrap z-20">
-                        <span className="text-xs font-bold text-brand-dark">Hertfordshire HQ</span>
-                    </div>
+              {/* Stats Card Overlay */}
+              <div className="absolute bottom-8 right-8 bg-white/80 backdrop-blur-xl p-8 rounded-3xl min-w-[240px] shadow-2xl shadow-brand-dark/10 border border-white/50 transition-transform hover:-translate-y-2 duration-500">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+                  <h3 className="text-xs font-bold text-brand-dark uppercase tracking-[0.2em]">Network Status</h3>
+                </div>
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Active Teams</p>
+                    <p className="text-4xl font-black text-brand-primary tracking-tight">120+</p>
                   </div>
-
-                  <div className="absolute top-[60%] left-[52%] group cursor-help">
-                    <div className="w-4 h-4 bg-brand-primary rounded-full animate-ping absolute"></div>
-                    <div className="w-4 h-4 bg-brand-primary rounded-full relative shadow-lg shadow-brand-primary/50"></div>
-                    <div className="absolute left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-white shadow-xl p-2 rounded border border-gray-100 transition-opacity whitespace-nowrap z-20">
-                        <span className="text-xs font-bold text-brand-dark">Greater London</span>
-                    </div>
+                  <div className="pt-5 border-t border-gray-100">
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Response Time</p>
+                    <p className="text-3xl font-bold text-brand-dark tracking-tight">&lt; 4Hrs</p>
                   </div>
-
-                  <div className="absolute top-[68%] left-[38%] group cursor-help">
-                    <div className="w-4 h-4 bg-brand-primary rounded-full animate-ping absolute"></div>
-                    <div className="w-4 h-4 bg-brand-primary rounded-full relative shadow-lg shadow-brand-primary/50"></div>
-                    <div className="absolute left-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 bg-white shadow-xl p-2 rounded border border-gray-100 transition-opacity whitespace-nowrap z-20">
-                        <span className="text-xs font-bold text-brand-dark">Southern England</span>
-                    </div>
-                  </div>
-               </div>
-
-               {/* Overlay Data Card */}
-               <div className="absolute bottom-10 right-10 bg-white/80 backdrop-blur-md p-6 rounded-3xl border border-white shadow-2xl hidden md:block max-w-[200px]">
-                  <p className="text-[10px] font-black uppercase text-brand-primary mb-2 tracking-widest">Network Status</p>
-                  <div className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-gray-500">Active Teams</span>
-                      <span className="text-xs font-black text-brand-dark">120+</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xs text-gray-500">Response Time</span>
-                      <span className="text-xs font-black text-brand-dark">&lt; 4Hrs</span>
-                    </div>
-                    <div className="h-1 bg-gray-100 rounded-full overflow-hidden">
-                      <div className="h-full bg-brand-primary w-[85%]"></div>
-                    </div>
-                  </div>
-               </div>
+                </div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </MotionSection>
