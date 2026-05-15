@@ -1,9 +1,9 @@
 import React from 'react';
 import MotionSection from '../components/MotionSection';
 import img1 from '../assets/images/Services/Utility Workforce Supply.jpg';
-import img2 from '../assets/images/Services/Smart Meter & Water Meter Project Support.jpg';
-import img3 from '../assets/images/Services/Project Coordination.jpg';
-import img4 from '../assets/images/Services/Compliance & Onboarding.jpg';
+import img2 from '../assets/images/updated/Smart Meter & Water Meter Project Support.avif';
+import img3 from '../assets/images/updated/img 6.jpg';
+import img4 from '../assets/images/updated/Compliance & Onboarding.avif';
 import img5 from '../assets/images/Services/Infrastructure Support.jpg';
 
 const servicesData = [

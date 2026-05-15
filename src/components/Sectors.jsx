@@ -1,11 +1,11 @@
 import React from 'react';
 import MotionSection from './MotionSection';
 import water from '../assets/images/Sectors/Water utilities.jpg';
-import imgWater from '../assets/images/Sectors/Smart Meter & Water Meter Project Support.jpg';
+import imgWater from '../assets/images/updated/Smart Meter & Water Meter Project Support.avif';
 import imgTelecoms from '../assets/images/Sectors/Incredible 8-Second Construction Hyper-Lapse (1).jfif';
-import imgCompliance from '../assets/images/Sectors/Compliance & Onboarding.jpg';
+import imgCompliance from '../assets/images/updated/Compliance & Onboarding.avif';
 import imgInfra from '../assets/images/Sectors/Infrastructure Support.jpg';
-import imgCoordination from '../assets/images/Sectors/Project Coordination.jpg';
+import imgCoordination from '../assets/images/updated/img 6.jpg';
 import imgWorkforce from '../assets/images/Sectors/Utility Workforce Supply.jpg';
 
 const sectorsData = [
@@ -16,7 +16,7 @@ const sectorsData = [
     img: water,
   },
   {
-    title: "Smart metering",
+    title: "Smart Meter & Water Meter Project Support",
     category: "Energy",
     desc: "Large-scale deployment and workforce coordination for smart meter infrastructure.",
     img: imgWater,
@@ -28,7 +28,7 @@ const sectorsData = [
     img: imgTelecoms,
   },
   {
-    title: "Energy and utilities",
+    title: "Compliance & Onboarding",
     category: "Utilities",
     desc: "Reliable field service support and operational coordination for the broader energy sector.",
     img: imgCompliance,
