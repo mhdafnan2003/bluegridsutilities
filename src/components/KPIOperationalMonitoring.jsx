@@ -33,11 +33,11 @@ const KPIOperationalMonitoring = () => {
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1">
-                <div className="flex items-end gap-0.5 h-10">
-                  <div className="w-1 bg-[#0EA5E9]/20 h-4 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9]/30 h-6 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9]/40 h-3 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9] h-10 rounded-full"></div>
+                <div className="flex items-end gap-1 h-10">
+                  <div className="w-1.5 bg-[#0EA5E9]/30 h-4 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9]/50 h-6 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9]/70 h-3 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9] h-10 rounded-full"></div>
                 </div>
                 <span className="text-[#0EA5E9] text-[12px] font-bold">+12%</span>
               </div>
@@ -58,11 +58,11 @@ const KPIOperationalMonitoring = () => {
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1">
-                <div className="flex items-end gap-0.5 h-10">
-                  <div className="w-1 bg-[#0EA5E9] h-6 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9]/30 h-9 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9]/50 h-5 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9] h-8 rounded-full"></div>
+                <div className="flex items-end gap-1 h-10">
+                  <div className="w-1.5 bg-[#0EA5E9] h-6 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9]/50 h-9 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9]/70 h-5 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9] h-8 rounded-full"></div>
                 </div>
                 <span className="text-[#0EA5E9] text-[12px] font-bold">Stable</span>
               </div>
@@ -83,11 +83,11 @@ const KPIOperationalMonitoring = () => {
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1">
-                <div className="flex items-end gap-0.5 h-10">
-                  <div className="w-1 bg-[#0EA5E9]/20 h-4 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9]/30 h-7 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9] h-10 rounded-full"></div>
-                  <div className="w-1 bg-[#0EA5E9]/40 h-8 rounded-full"></div>
+                <div className="flex items-end gap-1 h-10">
+                  <div className="w-1.5 bg-[#0EA5E9]/30 h-4 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9]/50 h-7 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9] h-10 rounded-full"></div>
+                  <div className="w-1.5 bg-[#0EA5E9]/70 h-8 rounded-full"></div>
                 </div>
                 <span className="text-[#0EA5E9] text-[12px] font-bold">+5.4%</span>
               </div>
@@ -110,7 +110,7 @@ const KPIOperationalMonitoring = () => {
                   </div>
                   <span className="material-symbols-outlined text-[#0EA5E9] text-2xl">verified</span>
                 </div>
-                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-slate-200/60 rounded-full overflow-hidden">
                   <div className="h-full bg-[#0EA5E9] w-[97%]"></div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ const KPIOperationalMonitoring = () => {
                   </div>
                   <span className="material-symbols-outlined text-emerald-500 text-2xl">shield_with_heart</span>
                 </div>
-                <div className="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
+                <div className="h-2 w-full bg-slate-200/60 rounded-full overflow-hidden">
                   <div className="h-full bg-emerald-500 w-full"></div>
                 </div>
               </div>
@@ -177,8 +177,8 @@ const KPIOperationalMonitoring = () => {
               const isThu = day === 'THU';
               return (
                 <div key={day} className="flex-1 flex flex-col justify-end gap-1 h-full relative group">
-                  <div className="w-full bg-slate-200/50 rounded-t-lg transition-all duration-500" style={{ height: `${heights[i]}%` }}></div>
-                  <div className={`w-full ${isWed ? 'bg-[#0EA5E9] shadow-lg shadow-[#0EA5E9]/20' : 'bg-[#0EA5E9]/30'} rounded-t-lg -mt-12 transition-all duration-500 group-hover:bg-[#0EA5E9]`} style={{ height: `${actuals[i]}%` }}></div>
+                  <div className="w-full bg-slate-300/50 rounded-t-lg transition-all duration-500" style={{ height: `${heights[i]}%` }}></div>
+                  <div className={`w-full ${isWed ? 'bg-[#0EA5E9] shadow-lg shadow-[#0EA5E9]/20' : 'bg-[#0EA5E9]/50'} rounded-t-lg -mt-12 transition-all duration-500 group-hover:bg-[#0EA5E9]`} style={{ height: `${actuals[i]}%` }}></div>
                   <span className="text-center text-slate-400 text-[11px] font-bold mt-4 tracking-widest">{day}</span>
                   {isThu && (
                     <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-[#0EA5E9] text-white text-[10px] font-black px-2 py-0.5 rounded shadow-lg animate-bounce">LIVE</div>

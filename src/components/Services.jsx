@@ -8,7 +8,7 @@ import img7 from '../assets/images/Training coordination and deployment planning
 import img8 from '../assets/images/updated/Smart Meter & Water Meter Project Support.avif';
 
 const services = [
-  { title: "Smart Meter & Water Meter Project Support", img: img8 },
+  { title: "Water Meter Project Support", img: img8 },
   { title: "Utility infrastructure support", img: img3 },
   { title: "Telecoms and field operations support", img: img4 },
   { title: "Project Coordination", img: img5 },
@@ -47,10 +47,10 @@ const Services = () => {
           animation-play-state: paused;
         }
       `}</style>
-      
+
       <div className="max-w-[1600px] mx-auto">
         <div className="marquee-container relative overflow-hidden">
-          <div 
+          <div
             className="marquee-content flex gap-6 w-fit animate-[marquee_40s_linear_infinite]"
           >
             {doubledServices.map((service, index) => (

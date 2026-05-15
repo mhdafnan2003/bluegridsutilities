@@ -1,4 +1,4 @@
-Blue Grid Utilities is a trading name of Bluegrid Technology Ltd.
+BlueGrid Utilities is a trading name of Bluegrid Technology Ltd.
 
 Here is the website content structure to give your website guy:
 
@@ -10,7 +10,7 @@ Hero Title:
 Delivering Smarter Utility & Infrastructure Workforce Solutions
 
 Subtitle:
-Blue Grid Utilities supports utility, water, telecoms, and infrastructure projects across the UK through trained workforce coordination, project support, compliance-focused onboarding, and operational delivery.
+BlueGrid Utilities supports utility, water, telecoms, and infrastructure projects across the UK through trained workforce coordination, project support, compliance-focused onboarding, and operational delivery.
 
 Buttons:
 Our Services
@@ -21,7 +21,7 @@ Contact Us
 
 About Us
 
-Blue Grid Utilities is the trading name of Bluegrid Technology Ltd, a UK-registered company focused on supporting utility and infrastructure operations.
+BlueGrid Utilities is the trading name of Bluegrid Technology Ltd, a UK-registered company focused on supporting utility and infrastructure operations.
 
 We work with project partners, contractors, and workforce teams to support the delivery of essential services across water, utilities, telecoms, and infrastructure sectors.
 
@@ -51,7 +51,7 @@ Utility Workforce Supply
 
 We support projects with suitable field operatives, technicians, supervisors, and project support staff, subject to compliance and right-to-work checks.
 
-Smart Meter & Water Meter Project Support
+Water Meter Project Support
 
 We assist with workforce planning, scheduling, field coordination, and operational support for smart meter and water meter installation projects.
 
@@ -130,7 +130,7 @@ We acknowledge the operational guidance and support of Mr James Sagoe, CEO & Fou
 
 Contact Us
 
-Blue Grid Utilities
+BlueGrid Utilities
 Trading name of Bluegrid Technology Ltd
 
 Email: recruitment@bluegridutilities.com
@@ -142,7 +142,7 @@ For recruitment enquiries, project support, or partnership discussions, please c
 
 Footer Legal Text
 
-Blue Grid Utilities is a trading name of Bluegrid Technology Ltd.
+BlueGrid Utilities is a trading name of Bluegrid Technology Ltd.
 Registered in England & Wales.
 Company Number: 16442340.
 Registered Office: Stuart House, St Johns Street, Peterborough, PE1 5DD, United Kingdom.

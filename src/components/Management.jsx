@@ -1,77 +1,131 @@
 import React from 'react';
+import MotionSection from './MotionSection';
+import selbertImg from '../assets/images/updated/SELBERT GEORGE.jpeg';
+import gauthamImg from '../assets/images/updated/And goutham raj.jpeg';
+import albertImg from '../assets/images/updated/Albert .jpeg';
+
+const LinkedInIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+  </svg>
+);
+
+const FacebookIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+  </svg>
+);
+
+const InstagramIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+  </svg>
+);
+
+const team = [
+  {
+    name: "SELBERT GEORGE",
+    role: "Managing Director",
+    desc: "Selbert George leads operational development and infrastructure deployment across utility operations within the UK. With a Master’s in International Business Management, his focus remains on building compliance-focused operational systems.",
+    img: selbertImg,
+    social: { linkedin: "#", facebook: "#", instagram: "#" }
+  },
+  {
+    name: "GAUTHAM RAJ",
+    role: "Project Manager & Head of Ops",
+    desc: "Responsible for high-level operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects.",
+    img: gauthamImg,
+    social: { linkedin: "#", facebook: "#", instagram: "#" }
+  },
+  {
+    name: "ALBERT DSILVA",
+    role: "Assistant Project Manager",
+    desc: "Supports operational coordination, compliance follow-up, onboarding procedures, and project support activities ensuring seamless delivery cycles.",
+    img: albertImg,
+    social: { linkedin: "#", facebook: "#", instagram: "#" }
+  }
+];
 
 const Management = () => {
-  const team = [
-    {
-      name: "Selbert George",
-      role: "Director",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCg5i9ji7y3EkMUmS8QyTuuEnHnFQUJq2fBdTSz2eZChLmO6MDDhmohWfintGUwoaNyZVCMS0NPGUF507w5OPbCYQfEbFttC4GJUGfrBV_huhql9eZrWt46ANTGdHoaasglQoluIG3A0uQWev4OZsmA6vcP8oKa8q1l9lBZOe9aR1th_G9aSg0mkquyiMjsENsJ3YMZp6-EFb-gsd3jroPowJuHzbWdYs7wtbb8JDCiD3PF0LGWxjWF_KVZc__PttGLLy3H5rHbGg"
-    },
-    {
-      name: "Mr Gautham Raj",
-      role: "Project Manager & Head of Project",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC4GatY3DbDmkDbf27ZJs0eZBAAIiYF9BOvM7k4fMR70Ogv3z7fxU4g-an8Qty9LpZStPRy0fRiBiR98FcmwTe73CQ1zZ8xO4spowSUK4f_boKbYeC8M4twxnYsCFVkAYLRAB35QTZC9j-i3D-PXdXgO-B6Bo2bBISS9D2HKpY4R-5Ktqzkrj7Hq5dFnGZv1QKG_P_-k3GcCdloJb3WkvcajXlwxwzWWaJvLjmFIFmfySbrhU6huaSQRfP8ydpiaAfHpWBo0IptMA"
-    },
-    {
-      name: "Albert Dsilva",
-      role: "Assistant Project Manager",
-      img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAOJLuKatjRY1IIs6Mnvvv9mge6sTdTnvCBr3RY1FCN_23eHjeXoKUSS5HwH5Vob9Wkm93iWmAVg-snaNvuATYuH3P_18vU5omr51R8Q3ta4LiMuSwd1rbz2np_5apUfAJ29XJVc3MpDFvZR7hG4nCiDXTyE0pwQZQPt11cOSfaGa7R1kZVd1fgY_bO6lNAqGjBYPmT2CqoOXmjsi7XXKC01qISz7hbAUUXuIKTg_zTVxPA1HND4E5yGaIou84OoZirPtvu7l6BTw"
-    }
-  ];
-
   return (
-    <section className="py-24 bg-white" id="management">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <MotionSection as="section" className="py-24 bg-[#f7f9fb] blueprint-bg relative overflow-hidden" id="management">
+      {/* Abstract Gradient Glows */}
+      <div className="absolute -top-20 -left-20 w-64 h-64 bg-[#0EA5E9]/10 rounded-full blur-[80px] -z-10"></div>
+      <div className="absolute top-1/2 -right-20 w-80 h-80 bg-[#0B2545]/5 rounded-full blur-[80px] -z-10"></div>
+
+      <div className="max-w-[1400px] mx-auto px-6">
         {/* Header Section */}
-        <div className="mb-16">
+        <div className="mb-12">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-2 h-2 rounded-full bg-gray-900"></div>
-            <span className="text-gray-500 text-sm font-medium">Management</span>
+            <span className="w-10 h-0.5 bg-[#0EA5E9]"></span>
+            <span className="text-[14px] font-semibold text-[#0B2545] uppercase tracking-widest">Leadership Profile</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">Meet the Management team</h2>
-          <p className="text-gray-500 max-w-3xl text-lg leading-relaxed">
-            Meet the talented individuals who drive our company's success with their dedication, expertise, and passion for innovation.
+          <h2 className="text-4xl md:text-6xl font-bold text-[#0B2545] mb-6 tracking-tighter leading-tight">
+            Leadership & Management
+          </h2>
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl leading-relaxed">
+            Experienced operational leadership driving workforce coordination, compliance standards, infrastructure deployment, and project delivery across utility operations.
           </p>
         </div>
 
-        {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-          {team.map((member, index) => (
-            <div key={index} className="relative group overflow-hidden rounded-[2.5rem] aspect-[4/5] bg-gray-100">
-              <img 
-                alt={member.name} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
-                src={member.img} 
-              />
-              
-              {/* Floating Name Badge */}
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white p-6 rounded-3xl flex items-center justify-between shadow-2xl">
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h4>
-                    <p className="text-gray-500 text-sm font-medium">{member.role}</p>
+        {/* Metric Badges */}
+        <div className="flex flex-wrap gap-3 mb-10">
+          {[
+            // { label: "UK Operations", icon: "hub" },
+            // { label: "Certified Management", icon: "verified" },
+            // { label: "Infrastructure Leadership", icon: "foundation" }
+          ].map((badge, idx) => (
+            <div key={idx} className="flex items-center gap-2 bg-[#0B2545]/5 px-4 py-2 rounded-full border border-[#0B2545]/10">
+              <span className="material-symbols-outlined text-[#0B2545] text-[18px]">{badge.icon}</span>
+              <span className="text-[14px] font-semibold text-[#0B2545]">{badge.label}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Leadership Carousel */}
+        <div className="flex gap-8 overflow-x-auto pb-12 scrollbar-hide snap-x snap-mandatory items-stretch">
+          {team.map((member, idx) => (
+            <div key={idx} className="w-[300px] md:w-[420px] flex-shrink-0 snap-center group">
+              <div className="relative flex flex-col rounded-[2.5rem] overflow-hidden bg-white shadow-xl shadow-[#0B2545]/5 h-full border border-white/20 transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-[#0B2545]/10">
+                {/* Social Icons Overlay - Appear on Hover */}
+                <div className="absolute top-6 right-6 flex flex-col gap-3 opacity-0 translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 z-20">
+                  <a href={member.social.linkedin} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+                    <LinkedInIcon />
+                  </a>
+                  <a href={member.social.facebook} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+                    <FacebookIcon />
+                  </a>
+                  <a href={member.social.instagram} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+                    <InstagramIcon />
+                  </a>
+                </div>
+
+                <div className="aspect-[4/5] w-full relative overflow-hidden">
+                  <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={member.img} />
+                </div>
+                
+                {/* Content Overlay */}
+                <div className="bg-white p-8 relative z-10 rounded-t-[2rem] -mt-16 border-t border-white/50 flex flex-col flex-grow transition-all duration-500 group-hover:-mt-32">
+                  <div className="mb-4">
+                    <h3 className="text-2xl md:text-3xl text-[#0B2545] font-black tracking-tight leading-none mb-2">{member.name}</h3>
+                    <p className="text-[12px] text-[#0EA5E9] font-bold tracking-widest uppercase">{member.role}</p>
                   </div>
-                  <div className="w-10 h-10 rounded-xl bg-gray-50 flex items-center justify-center hover:bg-gray-100 transition-colors cursor-pointer">
-                    <svg className="w-5 h-5 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
+                  
+                  {/* Hidden Description - Slides up on Hover */}
+                  <div className="max-h-0 opacity-0 overflow-hidden transition-all duration-500 group-hover:max-h-[200px] group-hover:opacity-100 group-hover:mb-6">
+                    <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+                      {member.desc}
+                    </p>
                   </div>
+
+                  {/* Removed tags section */}
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
-        {/* Acknowledgement Box */}
-        {/* <div className="max-w-4xl mx-auto relative p-10 rounded-[2.5rem] border border-gray-100 bg-gray-50/50 overflow-hidden">
-          <div className="absolute top-0 left-0 w-2 h-full bg-gray-900"></div>
-          <p className="text-gray-600 text-lg leading-relaxed italic">
-            <strong>Special Acknowledgement:</strong> We acknowledge the operational guidance and support of Mr James Sagoe, CEO & Founder of Bazilel Infrastructure Partners Limited.
-          </p>
-        </div> */}
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

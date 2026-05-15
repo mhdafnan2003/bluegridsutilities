@@ -16,17 +16,12 @@ const sectorsData = [
     img: water,
   },
   {
-    title: "Smart Meter & Water Meter Project Support",
+    title: "Water Meter Project Support",
     category: "Energy",
     desc: "Large-scale deployment and workforce coordination for smart meter infrastructure.",
     img: imgWater,
   },
-  {
-    title: "",
-    category: "Infrastructure",
-    desc: "Operational workforce solutions for telecommunications network expansion and upgrades.",
-    img: imgTelecoms,
-  },
+  
   {
     title: "Compliance & Onboarding",
     category: "Utilities",
@@ -57,7 +52,7 @@ const Sectors = () => {
   return (
     <MotionSection as="section" className="py-24 bg-white overflow-hidden font-sans" id="sectors">
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header Area */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
@@ -73,24 +68,24 @@ const Sectors = () => {
           {/* We duplicate the items to create a seamless infinite marquee */}
           <div className="inline-flex w-max animate-marquee gap-6 px-3">
             {[...sectorsData, ...sectorsData, ...sectorsData].map((sector, idx) => (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="relative w-[300px] sm:w-[340px] md:w-[380px] lg:w-[420px] h-[400px] md:h-[480px] lg:h-[540px] rounded-[2rem] overflow-hidden group shrink-0 shadow-lg cursor-pointer"
               >
                 {/* Background Image */}
-                <img 
-                  src={sector.img} 
-                  alt={sector.title} 
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" 
+                <img
+                  src={sector.img}
+                  alt={sector.title}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                 />
-                
+
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-300" />
-                
+
                 {/* Top Right Icon Button */}
                 <div className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white opacity-80 hover:bg-white/40 hover:opacity-100 transition-all duration-300 z-10">
                   <svg className="w-5 h-5 transform -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </div>
 
