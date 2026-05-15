@@ -30,7 +30,7 @@ const safetyItems = [
     )
   },
   {
-    title: "Traffic Management",
+    title: "Traffic Management ",
     desc: "Certified implementation of traffic control measures to ensure safety of the public and our workforce.",
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
