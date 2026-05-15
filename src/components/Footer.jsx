@@ -14,11 +14,11 @@ const Footer = () => {
             <h3 className="text-white font-bold text-lg mb-6">Contact Us</h3>
             <ul className="space-y-4 text-gray-400">
               <li>
-                <a href="mailto:info@bluegridutilities.com" className="hover:text-white transition-colors">info@bluegridutilities.com</a>
+                <a href="mailto:enquiries@bluegridutilities.com" className="hover:text-white transition-colors">enquiries@bluegridutilities.com</a>
               </li>
-              <li>
+              {/* <li>
                 <a href="https://www.bluegridutilities.com" className="hover:text-white transition-colors">www.bluegridutilities.com</a>
-              </li>
+              </li> */}
               <li className="leading-relaxed">
                 Stuart House, St Johns Street,<br />Peterborough, PE1 5DD,<br />United Kingdom
               </li>

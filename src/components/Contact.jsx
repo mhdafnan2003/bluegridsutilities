@@ -10,7 +10,7 @@ const Contact = () => {
       icon: "mail" 
     },
     { 
-      role: "Public Enquiries", 
+      role: "General Enquiries", 
       value: "enquiries@bluegridutilities.com", 
       href: "mailto:enquiries@bluegridutilities.com",
       icon: "mail" 
@@ -23,8 +23,8 @@ const Contact = () => {
     },
     { 
       role: "Office Number", 
-      value: "+44 1442 957500", 
-      href: "tel:+441442957500",
+      value: "+442034880934", 
+      href: "tel:+442034880934",
       icon: "call" 
     }
   ];

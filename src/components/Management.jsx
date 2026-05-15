@@ -32,7 +32,7 @@ const team = [
   },
   {
     name: "GAUTHAM RAJ",
-    role: "Project Manager & Head of Ops",
+    role: "Project Manager & Head of Operations",
     desc: "Responsible for high-level operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects.",
     img: gauthamImg,
     social: { linkedin: "#", facebook: "#", instagram: "#" }
