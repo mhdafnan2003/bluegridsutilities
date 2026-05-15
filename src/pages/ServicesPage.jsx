@@ -2,9 +2,9 @@ import React from 'react';
 import MotionSection from '../components/MotionSection';
 import img1 from '../assets/images/utilityworksupply.jpeg';
 import img2 from '../assets/images/Sectors/watermeter2.jpeg';
-import img3 from '../assets/images/utilityworksupply.jpeg';
-import img4 from '../assets/images/updated/Compliance & Onboarding.avif';
-import img5 from '../assets/images/Services/Infrastructure Support.jpg';
+import img3 from '../assets/images/projectcordination.jpeg';
+import img4 from '../assets/images/combliance.jpeg';
+import img5 from '../assets/images/infrastructure.jpeg';
 
 const servicesData = [
   {
