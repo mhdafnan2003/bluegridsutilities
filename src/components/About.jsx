@@ -1,6 +1,6 @@
 import React from 'react';
 import MotionSection from './MotionSection';
-import aboutImage from '../assets/images/updated/img4.jpg';
+import aboutImage from '../assets/images/about.jpeg';
 
 const About = () => {
   return (

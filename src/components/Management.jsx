@@ -26,7 +26,9 @@ const team = [
   {
     name: "SELBERT GEORGE",
     role: "Managing Director",
-    desc: "Selbert George leads operational development and infrastructure deployment across utility operations within the UK. With a Master’s in International Business Management, his focus remains on building compliance-focused operational systems.",
+    desc: `Selbert George is the Managing Director of BLUEGRID UTILITIES,leading operational development, workforce coordination, infrastructure deployment, and project delivery across utility operations within the UK.
+    He holds a Master’s degree in International Business Management from Griffith College Dublin, Ireland, and has experience in operational management, workforce coordination, and infrastructure project support.
+    His focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure support services.`,
     img: selbertImg,
     social: { linkedin: "#", facebook: "#", instagram: "#" }
   },
@@ -85,8 +87,8 @@ const MemberCard = ({ member }) => {
           </div>
           
           {/* Hidden Description - Slides up on Hover or Click */}
-          <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[200px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}>
-            <p className="text-slate-600 text-sm md:text-base leading-relaxed">
+          <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[400px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}>
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed whitespace-pre-line">
               {member.desc}
             </p>
           </div>

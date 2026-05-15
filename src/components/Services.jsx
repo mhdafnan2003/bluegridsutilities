@@ -5,7 +5,7 @@ import img4 from '../assets/images/Telecoms and field operations support.jfif';
 import img5 from '../assets/images/updated/img 6.jpg';
 import img6 from '../assets/images/updated/Compliance & Onboarding.avif';
 import img7 from '../assets/images/Training coordination and deployment planning.jpg';
-import img8 from '../assets/images/updated/Smart Meter & Water Meter Project Support.avif';
+import img8 from '../assets/images/Sectors/watermeter.jpeg';
 
 const services = [
   { title: "Water Meter Project Support", img: img8 },

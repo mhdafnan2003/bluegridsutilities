@@ -1,7 +1,7 @@
 import React from 'react';
 import MotionSection from './MotionSection';
-import water from '../assets/images/Sectors/Water utilities.jpg';
-import imgWater from '../assets/images/updated/Smart Meter & Water Meter Project Support.avif';
+import water from '../assets/images/Sectors/watermeter3.jpeg';
+import imgWater from '../assets/images/Sectors/watermeter5.jpeg';
 import imgTelecoms from '../assets/images/Sectors/Incredible 8-Second Construction Hyper-Lapse (1).jfif';
 import imgCompliance from '../assets/images/updated/Compliance & Onboarding.avif';
 import imgInfra from '../assets/images/Sectors/Infrastructure Support.jpg';
@@ -15,12 +15,7 @@ const sectorsData = [
     desc: "Comprehensive support for water network maintenance and smart installation programs.",
     img: water,
   },
-  {
-    title: "Water Meter Project Support",
-    category: "Energy",
-    desc: "Large-scale deployment and workforce coordination for smart meter infrastructure.",
-    img: imgWater,
-  },
+ 
   
   {
     title: "Compliance & Onboarding",
@@ -33,6 +28,12 @@ const sectorsData = [
     category: "Infrastructure",
     desc: "Experienced site preparation and comprehensive operational workforce management.",
     img: imgInfra,
+  },
+   {
+    title: "Water Meter Project Support",
+    category: "Energy",
+    desc: "Large-scale deployment and workforce coordination for smart meter infrastructure.",
+    img: imgWater,
   },
   {
     title: "Field service operations",
