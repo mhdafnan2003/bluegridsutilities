@@ -67,13 +67,13 @@ const TrainingDevelopment = () => {
           </div>
 
           {/* Right: Content */}
-          <div className="lg:w-1/2 order-1 lg:order-2">
-            <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block underline decoration-2 underline-offset-8">Capability Building</span>
+          <div className="lg:w-1/2 order-1 lg:order-2 text-center lg:text-left">
+            <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block underline decoration-2 underline-offset-8 mx-auto lg:mx-0 w-fit">Capability Building</span>
             <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-8">
               Training & Professional Development
             </h2>
             <div className="space-y-6">
-              <p className="text-xl text-gray-700 font-medium leading-relaxed italic border-l-4 border-brand-primary pl-6">
+              <p className="text-xl text-gray-700 font-medium leading-relaxed italic border-l-4 border-brand-primary pl-6 text-left">
                 “Our management team continuously develops operational and leadership capabilities through ongoing professional development, infrastructure operations learning, project coordination training, and compliance-focused industry practices.”
               </p>
               <p className="text-gray-500 text-lg leading-relaxed">
@@ -81,7 +81,7 @@ const TrainingDevelopment = () => {
               </p>
             </div>
 
-            <div className="mt-12 flex flex-wrap gap-4">
+            <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-4">
               <div className="flex items-center gap-2 bg-white px-5 py-3 rounded-full border border-gray-200 shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
                 <span className="text-sm font-bold text-gray-600 uppercase tracking-wider">Continuous Learning</span>

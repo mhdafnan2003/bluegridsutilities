@@ -1,20 +1,18 @@
 import React from 'react';
 import MotionSection from './MotionSection';
-import img1 from '../assets/images/Water meter installation support.jfif';
-import img2 from '../assets/images/Smart meter workforce coordination.jfif';
 import img3 from '../assets/images/updated/Utility infrastructure.avif';
 import img4 from '../assets/images/Telecoms and field operations support.jfif';
-import img5 from '../assets/images/Project coordination and reporting.jpg';
-import img6 from '../assets/images/updated/Workforce onboarding and compliance verification.avif';
+import img5 from '../assets/images/updated/img 6.jpg';
+import img6 from '../assets/images/updated/Compliance & Onboarding.avif';
 import img7 from '../assets/images/Training coordination and deployment planning.jpg';
+import img8 from '../assets/images/updated/Smart Meter & Water Meter Project Support.avif';
 
 const services = [
-  { title: "Water meter installation support", img: img1 },
-  { title: "Smart meter workforce coordination", img: img2 },
+  { title: "Water Meter Project Support", img: img8 },
   { title: "Utility infrastructure support", img: img3 },
   { title: "Telecoms and field operations support", img: img4 },
-  { title: "Project coordination and reporting", img: img5 },
-  { title: "Workforce onboarding and compliance verification", img: img6 },
+  { title: "Project Coordination", img: img5 },
+  { title: "Compliance & Onboarding", img: img6 },
   { title: "Training coordination and deployment planning", img: img7 }
 ];
 
@@ -49,10 +47,10 @@ const Services = () => {
           animation-play-state: paused;
         }
       `}</style>
-      
+
       <div className="max-w-[1600px] mx-auto">
         <div className="marquee-container relative overflow-hidden">
-          <div 
+          <div
             className="marquee-content flex gap-6 w-fit animate-[marquee_40s_linear_infinite]"
           >
             {doubledServices.map((service, index) => (

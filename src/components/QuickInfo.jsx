@@ -30,8 +30,8 @@ const QuickInfo = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Section */}
-        <div className="flex flex-col mb-16">
-          <span className="bg-brand-primary/10 text-brand-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-6 inline-block w-max">
+        <div className="flex flex-col mb-16 text-center md:text-left">
+          <span className="bg-brand-primary/10 text-brand-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-6 inline-block w-max mx-auto md:mx-0">
             Workforce Reliability
           </span>
           
@@ -39,17 +39,10 @@ const QuickInfo = () => {
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
               Why Bluegrid?
             </h2>
-            {/* <div className="shrink-0 hidden md:block">
-              <button className="flex items-center gap-3 px-6 py-3 border border-gray-200 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-colors group">
-                Get to Know Us
-                <svg className="w-5 h-5 text-gray-400 group-hover:text-gray-600 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </div> */}
+            {/* ... */}
           </div>
           
-          <p className="text-xl lg:text-2xl text-gray-600 leading-snug font-medium max-w-3xl">
+          <p className="text-xl lg:text-2xl text-gray-600 leading-snug font-medium max-w-3xl mx-auto md:mx-0">
             Trusted by industry leaders, built for long-lasting results, and designed to deliver reliable, enduring success.
           </p>
         </div>

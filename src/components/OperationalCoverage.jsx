@@ -8,15 +8,15 @@ const OperationalCoverage = () => {
         <div className="flex flex-col lg:flex-row gap-20 items-center">
 
           {/* Content Section */}
-          <div className="w-full lg:w-5/12 flex flex-col gap-8 order-1">
+          <div className="w-full lg:w-5/12 flex flex-col gap-8 order-1 text-center lg:text-left">
             <div className="space-y-4">
               <div className="inline-block">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-brand-dark tracking-tight leading-tight">
-                  Operational Coverage
+                   Operational Coverage
                 </h2>
-                <div className="h-1.5 w-20 bg-brand-primary mt-2"></div>
+                <div className="h-1.5 w-20 bg-brand-primary mt-2 mx-auto lg:mx-0"></div>
               </div>
-              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl">
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Our strategic deployment model ensures comprehensive infrastructure support across the United Kingdom. We maintain rigorous workforce coordination to deliver technical excellence and rapid response capabilities in high-demand regions.
               </p>
             </div>
@@ -43,13 +43,13 @@ const OperationalCoverage = () => {
               ))}
             </div>
 
-            {/* Glassmorphic Information Card */}
-            <div className="bg-white/70 backdrop-blur-xl border-l-4 border-l-brand-primary border border-gray-100 p-6 rounded-xl flex gap-4 items-start shadow-sm shadow-brand-dark/5">
+            Glassmorphic Information Card
+            {/* <div className="bg-white/70 backdrop-blur-xl border-l-4 border-l-brand-primary border border-gray-100 p-6 rounded-xl flex gap-4 items-start shadow-sm shadow-brand-dark/5">
               <span className="material-symbols-outlined text-brand-primary mt-1">info</span>
               <p className="text-gray-600 italic leading-relaxed">
                 "Active project sites and mobile workforce units operational 24/7 across key territories."
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Map Section */}
@@ -94,19 +94,19 @@ const OperationalCoverage = () => {
               </div>
 
               {/* Stats Card Overlay */}
-              <div className="absolute bottom-8 right-8 bg-white/80 backdrop-blur-xl p-8 rounded-3xl min-w-[240px] shadow-2xl shadow-brand-dark/10 border border-white/50 transition-transform hover:-translate-y-2 duration-500">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
-                  <h3 className="text-xs font-bold text-brand-dark uppercase tracking-[0.2em]">Network Status</h3>
+              <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8 bg-white/80 backdrop-blur-xl p-5 md:p-8 rounded-2xl md:rounded-3xl min-w-[180px] md:min-w-[240px] shadow-2xl shadow-brand-dark/10 border border-white/50 transition-transform hover:-translate-y-2 duration-500">
+                <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+                  <div className="w-2 h-2 md:w-2.5 md:h-2.5 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+                  <h3 className="text-[10px] md:text-xs font-bold text-brand-dark uppercase tracking-[0.2em]">Network Status</h3>
                 </div>
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   <div>
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Active Teams</p>
-                    <p className="text-4xl font-black text-brand-primary tracking-tight">120+</p>
+                    <p className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 md:mb-1">Active Teams</p>
+                    <p className="text-2xl md:text-4xl font-black text-brand-primary tracking-tight">120+</p>
                   </div>
-                  <div className="pt-5 border-t border-gray-100">
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1">Response Time</p>
-                    <p className="text-3xl font-bold text-brand-dark tracking-tight">&lt; 4Hrs</p>
+                  <div className="pt-3 md:pt-5 border-t border-gray-100">
+                    <p className="text-[8px] md:text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-0.5 md:mb-1">Response Time</p>
+                    <p className="text-xl md:text-3xl font-bold text-brand-dark tracking-tight">&lt; 4Hrs</p>
                   </div>
                 </div>
               </div>

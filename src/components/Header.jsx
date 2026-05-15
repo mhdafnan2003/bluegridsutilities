@@ -20,7 +20,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-10 transition-all duration-300 ${isScrolled ? 'py-4 bg-black/20 backdrop-blur-xl shadow-lg border-b border-white/10' : 'py-6 bg-transparent'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-10 transition-all duration-300 ${isScrolled ? 'py-4 bg-black/20 backdrop-blur-xl shadow-lg' : 'py-6 bg-transparent'}`}>
       <div className="max-w-7xl mx-auto flex items-center justify-between relative">
         {/* Left: Logo */}
         <Link className="flex items-center" to="/#">
