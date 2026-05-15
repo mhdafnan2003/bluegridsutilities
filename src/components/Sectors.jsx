@@ -22,7 +22,7 @@ const sectorsData = [
     img: imgWater,
   },
   {
-    title: "Telecoms infrastructure",
+    title: "",
     category: "Infrastructure",
     desc: "Operational workforce solutions for telecommunications network expansion and upgrades.",
     img: imgTelecoms,

@@ -24,7 +24,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between relative">
         {/* Left: Logo */}
         <Link className="flex items-center" to="/#">
-          <img src={logo} alt="BlurGrid Utilities Logo" className="h-10 md:h-16 w-auto object-contain" />
+          <img src={logo} alt="BlurGrid Utilities Logo" className="h-10 md:h-12 w-auto object-contain" />
         </Link>
 
         {/* Center: Navigation Pill */}

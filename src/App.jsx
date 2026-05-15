@@ -8,6 +8,11 @@ import About from './components/About';
 import Services from './components/Services';
 import ServicesPage from './pages/ServicesPage';
 import Sectors from './components/Sectors';
+import OperationalDelivery from './components/OperationalDelivery';
+import HealthSafetyCompliance from './components/HealthSafetyCompliance';
+import KPIOperationalMonitoring from './components/KPIOperationalMonitoring';
+import OperationalCoverage from './components/OperationalCoverage';
+import TrainingDevelopment from './components/TrainingDevelopment';
 import Workforce from './components/Workforce';
 import ApplyPage from './pages/ApplyPage';
 import Contact from './components/Contact';
@@ -44,6 +49,11 @@ const HomePage = () => (
     <ServicesPage />
     <QuickInfo />
     <Sectors />
+    <OperationalDelivery />
+    <HealthSafetyCompliance />
+    <KPIOperationalMonitoring />
+    <OperationalCoverage />
+    <TrainingDevelopment />
     <Workforce />
     <Contact />
   </>

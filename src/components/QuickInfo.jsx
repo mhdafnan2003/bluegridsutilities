@@ -4,8 +4,8 @@ import MotionSection from './MotionSection';
 const QuickInfo = () => {
   const features = [
     {
-      title: "24/7 Support",
-      desc: "Operational readiness.",
+      title: "Operational Readiness",
+      desc: "Fully trained and compliant workforce.",
       icon: <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
     },
     {

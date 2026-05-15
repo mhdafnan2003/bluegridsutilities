@@ -29,7 +29,7 @@ const roles = [
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
   },
   {
-    title: "Operational Reporting & AnalyticsData Analysts",
+    title: "Operational Reporting & AnalyticsOperational Reporting & Analytics",
     desc: "Analyze project metrics, track compliance, and generate insights to optimize workforce deployment.",
     icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
   }

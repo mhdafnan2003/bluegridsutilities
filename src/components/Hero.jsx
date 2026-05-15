@@ -26,13 +26,13 @@ const Hero = () => {
         </div>
 
         <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold text-white leading-tight tracking-tight max-w-5xl mx-auto">
-          Delivering Smarter Utility & Infrastructure
+          Delivering Reliable Utility & Infrastructure
           <br />
-          Workforce Solutions
+           Operations Across the UK
         </h1>
 
         <p className="text-sm sm:text-lg md:text-xl text-white/80 mt-8 max-w-3xl mx-auto leading-relaxed">
-          Blue Grid Utilities supports utility, water, telecoms, and infrastructure projects across the UK through trained workforce coordination, project support, compliance-focused onboarding, and operational delivery.
+          BLUEGRID UTILITIES provides compliance-focused workforce coordination, water infrastructure operational support, project deployment, and utility workforce solutions across the UK. compliance-focused onboarding, and operational delivery.
         </p>
 
         <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
@@ -40,7 +40,7 @@ const Hero = () => {
             href="#services"
             className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold shadow-xl hover:bg-slate-100 transition-all duration-300"
           >
-            Our Services
+            Our Operations
             {/* <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
             </svg> */}

@@ -73,7 +73,7 @@ Sectors We Support
 
 * Water utilities
 * Smart metering
-* Telecoms infrastructure
+* 
 * Energy and utilities
 * Civil infrastructure support
 * Field service operations
