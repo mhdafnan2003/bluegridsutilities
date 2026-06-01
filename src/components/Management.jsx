@@ -39,13 +39,13 @@ const team = [
     img: gauthamImg,
     social: { linkedin: "#", facebook: "#", instagram: "#" }
   },
-  {
-    name: "ALBERT DSILVA",
-    role: "Assistant Project Manager",
-    desc: "Supports operational coordination, compliance follow-up, onboarding procedures, and project support activities ensuring seamless delivery cycles.",
-    img: albertImg,
-    social: { linkedin: "#", facebook: "#", instagram: "#" }
-  }
+  // {
+  //   name: "ALBERT DSILVA",
+  //   role: "Assistant Project Manager",
+  //   desc: "Supports operational coordination, compliance follow-up, onboarding procedures, and project support activities ensuring seamless delivery cycles.",
+  //   img: albertImg,
+  //   social: { linkedin: "#", facebook: "#", instagram: "#" }
+  // }
 ];
 
 const MemberCard = ({ member }) => {
