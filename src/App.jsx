@@ -94,7 +94,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/apply"
+          path="https://forms.office.com/r/K9vKw1hxcB"
           element={
             <PageTransition>
               <ApplyPage />

@@ -58,7 +58,7 @@ const Workforce = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-4 tracking-tight z-10 relative">{role.title}</h3>
               <p className="text-gray-500 leading-relaxed mb-20 relative z-10 max-w-[85%]">{role.desc}</p>
 
-              <Link to="/apply" className="mt-auto flex items-center gap-4 relative z-10 w-fit">
+              <Link to="https://forms.office.com/r/K9vKw1hxcB" className="mt-auto flex items-center gap-4 relative z-10 w-fit">
                 <div className="w-12 h-12 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-gray-600 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white transition-all duration-300 bg-white">
                   <svg className="w-5 h-5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
