@@ -1,10 +1,15 @@
 import React from 'react';
 import MotionSection from './MotionSection';
+import leadershipImg from '../assets/images/Sectors/Utility Workforce Supply.jpg';
+import infrastructureImg from '../assets/images/Sectors/Infrastructure Support.jpg';
+import coordinationImg from '../assets/images/Sectors/Project Coordination.jpg';
+import complianceImg from '../assets/images/Sectors/Compliance & Onboarding.jpg';
 
 const trainingFocus = [
   {
     title: "Operational Leadership",
     desc: "Developing front-line supervisors and managers to lead with precision and safety-first mindsets.",
+    img: leadershipImg,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -14,6 +19,7 @@ const trainingFocus = [
   {
     title: "Infrastructure Operations",
     desc: "Continuous learning focused on modern utility infrastructure and evolving technical standards.",
+    img: infrastructureImg,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -23,6 +29,7 @@ const trainingFocus = [
   {
     title: "Project Coordination",
     desc: "Enhanced training in logistical planning, resource allocation, and project lifecycle management.",
+    img: coordinationImg,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -32,6 +39,7 @@ const trainingFocus = [
   {
     title: "Compliance Mastery",
     desc: "Deep-dive sessions into industry regulatory practices and internal safety compliance auditing.",
+    img: complianceImg,
     icon: (
       <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
@@ -42,21 +50,39 @@ const trainingFocus = [
 
 const TrainingDevelopment = () => {
   return (
-    <MotionSection as="section" className="py-24 bg-slate-50 overflow-hidden" id="training">
+    <MotionSection as="section" className="py-24 bg-slate-50 overflow-hidden font-sans" id="training">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Left: Interactive Visual */}
-          <div className="lg:w-1/2 order-2 lg:order-1">
+          <div className="lg:w-1/2 order-2 lg:order-1 w-full">
              <div className="relative">
-                <div className="grid grid-cols-2 gap-6 relative z-10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
                    {trainingFocus.map((item, index) => (
-                      <div key={index} className="bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                         <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 flex items-center justify-center text-brand-primary mb-6">
-                            {item.icon}
+                      <div 
+                        key={index} 
+                        className="group relative rounded-[2rem] p-6 sm:p-8 shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col justify-end min-h-[280px] border border-slate-100/10 cursor-pointer"
+                        style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+                      >
+                         {/* Background Image */}
+                         <img 
+                           src={item.img} 
+                           alt={item.title} 
+                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                           loading="lazy"
+                         />
+                         
+                         {/* Neutral Dark Gradient Overlay */}
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+                         
+                         {/* Card Content */}
+                         <div className="relative z-10 flex flex-col items-start w-full">
+                            <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+                               {item.icon}
+                            </div>
+                            <h4 className="text-lg font-bold text-white mb-2 leading-tight font-outfit">{item.title}</h4>
+                            <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                          </div>
-                         <h4 className="text-lg font-bold text-gray-900 mb-2 leading-tight">{item.title}</h4>
-                         <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
                       </div>
                    ))}
                 </div>
@@ -69,7 +95,7 @@ const TrainingDevelopment = () => {
           {/* Right: Content */}
           <div className="lg:w-1/2 order-1 lg:order-2 text-center lg:text-left">
             <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block underline decoration-2 underline-offset-8 mx-auto lg:mx-0 w-fit">Capability Building</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-8 font-outfit">
               Training & Professional Development
             </h2>
             <div className="space-y-6">
