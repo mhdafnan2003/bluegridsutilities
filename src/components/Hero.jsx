@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import heroBg from '../assets/images/updated/45+ Bleu pastel Wallpapers _ Free download _ Best Collection.jpeg';
+import heroBg from '../assets/images/Free Urban Construction Skyline Image - Urban, Construction, Cranes _ Download at StockCake.jpeg';
 
 const Hero = () => {
   const contentVariants = {
