@@ -87,7 +87,7 @@ const WhatWeDo = () => {
           <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
             Core Capabilities
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-brand-dark tracking-tight mb-4 font-outfit">
+          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-tight mb-6 font-outfit">
             What We Do
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl">
@@ -103,6 +103,7 @@ const WhatWeDo = () => {
             <div 
               key={index} 
               className="relative snap-start shrink-0 w-[270px] sm:w-[290px] md:w-[310px] h-[340px] md:h-[360px] group rounded-[2.5rem] overflow-hidden transform translate-z-0 isolate shadow-md hover:shadow-2xl hover:shadow-brand-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-end p-6 border border-slate-100/10 cursor-pointer"
+              style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
             >
               {/* Card Background Image */}
               <img 

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/images/logo.png';
 
 const Header = () => {
+  const location = useLocation();
+  const isActive = (to) => location.pathname === to || (to !== '/' && location.pathname.startsWith(to));
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
@@ -54,16 +56,16 @@ const Header = () => {
               <span className="material-symbols-outlined text-[#005f9e] text-2xl">mail</span>
               <div className="text-left">
                 <p className="text-[9px] text-gray-400 uppercase tracking-widest font-bold font-outfit">Email Support</p>
-                <a href="mailto:info@bluegrids.co.uk" className="text-xs font-bold text-[#111111] hover:text-[#005f9e] transition-colors">info@bluegrids.co.uk</a>
+                <a href="mailto:enquiries@bluegridutilities.com" className="text-xs font-bold text-[#111111] hover:text-[#005f9e] transition-colors">enquiries@bluegridutilities.com</a>
               </div>
             </div>
 
-            {/* Call */}
+            {/* Company Number */}
             <div className="flex items-center gap-3">
-              <span className="material-symbols-outlined text-[#005f9e] text-2xl">phone_in_talk</span>
+              <span className="material-symbols-outlined text-[#005f9e] text-2xl">corporate_fare</span>
               <div className="text-left">
-                <p className="text-[9px] text-gray-400 uppercase tracking-widest font-bold font-outfit">Call Support</p>
-                <a href="tel:+44123456789" className="text-xs font-bold text-[#111111] hover:text-[#005f9e] transition-colors">+44 (0) 123 456 789</a>
+                <p className="text-[9px] text-gray-400 uppercase tracking-widest font-bold font-outfit">Company Number</p>
+                <span className="text-xs font-bold text-[#111111]">16442340</span>
               </div>
             </div>
 
@@ -118,23 +120,24 @@ const Header = () => {
           )}
 
           {/* Links */}
-          <nav className="hidden md:flex items-stretch gap-3 lg:gap-6 xl:gap-8">
+          <nav className="hidden lg:flex items-stretch gap-2 lg:gap-3 xl:gap-6">
             {navLinks.map((link) => {
               if (link.label === 'About') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
-                    <a
-                      href={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 ${
-                        isScrolled ? 'text-slate-700 hover:text-[#005f9e]' : 'text-[#0f3a5e] hover:text-[#005f9e]'
+                    <span
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
+                        isActive(link.to) 
+                          ? 'text-[#005f9e]' 
+                          : (isScrolled ? 'text-slate-700 hover:text-[#005f9e]' : 'text-[#0f3a5e] hover:text-[#005f9e]')
                       }`}
                     >
                       {link.label}
                       <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
-                      <span className="absolute bottom-0 left-0 w-0 h-[3px] transition-all duration-300 group-hover:w-full bg-[#005f9e]"></span>
-                    </a>
+                      <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    </span>
 
                     {/* Dropdown Menu */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[20rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
@@ -165,29 +168,30 @@ const Header = () => {
               if (link.label === 'Services') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
-                    <a
-                      href={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 ${
-                        isScrolled ? 'text-slate-700 hover:text-[#005f9e]' : 'text-[#0f3a5e] hover:text-[#005f9e]'
+                    <span
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
+                        isActive(link.to) 
+                          ? 'text-[#005f9e]' 
+                          : (isScrolled ? 'text-slate-700 hover:text-[#005f9e]' : 'text-[#0f3a5e] hover:text-[#005f9e]')
                       }`}
                     >
                       {link.label}
                       <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
-                      <span className="absolute bottom-0 left-0 w-0 h-[3px] transition-all duration-300 group-hover:w-full bg-[#005f9e]"></span>
-                    </a>
+                      <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    </span>
 
                     {/* Dropdown Menu */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[24rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="flex flex-col">
                         {[
-                          { label: "Water Meter Project Support", to: "/services" },
-                          { label: "Utility Infrastructure Support", to: "/services" },
-                          { label: "Telecoms & Field Operations Support", to: "/services" },
-                          { label: "Project Coordination", to: "/services" },
-                          { label: "Compliance & Onboarding", to: "/services" },
-                          { label: "Training Coordination & Deployment Planning", to: "/services" }
+                          { label: "Water Meter Project Support", to: "/services?select=water-meter" },
+                          { label: "Utility Infrastructure Support", to: "/services?select=utility-infra" },
+                          { label: "Telecoms & Field Operations Support", to: "/services?select=telecoms" },
+                          { label: "Project Coordination", to: "/services?select=project-coord" },
+                          { label: "Compliance & Onboarding", to: "/services?select=compliance" },
+                          { label: "Training Coordination & Deployment Planning", to: "/services?select=training" }
                         ].map((item, index) => (
                           <a
                             key={index}
@@ -208,18 +212,20 @@ const Header = () => {
                   key={link.label}
                   href={link.to}
                   className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center relative group px-1 lg:px-2 ${
-                    isScrolled ? 'text-slate-700 hover:text-[#005f9e]' : 'text-[#0f3a5e] hover:text-[#005f9e]'
+                    isActive(link.to) 
+                      ? 'text-[#005f9e]' 
+                      : (isScrolled ? 'text-slate-700 hover:text-[#005f9e]' : 'text-[#0f3a5e] hover:text-[#005f9e]')
                   }`}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[3px] transition-all duration-300 group-hover:w-full bg-[#005f9e]"></span>
+                  <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </a>
               );
             })}
           </nav>
 
           {/* Right CTA / Hamburger Menu */}
-          <div className="flex items-center gap-4 ml-4 lg:ml-8 xl:ml-12 shrink-0">
+          <div className={`flex items-center gap-4 ml-4 lg:ml-8 xl:ml-12 shrink-0 transition-all duration-300 ${isScrolled ? 'mr-6 lg:mr-12 xl:mr-16' : 'mr-0'}`}>
             {/* Join Our Workforce Button */}
             <a
               href="/career"
@@ -229,7 +235,7 @@ const Header = () => {
             </a>
 
             {/* Mobile Hamburger toggle */}
-            <div className="md:hidden flex items-center py-4">
+            <div className="lg:hidden flex items-center py-4">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`flex flex-col gap-1.5 justify-center items-center w-10 h-10 border rounded bg-white/5 transition-colors duration-300 ${
@@ -253,7 +259,7 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className={`md:hidden overflow-hidden border-t ${
+              className={`lg:hidden overflow-hidden border-t ${
                 isScrolled ? 'bg-white border-slate-100 shadow-xl' : 'bg-[#eef6fc] border-[#d8e9f6]'
               }`}
             >
@@ -336,12 +342,12 @@ const Header = () => {
                               className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
-                                { label: "Water Meter Project Support", to: "/services" },
-                                { label: "Utility Infrastructure Support", to: "/services" },
-                                { label: "Telecoms & Field Operations Support", to: "/services" },
-                                { label: "Project Coordination", to: "/services" },
-                                { label: "Compliance & Onboarding", to: "/services" },
-                                { label: "Training Coordination & Deployment Planning", to: "/services" }
+                                { label: "Water Meter Project Support", to: "/services?select=water-meter" },
+                                { label: "Utility Infrastructure Support", to: "/services?select=utility-infra" },
+                                { label: "Telecoms & Field Operations Support", to: "/services?select=telecoms" },
+                                { label: "Project Coordination", to: "/services?select=project-coord" },
+                                { label: "Compliance & Onboarding", to: "/services?select=compliance" },
+                                { label: "Training Coordination & Deployment Planning", to: "/services?select=training" }
                               ].map((item, index) => (
                                 <a
                                   key={index}

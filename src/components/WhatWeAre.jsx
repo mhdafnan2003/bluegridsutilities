@@ -71,6 +71,7 @@ const WhatWeAre = () => {
               <div 
                 key={idx}
                 className="relative h-[240px] sm:h-[260px] group rounded-[2.5rem] overflow-hidden transform translate-z-0 isolate shadow-md hover:shadow-2xl hover:shadow-brand-primary/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-end p-6 border border-slate-100/10 cursor-pointer"
+                style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
               >
                 {/* Background Image */}
                 <img 

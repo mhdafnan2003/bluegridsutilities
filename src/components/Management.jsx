@@ -26,9 +26,7 @@ const team = [
   {
     name: "SELBERT GEORGE",
     role: "Managing Director",
-    desc: `Selbert George is the Managing Director of BLUEGRID UTILITIES,leading operational development, workforce coordination, infrastructure deployment, and project delivery across utility operations within the UK.
-    He holds a Master’s degree in International Business Management from Griffith College Dublin, Ireland, and has experience in operational management, workforce coordination, and infrastructure project support.
-    His focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure support services.`,
+    desc: "Selbert George is the Managing Director of BLUEGRID UTILITIES, leading operational development, workforce coordination, infrastructure deployment, and project delivery across utility operations within the UK.\nHe holds a Master's degree in International Business Management from Griffith College Dublin, Ireland, and has experience in operational management, workforce coordination, and infrastructure project support.\nHis focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure support services.",
     img: selbertImg,
     social: { linkedin: "#", facebook: "#", instagram: "#" }
   },
@@ -38,14 +36,7 @@ const team = [
     desc: "Responsible for high-level operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects.",
     img: gauthamImg,
     social: { linkedin: "#", facebook: "#", instagram: "#" }
-  },
-  // {
-  //   name: "ALBERT DSILVA",
-  //   role: "Assistant Project Manager",
-  //   desc: "Supports operational coordination, compliance follow-up, onboarding procedures, and project support activities ensuring seamless delivery cycles.",
-  //   img: albertImg,
-  //   social: { linkedin: "#", facebook: "#", instagram: "#" }
-  // }
+  }
 ];
 
 const MemberCard = ({ member }) => {
@@ -56,44 +47,45 @@ const MemberCard = ({ member }) => {
 
   return (
     <div 
-      className="w-full md:w-[420px] flex-shrink-0 md:snap-center cursor-pointer"
+      className="w-full md:w-[420px] flex-shrink-0 md:snap-center cursor-pointer group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => setIsClicked(!isClicked)}
     >
-      <div className={`relative flex flex-col rounded-[2.5rem] overflow-hidden bg-white shadow-xl shadow-[#0B2545]/5 h-full border border-white/20 transition-shadow duration-300 ${isOpen ? 'shadow-2xl shadow-[#0B2545]/10' : ''}`}>
+      <div 
+        className={`relative flex flex-col rounded-[2.5rem] overflow-hidden bg-white shadow-xl shadow-[#0B2545]/5 h-full border border-white/20 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl`}
+        style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+      >
         {/* Social Icons Overlay - Appear on Hover or Click */}
         <div className={`absolute top-6 right-6 flex flex-col gap-3 transition-all duration-500 z-20 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <a href={member.social.linkedin} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+          <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
             <LinkedInIcon />
           </a>
-          <a href={member.social.facebook} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+          <a href={member.social.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
             <FacebookIcon />
           </a>
-          <a href={member.social.instagram} className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
+          <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#0B2545] hover:bg-[#0EA5E9] hover:text-white transition-all shadow-lg">
             <InstagramIcon />
           </a>
         </div>
 
-        <div className="aspect-[4/5] w-full relative overflow-hidden">
-          <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700" src={member.img} />
+        {/* Photo Container */}
+        <div className="aspect-[4/5] w-full relative overflow-hidden bg-slate-100">
+          <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src={member.img} />
         </div>
         
-        {/* Content Overlay */}
-        <div className={`bg-white p-8 absolute bottom-0 left-0 right-0 z-10 rounded-t-[2rem] border-t border-white/50 flex flex-col transition-all duration-500 ease-out will-change-transform ${isOpen ? 'translate-y-0' : 'translate-y-0'}`}>
-          <div className="mb-4">
-            <h3 className="text-xl md:text-2xl text-[#0B2545] font-black tracking-tight leading-none mb-2">{member.name}</h3>
-            <p className="text-[12px] text-[#0EA5E9] font-bold tracking-widest uppercase">{member.role}</p>
+        {/* Content Overlay - Height adjusted for Uniform Alignment with slide-up effect */}
+        <div className={`bg-white p-6 sm:p-8 absolute bottom-0 left-0 right-0 z-10 rounded-t-[2.5rem] border-t border-slate-100 flex flex-col justify-start h-[370px] sm:h-[420px] transition-all duration-500 ease-out ${isOpen ? 'translate-y-0' : 'translate-y-[270px] sm:translate-y-[320px]'}`}>
+          <div className="mb-3">
+            <h3 className="text-xl sm:text-2xl text-[#0B2545] font-black tracking-tight leading-none mb-1.5">{member.name}</h3>
+            <p className="text-[10px] sm:text-[11px] text-[#0EA5E9] font-bold tracking-widest uppercase min-h-[32px] flex items-center">{member.role}</p>
           </div>
           
-          {/* Hidden Description - Slides up on Hover or Click */}
-          <div className={`overflow-hidden transition-all duration-500 ${isOpen ? 'max-h-[400px] opacity-100 mb-6' : 'max-h-0 opacity-0'}`}>
-            <p className="text-slate-600 text-sm md:text-base leading-relaxed whitespace-pre-line">
-              {member.desc}
-            </p>
+          <div className={`text-slate-500 text-xs sm:text-sm leading-relaxed transition-all duration-500 space-y-3 flex-1 overflow-y-auto scrollbar-thin pr-1 pb-4 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+            {member.desc.split('\n').map((para, pIdx) => (
+              <p key={pIdx}>{para}</p>
+            ))}
           </div>
-
-          {/* Removed tags section */}
         </div>
       </div>
     </div>

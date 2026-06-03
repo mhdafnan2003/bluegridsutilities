@@ -1,6 +1,15 @@
 import React from 'react';
 import MotionSection from './MotionSection';
 import aboutImage from '../assets/images/about.jpeg';
+import missionBg from '../assets/images/mission_bg.png';
+import visionBg from '../assets/images/vision_bg.png';
+import vettingBg from '../assets/images/vetting_bg.png';
+import complianceBg from '../assets/images/compliance_bg.png';
+import safetyBg from '../assets/images/safety_bg.png';
+import healthSafetyPolicyBg from '../assets/images/health_safety_policy_bg.png';
+import equalOppBg from '../assets/images/equal_opp_bg.png';
+import slaveryPrevBg from '../assets/images/slavery_prev_bg.png';
+import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png';
 
 const About = () => {
   return (
@@ -57,25 +66,59 @@ const About = () => {
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             
             {/* Mission Card */}
-            <div id="mission" className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 flex flex-col items-start scroll-mt-28">
-              <div className="w-12 h-12 rounded-2xl bg-brand-primary/10 text-brand-primary flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-2xl font-bold">track_changes</span>
+            <div 
+              id="mission" 
+              className="group relative rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[320px] scroll-mt-28 border border-slate-100/10"
+              style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+            >
+              {/* Background Image */}
+              <img 
+                src={missionBg} 
+                alt="Our Mission background" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+              />
+              {/* Neutral Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+              
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-start w-full">
+                <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+                  <span className="material-symbols-outlined text-2xl font-bold">track_changes</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3 font-outfit">Our Mission</h3>
+                <p className="text-slate-100 text-sm sm:text-base leading-relaxed">
+                  To support utility and infrastructure projects across the UK by providing highly trained, fully vetted, and reliable workforce coordination solutions that ensure absolute compliance, safety, and seamless operational delivery.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-brand-dark mb-4 font-outfit">Our Mission</h3>
-              <p className="text-gray-600 text-base leading-relaxed">
-                To support utility and infrastructure projects across the UK by providing highly trained, fully vetted, and reliable workforce coordination solutions that ensure absolute compliance, safety, and seamless operational delivery.
-              </p>
             </div>
 
             {/* Vision Card */}
-            <div id="vision" className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-md transition-all duration-300 border border-slate-100 flex flex-col items-start scroll-mt-28">
-              <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 flex items-center justify-center mb-6">
-                <span className="material-symbols-outlined text-2xl font-bold">visibility</span>
+            <div 
+              id="vision" 
+              className="group relative rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[320px] scroll-mt-28 border border-slate-100/10"
+              style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+            >
+              {/* Background Image */}
+              <img 
+                src={visionBg} 
+                alt="Our Vision background" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+              />
+              {/* Neutral Dark Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+              
+              {/* Content */}
+              <div className="relative z-10 flex flex-col items-start w-full">
+                <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+                  <span className="material-symbols-outlined text-2xl font-bold">visibility</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3 font-outfit">Our Vision</h3>
+                <p className="text-slate-100 text-sm sm:text-base leading-relaxed">
+                  To be the UK's most trusted workforce coordination partner for utility and infrastructure projects, recognized for our compliance-first methodology, rapid mobilization capabilities, and operational coordination standard.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold text-brand-dark mb-4 font-outfit">Our Vision</h3>
-              <p className="text-gray-600 text-base leading-relaxed">
-                To be the UK's most trusted workforce coordination partner for utility and infrastructure projects, recognized for our compliance-first methodology, rapid mobilization capabilities, and operational coordination standard.
-              </p>
             </div>
 
           </div>
@@ -144,25 +187,45 @@ const About = () => {
               {
                 title: "EUSR & Industry Vetting",
                 desc: "We enforce strict checks confirming that field operatives hold valid EUSR (Energy & Utility Skills Register) records, CSCS cards, or specific sector safety certifications.",
-                icon: "shield"
+                icon: "shield",
+                bg: vettingBg
               },
               {
                 title: "Right-to-Work Compliance",
                 desc: "100% compliant onboarding verifying identity, qualifications, reference audits, right-to-work documentation, and background suitability screening.",
-                icon: "verified_user"
+                icon: "verified_user",
+                bg: complianceBg
               },
               {
                 title: "Health & Safety Systems",
                 desc: "Continuous training management and compliance verification structures built to align with UK utility operations safety standards.",
-                icon: "health_and_safety"
+                icon: "health_and_safety",
+                bg: safetyBg
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col items-start">
-                <div className="w-12 h-12 rounded-2xl bg-brand-primary/5 text-brand-primary flex items-center justify-center mb-6">
-                  <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+              <div 
+                key={idx} 
+                className="group relative rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[300px] border border-slate-100/10"
+                style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+              >
+                {/* Background Image */}
+                <img 
+                  src={item.bg} 
+                  alt={item.title} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Neutral Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+                
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-start w-full">
+                  <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+                    <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3 font-outfit">{item.title}</h3>
+                  <p className="text-slate-100 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-lg font-bold text-brand-dark mb-3 font-outfit">{item.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -189,30 +252,51 @@ const About = () => {
               {
                 title: "Health & Safety Policy",
                 desc: "Strict adherence to a zero-harm environment on all operational sites through regular toolbox talks and compliance oversight.",
-                icon: "gavel"
+                icon: "gavel",
+                bg: healthSafetyPolicyBg
               },
               {
                 title: "Equal Opportunities",
                 desc: "Promoting diversity, inclusion, and equal opportunity in workforce recruitment and deployment without exception.",
-                icon: "group"
+                icon: "group",
+                bg: equalOppBg
               },
               {
                 title: "Modern Slavery Prevention",
                 desc: "Strict vetting policies, fair payment assurance, and compliance checks to prevent modern slavery across our supply chain.",
-                icon: "policy"
+                icon: "policy",
+                bg: slaveryPrevBg
               },
               {
                 title: "Environmental Policy",
                 desc: "Optimizing regional deployment and coordinating local support staff to minimize carbon footprints and travel impacts.",
-                icon: "eco"
+                icon: "eco",
+                bg: environmentalPolicyBg
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-slate-50 rounded-3xl p-6 border border-slate-100 hover:bg-white hover:shadow-md hover:border-brand-primary/20 transition-all duration-300 flex flex-col items-start">
-                <div className="w-10 h-10 rounded-xl bg-brand-primary/5 text-brand-primary flex items-center justify-center mb-5">
-                  <span className="material-symbols-outlined text-xl">{item.icon}</span>
+              <div 
+                key={idx} 
+                className="group relative rounded-3xl p-6 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[280px] border border-slate-100/10"
+                style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+              >
+                {/* Background Image */}
+                <img 
+                  src={item.bg} 
+                  alt={item.title} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  loading="lazy"
+                />
+                {/* Neutral Dark Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+                
+                {/* Content */}
+                <div className="relative z-10 flex flex-col items-start w-full">
+                  <div className="w-10 h-10 rounded-xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-5">
+                    <span className="material-symbols-outlined text-xl">{item.icon}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-2 font-outfit">{item.title}</h3>
+                  <p className="text-slate-100 text-xs leading-relaxed">{item.desc}</p>
                 </div>
-                <h3 className="text-base font-bold text-brand-dark mb-2 font-outfit">{item.title}</h3>
-                <p className="text-gray-500 text-xs leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

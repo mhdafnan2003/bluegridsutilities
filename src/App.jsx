@@ -7,8 +7,6 @@ import FeatureCards from './components/FeatureCards';
 import QuickInfo from './components/QuickInfo';
 import About from './components/About';
 import ServicesPage from './pages/ServicesPage';
-import Services from './components/Services';
-import Sectors from './components/Sectors';
 import OperationalDelivery from './components/OperationalDelivery';
 import HealthSafetyCompliance from './components/HealthSafetyCompliance';
 import KPIOperationalMonitoring from './components/KPIOperationalMonitoring';
@@ -22,6 +20,8 @@ import Footer from './components/Footer';
 import WhatWeDo from './components/WhatWeDo';
 import WhatWeAre from './components/WhatWeAre';
 import SustainabilityBanner from './components/SustainabilityBanner';
+import JoinTeamBanner from './components/JoinTeamBanner';
+import GetInTouch from './components/GetInTouch';
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -54,6 +54,8 @@ const HomePage = () => (
     <WhatWeDo />
     <SustainabilityBanner />
     <OperationalCoverage />
+    <JoinTeamBanner />
+    <GetInTouch />
   </>
 );
 
@@ -67,15 +69,12 @@ const AboutPage = () => (
 const ServicesRoutePage = () => (
   <>
     <ServicesPage />
-    <Services />
   </>
 );
 
 const ProjectsPage = () => (
   <>
     <OperationalDelivery />
-    <Sectors />
-    <OperationalCoverage />
   </>
 );
 
