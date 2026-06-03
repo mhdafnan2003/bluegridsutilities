@@ -1,59 +1,74 @@
 import React from 'react';
-import MotionSection from './MotionSection';
-import heroVideo from '../assets/videos/hero video.mp4';
+import { motion } from 'framer-motion';
+import heroBg from '../assets/images/updated/45+ Bleu pastel Wallpapers _ Free download _ Best Collection.jpeg';
 
 const Hero = () => {
+  const contentVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        delay: 0.2,
+        ease: 'easeOut'
+      }
+    }
+  };
+
   return (
-    <MotionSection as="section" className="relative min-h-screen w-full flex items-center overflow-hidden bg-slate-900">
-      <div className="absolute inset-0 z-0">
-        <video
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
+    <section className="relative w-full h-[90vh] md:h-screen min-h-[600px] overflow-hidden bg-slate-50">
+      {/* Background Image with Zoom Effect */}
+      <motion.div
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 6, ease: 'easeOut' }}
+        style={{ backgroundImage: `url("${heroBg}")` }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full"
+      />
+
+      {/* Content Wrapper */}
+      <div className="absolute inset-0 flex items-center justify-center text-center px-6 sm:px-8 lg:px-12 z-20">
+        <motion.div
+          variants={contentVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-5xl mx-auto flex flex-col items-center"
         >
-          <source src={heroVideo} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/70"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/30"></div>
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-primary text-white text-[10px] sm:text-xs font-black uppercase tracking-widest mb-6 font-outfit">
+            <span className="w-2 h-2 bg-white rounded-full animate-ping"></span>
+            COMPLIANCE-FOCUSED UK OPERATIONS
+          </div>
+
+          {/* Title */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-brand-dark leading-tight uppercase font-outfit tracking-tight">
+            Engineering <span className="text-brand-primary">Your</span> Future
+          </h1>
+
+          {/* Description */}
+          <p className="text-sm sm:text-base md:text-lg text-slate-700 mt-6 max-w-3xl leading-relaxed font-sans font-medium">
+            Innovative operational coordination and utility support services delivering quality infrastructure across the UK.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <a
+              href="/services"
+              className="px-8 py-4 bg-brand-primary text-white font-black uppercase text-xs sm:text-sm tracking-widest hover:bg-brand-dark hover:text-white transition-all duration-300 border-2 border-brand-primary hover:border-brand-dark shadow-lg"
+            >
+              Our Operations
+            </a>
+            <a
+              href="/contact"
+              className="px-8 py-4 bg-transparent border-2 border-brand-dark text-brand-dark font-black uppercase text-xs sm:text-sm tracking-widest hover:bg-brand-dark hover:text-white hover:border-brand-dark transition-all duration-300 shadow-lg"
+            >
+              Contact Us
+            </a>
+          </div>
+        </motion.div>
       </div>
-
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 text-center">
-        <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/15 border border-white/25 text-white text-xs sm:text-sm mx-auto mb-10 backdrop-blur-md">
-          <span className="w-2 h-2 bg-white rounded-full"></span>
-          Compliance-Focused Operational Support
-        </div>
-
-        <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight tracking-tight max-w-5xl mx-auto">
-          Delivering Reliable Utility & Infrastructure
-          <br />
-           Operations Across the UK
-        </h1>
-
-        <p className="text-xs sm:text-base md:text-lg text-white/80 mt-8 max-w-3xl mx-auto leading-relaxed">
-          BLUEGRID UTILITIES provides compliance-focused workforce coordination, water infrastructure operational support, project deployment, and utility workforce solutions across the UK. compliance-focused onboarding, and operational delivery.
-        </p>
-
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-5">
-          <a
-            href="#services"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-slate-900 rounded-full font-bold shadow-xl hover:bg-slate-100 transition-all duration-300"
-          >
-            Our Operations
-            {/* <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path d="M14 5l7 7m0 0l-7 7m7-7H3" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"></path>
-            </svg> */}
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full font-bold hover:bg-white/20 transition-all duration-300"
-          >
-            Contact Us
-          </a>
-        </div>
-      </div>
-    </MotionSection>
+    </section>
   );
 };
 

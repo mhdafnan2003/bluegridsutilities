@@ -25,7 +25,7 @@ const ServiceCard = ({ service }) => (
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
     <div className="absolute z-10 bottom-8 left-8 right-8">
-      <h4 className="text-xs md:text-sm font-bold text-white group-hover:text-brand-primary transition-colors duration-300 leading-snug uppercase tracking-[0.2em]">
+      <h4 className="text-xs md:text-sm font-bold text-white group-hover:text-brand-primary transition-colors duration-300 leading-snug uppercase tracking-[0.2em] text-left">
         {service.title}
       </h4>
     </div>

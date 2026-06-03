@@ -39,7 +39,7 @@ const Contact = () => {
             Contact Us
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">
-            Get in Touch
+            JOIN OUR WORKFORCE
           </h2>
           <p className="text-gray-600 text-lg">
             For recruitment enquiries, project support, or partnership discussions, please contact our team.
