@@ -53,8 +53,8 @@ const Workforce = () => {
         {/* 3x2 Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {roles.map((role, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group relative bg-white border border-gray-100 rounded-2xl p-6 lg:p-7 overflow-hidden shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.05)] transition-all duration-300 h-full flex flex-col"
               style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
             >
