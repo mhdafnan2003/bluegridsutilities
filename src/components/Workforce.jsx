@@ -61,8 +61,8 @@ const Workforce = () => {
         {/* 3x2 Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {roles.map((role, index) => (
-            <div 
-              key={index} 
+            <div
+              key={index}
               className="group relative bg-white border border-gray-100 rounded-2xl p-6 lg:p-7 overflow-hidden shadow-sm hover:shadow-[0_8px_30px_rgb(0,0,0,0.05)] transition-all duration-300 h-full flex flex-col"
               style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
             >
@@ -70,14 +70,14 @@ const Workforce = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight z-10 relative">{role.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-12 relative z-10 max-w-[82%]">{role.desc}</p>
 
-              <Link to="/apply" className="mt-auto flex items-center gap-3 relative z-10 w-fit">
+              <a href="https://forms.office.com/r/K9vKw1hxcB" target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-3 relative z-10 w-fit">
                 <div className="w-10 h-10 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-gray-600 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white transition-all duration-300 bg-white">
                   <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>
                 <span className="text-xs font-semibold text-gray-500 group-hover:text-brand-dark transition-colors duration-300">Register Interest</span>
-              </Link>
+              </a>
 
               {/* Decorative Circle Bottom Right */}
               <div className="absolute -bottom-12 -right-12 w-44 h-44 bg-slate-50 rounded-full transition-transform duration-700 ease-out group-hover:scale-110" />
