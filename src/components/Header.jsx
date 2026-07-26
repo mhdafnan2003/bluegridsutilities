@@ -99,153 +99,305 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      {
-        isMenuOpen && (
-          <div className="md:hidden mt-4 rounded-3xl p-6 space-y-5 bg-black/80 backdrop-blur-md border border-white/10">
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#about" onClick={() => setIsMenuOpen(false)}>About</Link>
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-            <Link className="block text-white text-lg font-semibold" to="https://forms.office.com/r/K9vKw1hxcB" onClick={() => setIsMenuOpen(false)}>Join Our Workforce</Link>
-          </div>
-
-          {/* Mobile Accordion Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className={`lg:hidden overflow-hidden border-t ${isScrolled ? 'bg-white border-slate-100 shadow-xl' : 'bg-[#eef6fc] border-[#d8e9f6]'
-              }`}
-          >
-            <div className="flex flex-col px-6 py-6 space-y-4 font-outfit uppercase tracking-wider text-sm font-bold">
-              {navLinks.map((link) => {
-                if (link.label === 'About') {
-                  return (
-                    <div key={link.label} className="flex flex-col">
-                      <button
-                        onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                        className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold ${isScrolled
-                          ? 'text-slate-800 hover:text-[#005f9e] border-slate-50'
-                          : 'text-[#0f3a5e] hover:text-[#005f9e] border-[#d8e9f6]/40'
-                          }`}
-                      >
-                        <span>{link.label}</span>
-                        <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileAboutOpen ? 'rotate-180' : ''}`}>
-                          keyboard_arrow_down
-                        </span>
-                      </button>
-                      <AnimatePresence>
-                        {isMobileAboutOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
-                          >
-                            {[
-                              { label: "About BlueGrid", to: "/about#about" },
-                              { label: "Our Missions", to: "/about#mission" },
-                              { label: "Our Visions", to: "/about#vision" },
-                              { label: "Our History", to: "/about#history" },
-                              { label: "Accreditation & Awards", to: "/about#accreditations" },
-                              { label: "On Board & Directors", to: "/about#management" },
-                              { label: "Our Policies", to: "/about#policies" }
-                            ].map((item, index) => (
-                              <a
-                                key={index}
-                                href={item.to}
-                                onClick={() => {
-                                  setIsMenuOpen(false);
-                                  setIsMobileAboutOpen(false);
-                                }}
-                                className="hover:text-[#005f9e] transition-colors py-1 block text-left"
-                              >
-                                {item.label}
-                              </a>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                }
-
-                if (link.label === 'Services') {
-                  return (
-                    <div key={link.label} className="flex flex-col">
-                      <button
-                        onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                        className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold ${isScrolled
-                          ? 'text-slate-800 hover:text-[#005f9e] border-slate-50'
-                          : 'text-[#0f3a5e] hover:text-[#005f9e] border-[#d8e9f6]/40'
-                          }`}
-                      >
-                        <span>{link.label}</span>
-                        <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`}>
-                          keyboard_arrow_down
-                        </span>
-                      </button>
-                      <AnimatePresence>
-                        {isMobileServicesOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, height: 0 }}
-                            animate={{ opacity: 1, height: 'auto' }}
-                            exit={{ opacity: 0, height: 0 }}
-                            className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
-                          >
-                            {[
-                              { label: "Water Meter Project Support", to: "/services?select=water-meter" },
-                              { label: "Utility Infrastructure Support", to: "/services?select=utility-infra" },
-                              { label: "Telecoms & Field Operations Support", to: "/services?select=telecoms" },
-                              { label: "Project Coordination", to: "/services?select=project-coord" },
-                              { label: "Compliance & Onboarding", to: "/services?select=compliance" },
-                              { label: "Training Coordination & Deployment Planning", to: "/services?select=training" }
-                            ].map((item, index) => (
-                              <a
-                                key={index}
-                                href={item.to}
-                                onClick={() => {
-                                  setIsMenuOpen(false);
-                                  setIsMobileServicesOpen(false);
-                                }}
-                                className="hover:text-[#005f9e] transition-colors py-1 block text-left"
-                              >
-                                {item.label}
-                              </a>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                }
-
-                return (
-                  <a
-                    key={link.label}
-                    href={link.to}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`transition-colors py-2.5 border-b flex items-center justify-between ${isScrolled
-                      ? 'text-slate-800 hover:text-[#005f9e] border-slate-50'
-                      : 'text-[#0f3a5e] hover:text-[#005f9e] border-[#d8e9f6]/40'
-                      }`}
-                  >
-                    <span>{link.label}</span>
-                    <span className="text-[#005f9e] text-xs">➔</span>
-                  </a>
-                );
-              })}
+      {/* Main Navigation Bar */}
+      <div
+        className={`w-full transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white shadow-lg border-b border-blue-50'
+            : 'bg-[#eef6fc]/95 backdrop-blur-md border-b border-[#d8e9f6]'
+        }`}
+      >
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-stretch min-h-[56px]">
+          {/* Logo container (only visible on scroll) */}
+          {isScrolled && (
+            <div className="flex items-center py-2 mr-4 lg:mr-8 xl:mr-12 shrink-0">
+              <Link className="flex items-center gap-2" to="/">
+                <img src={logo} alt="BlueGrid Utilities Logo" className="h-9 w-auto object-contain" />
+              </Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-      </header >
-    );
-  };
+          )}
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden lg:flex items-stretch gap-3 lg:gap-6 xl:gap-8">
+            {navLinks.map((link) => {
+              if (link.label === 'About') {
+                return (
+                  <div key={link.label} className="relative group flex items-stretch">
+                    <Link
+                      to={link.to}
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 ${
+                        isActive(link.to)
+                          ? 'text-[#005f9e]'
+                          : isScrolled
+                          ? 'text-slate-700 hover:text-[#005f9e]'
+                          : 'text-[#0f3a5e] hover:text-[#005f9e]'
+                      }`}
+                    >
+                      {link.label}
+                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                        keyboard_arrow_down
+                      </span>
+                      <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    </Link>
+
+                    {/* Dropdown Menu */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[20rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                      <div className="flex flex-col">
+                        {[
+                          { label: "About BlueGrid", to: "/about#about" },
+                          { label: "Our Missions", to: "/about#mission" },
+                          { label: "Our Visions", to: "/about#vision" },
+                          { label: "Our History", to: "/about#history" },
+                          { label: "Accreditation & Awards", to: "/about#accreditations" },
+                          { label: "On Board & Directors", to: "/about#management" },
+                          { label: "Our Policies", to: "/about#policies" }
+                        ].map((item, index) => (
+                          <a
+                            key={index}
+                            href={item.to}
+                            className="px-6 py-3 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (link.label === 'Services') {
+                return (
+                  <div key={link.label} className="relative group flex items-stretch">
+                    <Link
+                      to={link.to}
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 ${
+                        isActive(link.to)
+                          ? 'text-[#005f9e]'
+                          : isScrolled
+                          ? 'text-slate-700 hover:text-[#005f9e]'
+                          : 'text-[#0f3a5e] hover:text-[#005f9e]'
+                      }`}
+                    >
+                      {link.label}
+                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                        keyboard_arrow_down
+                      </span>
+                      <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    </Link>
+
+                    {/* Dropdown Menu */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[24rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                      <div className="flex flex-col">
+                        {[
+                          { label: "Water Meter Project Support", to: "/services?select=water-meter" },
+                          { label: "Utility Infrastructure Support", to: "/services?select=utility-infra" },
+                          { label: "Telecoms & Field Operations Support", to: "/services?select=telecoms" },
+                          { label: "Project Coordination", to: "/services?select=project-coord" },
+                          { label: "Compliance & Onboarding", to: "/services?select=compliance" },
+                          { label: "Training Coordination & Deployment Planning", to: "/services?select=training" }
+                        ].map((item, index) => (
+                          <a
+                            key={index}
+                            href={item.to}
+                            className="px-6 py-3 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
+                          >
+                            {item.label}
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              return (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center relative group px-1 lg:px-2 ${
+                    isActive(link.to)
+                      ? 'text-[#005f9e]'
+                      : isScrolled
+                      ? 'text-slate-700 hover:text-[#005f9e]'
+                      : 'text-[#0f3a5e] hover:text-[#005f9e]'
+                  }`}
+                >
+                  {link.label}
+                  <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                </Link>
+              );
+            })}
+          </nav>
+
+          {/* Right CTA / Mobile Hamburger */}
+          <div className="flex items-center gap-4 py-2 shrink-0">
+            <a
+              href="https://forms.office.com/r/K9vKw1hxcB"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-4 py-2 lg:px-6 font-bold uppercase text-[10px] lg:text-xs font-outfit tracking-widest flex items-center justify-center rounded-lg shadow-sm"
+            >
+              Join Our Workforce
+            </a>
+
+            {/* Mobile Hamburger toggle */}
+            <div className="lg:hidden flex items-center">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className={`flex flex-col gap-1.5 justify-center items-center w-10 h-10 border rounded bg-white/5 transition-colors duration-300 ${
+                  isScrolled ? 'border-slate-200 text-slate-800' : 'border-[#d8e9f6] text-[#0f3a5e]'
+                }`}
+                aria-label="Toggle Menu"
+              >
+                <span className={`w-6 h-0.5 transition-all duration-300 ${isScrolled ? 'bg-slate-800' : 'bg-[#0f3a5e]'} ${isMenuOpen ? 'transform rotate-45 translate-y-2' : ''}`}></span>
+                <span className={`w-6 h-0.5 transition-all duration-300 ${isScrolled ? 'bg-slate-800' : 'bg-[#0f3a5e]'} ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`w-6 h-0.5 transition-all duration-300 ${isScrolled ? 'bg-slate-800' : 'bg-[#0f3a5e]'} ${isMenuOpen ? 'transform -rotate-45 -translate-y-2' : ''}`}></span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Accordion Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className={`lg:hidden overflow-hidden border-t ${
+                isScrolled ? 'bg-white border-slate-100 shadow-xl' : 'bg-[#eef6fc] border-[#d8e9f6]'
+              }`}
+            >
+              <div className="flex flex-col px-6 py-6 space-y-4 font-outfit uppercase tracking-wider text-sm font-bold">
+                {navLinks.map((link) => {
+                  if (link.label === 'About') {
+                    return (
+                      <div key={link.label} className="flex flex-col">
+                        <button
+                          onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold ${
+                            isScrolled
+                              ? 'text-slate-800 hover:text-[#005f9e] border-slate-50'
+                              : 'text-[#0f3a5e] hover:text-[#005f9e] border-[#d8e9f6]/40'
+                          }`}
+                        >
+                          <span>{link.label}</span>
+                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileAboutOpen ? 'rotate-180' : ''}`}>
+                            keyboard_arrow_down
+                          </span>
+                        </button>
+                        <AnimatePresence>
+                          {isMobileAboutOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                            >
+                              {[
+                                { label: "About BlueGrid", to: "/about#about" },
+                                { label: "Our Missions", to: "/about#mission" },
+                                { label: "Our Visions", to: "/about#vision" },
+                                { label: "Our History", to: "/about#history" },
+                                { label: "Accreditation & Awards", to: "/about#accreditations" },
+                                { label: "On Board & Directors", to: "/about#management" },
+                                { label: "Our Policies", to: "/about#policies" }
+                              ].map((item, index) => (
+                                <a
+                                  key={index}
+                                  href={item.to}
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setIsMobileAboutOpen(false);
+                                  }}
+                                  className="hover:text-[#005f9e] transition-colors py-1 block text-left"
+                                >
+                                  {item.label}
+                                </a>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  if (link.label === 'Services') {
+                    return (
+                      <div key={link.label} className="flex flex-col">
+                        <button
+                          onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold ${
+                            isScrolled
+                              ? 'text-slate-800 hover:text-[#005f9e] border-slate-50'
+                              : 'text-[#0f3a5e] hover:text-[#005f9e] border-[#d8e9f6]/40'
+                          }`}
+                        >
+                          <span>{link.label}</span>
+                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`}>
+                            keyboard_arrow_down
+                          </span>
+                        </button>
+                        <AnimatePresence>
+                          {isMobileServicesOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                            >
+                              {[
+                                { label: "Water Meter Project Support", to: "/services?select=water-meter" },
+                                { label: "Utility Infrastructure Support", to: "/services?select=utility-infra" },
+                                { label: "Telecoms & Field Operations Support", to: "/services?select=telecoms" },
+                                { label: "Project Coordination", to: "/services?select=project-coord" },
+                                { label: "Compliance & Onboarding", to: "/services?select=compliance" },
+                                { label: "Training Coordination & Deployment Planning", to: "/services?select=training" }
+                              ].map((item, index) => (
+                                <a
+                                  key={index}
+                                  href={item.to}
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setIsMobileServicesOpen(false);
+                                  }}
+                                  className="hover:text-[#005f9e] transition-colors py-1 block text-left"
+                                >
+                                  {item.label}
+                                </a>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.to}
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`transition-colors py-2.5 border-b flex items-center justify-between ${
+                        isScrolled
+                          ? 'text-slate-800 hover:text-[#005f9e] border-slate-50'
+                          : 'text-[#0f3a5e] hover:text-[#005f9e] border-[#d8e9f6]/40'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      <span className="text-[#005f9e] text-xs">➔</span>
+                    </a>
+                  );
+                })}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </header>
+  );
+};
 
 export default Header;
