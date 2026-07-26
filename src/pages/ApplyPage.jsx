@@ -87,7 +87,14 @@ const ApplyPage = () => {
   };
 
   return (
-    <MotionSection as="div" className="min-h-screen bg-[#f8fafc] py-16 px-4 font-sans">
+    <MotionSection 
+      as="div" 
+      className="min-h-screen bg-[#f8fafc] py-16 px-4 font-sans"
+      initial="hidden"
+      animate="visible"
+      whileInView={undefined}
+      viewport={undefined}
+    >
       <div className="max-w-5xl mx-auto">
 
         {/* Page Header */}

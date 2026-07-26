@@ -53,6 +53,10 @@ const Contact = () => {
         as="div" 
         className="relative bg-[#0f3a5e] py-20 md:py-24 text-center text-white overflow-hidden blueprint-bg"
         id="contact-hero"
+        initial="hidden"
+        animate="visible"
+        whileInView={undefined}
+        viewport={undefined}
       >
         {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#032879]/90 to-[#005f9e]/85 mix-blend-multiply z-10" />

@@ -49,7 +49,15 @@ const HealthSafetyCompliance = () => {
     <div className="font-sans bg-white">
       
       {/* 1. Sustainability Hero Banner */}
-      <MotionSection as="section" className="relative py-24 md:py-32 overflow-hidden bg-brand-dark" id="sustainability-hero">
+      <MotionSection 
+        as="section" 
+        className="relative py-24 md:py-32 overflow-hidden bg-brand-dark" 
+        id="sustainability-hero"
+        initial="hidden"
+        animate="visible"
+        whileInView={undefined}
+        viewport={undefined}
+      >
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -70,7 +78,7 @@ const HealthSafetyCompliance = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl tracking-tight leading-tight font-outfit mb-6">
             Sustainability & Compliance
           </h1>
-          <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed">
+          <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-sans font-medium">
             Our blueprint for environmental stewardship, community empowerment, and zero-harm health and safety practices across UK utility and infrastructure projects.
           </p>
         </div>
@@ -81,13 +89,13 @@ const HealthSafetyCompliance = () => {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10 space-y-20 md:space-y-28">
           
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4 font-outfit">
               Our Pillars
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark tracking-tight mb-4 font-outfit">
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-tight mb-6 font-outfit">
               Core Sustainability Commitments
             </h2>
-            <p className="text-gray-500 text-base leading-relaxed">
+            <p className="text-gray-500 text-base leading-relaxed font-sans font-medium">
               We align our operational workflows to respect local ecosystems, drive regional employment, and support a lower-carbon infrastructure future.
             </p>
           </div>
@@ -102,13 +110,13 @@ const HealthSafetyCompliance = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-brand-dark font-outfit">
                 Carbon Reduction & Environmental Protection
               </h3>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed font-sans font-medium">
                 We are committed to minimizing the ecological impact of utility works. By recruiting local field teams, optimizing deployment routes, and utilizing energy-efficient equipment, we significantly reduce transportation emissions.
               </p>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed font-sans font-medium">
                 Our practices ensure clean water preservation, responsible waste disposal, and minimal disruption to the surrounding environment during street work excavations and reinstatements.
               </p>
-              <div className="flex items-center gap-3 text-emerald-600 font-bold text-sm">
+              <div className="flex items-center gap-3 text-emerald-600 font-bold text-sm font-outfit">
                 <span className="material-symbols-outlined">verified</span>
                 <span>Active path to lower-emission infrastructure delivery</span>
               </div>
@@ -151,13 +159,13 @@ const HealthSafetyCompliance = () => {
               <h3 className="text-2xl md:text-3xl font-bold text-brand-dark font-outfit">
                 Social Sustainability & Local Recruitment
               </h3>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed font-sans font-medium">
                 Sustainability extends directly to the communities we serve. We prioritize hiring local operatives, coordinates training to build long-term career opportunities in infrastructure, and partner with local supply chain vendors.
               </p>
-              <p className="text-gray-600 text-base leading-relaxed">
+              <p className="text-gray-600 text-base leading-relaxed font-sans font-medium">
                 This circular economic approach boosts regional development, reduces commuter travel requirements, and secures a resilient local utility workforce for long-term project delivery.
               </p>
-              <div className="flex items-center gap-3 text-brand-primary font-bold text-sm">
+              <div className="flex items-center gap-3 text-brand-primary font-bold text-sm font-outfit">
                 <span className="material-symbols-outlined">verified</span>
                 <span>Direct community recruitment & regional skill-building</span>
               </div>
@@ -172,13 +180,13 @@ const HealthSafetyCompliance = () => {
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           
           <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4 font-outfit">
               Compliance Focus
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark tracking-tight mb-4 font-outfit">
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-tight mb-6 font-outfit">
               Operational Safety Standards
             </h2>
-            <p className="text-gray-500 text-base leading-relaxed">
+            <p className="text-gray-500 text-base leading-relaxed font-sans font-medium">
               We execute a strict compliance structure to guarantee a zero-harm operational environment across all worksites.
             </p>
           </div>
@@ -216,7 +224,7 @@ const HealthSafetyCompliance = () => {
                   <h3 className="text-lg md:text-xl font-bold text-brand-dark tracking-wide font-outfit group-hover:text-brand-primary transition-colors">
                     {module.title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
+                  <p className="text-gray-500 text-sm leading-relaxed font-sans font-medium">
                     {module.desc}
                   </p>
                 </div>

@@ -14,8 +14,15 @@ import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png'
 const About = () => {
   return (
     <div className="font-sans">
-      {/* About Section */}
-      <MotionSection as="section" className="py-20 bg-white" id="about">
+      <MotionSection 
+        as="section" 
+        className="py-20 bg-white" 
+        id="about"
+        initial="hidden"
+        animate="visible"
+        whileInView={undefined}
+        viewport={undefined}
+      >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           {/* Header Section */}
           <div className="mb-14 text-center lg:text-left">

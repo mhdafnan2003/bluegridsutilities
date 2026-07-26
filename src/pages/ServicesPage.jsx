@@ -184,7 +184,15 @@ const ServicesPage = () => {
   if (selectedService && filteredServices.length > 0) {
     const service = filteredServices[0];
     return (
-      <MotionSection as="div" className="py-16 md:py-24 bg-white font-sans animate-fade-in" id="service-detail">
+      <MotionSection 
+        as="div" 
+        className="py-16 md:py-24 bg-white font-sans animate-fade-in" 
+        id="service-detail"
+        initial="hidden"
+        animate="visible"
+        whileInView={undefined}
+        viewport={undefined}
+      >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
           
           {/* Back button */}
@@ -303,7 +311,15 @@ const ServicesPage = () => {
 
   // Render All Services Grid Layout
   return (
-    <MotionSection as="div" className="py-24 bg-white font-sans animate-fade-in" id="services">
+    <MotionSection 
+      as="div" 
+      className="py-24 bg-white font-sans animate-fade-in" 
+      id="services"
+      initial="hidden"
+      animate="visible"
+      whileInView={undefined}
+      viewport={undefined}
+    >
       <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
 
         {/* Header Section */}

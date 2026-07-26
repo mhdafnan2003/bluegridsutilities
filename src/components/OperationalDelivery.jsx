@@ -1,5 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import MotionSection from './MotionSection';
+import heroBg from '../assets/images/utilityworksupply.jpeg';
+import ctaBg from '../assets/images/work_with_us.png';
 
 const steps = [
   {
@@ -77,88 +81,171 @@ const steps = [
 
 const OperationalDelivery = () => {
   return (
-    <MotionSection as="section" className="py-24 bg-white overflow-hidden" id="operational-delivery">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header */}
-        <div className="mb-20 text-center lg:text-left">
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4">
-            Operational Delivery Process
-          </h2>
-          <div className="h-1.5 w-24 bg-brand-primary rounded-full mb-6 mx-auto lg:mx-0"></div>
-          <p className="text-gray-600 text-lg max-w-2xl leading-relaxed">
-            Our structured approach ensures precision, safety, and efficiency at every stage of the utility project lifecycle.
+    <div className="font-sans bg-white">
+      {/* 1. Projects Hero Banner */}
+      <MotionSection 
+        as="section" 
+        className="relative py-24 md:py-32 overflow-hidden bg-brand-dark" 
+        id="projects-hero"
+        initial="hidden"
+        animate="visible"
+        whileInView={undefined}
+        viewport={undefined}
+      >
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={heroBg} 
+            alt="Utility Projects & Operational Delivery" 
+            className="w-full h-full object-cover opacity-60"
+          />
+          {/* Brand dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-[#032879]/70 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-10" />
+        </div>
+
+        {/* Hero Content */}
+        <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 text-center lg:text-left">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/20 border border-brand-primary/30 text-blue-300 text-sm font-semibold tracking-wider uppercase mb-6 font-outfit">
+            Operational Excellence
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white max-w-4xl tracking-tight leading-tight font-outfit mb-6">
+            Utility Projects & Operational Delivery
+          </h1>
+          <p className="text-slate-200 text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed font-sans font-medium">
+            Discover our structured delivery process and key execution steps that enable us to scale and maintain premium service across all UK utility networks.
           </p>
         </div>
+      </MotionSection>
 
-        {/* Process Steps */}
-        <div className="max-w-6xl mx-auto">
-          {/* First Row: 4 Items */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 lg:mb-20">
-            {steps.slice(0, 4).map((step, index) => (
-              <div key={index} className="group relative flex flex-col items-center">
-                {/* Arrow - Desktop Only (except for last in row) */}
-                {index < 3 && (
-                  <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-16 text-brand-primary/20">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </div>
-                )}
-                
-                <div className="mb-6 w-14 h-14 rounded-full bg-brand-primary text-white shadow-lg flex items-center justify-center z-10 font-bold text-lg">
-                   {step.number}
-                </div>
-
-                <div className="w-full bg-slate-50 p-6 rounded-2xl border border-gray-100 group-hover:bg-white group-hover:shadow-xl group-hover:shadow-brand-primary/5 transition-all duration-300 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 shrink-0 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
-                    {step.icon}
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-2 h-12 flex items-center">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+      {/* 2. Original Delivery Process steps */}
+      <MotionSection as="section" className="py-24 bg-white overflow-hidden" id="operational-delivery">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <div className="mb-20 text-center lg:text-left">
+            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4 font-outfit">
+              Operational Delivery Process
+            </h2>
+            <div className="h-1.5 w-24 bg-brand-primary rounded-full mb-6 mx-auto lg:mx-0"></div>
+            <p className="text-gray-600 text-lg max-w-2xl leading-relaxed font-sans font-medium">
+              Our structured approach ensures precision, safety, and efficiency at every stage of the utility project lifecycle.
+            </p>
           </div>
 
-          {/* Second Row: 3 Items */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            {steps.slice(4).map((step, index) => (
-              <div key={index} className="group relative flex flex-col items-center">
-                {/* Arrow - Desktop Only */}
-                {index < 2 && (
-                  <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-16 text-brand-primary/20">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
+          {/* Process Steps */}
+          <div className="max-w-6xl mx-auto">
+            {/* First Row: 4 Items */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12 lg:mb-20">
+              {steps.slice(0, 4).map((step, index) => (
+                <div key={index} className="group relative flex flex-col items-center">
+                  {/* Arrow - Desktop Only (except for last in row) */}
+                  {index < 3 && (
+                    <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-16 text-brand-primary/20">
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </div>
+                  )}
+                  
+                  <div className="mb-6 w-14 h-14 rounded-full bg-brand-primary text-white shadow-lg flex items-center justify-center z-10 font-bold text-lg font-outfit">
+                     {step.number}
                   </div>
-                )}
 
-                <div className="mb-6 w-14 h-14 rounded-full bg-brand-primary text-white shadow-lg flex items-center justify-center z-10 font-bold text-lg">
-                   {step.number}
-                </div>
-
-                <div className="w-full bg-slate-50 p-6 rounded-2xl border border-gray-100 group-hover:bg-white group-hover:shadow-xl group-hover:shadow-brand-primary/5 transition-all duration-300 flex flex-col items-center text-center">
-                  <div className="w-16 h-16 shrink-0 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
-                    {step.icon}
+                  <div className="w-full bg-slate-50 p-6 rounded-2xl border border-gray-100 group-hover:bg-white group-hover:shadow-xl group-hover:shadow-brand-primary/5 transition-all duration-300 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 shrink-0 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                      {step.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-2 h-12 flex items-center font-outfit">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed font-sans font-medium">
+                      {step.desc}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-2 h-12 flex items-center">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">
-                    {step.desc}
-                  </p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            {/* Second Row: 3 Items */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {steps.slice(4).map((step, index) => (
+                <div key={index} className="group relative flex flex-col items-center">
+                  {/* Arrow - Desktop Only */}
+                  {index < 2 && (
+                    <div className="hidden lg:block absolute -right-4 top-1/2 -translate-y-16 text-brand-primary/20">
+                      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                      </svg>
+                    </div>
+                  )}
+
+                  <div className="mb-6 w-14 h-14 rounded-full bg-brand-primary text-white shadow-lg flex items-center justify-center z-10 font-bold text-lg font-outfit">
+                     {step.number}
+                  </div>
+
+                  <div className="w-full bg-slate-50 p-6 rounded-2xl border border-gray-100 group-hover:bg-white group-hover:shadow-xl group-hover:shadow-brand-primary/5 transition-all duration-300 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 shrink-0 rounded-xl bg-white shadow-sm flex items-center justify-center text-brand-primary mb-4 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                      {step.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 tracking-tight mb-2 h-12 flex items-center font-outfit">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-500 text-sm leading-relaxed font-sans font-medium">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-    </MotionSection>
+      </MotionSection>
+
+      {/* 3. Bottom CTA Banner */}
+      <MotionSection 
+        as="section" 
+        className="relative overflow-hidden py-24 px-6 sm:px-12 md:px-24 text-center font-sans border-t border-slate-100"
+        id="projects-cta"
+      >
+        {/* Background image container with subtle parallax zoom */}
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <motion.div
+            initial={{ scale: 1.1 }}
+            whileInView={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: 'easeOut' }}
+            style={{ backgroundImage: `url(${ctaBg})` }}
+            className="w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 filter brightness-[0.35]"
+          />
+          {/* Modern dark gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/85 to-transparent z-10 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent z-10 opacity-70" />
+        </div>
+
+        {/* Content wrapper */}
+        <div className="relative z-20 max-w-4xl mx-auto flex flex-col items-center justify-center text-white">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary text-white text-[10px] sm:text-xs font-black uppercase tracking-widest mb-6 font-outfit">
+            Partner With Us
+          </span>
+          
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
+            Need Reliable Project <span className="text-brand-primary">Execution</span> Support?
+          </h2>
+
+          <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed font-medium">
+            From smart meter rollouts to utility infrastructure support, our workforce is ready to deploy with maximum safety and efficiency. Relied upon for structured compliance and operational excellence across the UK.
+          </p>
+
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 bg-brand-primary hover:bg-white hover:text-brand-dark text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm uppercase tracking-widest font-outfit shadow-2xl active:scale-95 group border-2 border-brand-primary hover:border-white"
+          >
+            <span>Contact Our Team</span>
+            <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>
+          </Link>
+        </div>
+      </MotionSection>
+    </div>
   );
 };
 

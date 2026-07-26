@@ -37,7 +37,15 @@ const roles = [
 
 const Workforce = () => {
   return (
-    <MotionSection as="section" className="py-20 bg-[#fafafa]" id="workforce">
+    <MotionSection 
+      as="section" 
+      className="py-20 bg-[#fafafa]" 
+      id="workforce"
+      initial="hidden"
+      animate="visible"
+      whileInView={undefined}
+      viewport={undefined}
+    >
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header Section */}

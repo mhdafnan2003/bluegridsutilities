@@ -22,6 +22,7 @@ import WhatWeAre from './components/WhatWeAre';
 import SustainabilityBanner from './components/SustainabilityBanner';
 import JoinTeamBanner from './components/JoinTeamBanner';
 import GetInTouch from './components/GetInTouch';
+import PartnerLogos from './components/PartnerLogos';
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -54,6 +55,7 @@ const HomePage = () => (
     <WhatWeDo />
     <SustainabilityBanner />
     <OperationalCoverage />
+    <PartnerLogos />
     <JoinTeamBanner />
     <GetInTouch />
   </>
