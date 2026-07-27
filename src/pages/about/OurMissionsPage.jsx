@@ -15,6 +15,10 @@ const OurMissionsPage = () => {
         as="section" 
         className="pb-16 md:pb-24 bg-white" 
         id="our-missions"
+        initial="hidden"
+        animate="visible"
+        whileInView={undefined}
+        viewport={undefined}
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           

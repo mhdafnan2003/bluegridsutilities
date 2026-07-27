@@ -45,7 +45,7 @@ const Header = () => {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 flex justify-between items-center">
           {/* Logo Area */}
-          <Link className="flex items-center" to="/#">
+          <Link className="flex items-center" to="/">
             <img src={logo} alt="BlueGrid Utilities Logo" className="h-10 md:h-12 w-auto object-contain" />
           </Link>
 
@@ -113,7 +113,7 @@ const Header = () => {
           {/* Logo container (only visible on scroll) */}
           {isScrolled && (
             <div className="flex items-center py-4 mr-4 lg:mr-8 xl:mr-12 shrink-0">
-              <Link className="flex items-center gap-2" to="/#">
+              <Link className="flex items-center gap-2" to="/">
                 <img src={logo} alt="BlueGrid Utilities Logo" className="h-10 w-auto object-contain" />
               </Link>
             </div>
@@ -125,7 +125,8 @@ const Header = () => {
               if (link.label === 'About') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
-                    <span
+                    <Link
+                      to={link.to}
                       className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
@@ -137,7 +138,7 @@ const Header = () => {
                         keyboard_arrow_down
                       </span>
                       <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                    </span>
+                    </Link>
 
                     {/* Dropdown Menu */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[20rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
@@ -151,13 +152,13 @@ const Header = () => {
                           { label: "On Board & Directors", to: "/about/directors" },
                           { label: "Our Policies", to: "/about/policies" }
                         ].map((item, index) => (
-                          <a
+                          <Link
                             key={index}
-                            href={item.to}
+                            to={item.to}
                             className="px-6 py-3 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -168,7 +169,8 @@ const Header = () => {
               if (link.label === 'Services') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
-                    <span
+                    <Link
+                      to={link.to}
                       className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
@@ -180,7 +182,7 @@ const Header = () => {
                         keyboard_arrow_down
                       </span>
                       <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                    </span>
+                    </Link>
 
                     {/* Dropdown Menu */}
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[24rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
@@ -193,13 +195,13 @@ const Header = () => {
                           { label: "Compliance & Onboarding", to: "/services?select=compliance" },
                           { label: "Training Coordination & Deployment Planning", to: "/services?select=training" }
                         ].map((item, index) => (
-                          <a
+                          <Link
                             key={index}
-                            href={item.to}
+                            to={item.to}
                             className="px-6 py-3 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
                           >
                             {item.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -208,9 +210,9 @@ const Header = () => {
               }
 
               return (
-                <a
+                <Link
                   key={link.label}
-                  href={link.to}
+                  to={link.to}
                   className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center relative group px-1 lg:px-2 ${
                     isActive(link.to) 
                       ? 'text-[#005f9e]' 
@@ -219,7 +221,7 @@ const Header = () => {
                 >
                   {link.label}
                   <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -227,12 +229,12 @@ const Header = () => {
           {/* Right CTA / Hamburger Menu */}
           <div className={`flex items-center gap-4 ml-4 lg:ml-8 xl:ml-12 shrink-0 transition-all duration-300 ${isScrolled ? 'mr-6 lg:mr-12 xl:mr-16' : 'mr-0'}`}>
             {/* Join Our Workforce Button */}
-            <a
-              href="/career"
+            <Link
+              to="/career"
               className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-4 py-5 lg:px-6 xl:px-8 font-bold uppercase text-[10px] lg:text-xs xl:text-sm font-outfit tracking-widest flex items-center justify-center h-full border-l border-[#d2e5f5]/50"
             >
               Join Our Workforce
-            </a>
+            </Link>
 
             {/* Mobile Hamburger toggle */}
             <div className="lg:hidden flex items-center py-4">
@@ -298,9 +300,9 @@ const Header = () => {
                                 { label: "On Board & Directors", to: "/about/directors" },
                                 { label: "Our Policies", to: "/about/policies" }
                               ].map((item, index) => (
-                                <a
+                                <Link
                                   key={index}
-                                  href={item.to}
+                                  to={item.to}
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setIsMobileAboutOpen(false);
@@ -308,7 +310,7 @@ const Header = () => {
                                   className="hover:text-[#005f9e] transition-colors py-1 block text-left"
                                 >
                                   {item.label}
-                                </a>
+                                </Link>
                               ))}
                             </motion.div>
                           )}
@@ -349,9 +351,9 @@ const Header = () => {
                                 { label: "Compliance & Onboarding", to: "/services?select=compliance" },
                                 { label: "Training Coordination & Deployment Planning", to: "/services?select=training" }
                               ].map((item, index) => (
-                                <a
+                                <Link
                                   key={index}
-                                  href={item.to}
+                                  to={item.to}
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setIsMobileServicesOpen(false);
@@ -359,7 +361,7 @@ const Header = () => {
                                   className="hover:text-[#005f9e] transition-colors py-1 block text-left"
                                 >
                                   {item.label}
-                                </a>
+                                </Link>
                               ))}
                             </motion.div>
                           )}
@@ -369,9 +371,9 @@ const Header = () => {
                   }
 
                   return (
-                    <a
+                    <Link
                       key={link.label}
-                      href={link.to}
+                      to={link.to}
                       onClick={() => setIsMenuOpen(false)}
                       className={`transition-colors py-2.5 border-b flex items-center justify-between ${
                         isScrolled 
@@ -381,7 +383,7 @@ const Header = () => {
                     >
                       <span>{link.label}</span>
                       <span className="text-[#005f9e] text-xs">➔</span>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
