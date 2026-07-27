@@ -21,6 +21,7 @@ import WhatWeAre from './components/WhatWeAre';
 import WhyChooseBlueGrid from './components/WhyChooseBlueGrid';
 import SustainabilityBanner from './components/SustainabilityBanner';
 import JoinTeamBanner from './components/JoinTeamBanner';
+import PartnerLogos from './components/PartnerLogos';
 import GetInTouch from './components/GetInTouch';
 import AboutCompanyPage from './pages/about/AboutCompanyPage';
 import OurMissionsPage from './pages/about/OurMissionsPage';
