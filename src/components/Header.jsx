@@ -11,6 +11,7 @@ const Header = () => {
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isMobileHealthSafetyOpen, setIsMobileHealthSafetyOpen] = useState(false);
+  const [isMobileNewsOpen, setIsMobileNewsOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -262,6 +263,8 @@ const Header = () => {
                 );
               }
 
+
+
               return (
                 <Link
                   key={link.label}
@@ -431,6 +434,8 @@ const Header = () => {
                       </div>
                     );
                   }
+
+
 
                   if (link.label === 'Services') {
                     return (
