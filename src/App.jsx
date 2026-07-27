@@ -17,12 +17,19 @@ import ApplyPage from './pages/ApplyPage';
 import Management from './components/Management';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import WhatWeDo from './components/WhatWeDo';
 import WhatWeAre from './components/WhatWeAre';
+import WhyChooseBlueGrid from './components/WhyChooseBlueGrid';
 import SustainabilityBanner from './components/SustainabilityBanner';
 import JoinTeamBanner from './components/JoinTeamBanner';
-import GetInTouch from './components/GetInTouch';
 import PartnerLogos from './components/PartnerLogos';
+import GetInTouch from './components/GetInTouch';
+import AboutCompanyPage from './pages/about/AboutCompanyPage';
+import OurMissionsPage from './pages/about/OurMissionsPage';
+import OurVisionsPage from './pages/about/OurVisionsPage';
+import OurHistoryPage from './pages/about/OurHistoryPage';
+import AccreditationsPage from './pages/about/AccreditationsPage';
+import BoardDirectorsPage from './pages/about/BoardDirectorsPage';
+import OurPoliciesPage from './pages/about/OurPoliciesPage';
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -51,13 +58,12 @@ const HomePage = () => (
   <>
     <Hero />
     <FeatureCards />
+    <WhyChooseBlueGrid />
     <WhatWeAre />
-    <WhatWeDo />
-    <SustainabilityBanner />
-    <OperationalCoverage />
     <PartnerLogos />
     <JoinTeamBanner />
-    <GetInTouch />
+    <OperationalCoverage />
+    <SustainabilityBanner />
   </>
 );
 
@@ -153,7 +159,67 @@ const AnimatedRoutes = () => {
           element={
             <PageTransition>
               <PageWrapper>
-                <AboutPage />
+                <AboutCompanyPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about/missions"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <OurMissionsPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about/visions"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <OurVisionsPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about/history"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <OurHistoryPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about/accreditations"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <AccreditationsPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about/directors"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <BoardDirectorsPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/about/policies"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <OurPoliciesPage />
               </PageWrapper>
             </PageTransition>
           }

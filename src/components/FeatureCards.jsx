@@ -5,7 +5,7 @@ import img4 from '../assets/images/Telecoms and field operations support.jfif';
 import img5 from '../assets/images/updated/img 6.jpg';
 import img6 from '../assets/images/updated/Compliance & Onboarding.avif';
 import img7 from '../assets/images/Training coordination and deployment planning.jpg';
-import img8 from '../assets/images/Sectors/watermeter.jpeg';
+import img8 from '../assets/images/water meter suoort bluegrids.jpeg';
 
 const services = [
   { 
@@ -90,8 +90,21 @@ const FeatureCards = () => {
   };
 
   return (
-    <section className="relative z-30 bg-brand-light py-16 border-b border-brand-primary/10">
+    <section className="relative z-30 bg-brand-light py-20 border-b border-brand-primary/10">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+        {/* Section Header */}
+        <div className="mb-14 text-center max-w-3xl mx-auto">
+          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
+            OUR CORE SERVICES
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase font-outfit leading-tight mb-4">
+            SPECIALIST INFRASTRUCTURE & FIELD SUPPORT SERVICES
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base leading-relaxed font-medium">
+            Providing end-to-end operational delivery, smart metering coordination, workforce onboarding, and compliant field execution across major UK utility networks.
+          </p>
+        </div>
+
         {/* Cards Grid with Blink Animation */}
         <div className="relative min-h-[400px] md:min-h-[480px]">
           <motion.div 
@@ -108,7 +121,7 @@ const FeatureCards = () => {
               <motion.div
                 key={index}
                 variants={cardVariants}
-                className="bg-white text-gray-800 shadow-lg hover:shadow-2xl hover:shadow-brand-primary/5 flex flex-col h-full overflow-hidden border border-gray-100 group hover:-translate-y-3 transition-all duration-300"
+                className="bg-white text-gray-800 shadow-lg hover:shadow-2xl hover:shadow-brand-primary/5 flex flex-col h-full overflow-hidden border border-gray-200 rounded-none group hover:-translate-y-2 transition-all duration-300"
               >
                 {/* Card Image Wrapper */}
                 <div className="relative overflow-hidden h-52 sm:h-60 bg-gray-900">
@@ -124,7 +137,7 @@ const FeatureCards = () => {
                 {/* Card Content */}
                 <div className="p-8 flex-grow flex flex-col justify-between">
                   <div className="text-left">
-                    <h3 className="text-lg lg:text-xl font-extrabold uppercase font-outfit text-[#111111] mb-3 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
+                    <h3 className="text-lg lg:text-xl font-bold uppercase font-outfit text-[#111111] mb-3 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
                       {card.title}
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed mb-6 font-medium">

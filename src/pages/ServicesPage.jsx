@@ -226,7 +226,7 @@ const ServicesPage = () => {
                 <span className="inline-block px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-widest mb-4 font-outfit">
                   Service {service.num}
                 </span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#1a202c] leading-tight font-outfit uppercase">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a202c] leading-tight font-outfit uppercase">
                   {service.title}
                 </h1>
               </div>
