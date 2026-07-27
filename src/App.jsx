@@ -86,7 +86,7 @@ const ProjectsPage = () => (
   </>
 );
 
-const SustainabilityPage = () => (
+const HealthSafetyPage = () => (
   <>
     <HealthSafetyCompliance />
   </>
@@ -242,11 +242,21 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/sustainability"
+          path="/health-safety"
           element={
             <PageTransition>
               <PageWrapper>
-                <SustainabilityPage />
+                <HealthSafetyPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/health-safety/environmental-protection"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <HealthSafetyPage />
               </PageWrapper>
             </PageTransition>
           }
