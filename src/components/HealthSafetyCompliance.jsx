@@ -412,7 +412,7 @@ const HealthSafetyCompliance = () => {
         whileInView={undefined}
         viewport={undefined}
       >
-        <div className="relative rounded-none overflow-hidden bg-brand-dark p-8 md:p-14 lg:p-20 text-white shadow-2xl border-l-8 border-l-[#005f9e] border-y border-r border-slate-800">
+        <div className="relative rounded-none overflow-hidden bg-brand-dark p-8 md:p-14 lg:p-20 text-white shadow-2xl border border-slate-800">
           {/* Background Image with Gradient Overlay */}
           <div className="absolute inset-0 z-0">
             <img 
@@ -443,15 +443,15 @@ const HealthSafetyCompliance = () => {
 
             {/* Quick Hero Highlights Bar */}
             <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl">
-              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left border-l-2 border-l-blue-400">
+              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
                 <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Standards</p>
                 <p className="text-xs md:text-sm font-bold text-white">ISO 45001 & 14001</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left border-l-2 border-l-emerald-400">
+              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
                 <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Target</p>
                 <p className="text-xs md:text-sm font-bold text-emerald-400">Zero Harm Operations</p>
               </div>
-              <div className="col-span-2 sm:col-span-1 bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left border-l-2 border-l-blue-400">
+              <div className="col-span-2 sm:col-span-1 bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
                 <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Accreditation</p>
                 <p className="text-xs md:text-sm font-bold text-white">NRSWA & EUSR</p>
               </div>
@@ -464,12 +464,12 @@ const HealthSafetyCompliance = () => {
       <MotionSection as="section" className="max-w-[1400px] mx-auto px-6 lg:px-10 py-6 space-y-12">
         
         {/* Executive Overview Box */}
-        <div className="bg-white border border-slate-250 rounded-none p-8 md:p-12 lg:p-16 shadow-xl border-l-8 border-l-[#005f9e]">
+        <div className="bg-white border border-slate-200 rounded-none p-8 md:p-12 lg:p-16 shadow-xl">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             
             {/* Left Narrative */}
             <div className="lg:col-span-7 text-left space-y-6">
-              <div className="w-14 h-14 rounded-none bg-brand-primary/10 text-brand-primary flex items-center justify-center border-l-2 border-l-brand-primary">
+              <div className="w-14 h-14 rounded-none bg-brand-primary/10 text-brand-primary flex items-center justify-center">
                 <span className="material-symbols-outlined text-3xl font-bold">{currentSection.icon}</span>
               </div>
               
@@ -506,7 +506,7 @@ const HealthSafetyCompliance = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 text-left text-white">
-                  <span className="px-3 py-1 rounded-none bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-wider font-outfit border-l-2 border-l-white">
+                  <span className="px-3 py-1 rounded-none bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-wider font-outfit">
                     Active Standard
                   </span>
                   <p className="text-lg font-bold font-outfit mt-2">{currentSection.title}</p>
@@ -520,7 +520,7 @@ const HealthSafetyCompliance = () => {
         {/* Operational Pillars Grid Box */}
         <div className="space-y-8 text-left">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-xs md:text-sm font-bold tracking-wide mb-3 font-outfit uppercase border-l-2 border-l-brand-primary">
+            <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-xs md:text-sm font-bold tracking-wide mb-3 font-outfit uppercase">
               Core Protocols
             </span>
             <h3 className="text-3xl md:text-4xl font-bold text-brand-dark font-outfit">
@@ -535,13 +535,13 @@ const HealthSafetyCompliance = () => {
             {currentSection.pillars.map((pillar) => (
               <div 
                 key={pillar.id}
-                className="bg-white border border-slate-200/80 rounded-none p-8 md:p-10 shadow-lg hover:shadow-2xl hover:border-brand-primary/30 transition-all duration-300 flex flex-col justify-between space-y-6 relative overflow-hidden group border-l-4 border-l-[#005f9e]"
+                className="bg-white border border-slate-200/80 rounded-none p-8 md:p-10 shadow-lg hover:shadow-2xl hover:border-brand-primary/30 transition-all duration-300 flex flex-col justify-between space-y-6 relative overflow-hidden group"
               >
                 <span className="absolute top-4 right-8 text-7xl font-black text-slate-100 group-hover:text-slate-200/60 transition-colors pointer-events-none font-outfit">
                   {pillar.id}
                 </span>
 
-                <div className="w-14 h-14 rounded-none bg-blue-50 text-brand-primary flex items-center justify-center group-hover:bg-[#005f9e] group-hover:text-white transition-all duration-300 z-10 border-l-2 border-l-brand-primary">
+                <div className="w-14 h-14 rounded-none bg-blue-50 text-brand-primary flex items-center justify-center group-hover:bg-[#005f9e] group-hover:text-white transition-all duration-300 z-10">
                   <span className="material-symbols-outlined text-2xl font-bold">{pillar.icon}</span>
                 </div>
 
@@ -560,13 +560,13 @@ const HealthSafetyCompliance = () => {
 
         {/* Special Sustainability & Local Recruitment Cards when Environmental Protection is active */}
         {activeTab === 'environmental-protection' && (
-          <div className="bg-emerald-950 text-white rounded-none p-8 md:p-14 lg:p-16 shadow-2xl relative overflow-hidden space-y-12 border-l-8 border-l-emerald-500 border-y border-r border-emerald-900">
+          <div className="bg-emerald-950 text-white rounded-none p-8 md:p-14 lg:p-16 shadow-2xl relative overflow-hidden space-y-12 border border-emerald-900">
             <div className="absolute inset-0 opacity-20 pointer-events-none">
               <img src={environmentalPolicyBg} alt="Background" className="w-full h-full object-cover" />
             </div>
 
             <div className="relative z-10 max-w-3xl text-left space-y-4">
-              <span className="px-4 py-1.5 rounded-none bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold tracking-wider font-outfit uppercase border-l-2 border-l-emerald-400">
+              <span className="px-4 py-1.5 rounded-none bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold tracking-wider font-outfit uppercase">
                 Eco-Friendly Operations
               </span>
               <h3 className="text-3xl md:text-5xl font-bold text-white font-outfit">
@@ -578,7 +578,7 @@ const HealthSafetyCompliance = () => {
             </div>
 
             <div className="relative z-10 grid md:grid-cols-2 gap-8 text-left">
-              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-8 space-y-4 border-l-4 border-l-emerald-400">
+              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-8 space-y-4">
                 <div className="w-12 h-12 rounded-none bg-emerald-400/20 text-emerald-300 flex items-center justify-center">
                   <span className="material-symbols-outlined text-2xl">co2</span>
                 </div>
@@ -588,7 +588,7 @@ const HealthSafetyCompliance = () => {
                 </p>
               </div>
 
-              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-8 space-y-4 border-l-4 border-l-emerald-400">
+              <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-8 space-y-4">
                 <div className="w-12 h-12 rounded-none bg-emerald-400/20 text-emerald-300 flex items-center justify-center">
                   <span className="material-symbols-outlined text-2xl">diversity_3</span>
                 </div>
@@ -602,9 +602,9 @@ const HealthSafetyCompliance = () => {
         )}
 
         {/* Regulatory & Audit Checklist Banner Box */}
-        <div className="bg-gradient-to-br from-brand-dark via-[#0f3a5e] to-[#005f9e] rounded-none p-8 md:p-12 lg:p-16 text-white shadow-2xl text-left space-y-8 relative overflow-hidden border-l-8 border-l-blue-400">
+        <div className="bg-gradient-to-br from-brand-dark via-[#0f3a5e] to-[#005f9e] rounded-none p-8 md:p-12 lg:p-16 text-white shadow-2xl text-left space-y-8 relative overflow-hidden">
           <div className="relative z-10 max-w-3xl space-y-3">
-            <span className="px-4 py-1.5 rounded-none bg-white/15 text-blue-200 text-xs font-bold tracking-wider font-outfit uppercase border-l-2 border-l-white">
+            <span className="px-4 py-1.5 rounded-none bg-white/15 text-blue-200 text-xs font-bold tracking-wider font-outfit uppercase">
               Compliance Checklist
             </span>
             <h3 className="text-2xl md:text-4xl font-bold text-white font-outfit">
@@ -617,7 +617,7 @@ const HealthSafetyCompliance = () => {
 
           <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
             {currentSection.checklist.map((item, idx) => (
-              <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-5 flex items-start gap-4 border-l-2 border-l-emerald-400">
+              <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-5 flex items-start gap-4">
                 <div className="w-8 h-8 rounded-none bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
                   <span className="material-symbols-outlined text-lg font-bold">check_circle</span>
                 </div>

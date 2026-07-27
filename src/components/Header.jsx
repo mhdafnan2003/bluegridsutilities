@@ -229,7 +229,7 @@ const Header = () => {
                     </Link>
 
                     {/* Health & Safety Dropdown Menu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[38rem] bg-white border border-slate-100 shadow-2xl rounded-none p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border-l-4 border-l-[#005f9e]">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[38rem] bg-white border border-slate-100 shadow-2xl rounded-none p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="grid grid-cols-2 gap-x-2">
                         {[
                           { label: "Health & Safety Policy", to: "/health-safety/policy" },
@@ -251,7 +251,7 @@ const Header = () => {
                           <Link
                             key={index}
                             to={item.to}
-                            className="px-4 py-2 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap rounded-r-lg"
+                            className="px-4 py-2 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
                           >
                             {item.label}
                           </Link>
