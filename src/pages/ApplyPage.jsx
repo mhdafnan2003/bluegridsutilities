@@ -153,9 +153,15 @@ const ApplyPage = () => {
               label="Select Position"
               required
               options={[
-                'Water Meter Technician', 'Smart Meter Technician', 'Field Operative',
-                'Utility Operative', 'Project Coordinator', 'Assistant Project Manager',
-                'Supervisor', 'Data Analyst', 'General Workforce Registration'
+                'Water Meter Technician',
+                'Supervisor',
+                'Project Coordinator',
+                'Operations Manager',
+                'Commercial Assistant',
+                'Administrator',
+                'Project Manager',
+                'Health & Safety Advisor',
+                'Commercial Manager'
               ]}
             />
           </div>

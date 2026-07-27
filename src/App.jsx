@@ -30,6 +30,7 @@ import OurHistoryPage from './pages/about/OurHistoryPage';
 import AccreditationsPage from './pages/about/AccreditationsPage';
 import BoardDirectorsPage from './pages/about/BoardDirectorsPage';
 import OurPoliciesPage from './pages/about/OurPoliciesPage';
+import CareerPage from './pages/CareerPage';
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -92,12 +93,7 @@ const HealthSafetyPage = () => (
   </>
 );
 
-const CareerPage = () => (
-  <>
-    <Workforce />
-    <TrainingDevelopment />
-  </>
-);
+
 
 const NewsPage = () => (
   <>
