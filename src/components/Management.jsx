@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import MotionSection from './MotionSection';
 import selbertImg from '../assets/images/updated/SELBERT GEORGE.jpeg';
 import gauthamImg from '../assets/images/updated/And goutham raj.jpeg';
@@ -21,27 +22,159 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const team = [
+const departmentTeams = [
   {
-    name: "SELBERT GEORGE",
-    role: "Managing Director",
-    desc: "Selbert George is the Managing Director of Bluegrid Utilities, leading operational development, workforce coordination, infrastructure deployment, and project delivery across utility operations within the UK.\nHe holds a Master's degree in International Business Management from Griffith College Dublin, Ireland, and has experience in operational management, workforce coordination, and infrastructure project support.\nHis focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure support services.",
-    img: selbertImg,
-    social: { linkedin: "#", facebook: "#", instagram: "#" }
+    id: "directors",
+    name: "Directors",
+    badge: "EXECUTIVE DIRECTORS",
+    members: [
+      {
+        name: "SELBERT GEORGE",
+        role: "Managing Director",
+        desc: "Selbert George is the Managing Director of Bluegrid Utilities, leading operational development, workforce coordination, infrastructure deployment, and project delivery across utility operations within the UK.\nHe holds a Master's degree in International Business Management from Griffith College Dublin, Ireland, and has experience in operational management, workforce coordination, and infrastructure project support.\nHis focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure support services.",
+        img: selbertImg,
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      },
+      {
+        name: "GAUTHAM RAJ",
+        role: "Project Manager & Head of Operations",
+        desc: "Responsible for high-level operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects across the UK water and utility sectors.",
+        img: gauthamImg,
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      }
+    ]
   },
   {
-    name: "GAUTHAM RAJ",
-    role: "Project Manager & Head of Operations",
-    desc: "Responsible for high-level operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects across the UK water and utility sectors.",
-    img: gauthamImg,
-    social: { linkedin: "#", facebook: "#", instagram: "#" }
+    id: "operations",
+    name: "Operations",
+    badge: "OPERATIONS TEAM",
+    members: [
+      {
+        name: "ALEXANDER WRIGHT",
+        role: "Head of Operations",
+        desc: "Overseeing field force dispatch, regional logistics coordination, operative scheduling, and operational delivery across utility programmes.",
+        img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      },
+      {
+        name: "SARAH JENKINS",
+        role: "Operations Dispatch Manager",
+        desc: "Managing day-to-day field operative routing, vehicle fleet logistics, emergency response dispatch, and SLA fulfillment.",
+        img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      }
+    ]
+  },
+  {
+    id: "commercial",
+    name: "Commercial",
+    badge: "COMMERCIAL TEAM",
+    members: [
+      {
+        name: "DAVID MILLER",
+        role: "Commercial Director",
+        desc: "Leading contract negotiations, commercial valuations, client cost engineering, and risk management for UK utility contracts.",
+        img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      },
+      {
+        name: "EMMA THOMPSON",
+        role: "Senior Estimator & Procurement Lead",
+        desc: "Managing tendering processes, subcontractor agreements, plant procurement, and commercial compliance.",
+        img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      }
+    ]
+  },
+  {
+    id: "project-delivery",
+    name: "Project Delivery",
+    badge: "PROJECT DELIVERY TEAM",
+    members: [
+      {
+        name: "JAMES HARRISON",
+        role: "Project Delivery Manager",
+        desc: "Supervising clean water meter installation rollouts, excavation quality control, surface reinstatement, and zero-defect site handovers.",
+        img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      },
+      {
+        name: "CLAIRE ROBERTS",
+        role: "Site Operations Supervisor",
+        desc: "Coordinating field teams, managing NRSWA streetworks compliance, site safety barriers, and local council permits.",
+        img: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      }
+    ]
+  },
+  {
+    id: "health-safety",
+    name: "Health & Safety",
+    badge: "HEALTH & SAFETY TEAM",
+    members: [
+      {
+        name: "MICHAEL BENNETT",
+        role: "HSE Compliance Manager",
+        desc: "Enforcing zero-harm policies, auditing RAMS documentation, conducting site safety inspections, and verifying CSCS/EUSR credentials.",
+        img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      },
+      {
+        name: "LISA MORGAN",
+        role: "Environmental & Safety Auditor",
+        desc: "Managing environmental compliance, carbon reduction initiatives, site waste management, and safety toolbox talk registers.",
+        img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      }
+    ]
+  },
+  {
+    id: "recruitment",
+    name: "Recruitment",
+    badge: "RECRUITMENT & ONBOARDING",
+    members: [
+      {
+        name: "ROBERT TAYLOR",
+        role: "Head of Resourcing",
+        desc: "Managing workforce resourcing, Right-to-Work verification, candidate screening, and operative deployment across UK sites.",
+        img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      },
+      {
+        name: "HANNAH WALKER",
+        role: "Compliance & Onboarding Specialist",
+        desc: "Verifying EUSR status, CSCS cards, training qualifications, and coordinating operative onboarding inductions.",
+        img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      }
+    ]
+  },
+  {
+    id: "administration",
+    name: "Administration",
+    badge: "ADMINISTRATION TEAM",
+    members: [
+      {
+        name: "SOPHIA CHEN",
+        role: "Business Administration Lead",
+        desc: "Managing back-office operations, client documentation archives, executive scheduling, and administrative logistics.",
+        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      },
+      {
+        name: "OLIVER SCOTT",
+        role: "Client Reporting & Appointment Coordinator",
+        desc: "Coordinating customer appointment bookings, updating real-time client dashboards, and handling resident communications.",
+        img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=600",
+        social: { linkedin: "#", facebook: "#", instagram: "#" }
+      }
+    ]
   }
 ];
 
 const MemberCard = ({ member }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
-
   const isOpen = isHovered || isClicked;
 
   return (
@@ -53,15 +186,15 @@ const MemberCard = ({ member }) => {
     >
       <div className="relative flex flex-col rounded-none overflow-hidden bg-white shadow-xl h-full border border-slate-200 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#005f9e]">
         
-        {/* Social Icons Overlay - Boxy */}
+        {/* Social Icons Overlay */}
         <div className={`absolute top-4 right-4 flex flex-col gap-2 transition-all duration-300 z-20 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
+          <a href={member.social?.linkedin || '#'} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
             <LinkedInIcon />
           </a>
-          <a href={member.social.facebook} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
+          <a href={member.social?.facebook || '#'} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
             <FacebookIcon />
           </a>
-          <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
+          <a href={member.social?.instagram || '#'} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
             <InstagramIcon />
           </a>
         </div>
@@ -71,7 +204,7 @@ const MemberCard = ({ member }) => {
           <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src={member.img} />
         </div>
         
-        {/* Content Overlay - Height adjusted for Uniform Alignment with slide-up effect (Boxy) */}
+        {/* Content Overlay */}
         <div className={`bg-white p-6 sm:p-8 absolute bottom-0 left-0 right-0 z-10 rounded-none border-t border-slate-200 flex flex-col justify-start h-[370px] sm:h-[400px] transition-all duration-500 ease-out ${isOpen ? 'translate-y-0' : 'translate-y-[260px] sm:translate-y-[300px]'}`}>
           <div className="mb-3">
             <h3 className="text-xl sm:text-2xl text-[#0f3a5e] font-bold tracking-tight uppercase leading-none mb-2 font-outfit">{member.name}</h3>
@@ -90,28 +223,100 @@ const MemberCard = ({ member }) => {
 };
 
 const Management = () => {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const activeDeptId = searchParams.get('dept') || 'all';
+
+  const handleTabClick = (id) => {
+    if (id === 'all') {
+      searchParams.delete('dept');
+      setSearchParams(searchParams);
+    } else {
+      setSearchParams({ dept: id });
+    }
+  };
+
+  const filteredDepartments = activeDeptId === 'all'
+    ? departmentTeams
+    : departmentTeams.filter(d => d.id === activeDeptId);
+
   return (
-    <MotionSection as="section" className="py-20 md:py-24 bg-[#f8fafc] border-t border-slate-200 font-sans relative overflow-hidden" id="management">
+    <MotionSection 
+      as="section" 
+      className="py-16 md:py-24 bg-[#f8fafc] font-sans relative overflow-hidden" 
+      id="management"
+    >
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+        
         {/* Header Section */}
-        <div className="mb-14 text-center max-w-3xl mx-auto">
-          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20">
-            LEADERSHIP PROFILE
+        <div className="mb-12 text-center max-w-3xl mx-auto">
+          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20 font-outfit">
+            TEAM ROSTER BY DEPARTMENT
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight mb-4">
-            LEADERSHIP & MANAGEMENT
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight mb-4 font-outfit">
+            LEADERSHIP & DEPARTMENTAL TEAMS
           </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
-            Experienced operational leadership driving workforce coordination, compliance standards, infrastructure deployment, and project delivery across UK utility operations.
+            Explore Bluegrid Utilities' executive directors and multi-disciplinary operational team members across all departments.
           </p>
         </div>
 
-        {/* Leadership Cards Stack */}
-        <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
-          {team.map((member, idx) => (
-            <MemberCard key={idx} member={member} />
+        {/* Department Filter Tabs Bar */}
+        <div className="flex items-center justify-start md:justify-center overflow-x-auto gap-2 pb-6 mb-16 border-b border-slate-200 no-scrollbar">
+          <button
+            onClick={() => handleTabClick('all')}
+            className={`px-5 py-3 text-xs font-bold uppercase tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border ${
+              activeDeptId === 'all'
+                ? 'bg-[#0f3a5e] text-white border-[#0f3a5e] shadow-md'
+                : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
+            }`}
+          >
+            All Departments
+          </button>
+          
+          {departmentTeams.map((dept) => (
+            <button
+              key={dept.id}
+              onClick={() => handleTabClick(dept.id)}
+              className={`px-5 py-3 text-xs font-bold uppercase tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border flex items-center gap-2 ${
+                activeDeptId === dept.id
+                  ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-md'
+                  : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
+              }`}
+            >
+              <span>{dept.name}</span>
+            </button>
           ))}
         </div>
+
+        {/* Render Departments and Member Cards Directly */}
+        <div className="space-y-20">
+          {filteredDepartments.map((dept) => (
+            <div key={dept.id} className="space-y-8 text-left">
+              
+              {/* Department Header Title */}
+              <div className="flex items-center justify-between border-b border-slate-200 pb-4">
+                <div className="flex items-center gap-3">
+                  <span className="w-3 h-3 bg-[#005f9e] rounded-none" />
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit">
+                    {dept.name} Department
+                  </h3>
+                </div>
+                <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit bg-[#005f9e]/10 px-3 py-1 border border-[#005f9e]/20">
+                  {dept.badge}
+                </span>
+              </div>
+
+              {/* Department Member Cards Row/Grid */}
+              <div className="flex flex-col md:flex-row flex-wrap gap-8 justify-center items-stretch">
+                {dept.members.map((member, idx) => (
+                  <MemberCard key={idx} member={member} />
+                ))}
+              </div>
+
+            </div>
+          ))}
+        </div>
+
       </div>
     </MotionSection>
   );
