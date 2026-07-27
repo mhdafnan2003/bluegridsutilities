@@ -9,6 +9,64 @@ import imgTraffic from '../assets/images/Telecoms and field operations support.j
 import imgEmergency from '../assets/images/Training coordination and deployment planning.jpg';
 import imgInfra from '../assets/images/Sectors/Infrastructure Support.jpg';
 
+// Additional Image Imports for Smart Water Meter Banners
+import imgWaterWorkers from '../assets/images/uk_utility_workers_site.png';
+import imgWaterMeterSupport from '../assets/images/water meter suoort bluegrids.jpeg';
+import imgComplianceVerification from '../assets/images/Workforce onboarding and compliance verification.jpg';
+import imgGridWork from '../assets/images/utility_grid_work.png';
+import imgProjectCoord from '../assets/images/Project coordination and reporting.jpg';
+
+const smartWaterMeterBanners = [
+  {
+    num: "01",
+    title: "Professional installation",
+    badge: "EUSR CERTIFIED ENGINEER DEPLOYMENT",
+    desc: "Precision deployment of smart water meters by accredited EUSR field engineers. Operating under strict statutory guidelines, our teams ensure flawless physical installation, proper pipe fitting, and robust seal integrity for all clean water distribution assets.",
+    img: imgWaterWorkers,
+    highlights: ["EUSR Water Hygiene Certified Operatives", "RAMS Site Safety & Quality Verification", "Full Alignment with Regional Water Authority SLAs"]
+  },
+  {
+    num: "02",
+    title: "Meter replacement",
+    badge: "SMART AMR / AMI ASSET UPGRADE",
+    desc: "Seamless swapping of aging mechanical water meters with next-generation smart AMR/AMI metering units. Executed with zero domestic supply downtime, comprehensive asset auditing, and digital serial tracking logged directly into telemetry databases.",
+    img: imgWaterMeterSupport,
+    highlights: ["Zero-Downtime Domestic & Commercial Swaps", "AMR / AMI Telemetry Module Retrofitting", "Full Asset Serial Logging & Removal Audits"]
+  },
+  {
+    num: "03",
+    title: "New connections",
+    badge: "INFRASTRUCTURE & MAINS INTEGRATION",
+    desc: "End-to-end site connections for residential developments, commercial premises, and new utility developments. Includes boundary box placement, pipe laying, mains tap-ins, and direct water supply integration.",
+    img: imgCivil,
+    highlights: ["Boundary Box Placement & Excavation", "Direct Water Mains Tap-in & Groundworks", "New Build & Commercial Supply Integration"]
+  },
+  {
+    num: "04",
+    title: "Commissioning",
+    badge: "TELEMETRY & DATA SIGNAL ACTIVATION",
+    desc: "Digital setup, signal telemetry validation, AMR/AMI transmitter pairing, and direct data integration with regional water authority monitoring systems for real-time remote consumption tracking.",
+    img: imgComplianceVerification,
+    highlights: ["AMR/AMI Radio Signal Strength Testing", "Real-Time Telemetry Database Registration", "Water Board Systems Pairing & Handover"]
+  },
+  {
+    num: "05",
+    title: "Testing",
+    badge: "HYDROSTATIC & ANTI-LEAKAGE AUDITS",
+    desc: "Comprehensive hydrostatic pressure testing, flow rate benchmarking, anti-leakage audits, and joint integrity sign-offs conducted prior to final client handover and statutory sign-off.",
+    img: imgGridWork,
+    highlights: ["Hydrostatic Pressure & Flow Rate Testing", "Acoustic Leak Detection & Seal Verification", "Zero-Defect Sign-off & QA Documentation"]
+  },
+  {
+    num: "06",
+    title: "Customer education",
+    badge: "ON-SITE GUIDANCE & ADVISORY",
+    desc: "Clear in-person operative guidance provided to property owners on smart meter readings, online portal tracking, automatic leak detection alerts, and water conservation best practices.",
+    img: imgProjectCoord,
+    highlights: ["In-Person Smart Meter Display Briefing", "Automatic Leak Alert System Setup", "Water Saving Advice & Digital Portal Guidance"]
+  }
+];
+
 const servicesData = [
   {
     num: "01",
@@ -19,13 +77,14 @@ const servicesData = [
     img: imgWaterMeter,
     details: {
       headline: "Comprehensive field force coordination for clean water & smart metering rollouts.",
-      overview: "Our water meter installation division coordinates field operatives, scheduling logistics, and customer appointments to ensure high-efficiency rollout and installation rates. We work alongside water authorities, civil partners, and major utility contractors nationwide.",
+      overview: "Our water meter installation division coordinates field operatives, scheduling logistics, and customer appointments across six core operational phases: professional installation, meter replacement, new connections, commissioning, testing, and customer education.",
       keyAreas: [
-        "Smart water meter rollouts & logistics coordination",
-        "Operative route planning & field dispatch scheduling",
-        "AMR/AMI installation project management support",
-        "Customer appointment booking & inquiry management",
-        "Field safety reporting & EUSR compliance tracking"
+        "Professional installation — EUSR-certified field operative deployment & meter installation",
+        "Meter replacement — Swapping legacy mechanical meters with next-gen AMR/AMI smart devices",
+        "New connections — End-to-end residential, commercial & new-build utility supply connections",
+        "Commissioning — Digital setup, telemetry signal validation & network authority integration",
+        "Testing — Flow rate benchmarking, pressure validation & leak detection checks",
+        "Customer education — Clear on-site operative guidance on usage, leak alerts & conservation"
       ],
       benefits: [
         "Dedicated utility coordinators who understand the clean water sector",
@@ -286,8 +345,6 @@ const ServicesPage = () => {
 
               </div>
 
-              <hr className="w-full border-slate-200" />
-
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link 
@@ -307,6 +364,74 @@ const ServicesPage = () => {
             </div>
 
           </div>
+
+          {/* Full Width Smart Water Meter Installation — 6 Individual Feature Photo Banners */}
+          {service.slug === 'water-meter-installation' && (
+            <div className="w-full space-y-12 mt-16 pt-12 border-t border-slate-200">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-6">
+                <div>
+                  <span className="text-xs font-black tracking-widest text-[#005f9e] uppercase font-outfit block mb-2">
+                    CORE OPERATIONAL SERVICES
+                  </span>
+                  <h3 className="text-3xl md:text-5xl font-extrabold text-[#0f3a5e] uppercase tracking-tight font-outfit">
+                    Smart Water Meter Installation
+                  </h3>
+                </div>
+                <span className="text-xs font-bold text-white bg-[#005f9e] px-5 py-2.5 uppercase tracking-wider font-outfit shadow-md">
+                  6 Individual Banners
+                </span>
+              </div>
+
+              <div className="space-y-10">
+                {smartWaterMeterBanners.map((banner, idx) => (
+                  <div 
+                    key={idx}
+                    className="relative min-h-[380px] md:min-h-[440px] flex items-end p-8 md:p-12 overflow-hidden bg-slate-950 shadow-xl border border-slate-200 group text-left w-full"
+                  >
+                    {/* Background Photo */}
+                    <img 
+                      src={banner.img} 
+                      alt={banner.title} 
+                      className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/20" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-transparent to-transparent" />
+
+                    {/* Top Badge & Number INSIDE Banner */}
+                    <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 flex items-center gap-4">
+                      <span className="w-12 h-12 md:w-14 md:h-14 bg-[#005f9e] text-white flex items-center justify-center text-lg md:text-xl font-extrabold font-outfit shadow-lg">
+                        {banner.num}
+                      </span>
+                      <span className="bg-white/10 backdrop-blur-md border border-white/20 text-sky-300 text-[10px] md:text-xs font-black px-3.5 py-1.5 uppercase font-outfit tracking-widest">
+                        {banner.badge}
+                      </span>
+                    </div>
+
+                    {/* Content Overlay INSIDE Banner */}
+                    <div className="relative z-10 text-white w-full max-w-4xl pt-16">
+                      <h4 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-outfit mb-4 text-white uppercase tracking-tight group-hover:text-sky-300 transition-colors">
+                        {banner.title}
+                      </h4>
+
+                      <p className="text-slate-200 text-sm md:text-base leading-relaxed mb-6 font-medium max-w-3xl">
+                        {banner.desc}
+                      </p>
+
+                      {/* Highlights Grid inside Banner */}
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-6 border-t border-white/20">
+                        {banner.highlights.map((hl, hIdx) => (
+                          <div key={hIdx} className="bg-white/10 backdrop-blur-md p-3.5 border border-white/15 flex items-center gap-2">
+                            <span className="w-2 h-2 bg-sky-400 rounded-full shrink-0"></span>
+                            <span className="text-xs font-bold text-slate-100 font-outfit">{hl}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
         </div>
       </MotionSection>
