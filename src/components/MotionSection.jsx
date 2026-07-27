@@ -12,13 +12,13 @@ const MotionSection = ({
   className,
   id,
   variants = defaultVariants,
-  viewport = { once: true, amount: 0.2 },
+  viewport = { once: true, amount: 'some' },
   transition = { duration: 0.6, ease: 'easeOut' },
   initial = 'hidden',
   whileInView = 'visible',
   ...props
 }) => {
-  const MotionTag = motion.create(Component);
+  const MotionTag = typeof Component === 'string' && motion[Component] ? motion[Component] : motion.section;
 
   return (
     <MotionTag
