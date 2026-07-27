@@ -162,14 +162,14 @@ const NewsPage = () => {
       {/* 2. Selection Box / Filter Bar (Exact Match to Image Design) */}
       <section className="max-w-[1400px] mx-auto px-6 lg:px-10 mb-12">
         <div className="bg-white border border-slate-200/90 rounded-none p-4 md:p-6 shadow-sm">
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-nowrap items-center gap-1.5 lg:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
             {newsCategories.map((cat) => {
               const isSelected = activeCategory === cat.id;
               return (
                 <button
                   key={cat.id}
                   onClick={() => handleCategorySelect(cat.id)}
-                  className={`px-5 py-3 rounded-none text-xs font-bold font-outfit tracking-wider transition-all duration-200 border uppercase ${
+                  className={`px-3.5 py-2.5 lg:px-4 lg:py-3 whitespace-nowrap shrink-0 rounded-none text-xs font-bold font-outfit tracking-wider transition-all duration-200 border uppercase ${
                     isSelected 
                       ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-sm' 
                       : 'bg-white text-[#0f3a5e] border-slate-200/80 hover:border-[#005f9e] hover:text-[#005f9e] hover:bg-slate-50'
