@@ -55,7 +55,7 @@ const QuickInfo = () => {
         
         {/* Header Section */}
         <div className="flex flex-col mb-16 text-left">
-          <span className="self-start inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-black uppercase tracking-widest mb-6 font-outfit border border-brand-primary/20">
+          <span className="self-start inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-xs font-black uppercase tracking-widest mb-6 font-outfit border border-brand-primary/20">
             Workforce Reliability
           </span>
           
@@ -74,8 +74,7 @@ const QuickInfo = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="group relative border border-slate-150 rounded-[2.2rem] p-8 flex flex-col justify-between items-start transition-all duration-500 hover:shadow-2xl hover:shadow-brand-primary/10 hover:-translate-y-2 overflow-hidden cursor-pointer min-h-[320px]"
-              style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+              className="group relative border border-slate-200 rounded-none p-8 flex flex-col justify-between items-start transition-all duration-500 hover:shadow-2xl hover:shadow-brand-primary/10 hover:-translate-y-2 overflow-hidden cursor-pointer min-h-[320px]"
             >
               {/* Background Layers */}
               <div className="absolute inset-0 z-0 overflow-hidden">
@@ -93,7 +92,7 @@ const QuickInfo = () => {
               
               <div className="space-y-6 w-full text-left relative z-10">
                 {/* Icon wrapper */}
-                <div className={`w-14 h-14 rounded-2xl border flex items-center justify-center transition-all duration-500 ${feature.color}`}>
+                <div className={`w-14 h-14 rounded-none border flex items-center justify-center transition-all duration-500 ${feature.color}`}>
                   <span className="material-symbols-outlined text-2xl font-bold transition-transform duration-500 group-hover:scale-110">
                     {feature.icon}
                   </span>

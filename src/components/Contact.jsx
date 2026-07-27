@@ -69,7 +69,7 @@ const Contact = () => {
           <span className="inline-block px-4 py-1.5 rounded-full bg-[#005f9e] text-white text-[10px] sm:text-xs font-black uppercase tracking-widest mb-6 font-outfit shadow-sm">
             Get In Touch
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-tight mb-6 font-outfit leading-tight text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight mb-6 font-outfit leading-tight text-white">
             Contact Us
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed font-medium">

@@ -228,7 +228,7 @@ const OperationalDelivery = () => {
             Partner With Us
           </span>
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
             Need Reliable Project <span className="text-brand-primary">Execution</span> Support?
           </h2>
 

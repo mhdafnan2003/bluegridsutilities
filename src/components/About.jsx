@@ -14,116 +14,196 @@ import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png'
 const About = () => {
   return (
     <div className="font-sans">
+      {/* Company Profile & Overview Hero Section */}
       <MotionSection 
         as="section" 
-        className="py-20 bg-white" 
+        className="py-16 md:py-24 bg-white" 
         id="about"
         initial="hidden"
         animate="visible"
         whileInView={undefined}
         viewport={undefined}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-          {/* Header Section */}
-          <div className="mb-14 text-center lg:text-left">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-6">
-              Our Story
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+          
+          {/* Header Badge & Title */}
+          <div className="mb-14 text-center max-w-3xl mx-auto">
+            <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20">
+              ABOUT BLUEGRID UTILITIES
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark max-w-4xl lg:mx-0 mx-auto tracking-tight leading-tight font-outfit">
-              About Bluegrid Utilities
-            </h2>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight mb-4">
+              COMPANY PROFILE & OVERVIEW
+            </h1>
+            <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
+              UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector.
+            </p>
           </div>
 
-          {/* Content Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-            {/* Left: Image */}
-            <div className="w-full h-[320px] md:h-[450px] lg:h-[480px] max-w-lg mx-auto lg:max-w-none">
-              <img
-                src={aboutImage}
-                alt="About Bluegrid Utilities"
-                className="w-full h-full object-cover rounded-[2.5rem] shadow-xl"
-              />
-            </div>
+          {/* Main Overview & Registration Card Grid */}
+          <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-stretch mb-16">
+            
+            {/* Left: Image & Company Overview (7 Cols) */}
+            <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
+              {/* Feature Image Frame (Boxy) */}
+              <div className="w-full h-72 sm:h-80 md:h-96 relative overflow-hidden rounded-none border border-slate-200 shadow-lg">
+                <img
+                  src={aboutImage}
+                  alt="Bluegrid Utilities Field Team"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4 bg-[#005f9e] text-white px-4 py-2 text-xs font-black uppercase tracking-wider rounded-none border border-white/20">
+                  SPECIALIST UTILITY INFRASTRUCTURE
+                </div>
+              </div>
 
-            {/* Right: Content */}
-            <div className="flex flex-col text-center lg:text-left justify-center">
-              <p className="text-brand-dark text-xl font-bold leading-relaxed mb-6 font-outfit">
-                BlueGrid Utilities is the trading name of Bluegrid Technology Ltd, a UK-registered company focused on supporting utility and infrastructure operations.
-              </p>
-              <p className="text-gray-500 text-base leading-relaxed mb-6">
-                We work with project partners, contractors, and workforce teams to support the delivery of essential services across water, utilities, telecoms, and infrastructure sectors.
-              </p>
-              <div className="p-6 rounded-2xl bg-brand-primary/5 border border-brand-primary/10 mt-2 text-left">
-                <p className="text-brand-primary font-bold text-xs tracking-widest uppercase mb-2 font-outfit">
-                  Our Approach
+              {/* Text Narrative */}
+              <div className="space-y-4 text-left">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] uppercase tracking-tight">
+                  WHO WE ARE
+                </h2>
+                <p className="text-slate-700 text-base sm:text-lg font-semibold leading-relaxed">
+                  Bluegrid Utilities is a UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector.
                 </p>
-                <p className="text-brand-dark font-medium text-base leading-relaxed flex items-start gap-3">
-                  <span className="material-symbols-outlined text-brand-primary shrink-0 mt-0.5">verified</span>
-                  Our approach is built on compliance, reliability, workforce readiness, and operational coordination.
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  Our specialist teams support utility providers, principal contractors and infrastructure partners through the delivery of smart water metering, excavation, reinstatement and associated civil engineering works.
+                </p>
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                  With experienced management, qualified field teams and a commitment to operational excellence, Bluegrid Utilities aims to become one of the UK’s most trusted utility infrastructure delivery partners.
                 </p>
               </div>
             </div>
+
+            {/* Right: Company Profile Boxy Card (5 Cols) */}
+            <div className="lg:col-span-5 flex flex-col">
+              <div className="bg-[#0f3a5e] text-white p-8 sm:p-10 rounded-none border border-[#0f3a5e] shadow-xl flex flex-col justify-between h-full relative overflow-hidden">
+                {/* Background Glow Effect */}
+                <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#005f9e]/30 rounded-none blur-3xl pointer-events-none" />
+
+                <div className="relative z-10 space-y-6">
+                  {/* Card Header */}
+                  <div className="border-b border-white/15 pb-4">
+                    <span className="text-[#0066ff] font-bold text-xs uppercase tracking-widest block mb-1">
+                      OFFICIAL DETAILS
+                    </span>
+                    <h3 className="text-2xl font-bold uppercase tracking-tight text-white">
+                      COMPANY PROFILE
+                    </h3>
+                  </div>
+
+                  {/* Profile Key Value Rows */}
+                  <div className="space-y-4 text-sm">
+                    <div className="bg-white/5 border border-white/10 p-4 rounded-none">
+                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1">Company Name</p>
+                      <p className="text-base font-bold text-white">Bluegrid Utilities</p>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-4 rounded-none">
+                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1">Trading Name of</p>
+                      <p className="text-base font-bold text-white">Bluegrid Technology Ltd</p>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-4 rounded-none">
+                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1">Company Number</p>
+                      <p className="text-base font-bold text-white tracking-wider">16442340</p>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-4 rounded-none">
+                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1">Registered Office</p>
+                      <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
+                        Stuart House<br />
+                        St Johns Street<br />
+                        Peterborough<br />
+                        England, PE1 5DD
+                      </address>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Tag */}
+                <div className="mt-8 pt-4 border-t border-white/15 relative z-10 flex items-center justify-between text-xs font-bold text-slate-300">
+                  <span className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-none bg-[#0066ff]" />
+                    REGISTERED IN ENGLAND & WALES
+                  </span>
+                  <span className="text-[#60a5fa]">UK UTILITY CONTRACTOR</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </MotionSection>
 
-      {/* Mission & Vision Sections */}
-      <MotionSection as="section" className="py-20 bg-slate-50 border-y border-slate-100">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      {/* Mission & Vision Section (Boxy Cards) */}
+      <MotionSection as="section" className="py-20 bg-[#f8fafc] border-y border-slate-200">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+          
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20">
+              PURPOSE & DIRECTION
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] uppercase tracking-tight">
+              MISSION & VISION
+            </h2>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
             
-            {/* Mission Card */}
+            {/* Mission Card - Boxy */}
             <div 
               id="mission" 
-              className="group relative rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[320px] scroll-mt-28 border border-slate-100/10"
-              style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+              className="group relative rounded-none p-8 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-end min-h-[340px] border border-slate-200 bg-slate-900"
             >
-              {/* Background Image */}
               <img 
                 src={missionBg} 
                 alt="Our Mission background" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              {/* Neutral Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-slate-950/30" />
               
-              {/* Content */}
               <div className="relative z-10 flex flex-col items-start w-full">
-                <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
-                  <span className="material-symbols-outlined text-2xl font-bold">track_changes</span>
+                <div className="w-12 h-12 rounded-none bg-[#005f9e] text-white border border-white/20 flex items-center justify-center mb-6 shadow-md">
+                  <span className="material-symbols-outlined text-2xl font-bold">flag</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 font-outfit">Our Mission</h3>
-                <p className="text-slate-100 text-sm sm:text-base leading-relaxed">
-                  To support utility and infrastructure projects across the UK by providing highly trained, fully vetted, and reliable workforce coordination solutions that ensure absolute compliance, safety, and seamless operational delivery.
+                <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest mb-2">
+                  OUR MISSION
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">
+                  MISSION STATEMENT
+                </h3>
+                <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                  To deliver utility infrastructure safely, efficiently and professionally while building long-term partnerships based on trust, quality and reliability.
                 </p>
               </div>
             </div>
 
-            {/* Vision Card */}
+            {/* Vision Card - Boxy */}
             <div 
               id="vision" 
-              className="group relative rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[320px] scroll-mt-28 border border-slate-100/10"
-              style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+              className="group relative rounded-none p-8 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-end min-h-[340px] border border-slate-200 bg-slate-900"
             >
-              {/* Background Image */}
               <img 
                 src={visionBg} 
                 alt="Our Vision background" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              {/* Neutral Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-slate-950/30" />
               
-              {/* Content */}
               <div className="relative z-10 flex flex-col items-start w-full">
-                <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
+                <div className="w-12 h-12 rounded-none bg-[#005f9e] text-white border border-white/20 flex items-center justify-center mb-6 shadow-md">
                   <span className="material-symbols-outlined text-2xl font-bold">visibility</span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3 font-outfit">Our Vision</h3>
-                <p className="text-slate-100 text-sm sm:text-base leading-relaxed">
-                  To be the UK's most trusted workforce coordination partner for utility and infrastructure projects, recognized for our compliance-first methodology, rapid mobilization capabilities, and operational coordination standard.
+                <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest mb-2">
+                  OUR VISION
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">
+                  VISION STATEMENT
+                </h3>
+                <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                  To become one of the UK’s leading utility infrastructure contractors recognised for innovation, safety, quality and operational excellence.
                 </p>
               </div>
             </div>
@@ -132,124 +212,131 @@ const About = () => {
         </div>
       </MotionSection>
 
-      {/* Our History Section */}
-      <MotionSection as="section" className="py-20 bg-white scroll-mt-28" id="history">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      {/* History & Growth Section */}
+      <MotionSection as="section" className="py-20 bg-white" id="history">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+          
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
-              Our Timeline
+            <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20">
+              TRANSPARENT FOUNDATION
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark tracking-tight mb-4 font-outfit">
-              Our History
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] uppercase tracking-tight mb-4">
+              COMPANY HISTORY & GROWTH
             </h2>
-            <p className="text-gray-600 text-base leading-relaxed">
-              Established to address the growing demand for compliant, scalable field workforce solutions within the UK utilities sector.
+            <p className="text-slate-600 text-base leading-relaxed">
+              Established to provide specialist utility infrastructure services throughout the UK with operational excellence.
             </p>
           </div>
 
-          {/* Timeline Layout */}
-          <div className="relative border-l-2 border-slate-100 max-w-3xl mx-auto pl-8 space-y-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Foundation & Vision",
-                desc: "BlueGrid Utilities was founded with a dedicated focus on utility and infrastructure coordination. We set out to streamline onboarding, compliance checks, and team coordination for large utilities grids."
+                step: "01",
+                title: "Experienced Leadership",
+                desc: "Founded on experienced management and field operational leadership dedicated to safe utility delivery."
               },
               {
-                title: "Sector Expansion",
-                desc: "We expanded our field coordination support to cover clean water meter deployments, smart energy meter rollouts, and telecoms infrastructure support, establishing a solid network of field operatives."
+                step: "02",
+                title: "Specialist Delivery",
+                desc: "Supporting utility providers, principal contractors and partners across smart metering, excavation and reinstatement."
               },
               {
-                title: "Compliance-First Systems",
-                desc: "We implemented integrated digital onboarding, compliance tracking, and training coordination systems, ensuring that 100% of our network meets strict UK right-to-work and utility safety certifications prior to deployment."
+                step: "03",
+                title: "Operational Trust",
+                desc: "Built on long-term partnerships, continuous improvement and national UK infrastructure growth."
               }
-            ].map((step, idx) => (
-              <div key={idx} className="relative">
-                {/* Bullet node */}
-                <span className="absolute -left-[41px] top-1.5 w-6 h-6 rounded-full border-4 border-white bg-brand-primary shadow-sm" />
-                <h3 className="text-xl font-bold text-brand-dark mb-2 font-outfit">{step.title}</h3>
-                <p className="text-gray-500 text-sm leading-relaxed">{step.desc}</p>
+            ].map((item, idx) => (
+              <div key={idx} className="bg-[#f8fafc] border border-slate-200 p-8 rounded-none shadow-md flex flex-col justify-between">
+                <div>
+                  <div className="text-[#005f9e] font-black text-xs uppercase tracking-widest mb-3 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-[#005f9e]" />
+                    Pillar {item.step}
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0f3a5e] uppercase mb-3">{item.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed font-medium">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
+
         </div>
       </MotionSection>
 
-      {/* Accreditation & Awards Section */}
-      <MotionSection as="section" className="py-20 bg-[#f8fafc] border-t border-slate-100 scroll-mt-28" id="accreditations">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      {/* Accreditations & Standards (Boxy Cards) */}
+      <MotionSection as="section" className="py-20 bg-[#f8fafc] border-t border-slate-200" id="accreditations">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+          
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
-              Quality Standards
+            <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20">
+              OPERATIONAL COMPLIANCE
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark tracking-tight mb-4 font-outfit">
-              Accreditation & Standards
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] uppercase tracking-tight mb-4">
+              ACCREDITATION & STANDARDS
             </h2>
-            <p className="text-gray-600 text-base leading-relaxed">
-              We operate under strict adherence to national and industry compliance standards to ensure safety, reliability, and top-tier operations.
+            <p className="text-slate-600 text-base leading-relaxed font-medium">
+              We operate under strict adherence to national and industry compliance standards to ensure safety and quality.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: "EUSR & Industry Vetting",
-                desc: "We enforce strict checks confirming that field operatives hold valid EUSR (Energy & Utility Skills Register) records, CSCS cards, or specific sector safety certifications.",
+                desc: "Enforcing strict checks confirming field operatives hold valid EUSR records, CSCS cards, or specific sector safety certifications.",
                 icon: "shield",
                 bg: vettingBg
               },
               {
                 title: "Right-to-Work Compliance",
-                desc: "100% compliant onboarding verifying identity, qualifications, reference audits, right-to-work documentation, and background suitability screening.",
+                desc: "100% compliant onboarding verifying identity, qualifications, reference audits, and background suitability screening.",
                 icon: "verified_user",
                 bg: complianceBg
               },
               {
                 title: "Health & Safety Systems",
-                desc: "Continuous training management and compliance verification structures built to align with UK utility operations safety standards.",
+                desc: "Continuous training management and compliance verification structures built to align with UK utility safety standards.",
                 icon: "health_and_safety",
                 bg: safetyBg
               }
             ].map((item, idx) => (
               <div 
                 key={idx} 
-                className="group relative rounded-3xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[300px] border border-slate-100/10"
-                style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+                className="group relative rounded-none p-8 shadow-lg transition-all duration-300 overflow-hidden flex flex-col justify-end min-h-[300px] border border-slate-200 bg-slate-900"
               >
-                {/* Background Image */}
                 <img 
                   src={item.bg} 
                   alt={item.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                {/* Neutral Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-slate-950/30" />
                 
-                {/* Content */}
                 <div className="relative z-10 flex flex-col items-start w-full">
-                  <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
-                    <span className="material-symbols-outlined text-2xl">{item.icon}</span>
+                  <div className="w-10 h-10 rounded-none bg-[#005f9e] text-white border border-white/20 flex items-center justify-center mb-5 shadow-md">
+                    <span className="material-symbols-outlined text-xl">{item.icon}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-3 font-outfit">{item.title}</h3>
-                  <p className="text-slate-100 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="text-xl font-bold text-white uppercase mb-2">{item.title}</h3>
+                  <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </MotionSection>
 
-      {/* Policies Section */}
-      <MotionSection as="section" className="py-20 bg-white border-t border-slate-100 scroll-mt-28" id="policies">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+      {/* Governance & Policies (Boxy Cards) */}
+      <MotionSection as="section" className="py-20 bg-white border-t border-slate-200" id="policies">
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+          
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
-              Governance
+            <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20">
+              GOVERNANCE & RESPONSIBILITY
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-brand-dark tracking-tight mb-4 font-outfit">
-              Our Policies
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] uppercase tracking-tight mb-4">
+              OUR CORE POLICIES
             </h2>
-            <p className="text-gray-600 text-base leading-relaxed">
+            <p className="text-slate-600 text-base leading-relaxed font-medium">
               We operate under robust ethical and professional policies to foster safety, sustainability, and equal opportunity.
             </p>
           </div>
@@ -283,30 +370,27 @@ const About = () => {
             ].map((item, idx) => (
               <div 
                 key={idx} 
-                className="group relative rounded-3xl p-6 shadow-lg hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-500 overflow-hidden flex flex-col items-start justify-end min-h-[280px] border border-slate-100/10"
-                style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+                className="group relative rounded-none p-6 shadow-md transition-all duration-300 overflow-hidden flex flex-col justify-end min-h-[280px] border border-slate-200 bg-slate-900"
               >
-                {/* Background Image */}
                 <img 
                   src={item.bg} 
                   alt={item.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                {/* Neutral Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20 group-hover:from-black/95 group-hover:via-black/65 group-hover:to-black/25 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/70 to-slate-950/30" />
                 
-                {/* Content */}
                 <div className="relative z-10 flex flex-col items-start w-full">
-                  <div className="w-10 h-10 rounded-xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-5">
-                    <span className="material-symbols-outlined text-xl">{item.icon}</span>
+                  <div className="w-9 h-9 rounded-none bg-[#005f9e] text-white border border-white/20 flex items-center justify-center mb-4 shadow-md">
+                    <span className="material-symbols-outlined text-lg">{item.icon}</span>
                   </div>
-                  <h3 className="text-base font-bold text-white mb-2 font-outfit">{item.title}</h3>
-                  <p className="text-slate-100 text-xs leading-relaxed">{item.desc}</p>
+                  <h3 className="text-base font-bold text-white uppercase mb-2">{item.title}</h3>
+                  <p className="text-slate-200 text-xs leading-relaxed font-medium">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </MotionSection>
     </div>

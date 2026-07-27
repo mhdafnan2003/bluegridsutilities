@@ -27,11 +27,11 @@ const JoinTeamBanner = () => {
 
       {/* Content wrapper */}
       <div className="relative z-20 max-w-4xl mx-auto flex flex-col items-center justify-center text-white">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary text-white text-[10px] sm:text-xs font-black uppercase tracking-widest mb-6 font-outfit">
+        <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary text-white text-[10px] sm:text-xs font-black uppercase tracking-widest mb-6 font-outfit">
           Build Your Career With Us
         </span>
         
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
           Join Our Growing <span className="text-brand-primary">Workforce</span> Team
         </h2>
 

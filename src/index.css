@@ -10,9 +10,15 @@
   --brand-accent: #0160d8;
 }
 
+*,
+*::before,
+*::after {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
   @apply bg-gray-50 text-gray-800 antialiased selection:bg-brand-primary selection:text-white;
-  font-family: 'Inter', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   overflow-x: hidden;
 }
@@ -23,8 +29,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 600;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .glass-card {

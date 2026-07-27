@@ -19,7 +19,7 @@ const SustainabilityBanner = () => {
 
         {/* Right: Text Banner */}
         <div className="bg-[#374151] flex flex-col justify-center items-start text-left p-8 sm:p-12 md:p-16 lg:p-20 text-white">
-          <span className="text-xs sm:text-sm font-extrabold text-[#a3e635] tracking-widest uppercase mb-4 font-outfit">
+          <span className="text-xs sm:text-sm font-bold text-[#a3e635] tracking-widest uppercase mb-4 font-outfit">
             Innovation in Sustainable Working
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight font-outfit">
@@ -30,7 +30,7 @@ const SustainabilityBanner = () => {
           </p>
           <Link 
             to="/sustainability" 
-            className="inline-flex items-center gap-3 bg-white text-[#374151] hover:bg-brand-primary hover:text-white transition-all duration-300 px-6 py-3.5 rounded-full font-bold text-xs sm:text-sm uppercase tracking-widest font-outfit shadow-md active:scale-95 group"
+            className="inline-flex items-center gap-3 bg-white text-[#374151] hover:bg-brand-primary hover:text-white transition-all duration-300 px-6 py-3.5 rounded-none font-bold text-xs sm:text-sm uppercase tracking-widest font-outfit shadow-md active:scale-95 group"
           >
             <span>Find Out More</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">➔</span>

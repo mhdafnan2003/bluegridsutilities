@@ -1,7 +1,7 @@
 import React from 'react';
 import MotionSection from './MotionSection';
 
-// Unique, unused background images
+// High quality sector & operational images
 import complianceImg from '../assets/images/Sectors/Compliance & Onboarding.jpg';
 import reliabilityImg from '../assets/images/updated/img 3.jpg';
 import readinessImg from '../assets/images/updated/img 1.jpg';
@@ -9,101 +9,200 @@ import coordinationImg from '../assets/images/Sectors/Project Coordination.jpg';
 
 const pillars = [
   {
-    title: "Compliance",
-    desc: "Rigorous vetting, training coordination, and compliance verification.",
+    step: "01",
+    title: "Our Mission",
+    subtitle: "Safe, Efficient & Professional Delivery",
+    desc: "To deliver utility infrastructure safely, efficiently and professionally while building long-term partnerships based on trust, quality and reliability.",
+    icon: "flag",
+    img: complianceImg,
+    bullets: [
+      "Safe, efficient & professional infrastructure delivery",
+      "Long-term partnerships built on trust & quality",
+      "Smart water metering, excavation & reinstatement focus"
+    ]
+  },
+  {
+    step: "02",
+    title: "Our Vision",
+    subtitle: "Leading UK Utility Infrastructure Partner",
+    desc: "To become one of the UK’s leading utility infrastructure contractors recognised for innovation, safety, quality and operational excellence.",
+    icon: "visibility",
+    img: coordinationImg,
+    bullets: [
+      "Recognised leadership in UK utility infrastructure",
+      "Driven by innovation, safety & quality standards",
+      "Continuous growth across water, energy & infrastructure"
+    ]
+  },
+  {
+    step: "03",
+    title: "Company History & Growth",
+    subtitle: "Built on Experienced Leadership & Partnerships",
+    desc: "Established to provide specialist utility infrastructure services throughout the UK. Built on experienced leadership and strong operational partnerships, focusing on supporting major utility programmes through safe delivery, technical expertise and continuous improvement.",
+    icon: "history_edu",
+    img: readinessImg,
+    bullets: [
+      "Transparent & experienced operational leadership",
+      "Dedicated support for utility providers & main contractors",
+      "Expanding portfolio across UK utility & energy sectors"
+    ]
+  },
+  {
+    step: "04",
+    title: "Our Core Values",
+    subtitle: "The Principles That Guide Every Project",
+    desc: "Our daily operations and field teams are guided by an unyielding commitment to safety, integrity, environmental responsibility, and continuous improvement across all contracts.",
     icon: "verified",
-    img: complianceImg
-  },
-  {
-    title: "Reliability",
-    desc: "A reliable workforce ready for essential infrastructure projects.",
-    icon: "handshake",
-    img: reliabilityImg
-  },
-  {
-    title: "Workforce Readiness",
-    desc: "Structured training and planning to maximize on-site efficiency.",
-    icon: "groups",
-    img: readinessImg
-  },
-  {
-    title: "Operational Coordination",
-    desc: "Seamless communication, reporting, and team management.",
-    icon: "hub",
-    img: coordinationImg
+    img: reliabilityImg,
+    bullets: [
+      "Safety First, Integrity, Quality & Innovation",
+      "Customer Focus, Environmental Responsibility & Accountability",
+      "People Development & Professional Excellence"
+    ]
   }
 ];
 
 const WhatWeAre = () => {
   return (
-    <MotionSection as="section" className="py-24 bg-white font-sans animate-fade-in" id="what-we-are">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left: Text Content */}
-          <div className="lg:col-span-6 flex flex-col text-left">
-            <span className="self-start inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-6">
-              Our Identity
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-tight mb-6 font-outfit">
-              What We Are
-            </h2>
-            <p className="text-slate-700 text-lg font-semibold leading-relaxed mb-6">
-              BlueGrid Utilities is the trading name of Bluegrid Technology Ltd, a UK-registered company focused on supporting utility and infrastructure operations.
-            </p>
-            <p className="text-gray-500 text-base leading-relaxed mb-8">
-              We work with project partners, contractors, and workforce teams to support the delivery of essential services across water, utilities, telecoms, and infrastructure sectors.
-            </p>
-            <div className="p-6 rounded-2xl bg-brand-primary/5 border border-brand-primary/10 text-left">
-              <p className="text-brand-primary font-bold text-xs tracking-widest uppercase mb-2 font-outfit">
-                Our Foundation
-              </p>
-              <p className="text-brand-dark font-medium text-base leading-relaxed flex items-start gap-3">
-                <span className="material-symbols-outlined text-brand-primary shrink-0 mt-0.5">verified</span>
-                Our approach is built on compliance, reliability, workforce readiness, and operational coordination.
-              </p>
-            </div>
-          </div>
+    <MotionSection as="section" className="py-20 md:py-28 bg-white font-sans relative" id="what-we-are">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-24">
+          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
+            OUR IDENTITY & FOUNDATION
+          </span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase font-outfit leading-tight mb-5">
+            WHAT WE ARE
+          </h2>
+          <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
+            Bluegrid Utilities is a UK-based utility infrastructure contractor delivering safe, reliable, and high-quality services across smart water metering, excavation, reinstatement, and associated civil engineering works.
+          </p>
+        </div>
 
-          {/* Right: Pillars Grid */}
-          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {pillars.map((pillar, idx) => (
+        {/* Clean Unboxed Rows with Side-by-Side Alignment */}
+        <div className="space-y-16 md:space-y-24 divide-y divide-slate-100">
+          {pillars.map((pillar, idx) => {
+            const isEven = idx % 2 === 0;
+            return (
               <div 
                 key={idx}
-                className="relative h-[240px] sm:h-[260px] group rounded-[2.5rem] overflow-hidden transform translate-z-0 isolate shadow-md hover:shadow-2xl hover:shadow-brand-primary/20 hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-end p-6 border border-slate-100/10 cursor-pointer"
-                style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+                className={`pt-16 first:pt-0 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center`}
               >
-                {/* Background Image */}
-                <img 
-                  src={pillar.img} 
-                  alt={pillar.title} 
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  loading="lazy"
-                />
-
-                {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent group-hover:from-black group-hover:via-black/60 transition-all duration-500" />
-
-                {/* Content */}
-                <div className="relative z-10 flex flex-col items-start h-full justify-between w-full">
-                  <div className="w-11 h-11 rounded-2xl bg-white/10 text-white border border-white/15 backdrop-blur-md flex items-center justify-center group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:scale-110 transition-all duration-300">
-                    <span className="material-symbols-outlined text-xl">{pillar.icon}</span>
-                  </div>
+                {/* Image Frame (Unboxed) */}
+                <div 
+                  className={`lg:col-span-6 relative overflow-hidden h-[300px] sm:h-[360px] md:h-[400px] w-full shrink-0 ${
+                    isEven ? 'lg:order-1' : 'lg:order-2'
+                  }`}
+                >
+                  <img 
+                    src={pillar.img} 
+                    alt={pillar.title} 
+                    className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                   
-                  <div className="text-left w-full mt-auto">
-                    <h3 className="text-base font-bold text-white tracking-tight mb-2 font-outfit leading-snug group-hover:text-brand-light transition-colors duration-300">
-                      {pillar.title}
-                    </h3>
-                    <p className="text-slate-300 text-xs leading-relaxed line-clamp-2 group-hover:text-slate-200 transition-colors duration-300">
-                      {pillar.desc}
-                    </p>
+                  {/* Step Badge */}
+                  <div className="absolute top-4 left-4 bg-[#005f9e] text-white font-black text-xs px-3.5 py-1.5 rounded-none uppercase tracking-wider font-outfit shadow-md flex items-center gap-2 border border-white/20">
+                    <span className="w-2 h-2 rounded-none bg-white" />
+                    Pillar {pillar.step}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
 
+                {/* Text Content Block (Clean Aligned Text) */}
+                <div 
+                  className={`lg:col-span-6 flex flex-col justify-center text-left ${
+                    isEven ? 'lg:order-2' : 'lg:order-1'
+                  }`}
+                >
+                  {/* Subtitle Badge */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-none bg-[#005f9e]/10 border border-[#005f9e]/20 text-[#005f9e] flex items-center justify-center shrink-0">
+                      <span className="material-symbols-outlined text-xl">{pillar.icon}</span>
+                    </div>
+                    <span className="text-[#005f9e] font-bold text-xs tracking-widest uppercase font-outfit">
+                      {pillar.subtitle}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-4">
+                    {pillar.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-6">
+                    {pillar.desc}
+                  </p>
+
+                  {/* Bullet Points */}
+                  <ul className="space-y-3 mb-8">
+                    {pillar.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-3 text-slate-700 text-xs sm:text-sm font-semibold">
+                        <span className="material-symbols-outlined text-[#005f9e] text-lg shrink-0 mt-0.5">
+                          check_circle
+                        </span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Action Link */}
+                  <a
+                    href="/services"
+                    className="inline-flex items-center gap-2 text-[#005f9e] font-black text-xs uppercase tracking-widest font-outfit hover:text-[#0f3a5e] transition-colors group self-start"
+                  >
+                    <span>EXPLORE CAPABILITIES</span>
+                    <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
+                      arrow_forward
+                    </span>
+                  </a>
+                </div>
+              </div>
+            );
+          })}
         </div>
+
+        {/* Foundation Summary Box - Core Values Bar */}
+        <div className="mt-20 bg-[#0f3a5e] rounded-none border border-[#0f3a5e] p-8 sm:p-12 text-white text-left shadow-xl relative overflow-hidden">
+          <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#005f9e]/20 rounded-none blur-3xl pointer-events-none" />
+          <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+            <div className="max-w-4xl">
+              <span className="text-[#0066ff] font-bold text-xs uppercase tracking-widest font-outfit block mb-2">
+                OUR 10 GUIDING CORE VALUES
+              </span>
+              <h4 className="text-xl sm:text-2xl font-bold font-outfit uppercase tracking-tight text-white mb-4">
+                Built on Trust, Quality & Continuous Improvement
+              </h4>
+              <div className="flex flex-wrap gap-2 text-xs font-semibold">
+                {[
+                  "Safety First",
+                  "Integrity",
+                  "Quality",
+                  "Innovation",
+                  "Customer Focus",
+                  "Environmental Responsibility",
+                  "People Development",
+                  "Continuous Improvement",
+                  "Accountability",
+                  "Professionalism"
+                ].map((val, vIdx) => (
+                  <span key={vIdx} className="bg-white/10 border border-white/15 px-3.5 py-1.5 rounded-none text-slate-200">
+                    {val}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <a
+              href="/contact"
+              className="px-7 py-3.5 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold uppercase text-xs tracking-wider rounded-none border border-white/10 transition-all duration-300 shrink-0 shadow-lg"
+            >
+              WORK WITH US
+            </a>
+          </div>
+        </div>
+
       </div>
     </MotionSection>
   );

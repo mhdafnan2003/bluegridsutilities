@@ -15,8 +15,8 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        outfit: ['Outfit', 'sans-serif'],
+        sans: ['Arial', 'Helvetica', 'sans-serif'],
+        outfit: ['Arial', 'Helvetica', 'sans-serif'],
       }
     },
   },

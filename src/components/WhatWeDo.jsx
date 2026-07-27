@@ -84,7 +84,7 @@ const WhatWeDo = () => {
 
         {/* Header Section with Title */}
         <div className="mb-12 text-center md:text-left">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
             Core Capabilities
           </span>
           <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-tight mb-6 font-outfit">
@@ -102,8 +102,7 @@ const WhatWeDo = () => {
           {focusAreas.map((item, index) => (
             <div 
               key={index} 
-              className="relative snap-start shrink-0 w-[270px] sm:w-[290px] md:w-[310px] h-[340px] md:h-[360px] group rounded-[2.5rem] overflow-hidden transform translate-z-0 isolate shadow-md hover:shadow-2xl hover:shadow-brand-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-end p-6 border border-slate-100/10 cursor-pointer"
-              style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
+              className="relative snap-start shrink-0 w-[270px] sm:w-[290px] md:w-[310px] h-[340px] md:h-[360px] group rounded-none overflow-hidden transform translate-z-0 isolate shadow-md hover:shadow-2xl hover:shadow-brand-primary/20 hover:-translate-y-2 transition-all duration-300 flex flex-col justify-end p-6 border border-slate-100/10 cursor-pointer"
             >
               {/* Card Background Image */}
               <img 
@@ -118,7 +117,7 @@ const WhatWeDo = () => {
 
               {/* Card Content */}
               <div className="relative z-10 flex flex-col items-start h-full justify-between w-full">
-                <div className="w-11 h-11 rounded-2xl bg-white/10 text-white border border-white/15 backdrop-blur-md flex items-center justify-center group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:scale-110 transition-all duration-300">
+                <div className="w-11 h-11 rounded-none bg-white/10 text-white border border-white/15 backdrop-blur-md flex items-center justify-center group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:scale-110 transition-all duration-300">
                   <span className="material-symbols-outlined text-xl">{item.icon}</span>
                 </div>
                 
@@ -139,14 +138,14 @@ const WhatWeDo = () => {
         <div className="flex justify-center gap-4 mt-8">
           <button 
             onClick={() => scroll('left')}
-            className="w-12 h-12 rounded-full border border-slate-200 bg-white text-[#0f3a5e] hover:bg-brand-primary hover:text-white hover:border-brand-primary flex items-center justify-center shadow-md transition-all duration-300 active:scale-95"
+            className="w-12 h-12 rounded-none border border-slate-200 bg-white text-[#0f3a5e] hover:bg-brand-primary hover:text-white hover:border-brand-primary flex items-center justify-center shadow-md transition-all duration-300 active:scale-95"
             aria-label="Scroll Left"
           >
             <span className="material-symbols-outlined text-xl">arrow_back</span>
           </button>
           <button 
             onClick={() => scroll('right')}
-            className="w-12 h-12 rounded-full border border-slate-200 bg-white text-[#0f3a5e] hover:bg-brand-primary hover:text-white hover:border-brand-primary flex items-center justify-center shadow-md transition-all duration-300 active:scale-95"
+            className="w-12 h-12 rounded-none border border-slate-200 bg-white text-[#0f3a5e] hover:bg-brand-primary hover:text-white hover:border-brand-primary flex items-center justify-center shadow-md transition-all duration-300 active:scale-95"
             aria-label="Scroll Right"
           >
             <span className="material-symbols-outlined text-xl">arrow_forward</span>

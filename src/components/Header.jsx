@@ -143,13 +143,13 @@ const Header = () => {
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[20rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="flex flex-col">
                         {[
-                          { label: "About BlueGrid", to: "/about#about" },
-                          { label: "Our Missions", to: "/about#mission" },
-                          { label: "Our Visions", to: "/about#vision" },
-                          { label: "Our History", to: "/about#history" },
-                          { label: "Accreditation & Awards", to: "/about#accreditations" },
-                          { label: "On Board & Directors", to: "/about#management" },
-                          { label: "Our Policies", to: "/about#policies" }
+                          { label: "About BlueGrid", to: "/about" },
+                          { label: "Our Missions", to: "/about/missions" },
+                          { label: "Our Visions", to: "/about/visions" },
+                          { label: "Our History", to: "/about/history" },
+                          { label: "Accreditation & Awards", to: "/about/accreditations" },
+                          { label: "On Board & Directors", to: "/about/directors" },
+                          { label: "Our Policies", to: "/about/policies" }
                         ].map((item, index) => (
                           <a
                             key={index}
@@ -290,13 +290,13 @@ const Header = () => {
                               className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
-                                { label: "About BlueGrid", to: "/about#about" },
-                                { label: "Our Missions", to: "/about#mission" },
-                                { label: "Our Visions", to: "/about#vision" },
-                                { label: "Our History", to: "/about#history" },
-                                { label: "Accreditation & Awards", to: "/about#accreditations" },
-                                { label: "On Board & Directors", to: "/about#management" },
-                                { label: "Our Policies", to: "/about#policies" }
+                                { label: "About BlueGrid", to: "/about" },
+                                { label: "Our Missions", to: "/about/missions" },
+                                { label: "Our Visions", to: "/about/visions" },
+                                { label: "Our History", to: "/about/history" },
+                                { label: "Accreditation & Awards", to: "/about/accreditations" },
+                                { label: "On Board & Directors", to: "/about/directors" },
+                                { label: "Our Policies", to: "/about/policies" }
                               ].map((item, index) => (
                                 <a
                                   key={index}
