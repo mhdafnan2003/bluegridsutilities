@@ -3,23 +3,24 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import MotionSection from '../components/MotionSection';
 import { ProjectCard } from '../components/ui/ProjectCard';
-import img2 from '../assets/images/Sectors/watermeter2.jpeg';
-import img3 from '../assets/images/projectcordination.jpeg';
-import img4 from '../assets/images/combliance.jpeg';
-import img5 from '../assets/images/infrastructure.jpeg';
-import imgTelecoms from '../assets/images/Telecoms and field operations support.jfif';
-import imgTraining from '../assets/images/Training coordination and deployment planning.jpg';
+import imgWaterMeter from '../assets/images/Sectors/watermeter2.jpeg';
+import imgCivil from '../assets/images/infrastructure.jpeg';
+import imgReinstatement from '../assets/images/projectcordination.jpeg';
+import imgSurveying from '../assets/images/combliance.jpeg';
+import imgTraffic from '../assets/images/Telecoms and field operations support.jfif';
+import imgEmergency from '../assets/images/Training coordination and deployment planning.jpg';
+import imgInfra from '../assets/images/Sectors/Infrastructure Support.jpg';
 
 const servicesData = [
   {
     num: "01",
-    slug: "water-meter",
-    title: "Water Meter Project Support",
-    desc: "We assist with workforce planning, scheduling, field coordination, and operational support for smart meter and water meter installation projects.",
-    img: img2,
+    slug: "water-meter-installation",
+    title: "Water Meter Installation",
+    desc: "We assist with workforce planning, scheduling, field coordination, and operational support for smart meter and water meter installation projects across the UK.",
+    img: imgWaterMeter,
     details: {
       headline: "Comprehensive field force coordination for clean water & smart metering rollouts.",
-      overview: "Our water meter support division coordinates field operatives, scheduling logistics, and customer appointments to ensure high-efficiency rollout and installation rates. We work alongside water authorities, civil partners, and major utility contractors across the UK.",
+      overview: "Our water meter installation division coordinates field operatives, scheduling logistics, and customer appointments to ensure high-efficiency rollout and installation rates. We work alongside water authorities, civil partners, and major utility contractors nationwide.",
       keyAreas: [
         "Smart water meter rollouts & logistics coordination",
         "Operative route planning & field dispatch scheduling",
@@ -36,22 +37,22 @@ const servicesData = [
   },
   {
     num: "02",
-    slug: "utility-infra",
-    title: "Utility Infrastructure Support",
-    desc: "We support infrastructure-related projects requiring reliable labour coordination, site preparation support, and operational workforce management.",
-    img: img5,
+    slug: "civil-engineering",
+    title: "Civil Engineering",
+    desc: "Civil engineering infrastructure support including excavation supervision, trenching, duct laying, pipeline installation, and structural groundworks.",
+    img: imgCivil,
     details: {
-      headline: "Vetted project labor and support for UK utility network construction.",
-      overview: "We provide operational support and labor coordination for utility infrastructure development, including gas, electricity, and water grids. We ensure project teams have access to fully qualified, vetted, and compliant field personnel.",
+      headline: "Vetted civil engineering teams & infrastructure groundwork support.",
+      overview: "We deliver civil engineering and site support for utility network development, including water main installation, electricity cable ducting, and gas pipe laying. Our teams enforce high site safety and regulatory compliance.",
       keyAreas: [
-        "Infrastructure civil works team coordination",
-        "Gas and electricity distribution support logistics",
+        "Infrastructure excavation & trenching coordination",
+        "Pipeline installation & duct laying supervision",
         "Site preparation coordination & operative check-ins",
         "EUSR card and CSCS safety verification checks",
         "Subcontractor compliance tracking & reporting"
       ],
       benefits: [
-        "Fast turnaround in scaling field support personnel",
+        "Fast turnaround in scaling qualified civil engineering personnel",
         "Strict verification of necessary security and sector certifications",
         "Seamless reporting between site management and coordinators"
       ]
@@ -59,93 +60,116 @@ const servicesData = [
   },
   {
     num: "03",
-    slug: "telecoms",
-    title: "Telecoms & Field Operations Support",
-    desc: "Delivering reliable logistics, field technician coordination, and operational field team coverage for major networks.",
-    img: imgTelecoms,
+    slug: "reinstatement",
+    title: "Reinstatement",
+    desc: "High-standard surface reinstatement, hot and cold macadam resurfacing, modular paving, and zero-defect streetworks completion.",
+    img: imgReinstatement,
     details: {
-      headline: "High-efficiency technician dispatch & support for fibre and telecom rollouts.",
-      overview: "We coordinate logistics and technician scheduling for nationwide telecom projects, including FTTH rollouts and cell tower expansions. Our goal is to ensure operatives are dispatched with correct tooling, training records, and routing.",
+      headline: "NRSWA-compliant surface reinstatement & defect-free site handovers.",
+      overview: "Our reinstatement division specializes in backfilling and restoring highways, footways, and private land following utility excavations. We ensure full compliance with HAUC (Highway Authorities & Utilities Committee) standards.",
       keyAreas: [
-        "Technician routing & daily work program optimization",
-        "Fibre network rollout field dispatch support",
-        "SLA (Service Level Agreement) monitoring & coordination",
-        "Mobile network site maintenance team booking",
-        "Asset tracking & parts logistics coordination"
+        "First-time permanent surface reinstatement",
+        "Hot rolled asphalt, macadam, and concrete finishing",
+        "Modular paving, kerb replacement & flag laying",
+        "NRSWA compliance logging & local council permit checks",
+        "Zero-defect site handover audit registers"
       ],
       benefits: [
-        "Real-time communication channels between techs and operators",
-        "Reduced travel overheads through smart dispatch scheduling",
-        "Compliant logistics planning minimizing field downtime"
+        "Zero-defect handovers preventing section 74 overrun charges",
+        "Rapid response teams for emergency reinstatement tasks",
+        "Comprehensive photo evidence logging for audit peace of mind"
       ]
     }
   },
   {
     num: "04",
-    slug: "project-coord",
-    title: "Project Coordination",
-    desc: "Our project team supports scheduling, reporting, communication, compliance tracking, and operational updates between workers, supervisors, and project partners.",
-    img: img3,
+    slug: "utility-surveying",
+    title: "Utility Surveying",
+    desc: "Underground utility mapping, GPR (Ground Penetrating Radar) surveys, trial hole investigations, and site risk mitigation prior to excavation.",
+    img: imgSurveying,
     details: {
-      headline: "Operational management, real-time reporting, and delivery support.",
-      overview: "Our back-office coordinators act as the central communication hub between project partners, supervisors, and field technicians. We track project milestones, generate progress reports, and verify regulatory audit trails.",
+      headline: "Precision underground utility mapping & pre-excavation risk mitigation.",
+      overview: "We execute non-intrusive utility surveys using state-of-the-art Ground Penetrating Radar and electromagnetic location tools. We identify buried pipes, cables, and assets to prevent service strikes and project delays.",
       keyAreas: [
-        "Real-time field updates & operational reporting",
-        "Stakeholder dashboard updates & milestone tracking",
-        "Operative shift planning & emergency dispatch",
-        "Regulatory compliance audits & document gathering",
-        "Incident management support & delay log checks"
+        "Ground Penetrating Radar (GPR) subsurface scanning",
+        "PAS 128 utility mapping & asset verification",
+        "Trial hole excavation & soil condition reporting",
+        "Utility strike avoidance planning & RAMS auditing",
+        "3D CAD model generation for site engineers"
       ],
       benefits: [
-        "Centralized communications reducing operational overheads",
-        "Accurate, real-time progress data for project management",
-        "Reduced regulatory risks through robust documentation processes"
+        "Drastically reduced risk of underground service strikes",
+        "Accurate pre-construction site intelligence for project managers",
+        "PAS 128 compliant survey reports for council approvals"
       ]
     }
   },
   {
     num: "05",
-    slug: "compliance",
-    title: "Compliance & Onboarding",
-    desc: "We operate a structured vetting and onboarding process including identification checks, right-to-work verification, training status checks, availability, and deployment readiness.",
-    img: img4,
+    slug: "traffic-management",
+    title: "Traffic Management Support",
+    desc: "Temporary traffic control setups, NRSWA streetworks compliance, CAD traffic schemes, signal control, lane closures, and council permit liaison.",
+    img: imgTraffic,
     details: {
-      headline: "Structured vetting, identity checks, and operative training audits.",
-      overview: "We enforce compliance checks for field workforces. From right-to-work verification and identity vetting to check-ups on mandatory industry qualifications, we ensure every operative is fully compliant before they arrive on-site.",
+      headline: "Turnkey temporary traffic management & NRSWA streetworks compliance.",
+      overview: "We design, install, and maintain temporary traffic management solutions across urban and rural UK roads. From two-way traffic signals to full road closures, we keep field operatives and the public safe.",
       keyAreas: [
-        "Right-to-work verification & identity checks",
-        "EUSR status audits & CSCS credential validation",
-        "Health & safety training record compliance checks",
-        "Operative onboarding profile management",
-        "Continuous renewal tracking for certifications"
+        "CAD traffic management plan design & council approval",
+        "Temporary traffic signal installation & maintenance",
+        "Lane closures, convoy systems & pedestrian diversions",
+        "NRSWA streetworks permit application support",
+        "24/7 emergency traffic control response"
       ],
       benefits: [
-        "100% compliance-first delivery preventing on-site delays",
-        "Protected digital profiles for audited operative records",
-        "Reduced liability through verified qualification registers"
+        "Guaranteed NRSWA compliance reducing council fines",
+        "Smooth traffic flow minimizing public inconvenience",
+        "Complete safety barrier protection for utility workzones"
       ]
     }
   },
   {
     num: "06",
-    slug: "training",
-    title: "Training Coordination & Deployment Planning",
-    desc: "Continuous training management, qualifications auditing, and logistics coordination to maximize on-site safety and efficiency.",
-    img: imgTraining,
+    slug: "emergency-utility-response",
+    title: "Emergency Utility Response",
+    desc: "24/7 rapid response field operative dispatch, burst main support, gas/water leak isolation, and urgent site safety setup.",
+    img: imgEmergency,
     details: {
-      headline: "Continuous learning management and optimized operative logistics.",
-      overview: "We manage training programs, course bookings, and qualification tracking to support continuous workforce upskilling. Combined with smart deployment planning, we coordinate the delivery of compliant, well-equipped teams.",
+      headline: "24/7 rapid deployment field teams for emergency utility incidents.",
+      overview: "Our emergency response division provides 24-hour on-call support for urgent utility incidents, including water main bursts, power outages, and cable strikes. We deploy fully equipped emergency crews within strict response SLAs.",
       keyAreas: [
-        "Training gap analysis & course booking support",
-        "Upskilling management for utility credentials",
-        "PPE inventory & logistics audit coordination",
-        "Vehicle fleet deployment & routing support",
-        "Operative availability checks & schedule optimization"
+        "24/7 emergency call-out dispatch & operative routing",
+        "Burst water main containment & isolation support",
+        "Urgent site safety barrier & traffic control setup",
+        "Emergency pump deployment & dewatering support",
+        "Real-time incident reporting to client control rooms"
       ],
       benefits: [
-        "Sustained workforce compliance and safety standards",
-        "Reduced planning time with automated qualification reminders",
-        "Highly efficient logistics and supply tracking"
+        "Rapid on-site arrival times across key UK operational hubs",
+        "Fully certified emergency operatives with active safety cards",
+        "Immediate hazard containment protecting public infrastructure"
+      ]
+    }
+  },
+  {
+    num: "07",
+    slug: "infrastructure-support",
+    title: "Infrastructure Support",
+    desc: "Multi-utility infrastructure support, labor resourcing, site logistics, and operational project management for Tier-1 contractors.",
+    img: imgInfra,
+    details: {
+      headline: "Integrated multi-utility support logistics & workforce resourcing.",
+      overview: "We provide operational support and labor coordination for utility infrastructure development across water, gas, electricity, and telecommunications networks, supporting Tier-1 contractors in meeting programme deadlines.",
+      keyAreas: [
+        "Multi-utility site workforce coordination & resourcing",
+        "Equipment & vehicle fleet logistics management",
+        "Site access clearance & customer appointment scheduling",
+        "CSCS, EUSR, and SHEA credential auditing",
+        "Subcontractor compliance tracking & reporting"
+      ],
+      benefits: [
+        "Scalable workforce deployment tailored to project phases",
+        "Comprehensive compliance auditing protecting contractor liability",
+        "Single point of contact for multi-utility project coordination"
       ]
     }
   }
