@@ -179,39 +179,39 @@ const MemberCard = ({ member }) => {
 
   return (
     <div 
-      className="w-full md:w-[440px] flex-shrink-0 cursor-pointer group"
+      className="w-full sm:w-[300px] md:w-[330px] lg:w-[350px] flex-shrink-0 cursor-pointer group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => setIsClicked(!isClicked)}
     >
-      <div className="relative flex flex-col rounded-none overflow-hidden bg-white shadow-xl h-full border border-slate-200 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#005f9e]">
+      <div className="relative flex flex-col rounded-none overflow-hidden bg-white shadow-lg h-full border border-slate-200 transition-all duration-300 hover:-translate-y-1.5 hover:border-[#005f9e]">
         
         {/* Social Icons Overlay */}
-        <div className={`absolute top-4 right-4 flex flex-col gap-2 transition-all duration-300 z-20 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <a href={member.social?.linkedin || '#'} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
+        <div className={`absolute top-3 right-3 flex flex-col gap-1.5 transition-all duration-300 z-20 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
+          <a href={member.social?.linkedin || '#'} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
             <LinkedInIcon />
           </a>
-          <a href={member.social?.facebook || '#'} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
+          <a href={member.social?.facebook || '#'} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
             <FacebookIcon />
           </a>
-          <a href={member.social?.instagram || '#'} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
+          <a href={member.social?.instagram || '#'} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
             <InstagramIcon />
           </a>
         </div>
 
         {/* Photo Container */}
-        <div className="aspect-[4/5] w-full relative overflow-hidden bg-slate-900">
+        <div className="aspect-[4/4.5] w-full relative overflow-hidden bg-slate-900">
           <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src={member.img} />
         </div>
         
         {/* Content Overlay */}
-        <div className={`bg-white p-6 sm:p-8 absolute bottom-0 left-0 right-0 z-10 rounded-none border-t border-slate-200 flex flex-col justify-start h-[370px] sm:h-[400px] transition-all duration-500 ease-out ${isOpen ? 'translate-y-0' : 'translate-y-[260px] sm:translate-y-[300px]'}`}>
-          <div className="mb-3">
-            <h3 className="text-xl sm:text-2xl text-[#0f3a5e] font-bold tracking-tight uppercase leading-none mb-2 font-outfit">{member.name}</h3>
-            <p className="text-xs text-[#005f9e] font-bold tracking-widest uppercase min-h-[32px] flex items-center font-outfit">{member.role}</p>
+        <div className={`bg-white p-5 absolute bottom-0 left-0 right-0 z-10 rounded-none border-t border-slate-200 flex flex-col justify-start h-[290px] sm:h-[310px] transition-all duration-500 ease-out ${isOpen ? 'translate-y-0' : 'translate-y-[215px] sm:translate-y-[230px]'}`}>
+          <div className="mb-2">
+            <h3 className="text-lg sm:text-xl text-[#0f3a5e] font-bold tracking-tight uppercase leading-snug mb-1 font-outfit">{member.name}</h3>
+            <p className="text-[11px] text-[#005f9e] font-bold tracking-wider uppercase min-h-[28px] flex items-center font-outfit">{member.role}</p>
           </div>
           
-          <div className={`text-slate-600 text-xs sm:text-sm leading-relaxed transition-all duration-500 space-y-3 flex-1 overflow-y-auto pr-1 pb-4 font-medium ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className={`text-slate-600 text-xs leading-relaxed transition-all duration-500 space-y-2 flex-1 overflow-y-auto pr-1 pb-3 font-medium ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
             {member.desc.split('\n').map((para, pIdx) => (
               <p key={pIdx}>{para}</p>
             ))}
@@ -246,20 +246,7 @@ const Management = () => {
       id="management"
     >
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
-        
-        {/* Header Section */}
-        <div className="mb-12 text-center max-w-3xl mx-auto">
-          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20 font-outfit">
-            TEAM ROSTER BY DEPARTMENT
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight mb-4 font-outfit">
-            LEADERSHIP & DEPARTMENTAL TEAMS
-          </h2>
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
-            Explore Bluegrid Utilities' executive directors and multi-disciplinary operational team members across all departments.
-          </p>
-        </div>
-
+      
         {/* Department Filter Tabs Bar */}
         <div className="flex items-center justify-start md:justify-center overflow-x-auto gap-2 pb-6 mb-16 border-b border-slate-200 no-scrollbar">
           <button
