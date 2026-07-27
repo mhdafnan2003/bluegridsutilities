@@ -100,17 +100,17 @@ const Header = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      {
-        isMenuOpen && (
-          <div className="md:hidden mt-4 rounded-3xl p-6 space-y-5 bg-black/80 backdrop-blur-md border border-white/10">
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#about" onClick={() => setIsMenuOpen(false)}>About</Link>
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#services" onClick={() => setIsMenuOpen(false)}>Services</Link>
-            <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
-            <Link className="block text-white text-lg font-semibold" to="https://forms.office.com/r/K9vKw1hxcB" onClick={() => setIsMenuOpen(false)}>Join Our Workforce</Link>
-          </div>
+      {isMenuOpen && (
+        <div className="md:hidden mt-4 rounded-3xl p-6 space-y-5 bg-black/80 backdrop-blur-md border border-white/10">
+          <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#" onClick={() => setIsMenuOpen(false)}>Home</Link>
+          <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#about" onClick={() => setIsMenuOpen(false)}>About</Link>
+          <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#services" onClick={() => setIsMenuOpen(false)}>Services</Link>
+          <Link className="block text-white text-lg font-semibold border-b border-white/10 pb-3" to="/#contact" onClick={() => setIsMenuOpen(false)}>Contact Us</Link>
+          <Link className="block text-white text-lg font-semibold" to="https://forms.office.com/r/K9vKw1hxcB" onClick={() => setIsMenuOpen(false)}>Join Our Workforce</Link>
+        </div>
+      )}
 
-          {/* Mobile Accordion Menu */}
+      {/* Mobile Accordion Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -243,9 +243,8 @@ const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
-    </div>
-      </header >
-    );
-  };
+    </header>
+  );
+};
 
 export default Header;
