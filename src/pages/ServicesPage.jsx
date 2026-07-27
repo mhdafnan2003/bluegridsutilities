@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import MotionSection from '../components/MotionSection';
-import { ProjectCard } from '../components/ui/ProjectCard';
 import imgWaterMeter from '../assets/images/Sectors/watermeter2.jpeg';
 import imgCivil from '../assets/images/infrastructure.jpeg';
 import imgReinstatement from '../assets/images/projectcordination.jpeg';
@@ -16,6 +14,7 @@ const servicesData = [
     num: "01",
     slug: "water-meter-installation",
     title: "Water Meter Installation",
+    icon: "water_drop",
     desc: "We assist with workforce planning, scheduling, field coordination, and operational support for smart meter and water meter installation projects across the UK.",
     img: imgWaterMeter,
     details: {
@@ -39,7 +38,8 @@ const servicesData = [
     num: "02",
     slug: "civil-engineering",
     title: "Civil Engineering",
-    desc: "Civil engineering infrastructure support including excavation supervision, trenching, duct laying, pipeline installation, and structural groundworks.",
+    icon: "engineering",
+    desc: "Our civil engineering infrastructure support includes excavation management, trenching, duct laying, pipeline installation, and structural groundworks with full 'construct only' or 'design and construct' capabilities.",
     img: imgCivil,
     details: {
       headline: "Vetted civil engineering teams & infrastructure groundwork support.",
@@ -62,7 +62,8 @@ const servicesData = [
     num: "03",
     slug: "reinstatement",
     title: "Reinstatement",
-    desc: "High-standard surface reinstatement, hot and cold macadam resurfacing, modular paving, and zero-defect streetworks completion.",
+    icon: "construction",
+    desc: "High-standard surface reinstatement, hot and cold macadam resurfacing, modular paving, and zero-defect streetworks completion following excavation.",
     img: imgReinstatement,
     details: {
       headline: "NRSWA-compliant surface reinstatement & defect-free site handovers.",
@@ -85,7 +86,8 @@ const servicesData = [
     num: "04",
     slug: "utility-surveying",
     title: "Utility Surveying",
-    desc: "Underground utility mapping, GPR (Ground Penetrating Radar) surveys, trial hole investigations, and site risk mitigation prior to excavation.",
+    icon: "radar",
+    desc: "Underground utility mapping, Ground Penetrating Radar (GPR) surveys, trial hole investigations, and site risk mitigation prior to excavation works.",
     img: imgSurveying,
     details: {
       headline: "Precision underground utility mapping & pre-excavation risk mitigation.",
@@ -108,6 +110,7 @@ const servicesData = [
     num: "05",
     slug: "traffic-management",
     title: "Traffic Management Support",
+    icon: "traffic",
     desc: "Temporary traffic control setups, NRSWA streetworks compliance, CAD traffic schemes, signal control, lane closures, and council permit liaison.",
     img: imgTraffic,
     details: {
@@ -131,7 +134,8 @@ const servicesData = [
     num: "06",
     slug: "emergency-utility-response",
     title: "Emergency Utility Response",
-    desc: "24/7 rapid response field operative dispatch, burst main support, gas/water leak isolation, and urgent site safety setup.",
+    icon: "warning",
+    desc: "24/7 rapid response field operative dispatch, burst main support, gas/water leak isolation, and urgent site safety setup across UK network hubs.",
     img: imgEmergency,
     details: {
       headline: "24/7 rapid deployment field teams for emergency utility incidents.",
@@ -154,7 +158,8 @@ const servicesData = [
     num: "07",
     slug: "infrastructure-support",
     title: "Infrastructure Support",
-    desc: "Multi-utility infrastructure support, labor resourcing, site logistics, and operational project management for Tier-1 contractors.",
+    icon: "foundation",
+    desc: "Multi-utility infrastructure support, labor resourcing, site logistics, and operational project management for major Tier-1 contractors.",
     img: imgInfra,
     details: {
       headline: "Integrated multi-utility support logistics & workforce resourcing.",
@@ -175,27 +180,6 @@ const servicesData = [
   }
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: 'easeOut'
-    }
-  }
-};
-
 const ServicesPage = () => {
   const [searchParams] = useSearchParams();
   const selectedService = searchParams.get('select');
@@ -204,7 +188,7 @@ const ServicesPage = () => {
     ? servicesData.filter(item => item.slug === selectedService)
     : servicesData;
 
-  // Render Single Service Detail Layout (Image Left, Text Right, Expanded Content)
+  // Render Single Service Detail Layout
   if (selectedService && filteredServices.length > 0) {
     const service = filteredServices[0];
     return (
@@ -223,18 +207,18 @@ const ServicesPage = () => {
           <div className="mb-10 text-left">
             <Link 
               to="/services" 
-              className="inline-flex items-center gap-2 text-slate-500 hover:text-brand-primary font-bold text-xs uppercase tracking-wider transition-colors"
+              className="inline-flex items-center gap-2 text-slate-500 hover:text-[#005f9e] font-bold text-xs uppercase tracking-wider transition-colors font-outfit"
             >
-              ← Back to All Services
+              ← Back to Our Services
             </Link>
           </div>
 
           {/* Split Layout Container */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             
-            {/* Left Column: Landscape or Portrait Image */}
+            {/* Left Column: Image Banner */}
             <div className="lg:col-span-5 w-full">
-              <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-50 relative aspect-[4/3] sm:aspect-[4/3] md:aspect-[4/3]">
+              <div className="rounded-none overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 relative aspect-[4/3]">
                 <img 
                   src={service.img} 
                   alt={service.title} 
@@ -247,40 +231,38 @@ const ServicesPage = () => {
             <div className="lg:col-span-7 flex flex-col items-start text-left space-y-8">
               
               <div>
-                <span className="inline-block px-3 py-1 rounded-full bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-widest mb-4 font-outfit">
+                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
                   Service {service.num}
                 </span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1a202c] leading-tight font-outfit uppercase">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] leading-tight font-outfit uppercase">
                   {service.title}
                 </h1>
               </div>
 
               {/* Headline & Overview */}
               <div className="space-y-4">
-                <h3 className="text-xl font-bold text-brand-dark font-outfit leading-snug">
+                <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit leading-snug">
                   {service.details.headline}
                 </h3>
-                <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                   {service.details.overview}
                 </p>
               </div>
 
-              <hr className="w-full border-slate-100" />
+              <hr className="w-full border-slate-200" />
 
               {/* Grid of Key Focus Areas & Benefits */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                 
                 {/* Key Focus Areas */}
                 <div className="space-y-4">
-                  <h4 className="text-sm font-black text-brand-dark uppercase tracking-wider font-outfit">
+                  <h4 className="text-sm font-black text-[#0f3a5e] uppercase tracking-wider font-outfit">
                     Key Focus Areas
                   </h4>
                   <ul className="space-y-3">
                     {service.details.keyAreas.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-500 leading-normal">
-                        <svg className="w-5 h-5 text-brand-primary shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                        </svg>
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 font-medium leading-normal">
+                        <span className="material-symbols-outlined text-[#005f9e] text-base shrink-0 mt-0.5">check_circle</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -289,15 +271,13 @@ const ServicesPage = () => {
 
                 {/* Benefits */}
                 <div className="space-y-4">
-                  <h4 className="text-sm font-black text-brand-dark uppercase tracking-wider font-outfit">
+                  <h4 className="text-sm font-black text-[#0f3a5e] uppercase tracking-wider font-outfit">
                     Operational Benefits
                   </h4>
                   <ul className="space-y-3">
                     {service.details.benefits.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-gray-500 leading-normal">
-                        <svg className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                        </svg>
+                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 font-medium leading-normal">
+                        <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5">verified</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -306,21 +286,21 @@ const ServicesPage = () => {
 
               </div>
 
-              <hr className="w-full border-slate-100" />
+              <hr className="w-full border-slate-200" />
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-4 pt-2">
                 <Link 
                   to={`/contact?subject=${encodeURIComponent(`Enquiry - ${service.title}`)}`}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-brand-primary hover:bg-brand-dark text-white font-black uppercase text-xs tracking-widest transition-all duration-300 shadow-lg active:scale-95 font-outfit cursor-pointer"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 shadow-lg active:scale-95 font-outfit cursor-pointer"
                 >
                   Enquire About Service
                 </Link>
                 <Link 
                   to="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-slate-300 hover:border-brand-dark hover:text-brand-dark text-slate-600 font-black uppercase text-xs tracking-widest transition-all duration-300 active:scale-95 font-outfit cursor-pointer"
+                  className="inline-flex items-center justify-center px-8 py-4 bg-white border border-slate-300 hover:border-[#0f3a5e] hover:text-[#0f3a5e] text-slate-700 font-bold uppercase text-xs tracking-widest transition-all duration-300 active:scale-95 font-outfit cursor-pointer"
                 >
-                  View Other Services
+                  View All Services
                 </Link>
               </div>
 
@@ -333,53 +313,88 @@ const ServicesPage = () => {
     );
   }
 
-  // Render All Services Grid Layout
+  // Render All Services View with Zig-Zag Banner Card Placement
   return (
     <MotionSection 
       as="div" 
-      className="py-24 bg-white font-sans animate-fade-in" 
+      className="py-16 md:py-24 bg-white font-sans animate-fade-in" 
       id="services"
       initial="hidden"
       animate="visible"
       whileInView={undefined}
       viewport={undefined}
     >
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-10 text-center">
+      <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
 
-        {/* Header Section */}
-        <div className="mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide">
-            Our Services
+        {/* Left-Aligned Headline Section */}
+        <div className="text-left mb-20 max-w-3xl">
+          <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+            OUR CAPABILITIES
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1a202c] mt-6 mb-4 tracking-tight uppercase font-outfit">
-            Operational Support Services
-          </h2>
-          <p className="text-gray-500 max-w-2xl mx-auto text-lg mb-6">
-            We provide tailored utility coordination and workforce support solutions across the UK, executed with compliance and safety.
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
+            OUR SERVICES
+          </h1>
+          <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium mt-4">
+            Bluegrid Utilities delivers reliable infrastructure support, clean water metering, civil engineering, and specialized field force management across the UK.
           </p>
         </div>
 
-        {/* Services Grid */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="grid gap-8 lg:gap-10 text-left grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-        >
-          {filteredServices.map((service, index) => (
-            <motion.div key={index} variants={cardVariants} className="h-full flex">
-              <ProjectCard
-                imgSrc={service.img}
-                title={service.title}
-                description={service.desc}
-                link={`/services?select=${service.slug}`}
-                linkText="Read More"
-                className="w-full flex flex-col"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        {/* Zig-Zag Service Banner Cards Stack */}
+        <div className="space-y-24 md:space-y-32">
+          {servicesData.map((service, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div 
+                key={service.slug}
+                className="relative w-full min-h-[460px] sm:min-h-[500px] md:min-h-[540px] bg-slate-900 shadow-2xl flex items-center overflow-hidden group"
+              >
+                {/* Full Large Banner Image */}
+                <img 
+                  src={service.img} 
+                  alt={service.title} 
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
+                />
+
+                {/* Light Vignette / Gradient for Image Contrast */}
+                <div className="absolute inset-0 bg-black/20" />
+
+                {/* Floating Dark Card Container (Alternating Right and Left in Zig-Zag pattern) */}
+                <div className={`relative z-10 w-full p-4 sm:p-8 md:p-12 flex ${isEven ? 'justify-end' : 'justify-start'}`}>
+                  <div className="w-full max-w-[500px] lg:max-w-[540px] bg-[#2d3748] text-white p-8 sm:p-10 md:p-12 shadow-2xl text-left border-t-4 border-[#005f9e]">
+                    
+                    {/* Circular Icon Ring */}
+                    <div className="w-14 h-14 rounded-full border-2 border-lime-400/50 bg-lime-400/10 flex items-center justify-center text-lime-400 mb-6 shrink-0">
+                      <span className="material-symbols-outlined text-2xl">{service.icon}</span>
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-outfit mb-4 leading-tight">
+                      {service.title}
+                    </h2>
+
+                    {/* Description */}
+                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-8">
+                      {service.desc}
+                    </p>
+
+                    {/* Pill CTA Button */}
+                    <Link 
+                      to={`/services?select=${service.slug}`}
+                      className="inline-flex items-center gap-3 bg-white text-[#1a202c] hover:bg-lime-400 hover:text-slate-950 font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit"
+                    >
+                      <span>FIND OUT MORE</span>
+                      <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover/btn:translate-x-1">
+                        arrow_forward
+                      </span>
+                    </Link>
+
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
+        </div>
 
       </div>
     </MotionSection>
