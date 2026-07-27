@@ -154,7 +154,7 @@ const Contact = () => {
                   <textarea rows="4" placeholder="How can we help you?" className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none resize-none"></textarea>
                 </div>
                 <button className="w-full py-5 bg-brand-primary text-white rounded-2xl font-black uppercase tracking-widest hover:bg-brand-dark transition-all duration-300 shadow-xl shadow-brand-primary/20 group flex items-center justify-center gap-3">
-                  Send Message hi
+                  Send Message hello
                   <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
                 </button>
               </form>
