@@ -229,8 +229,8 @@ const Header = () => {
                     </Link>
 
                     {/* Health & Safety Dropdown Menu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[26rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                      <div className="flex flex-col">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[38rem] bg-white border border-slate-100 shadow-2xl rounded-none p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50 border-l-4 border-l-[#005f9e]">
+                      <div className="grid grid-cols-2 gap-x-2">
                         {[
                           { label: "Health & Safety Policy", to: "/health-safety/policy" },
                           { label: "Risk Assessments", to: "/health-safety/risk-assessments" },
@@ -251,7 +251,7 @@ const Header = () => {
                           <Link
                             key={index}
                             to={item.to}
-                            className="px-6 py-2.5 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
+                            className="px-4 py-2 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap rounded-r-lg"
                           >
                             {item.label}
                           </Link>
@@ -394,7 +394,7 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                              className="pl-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 font-sans normal-case text-xs text-slate-500 py-2 border-l border-brand-primary/20 mt-1"
                             >
                               {[
                                 { label: "Health & Safety Policy", to: "/health-safety/policy" },

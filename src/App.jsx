@@ -252,7 +252,7 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
-          path="/health-safety/environmental-protection"
+          path="/health-safety/:sectionId"
           element={
             <PageTransition>
               <PageWrapper>
