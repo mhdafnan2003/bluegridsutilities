@@ -5,6 +5,8 @@ import infraImg from '../../assets/images/utility_grid_work.png';
 import waterMeterImg from '../../assets/images/water meter suoort bluegrids.jpeg';
 import workersImg from '../../assets/images/uk_utility_workers_site.png';
 
+import AboutBanner from '../../components/AboutBanner';
+
 const OurHistoryPage = () => {
   return (
     <div className="font-sans">
@@ -15,48 +17,35 @@ const OurHistoryPage = () => {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* Top Page Title Banner (Title ON Banner Image) */}
-          <div className="relative rounded-none overflow-hidden mb-12 border border-slate-200 shadow-xl min-h-[300px] sm:min-h-[360px] flex items-center">
-            <img 
-              src={historyBannerImg} 
-              alt="Bluegrid Utilities History Header" 
-              className="absolute inset-0 w-full h-full object-cover object-center brightness-95"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f3a5e]/85 via-[#0f3a5e]/50 to-transparent" />
+          {/* Top Page Title Banner */}
+          <AboutBanner 
+            badgeText="TRANSPARENT FOUNDATION"
+            title="OUR HISTORY & GROWTH"
+            description="Established to provide specialist utility infrastructure services throughout the UK with operational excellence."
+            bgImage={historyBannerImg}
+          />
 
-            <div className="relative z-10 p-8 sm:p-12 md:p-16 max-w-3xl text-left text-white">
-              <span className="inline-block px-4 py-1.5 rounded-none bg-[#0066ff] text-white text-xs font-bold uppercase tracking-widest mb-4 font-outfit shadow-md border border-white/20">
-                TRANSPARENT FOUNDATION
-              </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight uppercase leading-tight mb-4 font-outfit drop-shadow-sm">
-                OUR HISTORY & GROWTH
-              </h1>
-              <p className="text-slate-100 text-base md:text-lg leading-relaxed font-medium max-w-2xl drop-shadow-sm">
-                Established to provide specialist utility infrastructure services throughout the UK with operational excellence.
-              </p>
-            </div>
-          </div>
-
-          {/* History Narrative Banner (Bright Clear Image Frame) */}
-          <div className="relative rounded-none overflow-hidden border border-slate-200 mb-16 shadow-xl min-h-[320px] flex items-center bg-slate-100">
+          {/* History Narrative Banner */}
+          <div className="relative rounded-none overflow-hidden border border-slate-200 mb-16 shadow-xl min-h-[380px] sm:min-h-[420px] flex items-center bg-slate-900">
             <img 
               src={workersImg} 
               alt="Bluegrid Utility Infrastructure History" 
-              className="absolute inset-0 w-full h-full object-cover brightness-95"
+              className="absolute inset-0 w-full h-full object-cover brightness-90"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f3a5e]/90 via-[#0f3a5e]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
             
-            <div className="relative z-10 p-8 sm:p-12 md:p-16 max-w-4xl text-left text-white space-y-4">
+            {/* Text Box Container */}
+            <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 max-w-3xl text-left text-white bg-[#0f3a5e]/45 backdrop-blur-sm border border-white/30 shadow-2xl m-6 sm:m-10 lg:m-12 space-y-3">
               <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest font-outfit block">
                 ORGANISATIONAL JOURNEY
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white font-outfit">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold uppercase tracking-tight text-white font-outfit">
                 BUILT ON EXPERIENCED LEADERSHIP & PARTNERSHIPS
               </h2>
-              <p className="text-slate-100 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
                 Bluegrid Utilities was established to address the growing demand for compliant, safe, and reliable field infrastructure delivery within the UK utilities sector.
               </p>
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
                 Rather than inventing a long fictional history, we take pride in being a transparent, modern contractor built on decades of combined management experience, strong operational partnerships, and dedicated support for utility providers and principal contractors across the country.
               </p>
             </div>

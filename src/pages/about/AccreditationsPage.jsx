@@ -5,6 +5,8 @@ import complianceBg from '../../assets/images/compliance_bg.png';
 import safetyBg from '../../assets/images/safety_bg.png';
 import heroTwoImg from '../../assets/images/updated/hero_blue_two.png';
 
+import AboutBanner from '../../components/AboutBanner';
+
 const AccreditationsPage = () => {
   return (
     <div className="font-sans">
@@ -15,27 +17,13 @@ const AccreditationsPage = () => {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* Top Page Title Banner (Title ON Banner Image) */}
-          <div className="relative rounded-none overflow-hidden mb-12 border border-slate-200 shadow-xl min-h-[300px] sm:min-h-[360px] flex items-center">
-            <img 
-              src={heroTwoImg} 
-              alt="Bluegrid Utilities Accreditation Header" 
-              className="absolute inset-0 w-full h-full object-cover object-center brightness-95"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0f3a5e]/85 via-[#0f3a5e]/50 to-transparent" />
-
-            <div className="relative z-10 p-8 sm:p-12 md:p-16 max-w-3xl text-left text-white">
-              <span className="inline-block px-4 py-1.5 rounded-none bg-[#0066ff] text-white text-xs font-bold uppercase tracking-widest mb-4 font-outfit shadow-md border border-white/20">
-                OPERATIONAL QUALITY & STANDARDS
-              </span>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight uppercase leading-tight mb-4 font-outfit drop-shadow-sm">
-                ACCREDITATION & AWARDS
-              </h1>
-              <p className="text-slate-100 text-base md:text-lg leading-relaxed font-medium max-w-2xl drop-shadow-sm">
-                Operating under strict adherence to national and industry compliance standards to ensure safety, reliability, and top-tier utility operations.
-              </p>
-            </div>
-          </div>
+          {/* Top Page Title Banner */}
+          <AboutBanner 
+            badgeText="OPERATIONAL QUALITY & STANDARDS"
+            title="ACCREDITATION & AWARDS"
+            description="Operating under strict adherence to national and industry compliance standards to ensure safety, reliability, and top-tier utility operations."
+            bgImage={heroTwoImg}
+          />
 
           {/* 3 Accreditation Banner Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
