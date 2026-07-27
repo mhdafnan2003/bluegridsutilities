@@ -10,6 +10,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileHealthSafetyOpen, setIsMobileHealthSafetyOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,7 +30,7 @@ const Header = () => {
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
     { label: 'Projects', to: '/projects' },
-    { label: 'Sustainability', to: '/sustainability' },
+    { label: 'Health & Safety', to: '/health-safety' },
     { label: 'Career', to: '/career' },
     { label: 'News', to: '/news' },
     { label: 'Contact Us', to: '/contact' }
@@ -209,6 +210,58 @@ const Header = () => {
                 );
               }
 
+              if (link.label === 'Health & Safety') {
+                return (
+                  <div key={link.label} className="relative group flex items-stretch">
+                    <Link
+                      to={link.to}
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
+                        isActive(link.to) 
+                          ? 'text-[#005f9e]' 
+                          : (isScrolled ? 'text-slate-700 hover:text-[#005f9e]' : 'text-[#0f3a5e] hover:text-[#005f9e]')
+                      }`}
+                    >
+                      {link.label}
+                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                        keyboard_arrow_down
+                      </span>
+                      <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    </Link>
+
+                    {/* Health & Safety Dropdown Menu */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[26rem] bg-white border border-slate-100 shadow-2xl rounded-2xl py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                      <div className="flex flex-col">
+                        {[
+                          { label: "Health & Safety Policy", to: "/health-safety/policy" },
+                          { label: "Risk Assessments", to: "/health-safety/risk-assessments" },
+                          { label: "Method Statements (RAMS)", to: "/health-safety/rams" },
+                          { label: "Near Miss Reporting", to: "/health-safety/near-miss" },
+                          { label: "Environmental Protection", to: "/health-safety/environmental-protection" },
+                          { label: "Incident Management", to: "/health-safety/incident-management" },
+                          { label: "Quality Assurance", to: "/health-safety/quality-assurance" },
+                          { label: "Site Audits", to: "/health-safety/site-audits" },
+                          { label: "Daily Briefings", to: "/health-safety/daily-briefings" },
+                          { label: "PPE", to: "/health-safety/ppe" },
+                          { label: "Toolbox Talks", to: "/health-safety/toolbox-talks" },
+                          { label: "NRSWA Compliance", to: "/health-safety/nrswa" },
+                          { label: "Training", to: "/health-safety/training" },
+                          { label: "Continuous Monitoring", to: "/health-safety/monitoring" },
+                          { label: "Behavioural Safety", to: "/health-safety/behavioural-safety" }
+                        ].map((item, index) => (
+                          <Link
+                            key={index}
+                            to={item.to}
+                            className="px-6 py-2.5 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.label}
@@ -306,6 +359,66 @@ const Header = () => {
                                   onClick={() => {
                                     setIsMenuOpen(false);
                                     setIsMobileAboutOpen(false);
+                                  }}
+                                  className="hover:text-[#005f9e] transition-colors py-1 block text-left"
+                                >
+                                  {item.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  if (link.label === 'Health & Safety') {
+                    return (
+                      <div key={link.label} className="flex flex-col">
+                        <button
+                          onClick={() => setIsMobileHealthSafetyOpen(!isMobileHealthSafetyOpen)}
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold ${
+                            isScrolled 
+                              ? 'text-slate-800 hover:text-[#005f9e] border-slate-50' 
+                              : 'text-[#0f3a5e] hover:text-[#005f9e] border-[#d8e9f6]/40'
+                          }`}
+                        >
+                          <span>{link.label}</span>
+                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileHealthSafetyOpen ? 'rotate-180' : ''}`}>
+                            keyboard_arrow_down
+                          </span>
+                        </button>
+                        <AnimatePresence>
+                          {isMobileHealthSafetyOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                            >
+                              {[
+                                { label: "Health & Safety Policy", to: "/health-safety/policy" },
+                                { label: "Risk Assessments", to: "/health-safety/risk-assessments" },
+                                { label: "Method Statements (RAMS)", to: "/health-safety/rams" },
+                                { label: "Near Miss Reporting", to: "/health-safety/near-miss" },
+                                { label: "Environmental Protection", to: "/health-safety/environmental-protection" },
+                                { label: "Incident Management", to: "/health-safety/incident-management" },
+                                { label: "Quality Assurance", to: "/health-safety/quality-assurance" },
+                                { label: "Site Audits", to: "/health-safety/site-audits" },
+                                { label: "Daily Briefings", to: "/health-safety/daily-briefings" },
+                                { label: "PPE", to: "/health-safety/ppe" },
+                                { label: "Toolbox Talks", to: "/health-safety/toolbox-talks" },
+                                { label: "NRSWA Compliance", to: "/health-safety/nrswa" },
+                                { label: "Training", to: "/health-safety/training" },
+                                { label: "Continuous Monitoring", to: "/health-safety/monitoring" },
+                                { label: "Behavioural Safety", to: "/health-safety/behavioural-safety" }
+                              ].map((item, index) => (
+                                <Link
+                                  key={index}
+                                  to={item.to}
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setIsMobileHealthSafetyOpen(false);
                                   }}
                                   className="hover:text-[#005f9e] transition-colors py-1 block text-left"
                                 >
