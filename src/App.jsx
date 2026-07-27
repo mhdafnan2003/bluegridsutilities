@@ -14,6 +14,7 @@ import OperationalCoverage from './components/OperationalCoverage';
 import TrainingDevelopment from './components/TrainingDevelopment';
 import Workforce from './components/Workforce';
 import ApplyPage from './pages/ApplyPage';
+import NewsPage from './pages/NewsPage';
 import Management from './components/Management';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -99,12 +100,6 @@ const CareerPage = () => (
   </>
 );
 
-const NewsPage = () => (
-  <>
-    <QuickInfo />
-    <KPIOperationalMonitoring />
-  </>
-);
 
 const ContactPage = () => (
   <>
