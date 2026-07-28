@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MotionSection from './MotionSection';
 
 // High quality sector & operational images
@@ -194,12 +195,12 @@ const WhatWeAre = () => {
                 ))}
               </div>
             </div>
-            <a
-              href="/contact"
+            <Link
+              to="/about"
               className="px-7 py-3.5 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold uppercase text-xs tracking-wider rounded-none border border-white/10 transition-all duration-300 shrink-0 shadow-lg"
             >
-              WORK WITH US
-            </a>
+              view more about us
+            </Link>
           </div>
         </div>
 
