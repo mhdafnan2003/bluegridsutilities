@@ -224,11 +224,11 @@ const OperationalDelivery = () => {
           <img 
             src={heroBg} 
             alt="Utility Project Operations" 
-            className="w-full h-full object-cover filter brightness-[0.6] scale-105"
+            className="w-full h-full object-cover filter brightness-[0.95] contrast-[1.02] scale-105"
           />
-          {/* Deep gradient overlay to ensure text inside picture is high-contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-950/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-transparent to-transparent" />
+          {/* Subtle gradient overlay for text legibility */}
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/40 to-slate-950/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-transparent to-transparent" />
         </div>
 
         {/* Content INSIDE the Hero Picture */}
@@ -309,47 +309,49 @@ const OperationalDelivery = () => {
             </p>
           </div>
 
-          {/* Spacious Grid with Large Photo Cards & Content INSIDE the pictures */}
+          {/* Spacious Grid with Clear Photo Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             {ongoingMobilisationPhases.map((phase) => (
               <div 
                 key={phase.id}
-                className="relative h-[480px] rounded-none overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between border border-slate-200"
+                onClick={() => setLightboxImage({ img: phase.img, title: phase.title, category: phase.status })}
+                className="bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer text-left min-h-[480px]"
               >
-                {/* Large Background Picture */}
-                <img 
-                  src={phase.img} 
-                  alt={phase.title} 
-                  className="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[1.05] group-hover:scale-110 transition-transform duration-700 ease-out"
-                />
-                
-                {/* Gradient Overlay for Text Clarity Inside Picture */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/65 to-slate-950/20 group-hover:via-slate-950/75 transition-colors duration-300" />
-
-                {/* Top Badge Inside Picture */}
-                <div className="relative z-10 p-6 flex justify-between items-start">
-                  <span className="bg-[#005f9e] text-white text-[11px] font-extrabold px-3 py-1 font-outfit uppercase tracking-widest shadow-md">
-                    {phase.status}
-                  </span>
+                {/* Clear Top Image - 100% Bright & Clear */}
+                <div className="relative h-[280px] md:h-[300px] w-full overflow-hidden bg-slate-100">
+                  <img 
+                    src={phase.img} 
+                    alt={phase.title} 
+                    className="w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] group-hover:scale-105 transition-all duration-500 ease-out"
+                  />
+                  
+                  {/* Top Status Badge */}
+                  <div className="absolute top-5 left-5 z-10">
+                    <span className="bg-[#005f9e] text-white text-[11px] font-extrabold px-3.5 py-1.5 font-outfit uppercase tracking-widest shadow-md">
+                      {phase.status}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Bottom Content INSIDE the Picture */}
-                <div className="relative z-10 p-8 text-white">
-                  <h3 className="text-2xl font-bold font-outfit mb-3 text-white group-hover:text-sky-300 transition-colors">
-                    {phase.title}
-                  </h3>
-                  <p className="text-slate-200 text-sm leading-relaxed mb-6 font-medium">
-                    {phase.desc}
-                  </p>
+                {/* Content Body Below Image */}
+                <div className="p-8 flex flex-col justify-between flex-1 bg-white border-t border-slate-100">
+                  <div>
+                    <h3 className="text-2xl font-bold font-outfit mb-3 text-slate-900 group-hover:text-[#005f9e] transition-colors leading-snug">
+                      {phase.title}
+                    </h3>
+                    <p className="text-slate-600 text-sm leading-relaxed mb-6 font-medium">
+                      {phase.desc}
+                    </p>
 
-                  {/* Highlights / Milestones Overlaid Inside Pic */}
-                  <div className="pt-4 border-t border-white/20 space-y-2">
-                    {phase.highlights.map((item, idx) => (
-                      <div key={idx} className="flex items-center text-xs font-semibold text-slate-200">
-                        <span className="w-1.5 h-1.5 bg-sky-400 rounded-full mr-2 shrink-0"></span>
-                        <span>{item}</span>
-                      </div>
-                    ))}
+                    {/* Highlights / Milestones */}
+                    <div className="pt-4 border-t border-slate-100 space-y-2">
+                      {phase.highlights.map((item, idx) => (
+                        <div key={idx} className="flex items-center text-xs font-semibold text-slate-700">
+                          <span className="w-1.5 h-1.5 bg-[#005f9e] rounded-full mr-2 shrink-0"></span>
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -401,10 +403,10 @@ const OperationalDelivery = () => {
                   <img 
                     src={activeCaseStudyObj.heroImg} 
                     alt={activeCaseStudyObj.title}
-                    className="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]" 
+                    className="absolute inset-0 w-full h-full object-cover filter brightness-[0.95] contrast-[1.02]" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/45 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-transparent" />
 
                   {/* Content INSIDE Feature Picture */}
                   <div className="relative z-10 text-white w-full max-w-4xl">
@@ -437,41 +439,44 @@ const OperationalDelivery = () => {
                   </div>
                 </div>
 
-                {/* Case Study Timeline: BEFORE, DURING, AFTER (Large Photos with Content INSIDE) */}
+                {/* Case Study Timeline: BEFORE, DURING, AFTER */}
                 <div>
                   <h4 className="text-2xl font-bold text-slate-900 font-outfit mb-8 uppercase tracking-wider border-l-4 border-[#005f9e] pl-4">
                     Case Study Lifecycle: Before, During & After
                   </h4>
 
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
                     {activeCaseStudyObj.timeline.map((step, idx) => (
                       <div 
                         key={idx} 
-                        className="relative h-[420px] overflow-hidden group shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between border border-slate-200"
+                        onClick={() => setLightboxImage({ img: step.img, title: step.title, category: `STAGE: ${step.stage}` })}
+                        className="bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer text-left min-h-[440px]"
                       >
-                        {/* Large Stage Background Picture */}
-                        <img 
-                          src={step.img} 
-                          alt={step.title}
-                          className="absolute inset-0 w-full h-full object-cover filter brightness-[0.7] group-hover:scale-110 transition-transform duration-700" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent" />
-
-                        {/* Top Stage Tag Inside Pic */}
-                        <div className="relative z-10 p-6">
-                          <span className="bg-[#0a2540] text-white text-xs font-black px-4 py-1.5 uppercase tracking-widest font-outfit shadow-md">
-                            {step.stage}
-                          </span>
+                        {/* Clear Top Image - Enlarged & Clickable */}
+                        <div className="relative h-[280px] md:h-[320px] w-full overflow-hidden bg-slate-100">
+                          <img 
+                            src={step.img} 
+                            alt={step.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                          />
+                          {/* Stage Tag Badge */}
+                          <div className="absolute top-5 left-5 z-10">
+                            <span className="bg-[#005f9e] text-white text-xs font-extrabold px-4 py-2 uppercase tracking-widest font-outfit shadow-md">
+                              {step.stage}
+                            </span>
+                          </div>
                         </div>
 
-                        {/* Bottom Narrative Content INSIDE Pic */}
-                        <div className="relative z-10 p-6 text-white">
-                          <h5 className="font-bold text-white text-xl font-outfit mb-3 group-hover:text-sky-300 transition-colors">
-                            {step.title}
-                          </h5>
-                          <p className="text-slate-200 text-xs leading-relaxed font-medium">
-                            {step.desc}
-                          </p>
+                        {/* Narrative Content Body Below Image - Enlarged */}
+                        <div className="p-8 flex flex-col justify-between flex-1 bg-white border-t border-slate-100">
+                          <div>
+                            <h5 className="font-bold text-slate-900 text-2xl font-outfit mb-4 group-hover:text-[#005f9e] transition-colors leading-snug">
+                              {step.title}
+                            </h5>
+                            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                              {step.desc}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     ))}
@@ -587,39 +592,34 @@ const OperationalDelivery = () => {
             ))}
           </div>
 
-          {/* Large Photo Tiles Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Enlarged Photo Tiles Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {filteredGallery.map((item) => (
               <div 
                 key={item.id}
                 onClick={() => setLightboxImage(item)}
-                className="relative h-[360px] overflow-hidden cursor-pointer group shadow-md hover:shadow-xl transition-all duration-500 flex flex-col justify-between border border-slate-200"
+                className="bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer text-left min-h-[440px]"
               >
-                {/* Large Background Image */}
-                <img 
-                  src={item.img} 
-                  alt={item.title} 
-                  className="absolute inset-0 w-full h-full object-cover filter brightness-[0.75] group-hover:scale-110 transition-transform duration-700"
-                />
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent group-hover:via-slate-950/60 transition-colors duration-300" />
-
-                {/* Top Category Badge Inside Picture */}
-                <div className="relative z-10 p-5">
-                  <span className="bg-[#0a2540] text-white text-[10px] font-extrabold px-3 py-1 font-outfit uppercase tracking-widest shadow-md">
-                    {item.category}
-                  </span>
+                {/* Clear Top Image - Enlarged */}
+                <div className="relative h-[280px] md:h-[320px] w-full overflow-hidden bg-slate-100">
+                  <img 
+                    src={item.img} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Category Badge on Top Left of Image */}
+                  <div className="absolute top-5 left-5 z-10">
+                    <span className="bg-[#0a2540] text-white text-xs font-extrabold px-3.5 py-1.5 uppercase tracking-widest font-outfit shadow-md">
+                      {item.category}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Bottom Content & Hover Button INSIDE Picture */}
-                <div className="relative z-10 p-6 text-white">
-                  <h4 className="font-bold text-white text-lg font-outfit mb-3 group-hover:text-sky-300 transition-colors">
+                {/* Content Body Below Image - Enlarged */}
+                <div className="p-7 flex flex-col justify-between flex-1 bg-white border-t border-slate-100">
+                  <h4 className="font-bold text-slate-900 text-xl font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
                     {item.title}
                   </h4>
-                  <div className="inline-flex items-center text-xs font-bold text-sky-400 group-hover:text-white uppercase tracking-wider font-outfit">
-                    <span>Expand Full Photo</span>
-                    <span className="ml-2 group-hover:translate-x-1 transition-transform">➔</span>
-                  </div>
                 </div>
               </div>
             ))}
@@ -685,9 +685,9 @@ const OperationalDelivery = () => {
           <img 
             src={ctaBg} 
             alt="Work With Us" 
-            className="w-full h-full object-cover filter brightness-[0.25]"
+            className="w-full h-full object-cover filter brightness-[0.70] contrast-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/85 to-transparent z-10 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/60 to-transparent z-10" />
         </div>
 
         <div className="relative z-20 max-w-4xl mx-auto flex flex-col items-center justify-center text-white">

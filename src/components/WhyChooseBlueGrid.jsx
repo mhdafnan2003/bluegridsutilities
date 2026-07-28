@@ -86,13 +86,8 @@ const WhyChooseBlueGrid = () => {
                 className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#0066ff]/60 p-5 sm:p-6 rounded-none transition-all duration-300 backdrop-blur-md group flex flex-col justify-between"
               >
                 <div>
-                  {/* Icon Wrapper */}
-                  <div className="w-10 h-10 rounded-none bg-[#0066ff]/20 border border-[#0066ff]/40 text-[#60a5fa] group-hover:bg-[#0066ff] group-hover:text-white group-hover:border-[#0066ff] flex items-center justify-center mb-3 transition-all duration-300 shrink-0">
-                    <span className="material-symbols-outlined text-xl">{item.icon}</span>
-                  </div>
-
                   {/* Title */}
-                  <h3 className="text-base font-bold text-white tracking-wide font-outfit mb-1.5 group-hover:text-[#60a5fa] transition-colors duration-300">
+                  <h3 className="text-base sm:text-lg font-bold text-white tracking-wide font-outfit mb-2 group-hover:text-[#60a5fa] transition-colors duration-300">
                     {item.title}
                   </h3>
 

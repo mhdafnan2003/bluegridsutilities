@@ -6,78 +6,59 @@ import heroTwoImg from '../../assets/images/updated/hero_blue_two.png';
 import workersImg from '../../assets/images/uk_utility_workers_site.png';
 import AboutBanner from '../../components/AboutBanner';
 
+import imgManagement from '../../assets/images/Project coordination and reporting.jpg';
+import imgWorkforce from '../../assets/images/uk_utility_workers_site.png';
+import imgWorkmanship from '../../assets/images/utility_grid_work.png';
+import imgPublicSector from '../../assets/images/Urban Skyline View.jpeg';
+import imgCompliance from '../../assets/images/Workforce onboarding and compliance verification.jpg';
+import imgSatisfaction from '../../assets/images/water meter suoort bluegrids.jpeg';
+
+import imgInfrastructure from '../../assets/images/infrastructure.jpeg';
+import imgProjectCoord from '../../assets/images/projectcordination.jpeg';
+import imgComplianceBg from '../../assets/images/combliance.jpeg';
+
 const corePillars = [
   {
     id: "management",
-    icon: "manage_accounts",
     badge: "OPERATIONAL LEADERSHIP",
     title: "Experienced Management",
-    desc: "Decades of combined leadership in UK utility infrastructure delivery. Our management team ensures seamless project scheduling, risk mitigation, subcontractor coordination, and tier-1 client alignment.",
-    highlights: [
-      "Dedicated operational directors & field supervisors",
-      "Real-time milestone tracking & performance audits",
-      "Transparent reporting & client communication channels"
-    ]
+    desc: "Decades of leadership in UK utility infrastructure, ensuring seamless project scheduling, risk mitigation, and tier-1 alignment.",
+    bgImage: imgManagement
   },
   {
     id: "workforce",
-    icon: "engineering",
     badge: "VERIFIED FIELD TEAMS",
     title: "Skilled Workforce",
-    desc: "Fully trained, vetted, and multi-disciplinary field operatives supporting clean water metering, civil works, excavation, reinstatement, and logistics across the UK.",
-    highlights: [
-      "100% CSCS, EUSR & NRSWA credential validation",
-      "Continuous skills upskilling & safety inductions",
-      "Rapid workforce deployment for nationwide contracts"
-    ]
+    desc: "Fully trained and vetted field operatives supporting clean water metering, civil works, excavation, and reinstatement.",
+    bgImage: imgWorkforce
   },
   {
     id: "workmanship",
-    icon: "workspace_premium",
     badge: "UNCOMPROMISING PRECISION",
     title: "Quality Workmanship",
-    desc: "Rigorous quality assurance built into every stage of execution. We deliver precision civil engineering, clean site reinstatement, and zero-defect site handovers.",
-    highlights: [
-      "Strict compliance with principal contractor specs",
-      "Precision excavation & first-class surface reinstatement",
-      "On-site quality audits & photographic evidence registers"
-    ]
+    desc: "Rigorous quality assurance with precision civil engineering, clean site reinstatement, and zero-defect site handovers.",
+    bgImage: imgWorkmanship
   },
   {
     id: "public-sector",
-    icon: "account_balance",
     badge: "TRUSTED MUNICIPAL PARTNERS",
     title: "Public Sector Experience",
-    desc: "Proven track record collaborating with UK local authorities, municipal councils, water authorities, and energy distribution networks with minimal community disruption.",
-    highlights: [
-      "StreetWorks (NRSWA) compliance & permit management",
-      "Public safety barriers & traffic management coordination",
-      "Resident notification & polite community engagement"
-    ]
+    desc: "Collaborating with UK local authorities and water networks with StreetWorks (NRSWA) compliance and minimal community disruption.",
+    bgImage: imgPublicSector
   },
   {
     id: "compliance",
-    icon: "gavel",
     badge: "100% REGULATORY ASSURANCE",
     title: "Rigorous Compliance",
-    desc: "Zero-harm safety culture and mandatory pre-deployment vetting including right-to-work screening, qualification checks, H&S policy enforcement, and environmental audits.",
-    highlights: [
-      "Complete EUSR card & identity verification checks",
-      "Regular site safety toolbox talks & H&S inspections",
-      "Strict adherence to environmental & carbon policies"
-    ]
+    desc: "Zero-harm safety culture with mandatory pre-deployment vetting, EUSR checks, and strict H&S policy enforcement.",
+    bgImage: imgCompliance
   },
   {
     id: "satisfaction",
-    icon: "thumb_up",
     badge: "DEDICATED PARTNER RELATIONS",
     title: "Customer Satisfaction",
-    desc: "Customer-centric service delivery focused on high appointment fulfillment rates, clear resident communication, and long-term client satisfaction across all utility contracts.",
-    highlights: [
-      "98%+ customer satisfaction rating on field appointments",
-      "Rapid resolution of customer inquiries & site feedback",
-      "Long-term client retention with Tier-1 utility contractors"
-    ]
+    desc: "Customer-centric service delivery with high appointment fulfillment rates and rapid resolution across all utility contracts.",
+    bgImage: imgSatisfaction
   }
 ];
 
@@ -208,44 +189,31 @@ const AboutCompanyPage = () => {
               </p>
             </div>
 
-            {/* 6 Cards Grid */}
+            {/* 6 Cards Grid with Clean Unshaded Images */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {corePillars.map((pillar) => (
                 <div 
                   key={pillar.id}
-                  className="bg-white border border-slate-200 hover:border-[#005f9e] p-8 rounded-none shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                  className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer"
                 >
-                  {/* Subtle top accent bar */}
-                  <div className="absolute top-0 left-0 right-0 h-1 bg-slate-200 group-hover:bg-[#005f9e] transition-colors duration-300" />
+                  {/* Background Image - 100% Full Natural Brightness, No Dark Shade */}
+                  <img 
+                    src={pillar.bgImage} 
+                    alt={pillar.title} 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
 
-                  <div>
-                    {/* Header with Icon and Badge */}
-                    <div className="flex items-center justify-between mb-6">
-                      <div className="w-12 h-12 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center shadow-md group-hover:bg-[#005f9e] transition-colors duration-300">
-                        <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
-                      </div>
-                      <span className="text-[10px] font-black text-[#005f9e] tracking-widest font-outfit bg-[#005f9e]/10 px-2.5 py-1 border border-[#005f9e]/20">
-                        {pillar.badge}
-                      </span>
-                    </div>
-
-                    {/* Title & Description */}
-                    <h3 className="text-xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
+                  {/* Floating Bottom Content Card - Keeps Image Unshaded & Clear */}
+                  <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+                    <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
+                      {pillar.badge}
+                    </span>
+                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
                       {pillar.title}
                     </h3>
-                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium mb-6">
+                    <p className="text-slate-200 text-xs leading-relaxed font-medium line-clamp-2">
                       {pillar.desc}
                     </p>
-                  </div>
-
-                  {/* Highlights Bullet List */}
-                  <div className="pt-4 border-t border-slate-100 space-y-2">
-                    {pillar.highlights.map((item, i) => (
-                      <div key={i} className="flex items-start gap-2 text-xs text-slate-700 font-semibold">
-                        <span className="material-symbols-outlined text-sm text-[#005f9e] shrink-0 mt-0.5">check_circle</span>
-                        <span>{item}</span>
-                      </div>
-                    ))}
                   </div>
                 </div>
               ))}
@@ -274,20 +242,14 @@ const AboutCompanyPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="bg-white/5 border border-white/10 p-5 rounded-none">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="material-symbols-outlined text-[#60a5fa]">supervisor_account</span>
-                      <h4 className="font-bold text-white text-sm font-outfit">Experienced Management</h4>
-                    </div>
+                    <h4 className="font-bold text-white text-sm font-outfit mb-1">Experienced Management</h4>
                     <p className="text-xs text-slate-300 leading-relaxed font-medium">
                       Proactive project supervision, route optimization, real-time client reporting, and strict SLA fulfillment.
                     </p>
                   </div>
 
                   <div className="bg-white/5 border border-white/10 p-5 rounded-none">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="material-symbols-outlined text-[#60a5fa]">badge</span>
-                      <h4 className="font-bold text-white text-sm font-outfit">Skilled Workforce</h4>
-                    </div>
+                    <h4 className="font-bold text-white text-sm font-outfit mb-1">Skilled Workforce</h4>
                     <p className="text-xs text-slate-300 leading-relaxed font-medium">
                       Rigorously vetted operatives holding CSCS, EUSR, and NRSWA credentials ready for immediate site deployment.
                     </p>
@@ -328,89 +290,62 @@ const AboutCompanyPage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
             
             {/* Box 1: Quality Workmanship */}
-            <div className="bg-[#f8fafc] border border-slate-200 p-8 sm:p-10 rounded-none shadow-md flex flex-col justify-between text-left group hover:border-[#005f9e] transition-all">
-              <div>
-                <div className="w-12 h-12 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 flex items-center justify-center mb-6">
-                  <span className="material-symbols-outlined text-2xl">workspace_premium</span>
-                </div>
-                <span className="text-[10px] font-black text-[#005f9e] tracking-widest block mb-2 font-outfit">
-                  Excellence in Execution
+            <div className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer">
+              <img 
+                src={imgInfrastructure} 
+                alt="Quality Workmanship" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+                <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
+                  EXCELLENCE IN EXECUTION
                 </span>
-                <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
                   Quality Workmanship
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium mb-6">
-                  From clean water meter installation to pavement reinstatement, we take pride in clean execution, high attention to detail, and zero defects on client handovers.
+                <p className="text-slate-200 text-xs leading-relaxed font-medium">
+                  Clean execution, precision reinstatement, and zero-defect handovers across all utility contracts.
                 </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-200 space-y-2 text-xs font-bold text-slate-700">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#005f9e]" />
-                  <span>Precision excavation & neat surface reinstatement</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#005f9e]" />
-                  <span>Audited against Tier-1 contractor standards</span>
-                </div>
               </div>
             </div>
 
             {/* Box 2: Public Sector & Municipal Experience */}
-            <div className="bg-[#f8fafc] border border-slate-200 p-8 sm:p-10 rounded-none shadow-md flex flex-col justify-between text-left group hover:border-[#005f9e] transition-all">
-              <div>
-                <div className="w-12 h-12 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 flex items-center justify-center mb-6">
-                  <span className="material-symbols-outlined text-2xl">account_balance</span>
-                </div>
-                <span className="text-[10px] font-black text-[#005f9e] tracking-widest block mb-2 font-outfit">
-                  Municipal & Utility Contracts
+            <div className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer">
+              <img 
+                src={imgProjectCoord} 
+                alt="Public Sector Experience" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+                <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
+                  MUNICIPAL & UTILITY CONTRACTS
                 </span>
-                <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
                   Public Sector Experience
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium mb-6">
-                  We collaborate with water authorities, councils, and public infrastructure partners, ensuring full StreetWorks (NRSWA) compliance and minimal community disruption.
+                <p className="text-slate-200 text-xs leading-relaxed font-medium">
+                  Full NRSWA StreetWorks compliance and public safety coordination with minimal community disruption.
                 </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-200 space-y-2 text-xs font-bold text-slate-700">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#005f9e]" />
-                  <span>NRSWA permit & streetworks management</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#005f9e]" />
-                  <span>Polite resident communication & safety barriers</span>
-                </div>
               </div>
             </div>
 
             {/* Box 3: Compliance & Customer Satisfaction */}
-            <div className="bg-[#f8fafc] border border-slate-200 p-8 sm:p-10 rounded-none shadow-md flex flex-col justify-between text-left group hover:border-[#005f9e] transition-all">
-              <div>
-                <div className="w-12 h-12 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 flex items-center justify-center mb-6">
-                  <span className="material-symbols-outlined text-2xl">verified_user</span>
-                </div>
-                <span className="text-[10px] font-black text-[#005f9e] tracking-widest block mb-2 font-outfit">
-                  Safety & Client Trust
+            <div className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer">
+              <img 
+                src={imgComplianceBg} 
+                alt="Compliance & Satisfaction" 
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+                <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
+                  SAFETY & CLIENT TRUST
                 </span>
-                <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
                   Compliance & Satisfaction
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-medium mb-6">
-                  100% pre-deployment vetting, zero-harm H&S protocols, and high appointment satisfaction rates ensure total peace of mind for utility partners.
+                <p className="text-slate-200 text-xs leading-relaxed font-medium">
+                  100% pre-deployment vetting, zero-harm H&S protocols, and high appointment satisfaction rates.
                 </p>
-              </div>
-
-              <div className="pt-4 border-t border-slate-200 space-y-2 text-xs font-bold text-slate-700">
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#005f9e]" />
-                  <span>100% Right-to-Work & EUSR identity audits</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 bg-[#005f9e]" />
-                  <span>98%+ customer satisfaction rating on appointments</span>
-                </div>
               </div>
             </div>
 

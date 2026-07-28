@@ -690,10 +690,10 @@ const ServicesPage = () => {
                     <img 
                       src={banner.img} 
                       alt={banner.title} 
-                      className="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[1.05] group-hover:scale-105 group-hover:brightness-95 transition-all duration-700 ease-out"
+                      className="absolute inset-0 w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] group-hover:scale-105 transition-all duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-slate-950/10" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/25 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/35 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-transparent to-transparent" />
 
                     {/* Top Badge & Number INSIDE Banner */}
                     <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 flex items-center gap-4">

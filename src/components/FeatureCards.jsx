@@ -61,8 +61,8 @@ const FeatureCards = () => {
   const startTimer = () => {
     stopTimer();
     timerRef.current = setInterval(() => {
-      setPage((prev) => (prev + 1) % 3);
-    }, 5000); // Rotate page every 5 seconds
+      setPage((prev) => (prev === 0 ? 1 : 0));
+    }, 10000); // Rotate page every 10 seconds for a slower, comfortable pace
   };
 
   const stopTimer = () => {
@@ -90,18 +90,18 @@ const FeatureCards = () => {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.15
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.8,
         ease: 'easeOut'
       }
     }
@@ -123,16 +123,18 @@ const FeatureCards = () => {
           </p>
         </div>
 
-        {/* Cards Grid with Blink Animation */}
-        <div className="relative min-h-[500px] md:min-h-[560px]">
+        {/* Cards Grid with Smooth, Slow Fade Animation */}
+        <div 
+          className="relative min-h-[400px] md:min-h-[480px]"
+          onMouseEnter={stopTimer}
+          onMouseLeave={startTimer}
+        >
           <motion.div 
             key={page}
             variants={containerVariants}
             initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            animate="visible"
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8"
           >
             {currentServices.map((card, index) => (
