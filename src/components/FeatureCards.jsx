@@ -1,42 +1,56 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import img3 from '../assets/images/updated/Utility infrastructure.avif';
-import img4 from '../assets/images/Telecoms and field operations support.jfif';
-import img5 from '../assets/images/updated/img 6.jpg';
-import img6 from '../assets/images/updated/Compliance & Onboarding.avif';
-import img7 from '../assets/images/Training coordination and deployment planning.jpg';
-import img8 from '../assets/images/water meter suoort bluegrids.jpeg';
+import imgWaterMeter from '../assets/images/water meter suoort bluegrids.jpeg';
+import imgCivil from '../assets/images/infrastructure.jpeg';
+import imgReinstatement from '../assets/images/projectcordination.jpeg';
+import imgSurveying from '../assets/images/combliance.jpeg';
+import imgTraffic from '../assets/images/Telecoms and field operations support.jfif';
+import imgEmergency from '../assets/images/Training coordination and deployment planning.jpg';
+import imgInfra from '../assets/images/Sectors/Infrastructure Support.jpg';
 
-const services = [
-  { 
-    title: "Water Meter Project Support", 
-    description: "Coordination and deployment support for clean water infrastructure, smart water metering, and leak detection rollouts.",
-    img: img8 
+const mainServices = [
+  {
+    slug: "water-meter-installation",
+    title: "Water Meter Installation",
+    description: "Workforce planning, scheduling, and operational support for smart water meter rollouts across the UK.",
+    img: imgWaterMeter
   },
-  { 
-    title: "Utility Infrastructure Support", 
-    description: "Providing strategic project operations and compliant deployment planning for main utility assets and gas/electricity grids.",
-    img: img3 
+  {
+    slug: "civil-engineering",
+    title: "Civil Engineering",
+    description: "Excavation, pipe exposure, utility chambers, concrete works, surface preparation, and groundworks.",
+    img: imgCivil
   },
-  { 
-    title: "Telecoms & Field Support", 
-    description: "Delivering reliable logistics, field technician coordination, and operational field team coverage for major networks.",
-    img: img4 
+  {
+    slug: "reinstatement",
+    title: "Reinstatement",
+    description: "High-standard surface restoration for footpaths, highways, block paving, concrete, tarmac, and landscaping.",
+    img: imgReinstatement
   },
-  { 
-    title: "Project Coordination", 
-    description: "Full lifecycle coordination, reporting, and deployment planning to ensure seamless execution of operations.",
-    img: img5 
+  {
+    slug: "utility-surveying",
+    title: "Utility Surveying",
+    description: "Underground utility mapping, site surveys, utility locating, asset recording, and pre-excavation risk assessments.",
+    img: imgSurveying
   },
-  { 
-    title: "Compliance & Onboarding", 
-    description: "Rigorous vetting, training coordination, and compliance verification for the utility workforce before deployment.",
-    img: img6 
+  {
+    slug: "traffic-management",
+    title: "Traffic Management Support",
+    description: "Temporary traffic control setups, pedestrian management, barrier systems, road safety, and Chapter 8 signage.",
+    img: imgTraffic
   },
-  { 
-    title: "Training & Development", 
-    description: "Continuous training management and upskilling programs to maintain high industry safety standards.",
-    img: img7 
+  {
+    slug: "emergency-utility-response",
+    title: "Emergency Utility Response",
+    description: "24/7 rapid response field operative dispatch, burst main containment, emergency attendance, and leak support.",
+    img: imgEmergency
+  },
+  {
+    slug: "infrastructure-support",
+    title: "Infrastructure Support",
+    description: "Multi-utility project mobilisation, accredited labour supply, site supervision, and project coordination.",
+    img: imgInfra
   }
 ];
 
@@ -47,7 +61,7 @@ const FeatureCards = () => {
   const startTimer = () => {
     stopTimer();
     timerRef.current = setInterval(() => {
-      setPage((prev) => (prev === 0 ? 1 : 0));
+      setPage((prev) => (prev + 1) % 3);
     }, 5000); // Rotate page every 5 seconds
   };
 
@@ -66,7 +80,11 @@ const FeatureCards = () => {
     setPage(index);
   };
 
-  const currentServices = page === 0 ? services.slice(0, 3) : services.slice(3, 6);
+  const currentServices = page === 0 
+    ? mainServices.slice(0, 3) 
+    : page === 1 
+    ? mainServices.slice(3, 6) 
+    : mainServices.slice(4, 7);
 
   const containerVariants = {
     hidden: {},
@@ -106,7 +124,7 @@ const FeatureCards = () => {
         </div>
 
         {/* Cards Grid with Blink Animation */}
-        <div className="relative min-h-[400px] md:min-h-[480px]">
+        <div className="relative min-h-[500px] md:min-h-[560px]">
           <motion.div 
             key={page}
             variants={containerVariants}
@@ -123,35 +141,35 @@ const FeatureCards = () => {
                 variants={cardVariants}
                 className="bg-white text-gray-800 shadow-lg hover:shadow-2xl hover:shadow-brand-primary/5 flex flex-col h-full overflow-hidden border border-gray-200 rounded-none group hover:-translate-y-2 transition-all duration-300"
               >
-                {/* Card Image Wrapper */}
-                <div className="relative overflow-hidden h-52 sm:h-60 bg-gray-900">
+                {/* Card Image Wrapper - Maximum area for image */}
+                <div className="relative overflow-hidden h-80 sm:h-96 lg:h-[380px] bg-gray-900 shrink-0">
                   <img 
                     src={card.img} 
                     alt={card.title} 
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
-                {/* Card Content */}
-                <div className="p-8 flex-grow flex flex-col justify-between">
+                {/* Card Content - Compact text field */}
+                <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between">
                   <div className="text-left">
-                    <h3 className="text-lg lg:text-xl font-bold font-outfit text-[#111111] mb-3 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
+                    <h3 className="text-base sm:text-lg font-bold font-outfit text-[#111111] mb-1.5 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
                       {card.title}
                     </h3>
-                    <p className="text-sm text-gray-600 leading-relaxed mb-6 font-medium">
+                    <p className="text-xs text-gray-600 leading-normal mb-3 font-medium line-clamp-2">
                       {card.description}
                     </p>
                   </div>
                   
-                  <a 
-                    href="#services" 
+                  <Link 
+                    to={`/services?select=${card.slug}`}
                     className="inline-flex items-center gap-2 text-xs font-black tracking-widest text-[#111111] hover:text-[#005f9e] transition-colors duration-300 font-outfit mt-auto"
                   >
                     <span>Read More</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>
-                  </a>
+                  </Link>
                 </div>
               </motion.div>
             ))}
@@ -160,7 +178,7 @@ const FeatureCards = () => {
 
         {/* Pagination Dots */}
         <div className="mt-10 flex justify-center items-center gap-3">
-          {[0, 1].map((index) => (
+          {[0, 1, 2].map((index) => (
             <button
               key={index}
               onClick={() => handleDotClick(index)}

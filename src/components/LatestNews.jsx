@@ -82,8 +82,8 @@ const LatestNews = () => {
               className="bg-white border border-slate-200 rounded-none overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
-                {/* Article Image Header */}
-                <div className="relative h-[220px] overflow-hidden bg-slate-900">
+                {/* Article Image Header - Larger Image Area */}
+                <div className="relative h-64 sm:h-72 lg:h-76 overflow-hidden bg-slate-900 shrink-0">
                   <img 
                     src={article.img} 
                     alt={article.title} 
@@ -97,8 +97,8 @@ const LatestNews = () => {
                   </div>
                 </div>
 
-                {/* Article Body */}
-                <div className="p-6 sm:p-8 space-y-4">
+                {/* Article Body - Compact Text Area */}
+                <div className="p-5 sm:p-6 space-y-3">
                   <div className="flex items-center gap-3 text-xs font-semibold text-slate-400 font-outfit">
                     <span className="flex items-center gap-1">
                       <span className="material-symbols-outlined text-sm text-[#005f9e]">calendar_today</span>
