@@ -58,26 +58,37 @@ const FeatureCards = () => {
   const [page, setPage] = useState(0);
   const timerRef = useRef(null);
 
-  const startTimer = () => {
-    stopTimer();
+  const resetTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current);
+    }
     timerRef.current = setInterval(() => {
-      setPage((prev) => (prev === 0 ? 1 : 0));
-    }, 10000); // Rotate page every 10 seconds for a slower, comfortable pace
+      setPage((prev) => (prev + 1) % 3);
+    }, 5000); // Exact 5-second delay between card changes
   };
 
-  const stopTimer = () => {
+  useEffect(() => {
+    resetTimer();
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
+    };
+  }, []);
+
+  const pauseTimer = () => {
     if (timerRef.current) {
       clearInterval(timerRef.current);
     }
   };
 
-  useEffect(() => {
-    startTimer();
-    return () => stopTimer();
-  }, [page]);
+  const resumeTimer = () => {
+    resetTimer();
+  };
 
   const handleDotClick = (index) => {
     setPage(index);
+    resetTimer();
   };
 
   const currentServices = page === 0 
@@ -87,28 +98,31 @@ const FeatureCards = () => {
     : mainServices.slice(4, 7);
 
   const containerVariants = {
-    hidden: {},
+    hidden: { opacity: 0 },
     visible: {
+      opacity: 1,
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.18,
+        delayChildren: 0.05
       }
     }
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 32, scale: 0.98 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: {
-        duration: 0.8,
-        ease: 'easeOut'
+        duration: 1.1,
+        ease: [0.16, 1, 0.3, 1]
       }
     }
   };
 
   return (
-    <section className="relative z-30 bg-brand-light py-20 border-b border-brand-primary/10">
+    <section className="relative z-30 bg-slate-50 py-20 border-b border-slate-200/80">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="mb-14 text-left max-w-3xl">
@@ -123,18 +137,17 @@ const FeatureCards = () => {
           </p>
         </div>
 
-        {/* Cards Grid with Smooth, Slow Fade Animation */}
+        {/* Cards Grid with Smooth, Slow Motion Display Animation */}
         <div 
-          className="relative min-h-[400px] md:min-h-[480px]"
-          onMouseEnter={stopTimer}
-          onMouseLeave={startTimer}
+          className="relative min-h-[500px] md:min-h-[560px]"
+          onMouseEnter={pauseTimer}
+          onMouseLeave={resumeTimer}
         >
           <motion.div 
             key={page}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6 lg:gap-8"
           >
             {currentServices.map((card, index) => (

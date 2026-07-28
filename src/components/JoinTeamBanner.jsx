@@ -18,11 +18,10 @@ const JoinTeamBanner = () => {
           whileInView={{ scale: 1 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
           style={{ backgroundImage: `url(${bannerImg})` }}
-          className="w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 filter brightness-[0.35]"
+          className="w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 filter brightness-90 contrast-[1.05]"
         />
-        {/* Modern dark gradient mesh overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/85 to-transparent z-10 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent z-10 opacity-70" />
+        {/* Clean neutral dark gradient overlay for text readability without blue tint */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/55 to-slate-950/20 z-10" />
       </div>
 
       {/* Content wrapper */}

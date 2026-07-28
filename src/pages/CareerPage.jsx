@@ -119,20 +119,24 @@ const CareerPage = () => {
             </div>
 
             <div className="flex flex-wrap gap-3 shrink-0">
-              <Link 
-                to="/apply" 
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-6 py-3.5 rounded-none border border-transparent transition-all shadow-md active:scale-95 font-outfit cursor-pointer"
+              <a 
+                href="https://forms.office.com/r/K9vKw1hxcB" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-6 py-3.5 rounded-none border border-transparent transition-all shadow-md active:scale-95 font-outfit cursor-pointer group"
               >
                 <span>Apply Online</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </Link>
-              <Link 
-                to="/apply#cv-upload" 
+                <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">open_in_new</span>
+              </a>
+              <a 
+                href="https://forms.office.com/r/K9vKw1hxcB" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold text-xs tracking-widest px-6 py-3.5 rounded-none border border-transparent transition-all shadow-md active:scale-95 font-outfit cursor-pointer"
               >
-                <span>Upload CV</span>
-                <span className="material-symbols-outlined text-sm">upload_file</span>
-              </Link>
+                <span>Register Interest</span>
+                <span className="material-symbols-outlined text-sm">open_in_new</span>
+              </a>
             </div>
           </div>
 
@@ -192,18 +196,22 @@ const CareerPage = () => {
 
                     {/* Action Buttons */}
                     <div className="grid grid-cols-2 gap-2">
-                      <Link 
-                        to={`/apply?position=${encodeURIComponent(role.title)}`}
+                      <a 
+                        href="https://forms.office.com/r/K9vKw1hxcB"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-1.5 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold text-[10px] tracking-widest px-3 py-2.5 transition-all font-outfit text-center cursor-pointer"
                       >
-                        <span>Apply Online</span>
-                      </Link>
-                      <Link 
-                        to={`/apply?position=${encodeURIComponent(role.title)}#cv-upload`}
+                        <span>Apply Online ↗</span>
+                      </a>
+                      <a 
+                        href="https://forms.office.com/r/K9vKw1hxcB"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-[#005f9e] hover:text-white text-slate-700 font-bold text-[10px] tracking-widest px-3 py-2.5 transition-all font-outfit text-center cursor-pointer border border-slate-200"
                       >
-                        <span>Upload CV</span>
-                      </Link>
+                        <span>Register ↗</span>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -350,20 +358,23 @@ const CareerPage = () => {
             </div>
 
             <div className="shrink-0 relative z-10 flex flex-wrap gap-4">
-              <Link 
-                to="/apply"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit"
+              <a 
+                href="https://forms.office.com/r/K9vKw1hxcB"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit group"
               >
                 <span>Apply Online</span>
-                <span className="material-symbols-outlined text-sm">arrow_forward</span>
-              </Link>
-              <Link 
-                to="/apply#cv-upload"
+                <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">open_in_new</span>
+              </a>
+              <a 
+                href="https://forms.office.com/r/K9vKw1hxcB"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit"
               >
-                <span>Upload CV</span>
-                <span className="material-symbols-outlined text-sm">upload_file</span>
-              </Link>
+                <span>Register ↗</span>
+              </a>
             </div>
           </div>
 
