@@ -67,6 +67,303 @@ const smartWaterMeterBanners = [
   }
 ];
 
+const civilEngineeringBanners = [
+  {
+    num: "01",
+    title: "Excavation",
+    badge: "SAFE TRENCHING & EXCAVATION",
+    desc: "Precision excavation and trenching for utility installations, pipeline laying, and underground asset deployment adhering strictly to HSG47 safety regulations.",
+    img: imgCivil,
+    highlights: ["HSG47 Underground Service Avoidance", "Deep Trenching & Shoring Management", "Vacuum & Controlled Mechanical Excavation"]
+  },
+  {
+    num: "02",
+    title: "Pipe exposure",
+    badge: "ASSET UNCOVERING & PROTECTION",
+    desc: "Careful manual and non-destructive exposure of existing clean water, gas, and electric utility mains for maintenance, inspection, and tap-ins.",
+    img: imgWaterMeterSupport,
+    highlights: ["Non-Destructive Vacuum Excavation", "Live Mains Air & Hand Exposure", "Asset Protection & Strike Prevention"]
+  },
+  {
+    num: "03",
+    title: "Utility chambers",
+    badge: "VALVE & CHAMBER CONSTRUCTION",
+    desc: "Construction, installation, and refurbishment of modular precast and brickwork utility chambers, valve vaults, meter pits, and access manholes.",
+    img: imgGridWork,
+    highlights: ["Precast & Brickwork Chamber Erection", "D400 Heavy Duty Cover & Frame Fitting", "Clean Water & Valve Vault Construction"]
+  },
+  {
+    num: "04",
+    title: "Concrete works",
+    badge: "STRUCTURAL & FOUNDATION CONCRETE",
+    desc: "High-spec structural concrete pouring, thrust block construction, equipment pads, and reinforced slab installations for utility infrastructure.",
+    img: imgComplianceVerification,
+    highlights: ["Pipe Thrust Block & Base Slab Pouring", "C35/C40 Utility Spec Concrete Mixes", "Formwork, Rebar & Anchor Fixing"]
+  },
+  {
+    num: "05",
+    title: "Surface preparation",
+    badge: "SITE CLEARANCE & SUB-BASE PREP",
+    desc: "Comprehensive site clearance, saw-cutting, sub-base compaction, and levelling in preparation for civil works and long-term reinstatement.",
+    img: imgWaterWorkers,
+    highlights: ["Precision Diamond Saw-Cutting", "MOT Type 1 Sub-Base Compaction", "Site Levelling & Waste Clearance"]
+  },
+  {
+    num: "06",
+    title: "Groundworks",
+    badge: "SITE ENABLING & INFRASTRUCTURE",
+    desc: "Essential earthworks, drainage installation, site enabling works, and foundational ground preparation for major multi-utility installations.",
+    img: imgProjectCoord,
+    highlights: ["Drainage & Duct Installation", "Site Enabling & Earthworks Support", "Geotextile Membrane & Soil Stabilisation"]
+  }
+];
+
+const reinstatementBanners = [
+  {
+    num: "01",
+    title: "Footpaths",
+    badge: "PEDESTRIAN FOOTWAY RESTORATION",
+    desc: "High-standard restoration of public footpaths, walkways, and pedestrian areas following utility excavations, fully compliant with NRSWA standards.",
+    img: imgReinstatement,
+    highlights: ["NRSWA Footway Reinstatement", "Tactile Paving & Kerbing Replacement", "Disability & Access Compliance"]
+  },
+  {
+    num: "02",
+    title: "Highways",
+    badge: "CARRIAGEWAY & ROAD RESURFACING",
+    desc: "Full carriageway resurfacing, trench backfilling, and asphalt compaction across primary and secondary road networks under council permits.",
+    img: imgGridWork,
+    highlights: ["Hot Rolled Asphalt & Macadam Laying", "NRSWA Category 0-4 Road Reinstatement", "Compaction & Friction Testing Sign-off"]
+  },
+  {
+    num: "03",
+    title: "Block paving",
+    badge: "MODULAR & DRIVEWAY REPAIRS",
+    desc: "Expert lifting, relaying, and color-matching of modular block paving for commercial forecourts, public plazas, and domestic driveways.",
+    img: imgCivil,
+    highlights: ["Interlocking Block Paving Matching", "Sub-base Bedding & Sand Jointing", "Residential & Commercial Driveway Prep"]
+  },
+  {
+    num: "04",
+    title: "Concrete",
+    badge: "RIGID PAVEMENT & SLAB REINSTATEMENT",
+    desc: "Precision pouring and curing of concrete carriageways, industrial slabs, and rigid footway surfaces with structural joint sealing.",
+    img: imgComplianceVerification,
+    highlights: ["Patterned & Cured Concrete Laying", "Expansion Joint Sealing & Dowel Barring", "High-Early Strength Fast-Set Pours"]
+  },
+  {
+    num: "05",
+    title: "Tarmac",
+    badge: "SURFACE & BINDER COURSE MACADAM",
+    desc: "First-time permanent macadam surfacing, binder course installation, and bitumen edge sealing to prevent water ingress and edge deterioration.",
+    img: imgWaterWorkers,
+    highlights: ["SMA & Dense Bituminous Macadam", "Joint Tanking & Bitumen Sealing", "First-Time Permanent Surface Finishing"]
+  },
+  {
+    num: "06",
+    title: "Landscaping",
+    badge: "VERGE & SOFT ESTATE RESTORATION",
+    desc: "Complete soft estate reinstatement including topsoil levelling, turf laying, grass seeding, and roadside verge environmental restoration.",
+    img: imgProjectCoord,
+    highlights: ["Topsoil Replacement & Turf Laying", "Verge Restoration & Tree Protection", "Environmental Soft Estate Handover"]
+  }
+];
+
+const utilitySurveyingBanners = [
+  {
+    num: "01",
+    title: "Site surveys",
+    badge: "TOPOGRAPHICAL & UTILITY SITE AUDITS",
+    desc: "Comprehensive topographical and subsurface site audits providing clear ground intelligence prior to design and excavation works.",
+    img: imgSurveying,
+    highlights: ["Topographical & Site Boundary Audits", "3D Underground Feature Mapping", "Pre-Design Site Intelligence"]
+  },
+  {
+    num: "02",
+    title: "Utility locating",
+    badge: "GPR & ELECTROMAGNETIC SCANNING",
+    desc: "Non-intrusive underground utility detection using advanced Ground Penetrating Radar (GPR) and precision electromagnetic CAT & Genny locators.",
+    img: imgGridWork,
+    highlights: ["Ground Penetrating Radar (GPR) Scans", "Electromagnetic Pipe & Cable Tracing", "Metallic & Non-Metallic Asset Detection"]
+  },
+  {
+    num: "03",
+    title: "Asset recording",
+    badge: "PAS 128 DIGITAL MAP GENERATION",
+    desc: "Rigorous digital asset logging, PAS 128 survey quality level mapping, and CAD deliverable creation for utility network operators.",
+    img: imgComplianceVerification,
+    highlights: ["PAS 128 Quality Level Compliance", "GIS & CAD Utility Asset Vector Maps", "Depth & Alignment Verification Data"]
+  },
+  {
+    num: "04",
+    title: "Risk assessments",
+    badge: "STRIKE PREVENTION & RAMS AUDITING",
+    desc: "Detailed utility strike risk assessments, pre-excavation hazard identification, and site-specific RAMS documentation to safeguard operatives.",
+    img: imgCivil,
+    highlights: ["Utility Strike Risk Identification", "HSG47 Pre-Work Safety Checks", "Comprehensive RAMS Documentation"]
+  },
+  {
+    num: "05",
+    title: "Project planning",
+    badge: "PRE-CONSTRUCTION SITE INTELLIGENCE",
+    desc: "Strategic route planning, trenchless feasibility studies, and utility diversion strategy consulting to prevent costly site delays.",
+    img: imgProjectCoord,
+    highlights: ["Utility Diversion Route Planning", "Trenchless vs Excavation Feasibility", "Contractor & Council Liaison Support"]
+  }
+];
+
+const trafficManagementBanners = [
+  {
+    num: "01",
+    title: "Temporary traffic management",
+    badge: "2-WAY & MULTI-WAY SIGNAL CONTROL",
+    desc: "Turnkey temporary traffic control setups including 2-way, 3-way, and 4-way portable traffic light systems for safe utility workzones.",
+    img: imgTraffic,
+    highlights: ["Portable Traffic Signal Deployment", "Priority Flow & Stop/Go Control", "CAD Traffic Scheme Implementation"]
+  },
+  {
+    num: "02",
+    title: "Pedestrian management",
+    badge: "WALKWAY DIVERSION & RAMP SYSTEMS",
+    desc: "Safe pedestrian routing around utility excavations featuring Chapter 8 compliant temporary footways, ramps, and clear direction signage.",
+    img: imgWaterWorkers,
+    highlights: ["Chapter 8 Temporary Walkways", "Disabled Access Ramps & Handrails", "Pedestrian Safety Signage & Lighting"]
+  },
+  {
+    num: "03",
+    title: "Barrier systems",
+    badge: "WORKZONE FENCING & PROTECTION",
+    desc: "Heavy-duty workzone barrier fencing, water-filled safety barriers, and site enclosures to isolate highway traffic from excavation operatives.",
+    img: imgGridWork,
+    highlights: ["Chapter 8 Safety Fencing Systems", "Water-Filled Crash Barriers", "Reflective Excavation Guarding"]
+  },
+  {
+    num: "04",
+    title: "Road safety",
+    badge: "TRAFFIC AUDITS & SPEED CONTROL",
+    desc: "On-site road safety auditing, speed reduction measures, and continuous traffic monitoring to maintain public and operative safety.",
+    img: imgComplianceVerification,
+    highlights: ["Temporary Speed Limit Setup", "NRSWA Site Safety Audits", "24/7 Traffic Control Maintenance"]
+  },
+  {
+    num: "05",
+    title: "Site signage",
+    badge: "CHAPTER 8 COMPLIANT SIGNAGE",
+    desc: "Complete Chapter 8 traffic signage arrays including road works ahead, lane closures, diversion routes, and VMS digital message boards.",
+    img: imgProjectCoord,
+    highlights: ["High-Visibility Chapter 8 Signs", "Advanced Warning & Diversion Routing", "VMS Digital Message Board Setup"]
+  }
+];
+
+const emergencyUtilityResponseBanners = [
+  {
+    num: "01",
+    title: "Emergency attendance",
+    badge: "24/7 RAPID OPERATIVE DISPATCH",
+    desc: "Round-the-clock emergency field operative dispatch within strict 2-hour SLAs to attend critical utility failures and public hazards across the UK.",
+    img: imgEmergency,
+    highlights: ["24/7/365 Emergency Dispatch SLA", "Fully Equipped Rapid Response Vans", "Direct Client Control Room Telemetry"]
+  },
+  {
+    num: "02",
+    title: "Leak support",
+    badge: "BURST MAIN CONTAINMENT & ISOLATION",
+    desc: "Immediate containment and valve isolation support for major burst clean water mains, sewer overflows, and commercial pipe failures.",
+    img: imgWaterMeterSupport,
+    highlights: ["Clean Water Burst Main Containment", "Valve Isolation & Flow Control", "Emergency Dewatering & Pumping"]
+  },
+  {
+    num: "03",
+    title: "Emergency excavation",
+    badge: "URGENT HAZARD UNCOVERING",
+    desc: "Rapid emergency trenching and pipe exposure under blue-light protocols to allow urgent repair access to damaged utility assets.",
+    img: imgCivil,
+    highlights: ["Rapid Utility Exposure Trenching", "Immediate Shoring & Safety Setup", "Fast-Track Council Permit Liaison"]
+  },
+  {
+    num: "04",
+    title: "Infrastructure protection",
+    badge: "ASSET SECURING & POLLUTION CONTROL",
+    desc: "Urgent site perimeter securing, environmental pollution containment, and structural shoring to prevent catastrophic infrastructure damage.",
+    img: imgComplianceVerification,
+    highlights: ["Environmental Spill & Runoff Control", "Structural Shoring & Asset Securing", "Public Safety Perimeter Isolation"]
+  }
+];
+
+const infrastructureSupportBanners = [
+  {
+    num: "01",
+    title: "Project mobilisation",
+    badge: "RAPID SITE SETUP & LOGISTICS",
+    desc: "Fast-track site welfare setup, plant logistics, operative onboarding, and initial mobilisation for Tier-1 multi-utility framework contracts.",
+    img: imgInfra,
+    highlights: ["72-Hour Rapid Mobilisation Setup", "Site Welfare & Compound Logistics", "Fleet & Tooling Supply Management"]
+  },
+  {
+    num: "02",
+    title: "Labour supply",
+    badge: "EUSR & CSCS QUALIFIED WORKFORCE",
+    desc: "Supply of fully accredited utility operatives, groundworkers, pipe layers, and meter technicians holding active EUSR, CSCS, and SHEA credentials.",
+    img: imgWaterWorkers,
+    highlights: ["Vetted EUSR Water Hygiene Operatives", "CSCS Skilled Groundwork Resourcing", "100% Credential Audit Verification"]
+  },
+  {
+    num: "03",
+    title: "Site supervision",
+    badge: "NRSWA & SHEA SITE MANAGERS",
+    desc: "Experienced site supervisors and NRSWA-qualified agents providing daily site oversight, RAMS enforcement, and quality assurance reporting.",
+    img: imgComplianceVerification,
+    highlights: ["NRSWA Supervisor Site Oversight", "Daily RAMS & Safety Toolbox Briefings", "Client Site Progress Sign-offs"]
+  },
+  {
+    num: "04",
+    title: "Project coordination",
+    badge: "PROGRAMME SCHEDULE & REPORTING",
+    desc: "Dedicated project coordinators managing customer appointment scheduling, council permit tracking, and live KPI progress reporting.",
+    img: imgProjectCoord,
+    highlights: ["Customer Access & Appointment Booking", "Local Authority Permit Tracking", "Live Digital Dashboard Reporting"]
+  },
+  {
+    num: "05",
+    title: "Operational support",
+    badge: "TIER-1 CONTRACTOR ASSISTANCE",
+    desc: "Integrated back-office operational support assisting main contractors with fleet logistics, material procurement, and audit compliance records.",
+    img: imgGridWork,
+    highlights: ["Integrated Back-Office Logistics", "Material & Plant Procurement", "Audit Trail & Compliance Archiving"]
+  }
+];
+
+const serviceBannersMap = {
+  'water-meter-installation': {
+    title: "Smart Water Meter Installation",
+    banners: smartWaterMeterBanners
+  },
+  'civil-engineering': {
+    title: "Civil Engineering Services",
+    banners: civilEngineeringBanners
+  },
+  'reinstatement': {
+    title: "Reinstatement Services",
+    banners: reinstatementBanners
+  },
+  'utility-surveying': {
+    title: "Utility Surveying Services",
+    banners: utilitySurveyingBanners
+  },
+  'traffic-management': {
+    title: "Traffic Management Support Services",
+    banners: trafficManagementBanners
+  },
+  'emergency-utility-response': {
+    title: "Emergency Utility Response Services",
+    banners: emergencyUtilityResponseBanners
+  },
+  'infrastructure-support': {
+    title: "Infrastructure Support Services",
+    banners: infrastructureSupportBanners
+  }
+};
+
 const servicesData = [
   {
     num: "01",
@@ -98,17 +395,18 @@ const servicesData = [
     slug: "civil-engineering",
     title: "Civil Engineering",
     icon: "engineering",
-    desc: "Our civil engineering infrastructure support includes excavation management, trenching, duct laying, pipeline installation, and structural groundworks with full 'construct only' or 'design and construct' capabilities.",
+    desc: "Our civil engineering infrastructure support includes excavation, pipe exposure, utility chambers, concrete works, surface preparation, and groundworks with full 'construct only' or 'design and construct' capabilities.",
     img: imgCivil,
     details: {
       headline: "Vetted civil engineering teams & infrastructure groundwork support.",
-      overview: "We deliver civil engineering and site support for utility network development, including water main installation, electricity cable ducting, and gas pipe laying. Our teams enforce high site safety and regulatory compliance.",
+      overview: "We deliver civil engineering and site support for utility network development, specializing in excavation, pipe exposure, utility chambers, structural concrete works, surface preparation, and foundational groundworks.",
       keyAreas: [
-        "Infrastructure excavation & trenching coordination",
-        "Pipeline installation & duct laying supervision",
-        "Site preparation coordination & operative check-ins",
-        "EUSR card and CSCS safety verification checks",
-        "Subcontractor compliance tracking & reporting"
+        "Excavation — Safe trenching, deep excavation & HSG47 service avoidance",
+        "Pipe exposure — Non-destructive vacuum & careful hand exposure of utility mains",
+        "Utility chambers — Modular precast & brickwork chamber, valve vault & pit construction",
+        "Concrete works — Structural concrete pouring, base slabs & pipe thrust block installation",
+        "Surface preparation — Diamond saw-cutting, MOT Type 1 sub-base compaction & site levelling",
+        "Groundworks — Site enabling, trenching, drainage installation & geotextile membrane fitting"
       ],
       benefits: [
         "Fast turnaround in scaling qualified civil engineering personnel",
@@ -122,17 +420,18 @@ const servicesData = [
     slug: "reinstatement",
     title: "Reinstatement",
     icon: "construction",
-    desc: "High-standard surface reinstatement, hot and cold macadam resurfacing, modular paving, and zero-defect streetworks completion following excavation.",
+    desc: "High-standard surface reinstatement for footpaths, highways, block paving, concrete, tarmac, and landscaping following utility excavations.",
     img: imgReinstatement,
     details: {
       headline: "NRSWA-compliant surface reinstatement & defect-free site handovers.",
-      overview: "Our reinstatement division specializes in backfilling and restoring highways, footways, and private land following utility excavations. We ensure full compliance with HAUC (Highway Authorities & Utilities Committee) standards.",
+      overview: "Our reinstatement division specializes in backfilling and restoring footpaths, highways, block paving, rigid concrete, tarmac macadam, and soft estate landscaping following utility excavations, ensuring full HAUC compliance.",
       keyAreas: [
-        "First-time permanent surface reinstatement",
-        "Hot rolled asphalt, macadam, and concrete finishing",
-        "Modular paving, kerb replacement & flag laying",
-        "NRSWA compliance logging & local council permit checks",
-        "Zero-defect site handover audit registers"
+        "Footpaths — Pedestrian footway restoration, kerbing & NRSWA compliance",
+        "Highways — Hot rolled asphalt, macadam laying & carriageway resurfacing",
+        "Block paving — Interlocking block paving matching, sub-base & jointing",
+        "Concrete — Rigid pavement, slab reinstatement & joint sealing",
+        "Tarmac — Dense bituminous macadam & joint bitumen sealing",
+        "Landscaping — Soft estate restoration, topsoil replacement & verge turfed handovers"
       ],
       benefits: [
         "Zero-defect handovers preventing section 74 overrun charges",
@@ -146,17 +445,17 @@ const servicesData = [
     slug: "utility-surveying",
     title: "Utility Surveying",
     icon: "radar",
-    desc: "Underground utility mapping, Ground Penetrating Radar (GPR) surveys, trial hole investigations, and site risk mitigation prior to excavation works.",
+    desc: "Underground utility mapping, site surveys, utility locating, asset recording, risk assessments, and project planning prior to excavation works.",
     img: imgSurveying,
     details: {
       headline: "Precision underground utility mapping & pre-excavation risk mitigation.",
-      overview: "We execute non-intrusive utility surveys using state-of-the-art Ground Penetrating Radar and electromagnetic location tools. We identify buried pipes, cables, and assets to prevent service strikes and project delays.",
+      overview: "We execute non-intrusive utility surveys using state-of-the-art Ground Penetrating Radar and electromagnetic location tools, providing comprehensive site surveys, utility locating, digital asset recording, risk assessments, and project planning.",
       keyAreas: [
-        "Ground Penetrating Radar (GPR) subsurface scanning",
-        "PAS 128 utility mapping & asset verification",
-        "Trial hole excavation & soil condition reporting",
-        "Utility strike avoidance planning & RAMS auditing",
-        "3D CAD model generation for site engineers"
+        "Site surveys — Topographical & underground site intelligence audits",
+        "Utility locating — Ground Penetrating Radar (GPR) & CAT & Genny scanning",
+        "Asset recording — PAS 128 digital mapping & CAD utility asset logging",
+        "Risk assessments — Utility strike prevention, RAMS & site safety checks",
+        "Project planning — Pre-construction route planning & trenching feasibility"
       ],
       benefits: [
         "Drastically reduced risk of underground service strikes",
@@ -170,17 +469,17 @@ const servicesData = [
     slug: "traffic-management",
     title: "Traffic Management Support",
     icon: "traffic",
-    desc: "Temporary traffic control setups, NRSWA streetworks compliance, CAD traffic schemes, signal control, lane closures, and council permit liaison.",
+    desc: "Temporary traffic control setups, pedestrian management, barrier systems, road safety, site signage, and NRSWA streetworks compliance.",
     img: imgTraffic,
     details: {
       headline: "Turnkey temporary traffic management & NRSWA streetworks compliance.",
-      overview: "We design, install, and maintain temporary traffic management solutions across urban and rural UK roads. From two-way traffic signals to full road closures, we keep field operatives and the public safe.",
+      overview: "We design, install, and maintain temporary traffic management solutions across urban and rural UK roads, covering temporary traffic management, pedestrian management, barrier systems, road safety, and Chapter 8 site signage.",
       keyAreas: [
-        "CAD traffic management plan design & council approval",
-        "Temporary traffic signal installation & maintenance",
-        "Lane closures, convoy systems & pedestrian diversions",
-        "NRSWA streetworks permit application support",
-        "24/7 emergency traffic control response"
+        "Temporary traffic management — 2-way & multi-way temporary traffic light setups",
+        "Pedestrian management — Walkway diversions, safety ramps & barrier protection",
+        "Barrier systems — Chapter 8 fencing, road cones & workzone enclosures",
+        "Road safety — Speed restriction management & NRSWA site safety compliance",
+        "Site signage — CAD traffic scheme signage, warning boards & directional signs"
       ],
       benefits: [
         "Guaranteed NRSWA compliance reducing council fines",
@@ -194,17 +493,16 @@ const servicesData = [
     slug: "emergency-utility-response",
     title: "Emergency Utility Response",
     icon: "warning",
-    desc: "24/7 rapid response field operative dispatch, burst main support, gas/water leak isolation, and urgent site safety setup across UK network hubs.",
+    desc: "24/7 rapid response field operative dispatch, emergency attendance, leak support, emergency excavation, and infrastructure protection.",
     img: imgEmergency,
     details: {
       headline: "24/7 rapid deployment field teams for emergency utility incidents.",
-      overview: "Our emergency response division provides 24-hour on-call support for urgent utility incidents, including water main bursts, power outages, and cable strikes. We deploy fully equipped emergency crews within strict response SLAs.",
+      overview: "Our emergency response division provides 24-hour on-call support for urgent utility incidents, delivering rapid emergency attendance, leak support, emergency excavation, and immediate infrastructure protection within strict SLAs.",
       keyAreas: [
-        "24/7 emergency call-out dispatch & operative routing",
-        "Burst water main containment & isolation support",
-        "Urgent site safety barrier & traffic control setup",
-        "Emergency pump deployment & dewatering support",
-        "Real-time incident reporting to client control rooms"
+        "Emergency attendance — 24/7 rapid response dispatch within strict SLAs",
+        "Leak support — Burst water main containment, isolation & dewatering support",
+        "Emergency excavation — Urgent hazard uncovering & pipe repair access",
+        "Infrastructure protection — Environmental containment & public safety securing"
       ],
       benefits: [
         "Rapid on-site arrival times across key UK operational hubs",
@@ -218,17 +516,17 @@ const servicesData = [
     slug: "infrastructure-support",
     title: "Infrastructure Support",
     icon: "foundation",
-    desc: "Multi-utility infrastructure support, labor resourcing, site logistics, and operational project management for major Tier-1 contractors.",
+    desc: "Multi-utility project mobilisation, labour supply, site supervision, project coordination, and operational support for major Tier-1 contractors.",
     img: imgInfra,
     details: {
       headline: "Integrated multi-utility support logistics & workforce resourcing.",
-      overview: "We provide operational support and labor coordination for utility infrastructure development across water, gas, electricity, and telecommunications networks, supporting Tier-1 contractors in meeting programme deadlines.",
+      overview: "We provide operational support and labor coordination for utility infrastructure development across project mobilisation, accredited labour supply, site supervision, project coordination, and operational support for Tier-1 contractors.",
       keyAreas: [
-        "Multi-utility site workforce coordination & resourcing",
-        "Equipment & vehicle fleet logistics management",
-        "Site access clearance & customer appointment scheduling",
-        "CSCS, EUSR, and SHEA credential auditing",
-        "Subcontractor compliance tracking & reporting"
+        "Project mobilisation — Site welfare setup, plant logistics & initial deployment",
+        "Labour supply — Vetted EUSR, CSCS, and SHEA accredited operative resourcing",
+        "Site supervision — Experienced site supervisors & NRSWA qualified agents",
+        "Project coordination — Client reporting, scheduling & multi-utility liaison",
+        "Operational support — Back-office logistics & operational delivery assistance"
       ],
       benefits: [
         "Scalable workforce deployment tailored to project phases",
@@ -365,8 +663,8 @@ const ServicesPage = () => {
 
           </div>
 
-          {/* Full Width Smart Water Meter Installation — 6 Individual Feature Photo Banners */}
-          {service.slug === 'water-meter-installation' && (
+          {/* Full Width Core Service Photo Banners for Selected Service */}
+          {serviceBannersMap[service.slug] && (
             <div className="w-full space-y-12 mt-16 pt-12 border-t border-slate-200">
               <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 pb-6">
                 <div>
@@ -374,16 +672,16 @@ const ServicesPage = () => {
                     CORE OPERATIONAL SERVICES
                   </span>
                   <h3 className="text-3xl md:text-5xl font-extrabold text-[#0f3a5e] uppercase tracking-tight font-outfit">
-                    Smart Water Meter Installation
+                    {serviceBannersMap[service.slug].title}
                   </h3>
                 </div>
                 <span className="text-xs font-bold text-white bg-[#005f9e] px-5 py-2.5 uppercase tracking-wider font-outfit shadow-md">
-                  6 Individual Banners
+                  {serviceBannersMap[service.slug].banners.length} Individual Banners
                 </span>
               </div>
 
               <div className="space-y-10">
-                {smartWaterMeterBanners.map((banner, idx) => (
+                {serviceBannersMap[service.slug].banners.map((banner, idx) => (
                   <div 
                     key={idx}
                     className="relative min-h-[380px] md:min-h-[440px] flex items-end p-8 md:p-12 overflow-hidden bg-slate-950 shadow-xl border border-slate-200 group text-left w-full"
@@ -392,10 +690,10 @@ const ServicesPage = () => {
                     <img 
                       src={banner.img} 
                       alt={banner.title} 
-                      className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55] group-hover:scale-105 transition-transform duration-700 ease-out"
+                      className="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[1.05] group-hover:scale-105 group-hover:brightness-95 transition-all duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-950/20" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/50 to-slate-950/10" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/75 via-slate-950/25 to-transparent" />
 
                     {/* Top Badge & Number INSIDE Banner */}
                     <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 flex items-center gap-4">
