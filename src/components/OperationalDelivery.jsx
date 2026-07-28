@@ -320,7 +320,7 @@ const OperationalDelivery = () => {
                 <img 
                   src={phase.img} 
                   alt={phase.title} 
-                  className="absolute inset-0 w-full h-full object-cover filter brightness-[0.75] group-hover:scale-110 transition-transform duration-700 ease-out"
+                  className="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[1.05] group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 
                 {/* Gradient Overlay for Text Clarity Inside Picture */}
@@ -401,7 +401,7 @@ const OperationalDelivery = () => {
                   <img 
                     src={activeCaseStudyObj.heroImg} 
                     alt={activeCaseStudyObj.title}
-                    className="absolute inset-0 w-full h-full object-cover filter brightness-[0.55]" 
+                    className="absolute inset-0 w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-transparent to-transparent" />
