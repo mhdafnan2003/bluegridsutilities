@@ -24,8 +24,8 @@ const OurMissionsPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="OUR PURPOSE & DIRECTION"
-            title="OUR MISSION"
+            badgeText="Our Purpose & Direction"
+            title="Our Mission"
             description="Delivering safe, efficient, and professional utility infrastructure services across the UK water utility sector."
             bgImage={missionBg}
           />
@@ -45,13 +45,13 @@ const OurMissionsPage = () => {
                 <div className="w-8 h-8 rounded-none bg-[#0066ff] text-white flex items-center justify-center shrink-0 shadow-md">
                   <span className="material-symbols-outlined text-lg font-bold">flag</span>
                 </div>
-                <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest font-outfit">
-                  OFFICIAL MISSION STATEMENT
+                <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit">
+                  Official Mission Statement
                 </span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 uppercase tracking-tight font-outfit leading-tight">
-                "TO DELIVER UTILITY INFRASTRUCTURE SAFELY, EFFICIENTLY AND PROFESSIONALLY WHILE BUILDING LONG-TERM PARTNERSHIPS BASED ON TRUST, QUALITY AND RELIABILITY."
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight font-outfit leading-tight">
+                "To deliver utility infrastructure safely, efficiently and professionally while building long-term partnerships based on trust, quality and reliability."
               </h2>
 
               <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
@@ -100,7 +100,7 @@ const OurMissionsPage = () => {
                     alt={pillar.title} 
                     className="w-full h-full object-cover brightness-95 transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider font-outfit rounded-none border border-white/20">
+                  <div className="absolute top-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit rounded-none border border-white/20">
                     Pillar {pillar.step}
                   </div>
                 </div>
@@ -110,7 +110,7 @@ const OurMissionsPage = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="material-symbols-outlined text-[#005f9e] text-lg">{pillar.icon}</span>
-                      <h3 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit">
+                      <h3 className="text-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">
                         {pillar.title}
                       </h3>
                     </div>

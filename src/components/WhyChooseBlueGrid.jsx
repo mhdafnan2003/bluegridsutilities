@@ -67,10 +67,10 @@ const WhyChooseBlueGrid = () => {
 
           {/* Section Header */}
           <div className="max-w-3xl mb-8 sm:mb-10">
-            <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/30 text-[#60a5fa] text-[11px] font-black uppercase tracking-widest mb-2 font-outfit border border-[#005f9e]/50">
-              PROVEN EXCELLENCE
+            <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/30 text-[#60a5fa] text-[11px] font-black tracking-widest mb-2 font-outfit border border-[#005f9e]/50">
+              Proven Excellence
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight uppercase font-outfit leading-tight mb-2">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight font-outfit leading-tight mb-2">
               Why Choose BlueGrid Utilities
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
@@ -92,7 +92,7 @@ const WhyChooseBlueGrid = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base font-bold text-white uppercase tracking-wide font-outfit mb-1.5 group-hover:text-[#60a5fa] transition-colors duration-300">
+                  <h3 className="text-base font-bold text-white tracking-wide font-outfit mb-1.5 group-hover:text-[#60a5fa] transition-colors duration-300">
                     {item.title}
                   </h3>
 
@@ -111,8 +111,8 @@ const WhyChooseBlueGrid = () => {
           {/* Bottom Corporate Action Bar */}
           <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="text-slate-300 text-xs">
-              <span className="text-white font-bold uppercase tracking-wider block sm:inline mr-2 font-outfit">
-                READY TO PARTNER WITH US?
+              <span className="text-white font-bold tracking-wider block sm:inline mr-2 font-outfit">
+                Ready to partner with us?
               </span>
               <span>Contact our team today to discuss your project requirements.</span>
             </div>
@@ -120,9 +120,9 @@ const WhyChooseBlueGrid = () => {
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-none border border-white/10 transition-all duration-300 shadow-lg active:scale-95 font-outfit group"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-6 py-3 rounded-none border border-white/10 transition-all duration-300 shadow-lg active:scale-95 font-outfit group"
               >
-                <span>WORK WITH BLUEGRID</span>
+                <span>Work with BlueGrid</span>
                 <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
                   arrow_forward
                 </span>
@@ -130,9 +130,9 @@ const WhyChooseBlueGrid = () => {
               
               <Link
                 to="/career"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest px-6 py-3 rounded-none border border-white/30 transition-all duration-300 font-outfit"
+                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-6 py-3 rounded-none border border-white/30 transition-all duration-300 font-outfit"
               >
-                <span>CAREER OPPORTUNITIES</span>
+                <span>Career Opportunities</span>
               </Link>
             </div>
           </div>

@@ -24,8 +24,8 @@ const OurVisionsPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="FUTURE ROADMAP & AMBITIONS"
-            title="OUR VISION"
+            badgeText="Future Roadmap & Ambitions"
+            title="Our Vision"
             description="Targeting industry leadership across the UK utility infrastructure sector through innovation, safety, and operational excellence."
             bgImage={visionBg}
           />
@@ -45,13 +45,13 @@ const OurVisionsPage = () => {
                 <div className="w-8 h-8 rounded-none bg-[#0066ff] text-white flex items-center justify-center shrink-0 shadow-md">
                   <span className="material-symbols-outlined text-lg font-bold">visibility</span>
                 </div>
-                <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest font-outfit">
-                  OFFICIAL VISION STATEMENT
+                <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit">
+                  Official Vision Statement
                 </span>
               </div>
 
-              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 uppercase tracking-tight font-outfit leading-tight">
-                "TO BECOME ONE OF THE UK’S LEADING UTILITY INFRASTRUCTURE CONTRACTORS RECOGNISED FOR INNOVATION, SAFETY, QUALITY AND OPERATIONAL EXCELLENCE."
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 tracking-tight font-outfit leading-tight">
+                "To become one of the UK’s leading utility infrastructure contractors recognised for innovation, safety, quality and operational excellence."
               </h2>
 
               <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
@@ -99,7 +99,7 @@ const OurVisionsPage = () => {
                     alt={item.title} 
                     className="w-full h-full object-cover brightness-95 transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute top-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider font-outfit rounded-none border border-white/20">
+                  <div className="absolute top-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit rounded-none border border-white/20">
                     Milestone {item.step}
                   </div>
                 </div>
@@ -108,7 +108,7 @@ const OurVisionsPage = () => {
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <span className="material-symbols-outlined text-[#005f9e] text-lg">{item.icon}</span>
-                      <h3 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit">
+                      <h3 className="text-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">
                         {item.title}
                       </h3>
                     </div>

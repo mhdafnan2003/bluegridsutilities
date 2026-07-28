@@ -47,18 +47,18 @@ const Hero = () => {
         >
           {/* Subtitle / Category Tag */}
           <div className="flex flex-col items-start mb-2.5">
-            <span className="text-[#0066ff] text-xs font-black uppercase tracking-widest font-outfit">
-              BLUEGRID UTILITIES
+            <span className="text-[#0066ff] text-xs font-black tracking-widest font-outfit">
+              BlueGrid Utilities
             </span>
             <div className="w-10 h-1 bg-[#0066ff] mt-1 rounded-full"></div>
           </div>
 
           {/* Main Headline - Compact multi-line text to fit opening frame */}
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight uppercase font-outfit tracking-tight">
-            DELIVERING SMART <br />
-            UTILITY INFRASTRUCTURE <br />
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight font-outfit tracking-tight">
+            Delivering Smart <br />
+            Utility Infrastructure <br />
             <span className="text-[#0066ff]">
-              ACROSS THE UNITED KINGDOM
+              Across the United Kingdom
             </span>
           </h1>
 
@@ -71,15 +71,15 @@ const Hero = () => {
           <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3.5">
             <a
               href="/services"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold uppercase text-xs tracking-wider rounded-none shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all duration-300 transform hover:-translate-y-0.5"
+              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-wider rounded-none shadow-lg shadow-blue-600/30 hover:shadow-blue-600/50 transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              OUR SERVICES
+              Our Services
             </a>
             <a
               href="/contact"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-transparent border-2 border-white/80 hover:border-white text-white hover:bg-white/10 font-bold uppercase text-xs tracking-wider rounded-none transition-all duration-300 transform hover:-translate-y-0.5"
+              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-transparent border-2 border-white/80 hover:border-white text-white hover:bg-white/10 font-bold text-xs tracking-wider rounded-none transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              CONTACT US
+              Contact Us
             </a>
           </div>
         </motion.div>
@@ -93,7 +93,7 @@ const Hero = () => {
               <span className="text-lg sm:text-xl lg:text-2xl font-black text-white font-outfit tracking-tight">
                 {stat.value}
               </span>
-              <span className="text-[10px] sm:text-xs text-slate-400 font-semibold font-outfit uppercase tracking-wider mt-0.5">
+              <span className="text-[10px] sm:text-xs text-slate-400 font-semibold font-outfit tracking-wider mt-0.5">
                 {stat.label}
               </span>
             </div>

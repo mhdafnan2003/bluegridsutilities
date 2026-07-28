@@ -95,10 +95,10 @@ const AboutCompanyPage = () => {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* Top Page Title Banner (Container Card overlaying Banner Image) */}
+          {/* Top Hero Banner Component */}
           <AboutBanner 
-            badgeText="ABOUT BLUEGRID UTILITIES"
-            title="COMPANY PROFILE & OVERVIEW"
+            badgeText="About BlueGrid Utilities"
+            title="Company Profile & Overview"
             description="UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector."
             bgImage={heroTwoImg}
           />
@@ -115,14 +115,14 @@ const AboutCompanyPage = () => {
                   className="w-full h-full object-cover brightness-95"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 bg-[#005f9e] text-white px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-none border border-white/20 font-outfit">
-                  SPECIALIST UTILITY INFRASTRUCTURE
+                <div className="absolute bottom-4 left-4 bg-[#005f9e] text-white px-4 py-2 text-xs font-bold tracking-wider rounded-none border border-white/20 font-outfit">
+                  Specialist Utility Infrastructure
                 </div>
               </div>
 
               <div className="space-y-4 text-left">
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit">
-                  WHO WE ARE
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+                  Who We Are
                 </h2>
                 <p className="text-slate-700 text-base sm:text-lg font-semibold leading-relaxed">
                   Bluegrid Utilities is a UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector.
@@ -143,32 +143,32 @@ const AboutCompanyPage = () => {
 
                 <div className="relative z-10 space-y-6">
                   <div className="border-b border-white/15 pb-4">
-                    <span className="text-[#0066ff] font-bold text-xs uppercase tracking-widest block mb-1 font-outfit">
-                      OFFICIAL DETAILS
+                    <span className="text-[#0066ff] font-bold text-xs tracking-widest block mb-1 font-outfit">
+                      Official Details
                     </span>
-                    <h3 className="text-2xl font-bold uppercase tracking-tight text-white font-outfit">
-                      COMPANY PROFILE
+                    <h3 className="text-2xl font-bold tracking-tight text-white font-outfit">
+                      Company Profile
                     </h3>
                   </div>
 
                   <div className="space-y-4 text-sm">
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1 font-outfit">Company Name</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Company Name</p>
                       <p className="text-base font-bold text-white">Bluegrid Utilities</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1 font-outfit">Trading Name of</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Trading Name of</p>
                       <p className="text-base font-bold text-white">Bluegrid Technology Ltd</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1 font-outfit">Company Number</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Company Number</p>
                       <p className="text-base font-bold text-white tracking-wider">16442340</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] uppercase tracking-widest mb-1 font-outfit">Registered Office</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Registered Office</p>
                       <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
                         Stuart House<br />
                         St Johns Street<br />
@@ -182,9 +182,9 @@ const AboutCompanyPage = () => {
                 <div className="mt-8 pt-4 border-t border-white/15 relative z-10 flex items-center justify-between text-xs font-bold text-slate-300 font-outfit">
                   <span className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-none bg-[#0066ff]" />
-                    REGISTERED IN ENGLAND & WALES
+                    Registered in England & Wales
                   </span>
-                  <span className="text-[#60a5fa]">UK UTILITY CONTRACTOR</span>
+                  <span className="text-[#60a5fa]">UK Utility Contractor</span>
                 </div>
               </div>
             </div>
@@ -197,11 +197,11 @@ const AboutCompanyPage = () => {
           {/* NEW SECTION 1: Core Operational Foundations Grid (6 Key Pillars) */}
           <div className="mb-20">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                CORE OPERATIONAL CAPABILITIES
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+                Core Operational Capabilities
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-                OUR CORE STRENGTHS & COMMITMENTS
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Our Core Strengths & Commitments
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                 Built on experienced management, certified field operatives, precision workmanship, public sector capability, strict compliance, and total customer satisfaction.
@@ -224,13 +224,13 @@ const AboutCompanyPage = () => {
                       <div className="w-12 h-12 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center shadow-md group-hover:bg-[#005f9e] transition-colors duration-300">
                         <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
                       </div>
-                      <span className="text-[10px] font-black text-[#005f9e] uppercase tracking-widest font-outfit bg-[#005f9e]/10 px-2.5 py-1 border border-[#005f9e]/20">
+                      <span className="text-[10px] font-black text-[#005f9e] tracking-widest font-outfit bg-[#005f9e]/10 px-2.5 py-1 border border-[#005f9e]/20">
                         {pillar.badge}
                       </span>
                     </div>
 
                     {/* Title & Description */}
-                    <h3 className="text-xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
+                    <h3 className="text-xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
                       {pillar.title}
                     </h3>
                     <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium mb-6">
@@ -260,12 +260,12 @@ const AboutCompanyPage = () => {
               
               {/* Left Text Narrative */}
               <div className="lg:col-span-7 space-y-6 text-left">
-                <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/40 text-[#60a5fa] border border-[#005f9e]/60 text-xs font-black tracking-widest uppercase font-outfit">
-                  EXPERT MANAGEMENT & FIELD TEAMS
+                <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/40 text-[#60a5fa] border border-[#005f9e]/60 text-xs font-black tracking-widest font-outfit">
+                  Expert Management & Field Teams
                 </span>
 
-                <h2 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight font-outfit leading-tight text-white">
-                  DRIVEN BY EXPERIENCED LEADERSHIP & SKILLED OPERATIVES
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight font-outfit leading-tight text-white">
+                  Driven by Experienced Leadership & Skilled Operatives
                 </h2>
 
                 <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
@@ -276,7 +276,7 @@ const AboutCompanyPage = () => {
                   <div className="bg-white/5 border border-white/10 p-5 rounded-none">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="material-symbols-outlined text-[#60a5fa]">supervisor_account</span>
-                      <h4 className="font-bold text-white uppercase text-sm font-outfit">Experienced Management</h4>
+                      <h4 className="font-bold text-white text-sm font-outfit">Experienced Management</h4>
                     </div>
                     <p className="text-xs text-slate-300 leading-relaxed font-medium">
                       Proactive project supervision, route optimization, real-time client reporting, and strict SLA fulfillment.
@@ -286,7 +286,7 @@ const AboutCompanyPage = () => {
                   <div className="bg-white/5 border border-white/10 p-5 rounded-none">
                     <div className="flex items-center gap-3 mb-2">
                       <span className="material-symbols-outlined text-[#60a5fa]">badge</span>
-                      <h4 className="font-bold text-white uppercase text-sm font-outfit">Skilled Workforce</h4>
+                      <h4 className="font-bold text-white text-sm font-outfit">Skilled Workforce</h4>
                     </div>
                     <p className="text-xs text-slate-300 leading-relaxed font-medium">
                       Rigorously vetted operatives holding CSCS, EUSR, and NRSWA credentials ready for immediate site deployment.
@@ -297,7 +297,7 @@ const AboutCompanyPage = () => {
                 <div className="pt-4">
                   <Link 
                     to="/contact" 
-                    className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white border border-[#60a5fa]/40 hover:border-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm uppercase tracking-widest font-outfit shadow-xl active:scale-95 group"
+                    className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white border border-[#60a5fa]/40 hover:border-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-xl active:scale-95 group"
                   >
                     <span>Discuss Your Contract Requirements</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>
@@ -315,7 +315,7 @@ const AboutCompanyPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 bg-[#0f3a5e]/90 backdrop-blur-md p-4 border border-white/20">
-                    <p className="text-xs font-bold uppercase tracking-widest text-[#60a5fa] font-outfit">QUALIFIED & COMPLIANT</p>
+                    <p className="text-xs font-bold tracking-widest text-[#60a5fa] font-outfit">Qualified & Compliant</p>
                     <p className="text-sm font-bold text-white mt-1">100% Certified Field Workforce Across the UK</p>
                   </div>
                 </div>
@@ -333,10 +333,10 @@ const AboutCompanyPage = () => {
                 <div className="w-12 h-12 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-2xl">workspace_premium</span>
                 </div>
-                <span className="text-[10px] font-black text-[#005f9e] uppercase tracking-widest block mb-2 font-outfit">
-                  EXCELLENCE IN EXECUTION
+                <span className="text-[10px] font-black text-[#005f9e] tracking-widest block mb-2 font-outfit">
+                  Excellence in Execution
                 </span>
-                <h3 className="text-2xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-4">
+                <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
                   Quality Workmanship
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed font-medium mb-6">
@@ -362,10 +362,10 @@ const AboutCompanyPage = () => {
                 <div className="w-12 h-12 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-2xl">account_balance</span>
                 </div>
-                <span className="text-[10px] font-black text-[#005f9e] uppercase tracking-widest block mb-2 font-outfit">
-                  MUNICIPAL & UTILITY CONTRACTS
+                <span className="text-[10px] font-black text-[#005f9e] tracking-widest block mb-2 font-outfit">
+                  Municipal & Utility Contracts
                 </span>
-                <h3 className="text-2xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-4">
+                <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
                   Public Sector Experience
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed font-medium mb-6">
@@ -391,10 +391,10 @@ const AboutCompanyPage = () => {
                 <div className="w-12 h-12 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 flex items-center justify-center mb-6">
                   <span className="material-symbols-outlined text-2xl">verified_user</span>
                 </div>
-                <span className="text-[10px] font-black text-[#005f9e] uppercase tracking-widest block mb-2 font-outfit">
-                  SAFETY & CLIENT TRUST
+                <span className="text-[10px] font-black text-[#005f9e] tracking-widest block mb-2 font-outfit">
+                  Safety & Client Trust
                 </span>
-                <h3 className="text-2xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-4">
+                <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
                   Compliance & Satisfaction
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed font-medium mb-6">
@@ -419,11 +419,11 @@ const AboutCompanyPage = () => {
           {/* NEW SECTION 4: Final Call to Action Banner */}
           <div className="bg-gradient-to-r from-[#0f3a5e] via-[#0b2844] to-[#005f9e] text-white p-8 sm:p-12 md:p-14 rounded-none shadow-xl text-left relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="max-w-2xl space-y-3 relative z-10">
-              <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest font-outfit block">
-                PARTNER WITH BLUEGRID UTILITIES
+              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block">
+                Partner with BlueGrid Utilities
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white font-outfit">
-                READY TO WORK WITH A TRUSTED UK UTILITY CONTRACTOR?
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
+                Ready to Work with a Trusted UK Utility Contractor?
               </h3>
               <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
                 Contact our operational management team today to discuss workforce supply, smart metering support, or utility infrastructure project delivery.
@@ -433,16 +433,16 @@ const AboutCompanyPage = () => {
             <div className="shrink-0 relative z-10 flex flex-wrap gap-4">
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit"
               >
-                <span>GET IN TOUCH</span>
+                <span>Get In Touch</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
               <Link 
                 to="/services"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit"
+                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit"
               >
-                <span>OUR SERVICES</span>
+                <span>Our Services</span>
               </Link>
             </div>
           </div>

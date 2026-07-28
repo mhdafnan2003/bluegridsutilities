@@ -117,8 +117,8 @@ const OurPoliciesPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="GOVERNANCE & RESPONSIBILITY"
-            title="OUR POLICIES & STATUTORY DOCUMENTS"
+            badgeText="Governance & Responsibility"
+            title="Our Policies & Statutory Documents"
             description="Operating under robust ethical, environmental, and safety frameworks to ensure total compliance and transparency across all UK contracts."
             bgImage={heroOneImg}
           />
@@ -130,11 +130,11 @@ const OurPoliciesPage = () => {
           {/* PDF Policy Documents Center */}
           <div className="mb-16">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                OFFICIAL DOCUMENTATION
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+                Official Documentation
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-                POLICY DOCUMENTS & COMPLIANCE DOWNLOADS
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Policy Documents & Compliance Downloads
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                 Click on any policy document below to download or view the official Bluegrid Utilities governance statement.
@@ -143,7 +143,7 @@ const OurPoliciesPage = () => {
 
             {/* Notification Bar */}
             {downloadNotice && (
-              <div className="max-w-2xl mx-auto mb-8 bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-3 text-xs font-bold flex items-center justify-center gap-3 font-outfit uppercase">
+              <div className="max-w-2xl mx-auto mb-8 bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-3 text-xs font-bold flex items-center justify-center gap-3 font-outfit">
                 <span className="material-symbols-outlined text-emerald-600 text-base">download_done</span>
                 <span>Document "{downloadNotice}" download initiated successfully.</span>
               </div>
@@ -165,19 +165,19 @@ const OurPoliciesPage = () => {
                       {/* Styled PDF Icon */}
                       <div className="flex items-center gap-2 bg-red-50 text-red-600 px-3 py-1.5 border border-red-200 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
                         <span className="material-symbols-outlined text-xl">picture_as_pdf</span>
-                        <span className="text-[10px] font-black uppercase tracking-wider font-outfit">PDF</span>
+                        <span className="text-[10px] font-black font-outfit">PDF</span>
                       </div>
 
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-outfit">
+                      <span className="text-[10px] font-bold text-slate-400 font-outfit">
                         {doc.code}
                       </span>
                     </div>
 
                     {/* Document Title & Category */}
-                    <h3 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-1 group-hover:text-[#005f9e] transition-colors">
+                    <h3 className="text-lg font-bold text-[#0f3a5e] tracking-tight font-outfit mb-1 group-hover:text-[#005f9e] transition-colors">
                       {doc.name}
                     </h3>
-                    <p className="text-[11px] font-bold text-[#005f9e] uppercase tracking-widest mb-3 font-outfit">
+                    <p className="text-[11px] font-bold text-[#005f9e] tracking-widest mb-3 font-outfit">
                       {doc.category}
                     </p>
 
@@ -188,15 +188,15 @@ const OurPoliciesPage = () => {
 
                   {/* Action Footer Button */}
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[10px] font-bold text-slate-400 font-outfit uppercase">
+                    <span className="text-[10px] font-bold text-slate-400 font-outfit">
                       {doc.size}
                     </span>
 
                     <button
                       onClick={() => handleDownload(doc.name)}
-                      className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black uppercase tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm active:scale-95 cursor-pointer"
+                      className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm active:scale-95 cursor-pointer"
                     >
-                      <span>DOWNLOAD</span>
+                      <span>Download</span>
                       <span className="material-symbols-outlined text-xs">download</span>
                     </button>
                   </div>
@@ -209,11 +209,11 @@ const OurPoliciesPage = () => {
           <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 border border-[#0f3a5e] rounded-none shadow-xl text-left relative overflow-hidden">
             <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#005f9e]/30 rounded-none blur-3xl pointer-events-none" />
             <div className="relative z-10 max-w-4xl space-y-4">
-              <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest font-outfit block">
-                COMPLIANCE & LEGAL ENQUIRIES
+              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block">
+                Compliance & Legal Enquiries
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white font-outfit">
-                NEED SPECIFIC POLICY DETAILS OR CONTRACTUAL COPIES?
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
+                Need Specific Policy Details or Contractual Copies?
               </h2>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
                 For formal contractor onboarding, compliance verification, or policy enquiries, please contact our operational governance team at{' '}

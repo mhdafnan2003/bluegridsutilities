@@ -104,8 +104,8 @@ const AccreditationsPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="OPERATIONAL QUALITY & COMPLIANCE"
-            title="ACCREDITATIONS & QUALIFICATIONS"
+            badgeText="Operational Quality & Compliance"
+            title="Accreditations & Qualifications"
             description="Bluegrid Utilities is committed to rigorous safety, quality, and industry governance. Explore our current status and roadmap of sector accreditations."
             bgImage={heroTwoImg}
           />
@@ -114,8 +114,8 @@ const AccreditationsPage = () => {
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-6">
               <span className="w-3 h-3 bg-[#0066ff] rounded-none animate-pulse" />
-              <h2 className="text-xs font-black uppercase tracking-widest text-[#005f9e] font-outfit">
-                CURRENT ACCREDITATION STATUS
+              <h2 className="text-xs font-black tracking-widest text-[#005f9e] font-outfit">
+                Current Accreditation Status
               </h2>
             </div>
 
@@ -125,16 +125,16 @@ const AccreditationsPage = () => {
               <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8 space-y-4 text-left">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="bg-[#0066ff] text-white px-3.5 py-1 text-[11px] font-black uppercase tracking-widest font-outfit border border-white/20">
-                      IN PROGRESS
+                    <span className="bg-[#0066ff] text-white px-3.5 py-1 text-[11px] font-black tracking-widest font-outfit border border-white/20">
+                      In Progress
                     </span>
-                    <span className="text-xs font-bold text-slate-300 uppercase tracking-wider font-outfit">
+                    <span className="text-xs font-bold text-slate-300 tracking-wider font-outfit">
                       Contractors Health and Safety Assessment Scheme
                     </span>
                   </div>
 
-                  <h3 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white font-outfit">
-                    CHAS STANDARD
+                  <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-outfit">
+                    CHAS Standard
                   </h3>
 
                   <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
@@ -156,10 +156,10 @@ const AccreditationsPage = () => {
                 <div className="lg:col-span-4 flex justify-start lg:justify-end">
                   <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-none text-center w-full max-w-sm">
                     <span className="material-symbols-outlined text-5xl text-[#60a5fa] mb-3 block">verified</span>
-                    <p className="text-xs font-bold uppercase tracking-widest text-slate-300 font-outfit">Assessment Stage</p>
-                    <p className="text-xl font-bold text-white uppercase tracking-tight mt-1 font-outfit">CHAS Standard</p>
+                    <p className="text-xs font-bold tracking-widest text-slate-300 font-outfit">Assessment Stage</p>
+                    <p className="text-xl font-bold text-white tracking-tight mt-1 font-outfit">CHAS Standard</p>
                     <div className="mt-4 pt-3 border-t border-white/15">
-                      <span className="inline-block px-3 py-1 bg-[#005f9e] text-white text-[10px] font-black uppercase tracking-widest font-outfit">
+                      <span className="inline-block px-3 py-1 bg-[#005f9e] text-white text-[10px] font-black tracking-widest font-outfit">
                         Status: In Progress
                       </span>
                     </div>
@@ -175,11 +175,11 @@ const AccreditationsPage = () => {
           {/* Future Certifications Section */}
           <div className="mb-16">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                FUTURE ACCREDITATION ROADMAP
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+                Future Accreditation Roadmap
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-                WORKING TOWARDS INDUSTRY CERTIFICATIONS
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Working Towards Industry Certifications
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                 As part of our commitment to continuous growth and Tier-1 procurement standards, Bluegrid Utilities is actively working towards obtaining and embedding the following industry accreditations and operative certifications.
@@ -195,7 +195,7 @@ const AccreditationsPage = () => {
                     <div className="w-10 h-10 bg-[#0f3a5e] text-white flex items-center justify-center shadow-md shrink-0">
                       <span className="material-symbols-outlined text-xl">{group.icon}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit">
+                    <h3 className="text-xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
                       {group.category}
                     </h3>
                   </div>
@@ -213,16 +213,16 @@ const AccreditationsPage = () => {
                         <div>
                           {/* Header with Title and Working Towards Badge */}
                           <div className="flex items-start justify-between gap-3 mb-3">
-                            <h4 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit group-hover:text-[#005f9e] transition-colors">
+                            <h4 className="text-lg font-bold text-[#0f3a5e] tracking-tight font-outfit group-hover:text-[#005f9e] transition-colors">
                               {cert.name}
                             </h4>
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-black uppercase tracking-wider font-outfit shrink-0">
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-black tracking-wider font-outfit shrink-0">
                               <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
                               Working Towards
                             </span>
                           </div>
 
-                          <p className="text-[11px] font-bold text-[#005f9e] uppercase tracking-widest mb-3 font-outfit">
+                          <p className="text-[11px] font-bold text-[#005f9e] tracking-widest mb-3 font-outfit">
                             {cert.code}
                           </p>
 
@@ -233,8 +233,8 @@ const AccreditationsPage = () => {
 
                         {/* Status Footer */}
                         <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-slate-500 font-outfit">
-                          <span>GOVERNANCE ROADMAP</span>
-                          <span className="text-amber-700">STATUS: WORKING TOWARDS</span>
+                          <span>Governance Roadmap</span>
+                          <span className="text-amber-700">Status: Working Towards</span>
                         </div>
                       </div>
                     ))}
@@ -276,7 +276,7 @@ const AccreditationsPage = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
                   <div className="absolute bottom-3 left-3 flex items-center gap-2">
                     <span className="material-symbols-outlined text-white text-base">{item.icon}</span>
-                    <span className="text-white text-xs font-bold uppercase tracking-wider font-outfit">
+                    <span className="text-white text-xs font-bold tracking-wider font-outfit">
                       {item.title}
                     </span>
                   </div>
@@ -295,11 +295,11 @@ const AccreditationsPage = () => {
           <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 border border-[#0f3a5e] rounded-none shadow-xl text-left relative overflow-hidden">
             <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#005f9e]/30 rounded-none blur-3xl pointer-events-none" />
             <div className="relative z-10 max-w-4xl space-y-4">
-              <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest font-outfit block">
-                RIGOROUS GOVERNANCE & AUDIT OVERSIGHT
+              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block">
+                Rigorous Governance & Audit Oversight
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white font-outfit">
-                OUR UNWAVERING ACCREDITATION COMMITMENT
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
+                Our Unwavering Accreditation Commitment
               </h2>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
                 Every member of our field workforce undergoes strict pre-deployment verification, ensuring complete compliance with UK statutory requirements, environmental standards, and principal contractor policies.

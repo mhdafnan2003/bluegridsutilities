@@ -751,11 +751,11 @@ const ServicesPage = () => {
 
         {/* Left-Aligned Headline Section */}
         <div className="text-left mb-20 max-w-3xl">
-          <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-            OUR CAPABILITIES
+          <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+            Our Capabilities
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-            OUR SERVICES
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+            Our Services
           </h1>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium mt-4">
             Bluegrid Utilities delivers reliable infrastructure support, clean water metering, civil engineering, and specialized field force management across the UK.
@@ -803,9 +803,9 @@ const ServicesPage = () => {
                     {/* Pill CTA Button */}
                     <Link 
                       to={`/services?select=${service.slug}`}
-                      className="inline-flex items-center gap-3 bg-white text-[#1a202c] hover:bg-lime-400 hover:text-slate-950 font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit"
+                      className="inline-flex items-center gap-3 bg-white text-[#1a202c] hover:bg-lime-400 hover:text-slate-950 font-bold text-xs tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit"
                     >
-                      <span>FIND OUT MORE</span>
+                      <span>Find Out More</span>
                       <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover/btn:translate-x-1">
                         arrow_forward
                       </span>

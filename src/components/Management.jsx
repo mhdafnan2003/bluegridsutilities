@@ -26,17 +26,17 @@ const departmentTeams = [
   {
     id: "directors",
     name: "Directors",
-    badge: "EXECUTIVE DIRECTORS",
+    badge: "Executive Directors",
     members: [
       {
-        name: "SELBERT GEORGE",
+        name: "Selbert George",
         role: "Managing Director",
         desc: "Selbert George is the Managing Director of Bluegrid Utilities, leading operational development, workforce coordination, infrastructure deployment, and project delivery across utility operations within the UK.\nHe holds a Master's degree in International Business Management from Griffith College Dublin, Ireland, and has experience in operational management, workforce coordination, and infrastructure project support.\nHis focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure support services.",
         img: selbertImg,
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "GAUTHAM RAJ",
+        name: "Gautham Raj",
         role: "Project Manager & Head of Operations",
         desc: "Responsible for high-level operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects across the UK water and utility sectors.",
         img: gauthamImg,
@@ -47,17 +47,17 @@ const departmentTeams = [
   {
     id: "operations",
     name: "Operations",
-    badge: "OPERATIONS TEAM",
+    badge: "Operations Team",
     members: [
       {
-        name: "ALEXANDER WRIGHT",
+        name: "Alexander Wright",
         role: "Head of Operations",
         desc: "Overseeing field force dispatch, regional logistics coordination, operative scheduling, and operational delivery across utility programmes.",
         img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "SARAH JENKINS",
+        name: "Sarah Jenkins",
         role: "Operations Dispatch Manager",
         desc: "Managing day-to-day field operative routing, vehicle fleet logistics, emergency response dispatch, and SLA fulfillment.",
         img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
@@ -68,17 +68,17 @@ const departmentTeams = [
   {
     id: "commercial",
     name: "Commercial",
-    badge: "COMMERCIAL TEAM",
+    badge: "Commercial Team",
     members: [
       {
-        name: "DAVID MILLER",
+        name: "David Miller",
         role: "Commercial Director",
         desc: "Leading contract negotiations, commercial valuations, client cost engineering, and risk management for UK utility contracts.",
         img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "EMMA THOMPSON",
+        name: "Emma Thompson",
         role: "Senior Estimator & Procurement Lead",
         desc: "Managing tendering processes, subcontractor agreements, plant procurement, and commercial compliance.",
         img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600",
@@ -89,17 +89,17 @@ const departmentTeams = [
   {
     id: "project-delivery",
     name: "Project Delivery",
-    badge: "PROJECT DELIVERY TEAM",
+    badge: "Project Delivery Team",
     members: [
       {
-        name: "JAMES HARRISON",
+        name: "James Harrison",
         role: "Project Delivery Manager",
         desc: "Supervising clean water meter installation rollouts, excavation quality control, surface reinstatement, and zero-defect site handovers.",
         img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "CLAIRE ROBERTS",
+        name: "Claire Roberts",
         role: "Site Operations Supervisor",
         desc: "Coordinating field teams, managing NRSWA streetworks compliance, site safety barriers, and local council permits.",
         img: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=600",
@@ -110,17 +110,17 @@ const departmentTeams = [
   {
     id: "health-safety",
     name: "Health & Safety",
-    badge: "HEALTH & SAFETY TEAM",
+    badge: "Health & Safety Team",
     members: [
       {
-        name: "MICHAEL BENNETT",
+        name: "Michael Bennett",
         role: "HSE Compliance Manager",
         desc: "Enforcing zero-harm policies, auditing RAMS documentation, conducting site safety inspections, and verifying CSCS/EUSR credentials.",
         img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "LISA MORGAN",
+        name: "Lisa Morgan",
         role: "Environmental & Safety Auditor",
         desc: "Managing environmental compliance, carbon reduction initiatives, site waste management, and safety toolbox talk registers.",
         img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600",
@@ -131,17 +131,17 @@ const departmentTeams = [
   {
     id: "recruitment",
     name: "Recruitment",
-    badge: "RECRUITMENT & ONBOARDING",
+    badge: "Recruitment & Onboarding",
     members: [
       {
-        name: "ROBERT TAYLOR",
+        name: "Robert Taylor",
         role: "Head of Resourcing",
         desc: "Managing workforce resourcing, Right-to-Work verification, candidate screening, and operative deployment across UK sites.",
         img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "HANNAH WALKER",
+        name: "Hannah Walker",
         role: "Compliance & Onboarding Specialist",
         desc: "Verifying EUSR status, CSCS cards, training qualifications, and coordinating operative onboarding inductions.",
         img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600",
@@ -152,17 +152,17 @@ const departmentTeams = [
   {
     id: "administration",
     name: "Administration",
-    badge: "ADMINISTRATION TEAM",
+    badge: "Administration Team",
     members: [
       {
-        name: "SOPHIA CHEN",
+        name: "Sophia Chen",
         role: "Business Administration Lead",
         desc: "Managing back-office operations, client documentation archives, executive scheduling, and administrative logistics.",
         img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "OLIVER SCOTT",
+        name: "Oliver Scott",
         role: "Client Reporting & Appointment Coordinator",
         desc: "Coordinating customer appointment bookings, updating real-time client dashboards, and handling resident communications.",
         img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=600",
@@ -207,8 +207,8 @@ const MemberCard = ({ member }) => {
         {/* Content Overlay */}
         <div className={`bg-white p-5 absolute bottom-0 left-0 right-0 z-10 rounded-none border-t border-slate-200 flex flex-col justify-start h-[290px] sm:h-[310px] transition-all duration-500 ease-out ${isOpen ? 'translate-y-0' : 'translate-y-[215px] sm:translate-y-[230px]'}`}>
           <div className="mb-2">
-            <h3 className="text-lg sm:text-xl text-[#0f3a5e] font-bold tracking-tight uppercase leading-snug mb-1 font-outfit">{member.name}</h3>
-            <p className="text-[11px] text-[#005f9e] font-bold tracking-wider uppercase min-h-[28px] flex items-center font-outfit">{member.role}</p>
+            <h3 className="text-lg sm:text-xl text-[#0f3a5e] font-bold tracking-tight leading-snug mb-1 font-outfit">{member.name}</h3>
+            <p className="text-[11px] text-[#005f9e] font-bold tracking-wider min-h-[28px] flex items-center font-outfit">{member.role}</p>
           </div>
           
           <div className={`text-slate-600 text-xs leading-relaxed transition-all duration-500 space-y-2 flex-1 overflow-y-auto pr-1 pb-3 font-medium ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -251,7 +251,7 @@ const Management = () => {
         <div className="flex items-center justify-start md:justify-center overflow-x-auto gap-2 pb-6 mb-16 border-b border-slate-200 no-scrollbar">
           <button
             onClick={() => handleTabClick('all')}
-            className={`px-5 py-3 text-xs font-bold uppercase tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border ${
+            className={`px-5 py-3 text-xs font-bold tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border ${
               activeDeptId === 'all'
                 ? 'bg-[#0f3a5e] text-white border-[#0f3a5e] shadow-md'
                 : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
@@ -264,7 +264,7 @@ const Management = () => {
             <button
               key={dept.id}
               onClick={() => handleTabClick(dept.id)}
-              className={`px-5 py-3 text-xs font-bold uppercase tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border flex items-center gap-2 ${
+              className={`px-5 py-3 text-xs font-bold tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border flex items-center gap-2 ${
                 activeDeptId === dept.id
                   ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-md'
                   : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
@@ -284,11 +284,11 @@ const Management = () => {
               <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                 <div className="flex items-center gap-3">
                   <span className="w-3 h-3 bg-[#005f9e] rounded-none" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
                     {dept.name} Department
                   </h3>
                 </div>
-                <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit bg-[#005f9e]/10 px-3 py-1 border border-[#005f9e]/20">
+                <span className="text-xs font-bold text-[#005f9e] tracking-widest font-outfit bg-[#005f9e]/10 px-3 py-1 border border-[#005f9e]/20">
                   {dept.badge}
                 </span>
               </div>

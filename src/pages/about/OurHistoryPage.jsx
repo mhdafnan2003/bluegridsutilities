@@ -22,8 +22,8 @@ const OurHistoryPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="TRANSPARENT FOUNDATION & ROADMAP"
-            title="COMPANY HISTORY"
+            badgeText="Transparent Foundation & Roadmap"
+            title="Company History"
             description="Built on experienced leadership, operational integrity, and long-term utility infrastructure partnerships throughout the United Kingdom."
             bgImage={historyBannerImg}
           />
@@ -41,13 +41,13 @@ const OurHistoryPage = () => {
             <div className="relative z-10 p-8 sm:p-12 md:p-14 max-w-3xl text-left text-white bg-[#0f3a5e]/60 backdrop-blur-md border border-white/20 shadow-2xl m-6 sm:m-10 lg:m-12 space-y-6">
               <div className="flex items-center gap-3">
                 <span className="w-2.5 h-2.5 bg-[#0066ff] rounded-none animate-pulse" />
-                <span className="text-[#60a5fa] font-black text-xs uppercase tracking-widest font-outfit">
-                  TRANSPARENT FOUNDATION
+                <span className="text-[#60a5fa] font-black text-xs tracking-widest font-outfit">
+                  Transparent Foundation
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight text-white font-outfit leading-tight">
-                BUILT ON EXPERIENCED LEADERSHIP & OPERATIONAL PARTNERSHIPS
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white font-outfit leading-tight">
+                Built on Experienced Leadership & Operational Partnerships
               </h2>
 
               <div className="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
@@ -72,11 +72,11 @@ const OurHistoryPage = () => {
           {/* 3 Strategic Foundations Grid */}
           <div className="mb-20">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                CORE PILLARS OF OUR JOURNEY
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+                Core Pillars of Our Journey
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-                OUR OPERATIONAL FOUNDATIONS
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Our Operational Foundations
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                 Grounded in clarity, safe execution, and long-term utility contractor alignment.
@@ -118,12 +118,12 @@ const OurHistoryPage = () => {
                       className="w-full h-full object-cover brightness-95 transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                    <div className="absolute top-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider font-outfit rounded-none border border-white/20">
-                      FOUNDATION {item.step}
+                    <div className="absolute top-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit rounded-none border border-white/20">
+                      Foundation {item.step}
                     </div>
                     <div className="absolute bottom-3 left-3 flex items-center gap-2">
                       <span className="material-symbols-outlined text-white text-lg">{item.icon}</span>
-                      <span className="text-white text-xs font-bold uppercase tracking-wider font-outfit">
+                      <span className="text-white text-xs font-bold tracking-wider font-outfit">
                         {item.title}
                       </span>
                     </div>
@@ -135,8 +135,8 @@ const OurHistoryPage = () => {
                     </p>
 
                     <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-[#005f9e] font-outfit">
-                      <span>UK UTILITY CONTRACTOR</span>
-                      <span>100% COMPLIANT</span>
+                      <span>UK Utility Contractor</span>
+                      <span>100% Compliant</span>
                     </div>
                   </div>
                 </div>
@@ -149,12 +149,12 @@ const OurHistoryPage = () => {
             <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#005f9e]/30 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 max-w-4xl space-y-6">
-              <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/40 text-[#60a5fa] border border-[#005f9e]/60 text-xs font-black tracking-widest uppercase font-outfit">
-                EXPANDING PORTFOLIO SECTORS
+              <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/40 text-[#60a5fa] border border-[#005f9e]/60 text-xs font-black tracking-widest font-outfit">
+                Expanding Portfolio Sectors
               </span>
 
-              <h2 className="text-3xl sm:text-4xl font-bold uppercase tracking-tight text-white font-outfit leading-tight">
-                PORTFOLIO EXPANSION ACROSS WATER, ENERGY & INFRASTRUCTURE
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-outfit leading-tight">
+                Portfolio Expansion Across Water, Energy & Infrastructure
               </h2>
 
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
@@ -165,7 +165,7 @@ const OurHistoryPage = () => {
                 <div className="bg-white/5 border border-white/10 p-5 rounded-none space-y-2">
                   <div className="flex items-center gap-2 text-[#60a5fa]">
                     <span className="material-symbols-outlined text-xl">water_drop</span>
-                    <h4 className="font-bold text-white uppercase text-sm font-outfit">Water Sector</h4>
+                    <h4 className="font-bold text-white text-sm font-outfit">Water Sector</h4>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed font-medium">
                     Smart water metering, logistics coordination, clean water civil works, and reinstatement.
@@ -175,7 +175,7 @@ const OurHistoryPage = () => {
                 <div className="bg-white/5 border border-white/10 p-5 rounded-none space-y-2">
                   <div className="flex items-center gap-2 text-[#60a5fa]">
                     <span className="material-symbols-outlined text-xl">bolt</span>
-                    <h4 className="font-bold text-white uppercase text-sm font-outfit">Energy Sector</h4>
+                    <h4 className="font-bold text-white text-sm font-outfit">Energy Sector</h4>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed font-medium">
                     Gas and electricity distribution support, site preparation logistics, and field workforce supply.
@@ -185,7 +185,7 @@ const OurHistoryPage = () => {
                 <div className="bg-white/5 border border-white/10 p-5 rounded-none space-y-2">
                   <div className="flex items-center gap-2 text-[#60a5fa]">
                     <span className="material-symbols-outlined text-xl">domain</span>
-                    <h4 className="font-bold text-white uppercase text-sm font-outfit">Wider Infrastructure</h4>
+                    <h4 className="font-bold text-white text-sm font-outfit">Wider Infrastructure</h4>
                   </div>
                   <p className="text-xs text-slate-300 leading-relaxed font-medium">
                     Telecoms rollout support, municipal council works, and regional sub-contractor coordination.

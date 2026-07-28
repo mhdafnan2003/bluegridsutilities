@@ -69,12 +69,12 @@ const WhatWeAre = () => {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 md:mb-24">
-          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
-            OUR IDENTITY & FOUNDATION
+        <div className="max-w-3xl text-left mb-16 md:mb-24">
+          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
+            Our Identity & Foundation
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase font-outfit leading-tight mb-5">
-            WHAT WE ARE
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-5">
+            What We Are
           </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
             Bluegrid Utilities is a UK-based utility infrastructure contractor delivering safe, reliable, and high-quality services across smart water metering, excavation, reinstatement, and associated civil engineering works.
@@ -105,7 +105,7 @@ const WhatWeAre = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
                   
                   {/* Step Badge */}
-                  <div className="absolute top-4 left-4 bg-[#005f9e] text-white font-black text-xs px-3.5 py-1.5 rounded-none uppercase tracking-wider font-outfit shadow-md flex items-center gap-2 border border-white/20">
+                  <div className="absolute top-4 left-4 bg-[#005f9e] text-white font-black text-xs px-3.5 py-1.5 rounded-none tracking-wider font-outfit shadow-md flex items-center gap-2 border border-white/20">
                     <span className="w-2 h-2 rounded-none bg-white" />
                     Pillar {pillar.step}
                   </div>
@@ -122,13 +122,13 @@ const WhatWeAre = () => {
                     <div className="w-9 h-9 rounded-none bg-[#005f9e]/10 border border-[#005f9e]/20 text-[#005f9e] flex items-center justify-center shrink-0">
                       <span className="material-symbols-outlined text-xl">{pillar.icon}</span>
                     </div>
-                    <span className="text-[#005f9e] font-bold text-xs tracking-widest uppercase font-outfit">
+                    <span className="text-[#005f9e] font-bold text-xs tracking-widest font-outfit">
                       {pillar.subtitle}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-4">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
                     {pillar.title}
                   </h3>
 
@@ -152,9 +152,9 @@ const WhatWeAre = () => {
                   {/* Action Link */}
                   <a
                     href="/services"
-                    className="inline-flex items-center gap-2 text-[#005f9e] font-black text-xs uppercase tracking-widest font-outfit hover:text-[#0f3a5e] transition-colors group self-start"
+                    className="inline-flex items-center gap-2 text-[#005f9e] font-black text-xs tracking-widest font-outfit hover:text-[#0f3a5e] transition-colors group self-start"
                   >
-                    <span>EXPLORE CAPABILITIES</span>
+                    <span>Explore Capabilities</span>
                     <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
                       arrow_forward
                     </span>
@@ -170,10 +170,10 @@ const WhatWeAre = () => {
           <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#005f9e]/20 rounded-none blur-3xl pointer-events-none" />
           <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
             <div className="max-w-4xl">
-              <span className="text-[#0066ff] font-bold text-xs uppercase tracking-widest font-outfit block mb-2">
-                OUR 10 GUIDING CORE VALUES
+              <span className="text-[#0066ff] font-bold text-xs tracking-widest font-outfit block mb-2">
+                Our 10 Guiding Core Values
               </span>
-              <h4 className="text-xl sm:text-2xl font-bold font-outfit uppercase tracking-tight text-white mb-4">
+              <h4 className="text-xl sm:text-2xl font-bold font-outfit tracking-tight text-white mb-4">
                 Built on Trust, Quality & Continuous Improvement
               </h4>
               <div className="flex flex-wrap gap-2 text-xs font-semibold">
@@ -197,9 +197,9 @@ const WhatWeAre = () => {
             </div>
             <Link
               to="/about"
-              className="px-7 py-3.5 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold uppercase text-xs tracking-wider rounded-none border border-white/10 transition-all duration-300 shrink-0 shadow-lg"
+              className="px-7 py-3.5 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-wider rounded-none border border-white/10 transition-all duration-300 shrink-0 shadow-lg"
             >
-              view more about us
+              View More About Us
             </Link>
           </div>
         </div>

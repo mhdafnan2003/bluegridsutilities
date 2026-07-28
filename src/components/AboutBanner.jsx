@@ -14,11 +14,11 @@ const AboutBanner = ({ badgeText, title, description, bgImage }) => {
       {/* Floating Container Box for Text (High Transparency Glass Container) */}
       <div className="relative z-10 p-6 sm:p-8 md:p-10 lg:p-12 max-w-2xl text-left text-white bg-[#0f3a5e]/45 backdrop-blur-sm border border-white/30 shadow-2xl m-6 sm:m-10 lg:m-12">
         {badgeText && (
-          <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-[11px] font-bold uppercase tracking-widest mb-4 font-outfit border border-white/20 shadow-sm">
+          <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-[11px] font-bold tracking-widest mb-4 font-outfit border border-white/20 shadow-sm">
             {badgeText}
           </span>
         )}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight uppercase leading-tight mb-4 font-outfit">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight mb-4 font-outfit">
           {title}
         </h1>
         <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">

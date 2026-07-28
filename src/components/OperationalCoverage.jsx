@@ -31,12 +31,12 @@ const OperationalCoverage = () => {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
 
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-14 md:mb-20">
-          <span className="inline-block px-4 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 border border-[#005f9e]/20">
-            SERVICE AREAS
+        <div className="max-w-3xl text-left mb-14 md:mb-20">
+          <span className="inline-block px-4 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
+            Service Areas
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] uppercase tracking-tight leading-tight mb-5">
-            OUR NATIONWIDE COVERAGE
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight mb-5">
+            Our Nationwide Coverage
           </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
             Delivering safe, reliable utility infrastructure services across England, Scotland and Wales — with regional teams strategically positioned for rapid response.
@@ -53,14 +53,14 @@ const OperationalCoverage = () => {
               <div className="bg-[#0f3a5e] px-6 py-4 flex items-center gap-3">
                 <span className="material-symbols-outlined text-[#60a5fa] text-lg">map</span>
                 <div>
-                  <p className="text-white font-black text-xs uppercase tracking-widest">SERVICE COVERAGE MAP</p>
+                  <p className="text-white font-black text-xs tracking-widest">Service Coverage Map</p>
                   <p className="text-slate-400 text-[10px] font-medium mt-0.5">England · Scotland · Wales</p>
                 </div>
                 {active && (
                   <div className="ml-auto flex items-center gap-2 bg-[#005f9e]/40 border border-[#0066ff]/40 px-3 py-1.5">
                     <span className="material-symbols-outlined text-[#60a5fa] text-sm">location_on</span>
                     <div>
-                      <p className="text-white text-xs font-black uppercase tracking-wider">{active.label}</p>
+                      <p className="text-white text-xs font-black tracking-wider">{active.label}</p>
                       <p className="text-slate-400 text-[10px]">{active.nation}</p>
                     </div>
                   </div>
@@ -95,7 +95,7 @@ const OperationalCoverage = () => {
                 <div key={i} className="bg-white border border-slate-200 shadow-md p-4 md:p-5 text-center">
                   <span className="material-symbols-outlined text-[#005f9e] text-xl mb-1 block">{stat.icon}</span>
                   <p className="text-2xl md:text-3xl font-black text-[#0f3a5e] leading-none mb-1">{stat.value}</p>
-                  <p className="text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-slate-500">{stat.label}</p>
+                  <p className="text-[9px] md:text-[10px] font-bold tracking-widest text-slate-500">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -104,7 +104,7 @@ const OperationalCoverage = () => {
             <div className="bg-white border border-slate-200 shadow-md overflow-hidden flex-1">
               <div className="bg-[#0f3a5e] px-5 py-3 flex items-center gap-3">
                 <span className="material-symbols-outlined text-[#60a5fa] text-sm">flag</span>
-                <span className="text-white font-black text-xs uppercase tracking-widest">England — Regional Areas</span>
+                <span className="text-white font-black text-xs tracking-widest">England — Regional Areas</span>
               </div>
               <div className="grid grid-cols-2 divide-x divide-y divide-slate-100">
                 {serviceAreas.filter(a => a.nation === 'England').map((area) => {
@@ -144,7 +144,7 @@ const OperationalCoverage = () => {
                     <div className={`px-4 py-4 flex items-center gap-3 transition-colors duration-200 ${isActive ? 'bg-[#005f9e]/10' : ''}`}>
                       <span className="material-symbols-outlined text-[#005f9e] text-sm">location_on</span>
                       <div>
-                        <p className={`text-sm font-bold uppercase tracking-wide transition-colors duration-200 ${isActive ? 'text-[#005f9e]' : 'text-[#0f3a5e]'}`}>
+                        <p className={`text-sm font-bold tracking-wide transition-colors duration-200 ${isActive ? 'text-[#005f9e]' : 'text-[#0f3a5e]'}`}>
                           {area.label}
                         </p>
                         <p className="text-[10px] text-slate-400 font-medium">{area.nation}</p>
@@ -158,9 +158,9 @@ const OperationalCoverage = () => {
             {/* CTA */}
             <a
               href="/contact"
-              className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold uppercase text-xs tracking-widest px-7 py-4 rounded-none border border-[#005f9e] transition-all duration-300 shadow-lg self-start group"
+              className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-7 py-4 rounded-none border border-[#005f9e] transition-all duration-300 shadow-lg self-start group"
             >
-              <span>DISCUSS YOUR PROJECT</span>
+              <span>Discuss Your Project</span>
               <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
             </a>
 

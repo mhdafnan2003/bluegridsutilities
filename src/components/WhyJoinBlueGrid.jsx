@@ -30,8 +30,8 @@ const WhyJoinBlueGrid = () => {
           <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#0066ff]/20 rounded-full blur-3xl pointer-events-none" />
 
           {/* Badge Tag */}
-          <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/30 text-[#60a5fa] text-[11px] font-black uppercase tracking-widest mb-4 border border-[#005f9e]/50 font-outfit">
-            CAREERS & OPPORTUNITIES
+          <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/30 text-[#60a5fa] text-[11px] font-black tracking-widest mb-4 border border-[#005f9e]/50 font-outfit">
+            Careers & Opportunities
           </span>
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 font-outfit">
@@ -44,9 +44,9 @@ const WhyJoinBlueGrid = () => {
 
           <Link
             to="/career"
-            className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white font-bold text-xs uppercase tracking-widest px-7 py-4 rounded-full transition-all duration-300 shadow-lg shadow-blue-950/50 group active:scale-95 border border-white/10"
+            className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white font-bold text-xs tracking-widest px-7 py-4 rounded-full transition-all duration-300 shadow-lg shadow-blue-950/50 group active:scale-95 border border-white/10"
           >
-            <span>BLUEGRID JOBS</span>
+            <span>BlueGrid Jobs</span>
             <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
               arrow_forward
             </span>

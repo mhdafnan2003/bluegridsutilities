@@ -99,7 +99,7 @@ const ApplyPage = () => {
 
         {/* Page Header */}
         <div className="text-center mb-14">
-          <span className="inline-block bg-brand-primary/10 text-brand-primary text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full mb-5">
+          <span className="inline-block bg-brand-primary/10 text-brand-primary text-xs font-bold tracking-widest px-4 py-2 rounded-full mb-5">
             Join Our Workforce
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4">

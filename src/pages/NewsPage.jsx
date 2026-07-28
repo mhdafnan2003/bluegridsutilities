@@ -14,15 +14,15 @@ import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png'
 import safetyBg from '../assets/images/safety_bg.png';
 
 const newsCategories = [
-  { id: "all", label: "ALL NEWS" },
-  { id: "company-updates", label: "COMPANY UPDATES" },
-  { id: "training", label: "TRAINING" },
-  { id: "mobilisation", label: "MOBILISATION" },
-  { id: "recruitment", label: "RECRUITMENT" },
-  { id: "accreditations", label: "ACCREDITATIONS" },
-  { id: "community", label: "COMMUNITY" },
-  { id: "projects", label: "PROJECTS" },
-  { id: "office-expansion", label: "OFFICE EXPANSION" }
+  { id: "all", label: "All News" },
+  { id: "company-updates", label: "Company Updates" },
+  { id: "training", label: "Training" },
+  { id: "mobilisation", label: "Mobilisation" },
+  { id: "recruitment", label: "Recruitment" },
+  { id: "accreditations", label: "Accreditations" },
+  { id: "community", label: "Community" },
+  { id: "projects", label: "Projects" },
+  { id: "office-expansion", label: "Office Expansion" }
 ];
 
 const newsArticles = [
@@ -60,51 +60,51 @@ const newsArticles = [
     id: 4,
     category: "recruitment",
     categoryLabel: "Recruitment",
-    title: "Nationwide Recruitment Drive Announced for Regional Utility Coordinators",
+    title: "Workforce Recruitment Drive Launched for Metering & Groundwork Operatives",
     date: "July 05, 2026",
     readTime: "4 min read",
     img: complianceImg,
-    snippet: "We are expanding our regional teams to support growing utility partner demands. Open roles include field supervisors, utility coordinators, and accredited street work operatives."
+    snippet: "Bluegrid Utilities opens applications for skilled meter installers, pipe layers, groundworkers, and NRSWA supervisors to support our growing UK operational portfolio."
   },
   {
     id: 5,
     category: "accreditations",
-    categoryLabel: "Accreditation & Awards",
-    title: "Bluegrid Utilities Retains ISO 45001 & ISO 14001 Quality Accreditations",
+    categoryLabel: "Accreditations",
+    title: "ISO 45001 & ISO 9001 Compliance Milestones Re-certified",
     date: "June 28, 2026",
     readTime: "3 min read",
     img: safetyBg,
-    snippet: "Independent statutory audits confirm full compliance with international occupational health, safety, and environmental management standards across all site operations."
+    snippet: "Our operational systems successfully passed independent quality and health & safety audits, reaffirming our commitment to compliance-led utility delivery."
   },
   {
     id: 6,
     category: "community",
     categoryLabel: "Community",
-    title: "Community Apprenticeship Program Boosts Regional Skilled Employment",
+    title: "Investing in Regional Skills & Local Supply Chain Partnerships",
     date: "June 20, 2026",
-    readTime: "5 min read",
+    readTime: "4 min read",
     img: environmentalPolicyBg,
-    snippet: "In partnership with local councils and supply chain vendors, our social sustainability initiative has created 25 local utility apprenticeships to support regional career growth."
+    snippet: "As part of our commitment to sustainable operations, Bluegrid partners with regional supply chains to recruit locally and reduce logistical carbon footprints."
   },
   {
     id: 7,
     category: "projects",
     categoryLabel: "Projects",
-    title: "50,000 Smart Water Meter Installations Milestone Achieved with Zero Harm",
+    title: "Successful Delivery of Smart Water Metering Rollout Framework",
     date: "June 14, 2026",
-    readTime: "4 min read",
+    readTime: "5 min read",
     img: projectCoordImg,
-    snippet: "Our clean water support squad has reached a major operational milestone, delivering over 50,000 meter replacements with 99.8% customer satisfaction and zero lost-time incidents."
+    snippet: "Over 1,000+ planned smart meter installations completed safely with full telemetry verification and positive resident feedback."
   },
   {
     id: 8,
     category: "office-expansion",
     categoryLabel: "Office Expansion",
-    title: "New Regional Operations Hub Opened to Support Midlands Infrastructure",
+    title: "Peterborough Operations Hub Capacity Doubled to Support Growth",
     date: "June 02, 2026",
     readTime: "3 min read",
-    img: skylineImg,
-    snippet: "To accommodate workforce growth and logistics management, Bluegrid Utilities has opened a state-of-the-art regional operational office featuring dedicated training suites."
+    img: utilityInfraImg,
+    snippet: "Our Stuart House headquarters expansion provides enhanced dispatch capabilities, dedicated training facilities, and expanded logistics support."
   },
   {
     id: 9,
@@ -120,25 +120,14 @@ const newsArticles = [
 
 const NewsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const selectedCategoryFromUrl = searchParams.get('select') || 'all';
+  const activeCategory = searchParams.get('category') || 'all';
 
-  const [activeCategory, setActiveCategory] = useState(selectedCategoryFromUrl);
-
-  useEffect(() => {
-    const currentSelect = searchParams.get('select');
-    if (currentSelect && newsCategories.some(cat => cat.id === currentSelect)) {
-      setActiveCategory(currentSelect);
-    } else if (!currentSelect) {
-      setActiveCategory('all');
-    }
-  }, [searchParams]);
-
-  const handleCategorySelect = (catId) => {
-    setActiveCategory(catId);
-    if (catId === 'all') {
-      setSearchParams({});
+  const handleCategorySelect = (id) => {
+    if (id === 'all') {
+      searchParams.delete('category');
+      setSearchParams(searchParams);
     } else {
-      setSearchParams({ select: catId });
+      setSearchParams({ category: id });
     }
   };
 
@@ -152,8 +141,8 @@ const NewsPage = () => {
       {/* 1. News Main Hero Banner */}
       <section className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 md:pt-10">
         <AboutBanner 
-          badgeText="NEWS & OPERATIONAL INSIGHTS"
-          title="BLUEGRID NEWSROOM"
+          badgeText="News & Operational Insights"
+          title="Bluegrid Newsroom"
           description="Company announcements, project mobilisations, workforce training updates, and regional growth developments across the UK utility sector."
           bgImage={skylineImg}
         />
@@ -169,7 +158,7 @@ const NewsPage = () => {
                 <button
                   key={cat.id}
                   onClick={() => handleCategorySelect(cat.id)}
-                  className={`px-3.5 py-2.5 lg:px-4 lg:py-3 whitespace-nowrap shrink-0 rounded-none text-xs font-bold font-outfit tracking-wider transition-all duration-200 border uppercase ${
+                  className={`px-3.5 py-2.5 lg:px-4 lg:py-3 whitespace-nowrap shrink-0 rounded-none text-xs font-bold font-outfit tracking-wider transition-all duration-200 border ${
                     isSelected 
                       ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-sm' 
                       : 'bg-white text-[#0f3a5e] border-slate-200/80 hover:border-[#005f9e] hover:text-[#005f9e] hover:bg-slate-50'
@@ -210,7 +199,7 @@ const NewsPage = () => {
                         loading="lazy"
                       />
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-[#005f9e] text-white text-[10px] font-bold uppercase tracking-wider font-outfit rounded-none shadow">
+                        <span className="px-3 py-1 bg-[#005f9e] text-white text-[10px] font-bold tracking-wider font-outfit rounded-none shadow">
                           {article.categoryLabel}
                         </span>
                       </div>
@@ -242,7 +231,7 @@ const NewsPage = () => {
 
                   {/* Card Footer */}
                   <div className="px-6 pb-6 pt-2">
-                    <button className="inline-flex items-center gap-2 text-xs font-bold text-[#005f9e] uppercase tracking-wider font-outfit group-hover:translate-x-1 transition-transform">
+                    <button className="inline-flex items-center gap-2 text-xs font-bold text-[#005f9e] tracking-wider font-outfit group-hover:translate-x-1 transition-transform">
                       <span>Read Full Update</span>
                       <span className="material-symbols-outlined text-base">arrow_forward</span>
                     </button>

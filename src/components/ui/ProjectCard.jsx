@@ -29,7 +29,7 @@ const ProjectCard = React.forwardRef(
           </p>
           
           {/* Card Link/CTA */}
-          <div className="mt-6 flex items-center text-brand-primary font-bold text-sm tracking-wider uppercase opacity-100 transition-all duration-500 group-hover:translate-x-1.5">
+          <div className="mt-6 flex items-center text-brand-primary font-bold text-sm tracking-wider opacity-100 transition-all duration-500 group-hover:translate-x-1.5">
             <span className="font-outfit">{linkText}</span>
             <ArrowRight className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
           </div>

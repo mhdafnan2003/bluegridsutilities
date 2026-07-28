@@ -25,10 +25,10 @@ const SustainabilityBanner = () => {
           <div className="absolute -bottom-24 -left-24 w-80 h-80 bg-[#60a5fa]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="relative z-10 max-w-xl">
-            <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/30 text-[#60a5fa] border border-[#005f9e]/60 text-[11px] sm:text-xs font-black tracking-widest uppercase mb-5 font-outfit">
+            <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/30 text-[#60a5fa] border border-[#005f9e]/60 text-[11px] sm:text-xs font-black tracking-widest mb-5 font-outfit">
               Innovation in Sustainable Working
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight font-outfit uppercase">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight font-outfit">
               We invest in the <span className="text-[#60a5fa]">latest machinery</span> and the local workforce
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 font-medium">
@@ -36,7 +36,7 @@ const SustainabilityBanner = () => {
             </p>
             <Link 
               to="/sustainability" 
-              className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white border border-[#60a5fa]/40 hover:border-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm uppercase tracking-widest font-outfit shadow-2xl active:scale-95 group"
+              className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white border border-[#60a5fa]/40 hover:border-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-2xl active:scale-95 group"
             >
               <span>Find Out More</span>
               <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>

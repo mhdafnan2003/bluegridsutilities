@@ -98,8 +98,8 @@ const CareerPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="CAREERS & WORKFORCE OPPORTUNITIES"
-            title="JOIN THE BLUEGRID WORKFORCE"
+            badgeText="Careers & Workforce Opportunities"
+            title="Join the BlueGrid Workforce"
             description="Explore nationwide opportunities across UK utility programmes. We offer competitive benefits, structured training, clear career progression, and full compliance support."
             bgImage={heroThreeImg}
           />
@@ -107,11 +107,11 @@ const CareerPage = () => {
           {/* First Apply Section / Quick Action Header Bar */}
           <div className="bg-[#f8fafc] border border-slate-200 p-6 sm:p-8 rounded-none mb-16 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md text-left">
             <div className="space-y-1">
-              <span className="text-[11px] font-black text-[#005f9e] uppercase tracking-widest font-outfit">
-                NATIONWIDE RECRUITMENT
+              <span className="text-[11px] font-black text-[#005f9e] tracking-widest font-outfit">
+                Nationwide Recruitment
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit">
-                READY TO APPLY OR UPLOAD YOUR CV?
+              <h2 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+                Ready to Apply or Upload Your CV?
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm font-medium">
                 Complete our fast-track online application or upload your CV to register your interest for upcoming utility projects.
@@ -121,16 +121,16 @@ const CareerPage = () => {
             <div className="flex flex-wrap gap-3 shrink-0">
               <Link 
                 to="/apply" 
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-none border border-transparent transition-all shadow-md active:scale-95 font-outfit cursor-pointer"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-6 py-3.5 rounded-none border border-transparent transition-all shadow-md active:scale-95 font-outfit cursor-pointer"
               >
-                <span>APPLY ONLINE</span>
+                <span>Apply Online</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
               <Link 
                 to="/apply#cv-upload" 
-                className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold text-xs uppercase tracking-widest px-6 py-3.5 rounded-none border border-transparent transition-all shadow-md active:scale-95 font-outfit cursor-pointer"
+                className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold text-xs tracking-widest px-6 py-3.5 rounded-none border border-transparent transition-all shadow-md active:scale-95 font-outfit cursor-pointer"
               >
-                <span>UPLOAD CV</span>
+                <span>Upload CV</span>
                 <span className="material-symbols-outlined text-sm">upload_file</span>
               </Link>
             </div>
@@ -139,11 +139,11 @@ const CareerPage = () => {
           {/* Open Roles & Positions Section (Placed directly below the first apply section) */}
           <div className="mb-20">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                ACTIVE OPPORTUNITIES
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+                Active Opportunities
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-                OPEN POSITIONS & CAREER ROLES
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Open Positions & Career Roles
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                 We are actively recruiting across 9 core operational and management roles for utility projects throughout the UK.
@@ -165,15 +165,15 @@ const CareerPage = () => {
                       <div className="w-10 h-10 bg-[#0f3a5e] text-white flex items-center justify-center shadow-md group-hover:bg-[#005f9e] transition-colors">
                         <span className="material-symbols-outlined text-xl">{role.icon}</span>
                       </div>
-                      <span className="text-[10px] font-black text-slate-400 font-outfit uppercase tracking-widest">
+                      <span className="text-[10px] font-black text-slate-400 font-outfit tracking-widest">
                         {role.code}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-1 group-hover:text-[#005f9e] transition-colors">
+                    <h3 className="text-xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-1 group-hover:text-[#005f9e] transition-colors">
                       {role.title}
                     </h3>
-                    <p className="text-[11px] font-bold text-[#005f9e] uppercase tracking-widest mb-3 font-outfit">
+                    <p className="text-[11px] font-bold text-[#005f9e] tracking-widest mb-3 font-outfit">
                       {role.category}
                     </p>
 
@@ -185,7 +185,7 @@ const CareerPage = () => {
                   <div>
                     <div className="mb-4 pt-3 border-t border-slate-100 flex items-center gap-2">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-                      <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider font-outfit">
+                      <span className="text-[11px] font-bold text-slate-500 tracking-wider font-outfit">
                         {role.badge}
                       </span>
                     </div>
@@ -194,15 +194,15 @@ const CareerPage = () => {
                     <div className="grid grid-cols-2 gap-2">
                       <Link 
                         to={`/apply?position=${encodeURIComponent(role.title)}`}
-                        className="inline-flex items-center justify-center gap-1.5 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold text-[10px] uppercase tracking-widest px-3 py-2.5 transition-all font-outfit text-center cursor-pointer"
+                        className="inline-flex items-center justify-center gap-1.5 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold text-[10px] tracking-widest px-3 py-2.5 transition-all font-outfit text-center cursor-pointer"
                       >
-                        <span>APPLY ONLINE</span>
+                        <span>Apply Online</span>
                       </Link>
                       <Link 
                         to={`/apply?position=${encodeURIComponent(role.title)}#cv-upload`}
-                        className="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-[#005f9e] hover:text-white text-slate-700 font-bold text-[10px] uppercase tracking-widest px-3 py-2.5 transition-all font-outfit text-center cursor-pointer border border-slate-200"
+                        className="inline-flex items-center justify-center gap-1.5 bg-slate-100 hover:bg-[#005f9e] hover:text-white text-slate-700 font-bold text-[10px] tracking-widest px-3 py-2.5 transition-all font-outfit text-center cursor-pointer border border-slate-200"
                       >
-                        <span>UPLOAD CV</span>
+                        <span>Upload CV</span>
                       </Link>
                     </div>
                   </div>
@@ -217,11 +217,11 @@ const CareerPage = () => {
           {/* 3 Career Pillars (Benefits, Training, Career Progression) */}
           <div className="mb-20">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                WHY WORK WITH US
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+                Why Work With Us
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-                BENEFITS, TRAINING & CAREER PROGRESSION
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Benefits, Training & Career Progression
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
                 We invest in our people by offering competitive reward packages, continuous professional development, and structured career pathways.
@@ -238,12 +238,12 @@ const CareerPage = () => {
                   <div className="relative h-44 overflow-hidden mb-6 bg-slate-900">
                     <img src={workersImg} alt="Employee Benefits" className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider font-outfit">
-                      REWARDS & WELLBEING
+                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit">
+                      Rewards & Wellbeing
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
+                  <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
                     Competitive Benefits
                   </h3>
 
@@ -272,12 +272,12 @@ const CareerPage = () => {
                   <div className="relative h-44 overflow-hidden mb-6 bg-slate-900">
                     <img src={trainingImg} alt="Training & Qualifications" className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider font-outfit">
-                      SKILLS & CREDENTIALS
+                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit">
+                      Skills & Credentials
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
+                  <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
                     Professional Training
                   </h3>
 
@@ -306,12 +306,12 @@ const CareerPage = () => {
                   <div className="relative h-44 overflow-hidden mb-6 bg-slate-900">
                     <img src={complianceImg} alt="Career Progression" className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500" />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 uppercase tracking-wider font-outfit">
-                      PROMOTION PATHWAYS
+                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit">
+                      Promotion Pathways
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
+                  <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
                     Career Progression
                   </h3>
 
@@ -338,11 +338,11 @@ const CareerPage = () => {
           {/* Final Call to Action Banner: Upload CV & Apply Online */}
           <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-14 rounded-none shadow-2xl relative overflow-hidden text-left flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="max-w-2xl space-y-3 relative z-10">
-              <span className="text-[#60a5fa] font-bold text-xs uppercase tracking-widest font-outfit block">
-                REGISTER YOUR INTEREST
+              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block">
+                Register Your Interest
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white font-outfit">
-                JOIN THE UK'S FASTEST GROWING UTILITY WORKFORCE
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
+                Join the UK's Fastest Growing Utility Workforce
               </h3>
               <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
                 Submit your CV or complete our fast-track online application form to get verified and allocated to upcoming utility programmes.
@@ -352,16 +352,16 @@ const CareerPage = () => {
             <div className="shrink-0 relative z-10 flex flex-wrap gap-4">
               <Link 
                 to="/apply"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit"
               >
-                <span>APPLY ONLINE</span>
+                <span>Apply Online</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
               <Link 
                 to="/apply#cv-upload"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit"
+                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit"
               >
-                <span>UPLOAD CV</span>
+                <span>Upload CV</span>
                 <span className="material-symbols-outlined text-sm">upload_file</span>
               </Link>
             </div>

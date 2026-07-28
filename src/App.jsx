@@ -32,6 +32,7 @@ import AccreditationsPage from './pages/about/AccreditationsPage';
 import BoardDirectorsPage from './pages/about/BoardDirectorsPage';
 import OurPoliciesPage from './pages/about/OurPoliciesPage';
 import CareerPage from './pages/CareerPage';
+import LatestNews from './components/LatestNews';
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -296,18 +297,28 @@ const AnimatedRoutes = () => {
   );
 };
 
+const MainContent = () => {
+  const location = useLocation();
+  const isNewsPage = location.pathname === '/news';
+
+  return (
+    <div className="min-h-screen bg-gray-50 scroll-smooth flex flex-col justify-between">
+      <Header />
+      <main className="flex-grow">
+        <AnimatedRoutes />
+      </main>
+      {!isNewsPage && <LatestNews />}
+      <Footer />
+    </div>
+  );
+};
+
 function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <ScrollToAnchor />
-      <div className="min-h-screen bg-gray-50 scroll-smooth">
-        <Header />
-        <main>
-          <AnimatedRoutes />
-        </main>
-        <Footer />
-      </div>
+      <MainContent />
     </BrowserRouter>
   );
 }

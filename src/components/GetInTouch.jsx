@@ -27,7 +27,7 @@ const GetInTouch = () => {
           <div className="p-8 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center items-start text-left space-y-6">
             
             {/* Label */}
-            <span className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-[#005f9e] font-outfit">
+            <span className="flex items-center gap-2 text-[10px] font-black tracking-widest text-[#005f9e] font-outfit">
               <span className="w-1.5 h-1.5 rounded-none bg-[#005f9e]" />
               Work With Us
             </span>
@@ -48,7 +48,7 @@ const GetInTouch = () => {
               to="/contact" 
               className="inline-flex items-center justify-center px-6 py-3 bg-[#284cb5] hover:bg-[#1b3480] text-white font-semibold text-sm tracking-wide rounded-none transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 font-sans cursor-pointer"
             >
-              GET IN TOUCH
+              Get In Touch
             </Link>
 
           </div>

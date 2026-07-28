@@ -18,11 +18,11 @@ const BoardDirectorsPage = () => {
           
           {/* Neat Minimal Text Title Section */}
           <div className="pt-8 pb-6 text-center max-w-3xl mx-auto">
-            <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-              LEADERSHIP & GOVERNANCE
+            <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+              Leadership & Governance
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase leading-tight font-outfit">
-              ON BOARD & DIRECTORS
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              Board & Directors
             </h1>
             <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
               Experienced operational leadership driving workforce coordination, compliance standards, infrastructure deployment, and project delivery across UK utility operations.

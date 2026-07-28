@@ -93,12 +93,12 @@ const FeatureCards = () => {
     <section className="relative z-30 bg-brand-light py-20 border-b border-brand-primary/10">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
-        <div className="mb-14 text-center max-w-3xl mx-auto">
-          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
-            OUR CORE SERVICES
+        <div className="mb-14 text-left max-w-3xl">
+          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
+            Our Core Services
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight uppercase font-outfit leading-tight mb-4">
-            SPECIALIST INFRASTRUCTURE & FIELD SUPPORT SERVICES
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-4">
+            Specialist Infrastructure & Field Support Services
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed font-medium">
             Providing end-to-end operational delivery, smart metering coordination, workforce onboarding, and compliant field execution across major UK utility networks.
@@ -137,7 +137,7 @@ const FeatureCards = () => {
                 {/* Card Content */}
                 <div className="p-8 flex-grow flex flex-col justify-between">
                   <div className="text-left">
-                    <h3 className="text-lg lg:text-xl font-bold uppercase font-outfit text-[#111111] mb-3 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
+                    <h3 className="text-lg lg:text-xl font-bold font-outfit text-[#111111] mb-3 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
                       {card.title}
                     </h3>
                     <p className="text-sm text-gray-600 leading-relaxed mb-6 font-medium">
@@ -147,7 +147,7 @@ const FeatureCards = () => {
                   
                   <a 
                     href="#services" 
-                    className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#111111] hover:text-[#005f9e] transition-colors duration-300 font-outfit mt-auto"
+                    className="inline-flex items-center gap-2 text-xs font-black tracking-widest text-[#111111] hover:text-[#005f9e] transition-colors duration-300 font-outfit mt-auto"
                   >
                     <span>Read More</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>

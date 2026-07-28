@@ -55,7 +55,7 @@ const QuickInfo = () => {
         
         {/* Header Section */}
         <div className="flex flex-col mb-16 text-left">
-          <span className="self-start inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-xs font-black uppercase tracking-widest mb-6 font-outfit border border-brand-primary/20">
+          <span className="self-start inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-xs font-black tracking-widest mb-6 font-outfit border border-brand-primary/20">
             Workforce Reliability
           </span>
           
@@ -109,7 +109,7 @@ const QuickInfo = () => {
               </div>
 
               {/* Micro interactive indicator */}
-              <div className="mt-8 flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-brand-primary group-hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 relative z-10 font-outfit">
+              <div className="mt-8 flex items-center gap-1.5 text-xs font-black tracking-wider text-brand-primary group-hover:text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0 relative z-10 font-outfit">
                 <span>Core Pillar</span>
                 <span className="text-[10px]">➔</span>
               </div>

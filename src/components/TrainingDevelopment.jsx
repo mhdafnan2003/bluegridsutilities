@@ -94,7 +94,7 @@ const TrainingDevelopment = () => {
 
           {/* Right: Content */}
           <div className="lg:w-1/2 order-1 lg:order-2 text-center lg:text-left">
-            <span className="text-brand-primary font-bold tracking-widest uppercase text-sm mb-4 block underline decoration-2 underline-offset-8 mx-auto lg:mx-0 w-fit">Capability Building</span>
+            <span className="text-brand-primary font-bold tracking-widest text-sm mb-4 block underline decoration-2 underline-offset-8 mx-auto lg:mx-0 w-fit">Capability Building</span>
             <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-8 font-outfit">
               Training & Professional Development
             </h2>
@@ -110,11 +110,11 @@ const TrainingDevelopment = () => {
             <div className="mt-12 flex flex-wrap justify-center lg:justify-start gap-4">
               <div className="flex items-center gap-2 bg-white px-5 py-3 rounded-full border border-gray-200 shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                <span className="text-sm font-bold text-gray-600 uppercase tracking-wider">Continuous Learning</span>
+                <span className="text-sm font-bold text-gray-600 tracking-wider">Continuous Learning</span>
               </div>
               <div className="flex items-center gap-2 bg-white px-5 py-3 rounded-full border border-gray-200 shadow-sm">
                 <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                <span className="text-sm font-bold text-gray-600 uppercase tracking-wider">Industry Alignment</span>
+                <span className="text-sm font-bold text-gray-600 tracking-wider">Industry Alignment</span>
               </div>
             </div>
           </div>

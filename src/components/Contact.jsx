@@ -66,10 +66,10 @@ const Contact = () => {
         <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-[#032879]/30 rounded-full blur-[120px] z-10" />
         
         <div className="relative z-20 max-w-4xl mx-auto px-6 flex flex-col items-center">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-[#005f9e] text-white text-[10px] sm:text-xs font-black uppercase tracking-widest mb-6 font-outfit shadow-sm">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-[#005f9e] text-white text-[10px] sm:text-xs font-black tracking-widest mb-6 font-outfit shadow-sm">
             Get In Touch
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight mb-6 font-outfit leading-tight text-white">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 font-outfit leading-tight text-white">
             Contact Us
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-2xl leading-relaxed font-medium">
@@ -93,7 +93,7 @@ const Contact = () => {
                 {contactDetails.map((contact, i) => (
                   <div key={i} className="flex-1 flex items-center justify-between gap-4 px-8 py-5 hover:bg-white/65 transition-colors duration-200 group">
                     <div className="min-w-0 text-left">
-                      <p className="text-[10px] font-black text-brand-primary uppercase tracking-[0.2em] mb-1">{contact.role}</p>
+                      <p className="text-[10px] font-black text-brand-primary tracking-[0.2em] mb-1">{contact.role}</p>
                       <a
                         href={contact.href}
                         className="text-sm font-medium text-brand-dark hover:text-brand-primary transition-colors break-words leading-tight block"
@@ -129,16 +129,16 @@ const Contact = () => {
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2 text-left">
-                    <label className="text-[10px] font-black text-brand-primary uppercase tracking-widest ml-1">Your Name</label>
+                    <label className="text-[10px] font-black text-brand-primary tracking-widest ml-1">Your Name</label>
                     <input type="text" placeholder="John Doe" className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none" />
                   </div>
                   <div className="space-y-2 text-left">
-                    <label className="text-[10px] font-black text-brand-primary uppercase tracking-widest ml-1">Email Address</label>
+                    <label className="text-[10px] font-black text-brand-primary tracking-widest ml-1">Email Address</label>
                     <input type="email" placeholder="john@example.com" className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none" />
                   </div>
                 </div>
                 <div className="space-y-2 text-left">
-                  <label className="text-[10px] font-black text-brand-primary uppercase tracking-widest ml-1">Subject</label>
+                  <label className="text-[10px] font-black text-brand-primary tracking-widest ml-1">Subject</label>
                   <select 
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
@@ -150,10 +150,10 @@ const Contact = () => {
                   </select>
                 </div>
                 <div className="space-y-2 text-left">
-                  <label className="text-[10px] font-black text-brand-primary uppercase tracking-widest ml-1">Your Message</label>
+                  <label className="text-[10px] font-black text-brand-primary tracking-widest ml-1">Your Message</label>
                   <textarea rows="4" placeholder="How can we help you?" className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none resize-none"></textarea>
                 </div>
-                <button className="w-full py-5 bg-brand-primary text-white rounded-2xl font-black uppercase tracking-widest hover:bg-brand-dark transition-all duration-300 shadow-xl shadow-brand-primary/20 group flex items-center justify-center gap-3">
+                <button className="w-full py-5 bg-brand-primary text-white rounded-2xl font-black tracking-widest hover:bg-brand-dark transition-all duration-300 shadow-xl shadow-brand-primary/20 group flex items-center justify-center gap-3">
                   Send Message
                   <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
                 </button>

@@ -8,7 +8,7 @@ const JoinTeamBanner = () => {
   return (
     <MotionSection 
       as="section" 
-      className="relative overflow-hidden py-24 px-6 sm:px-12 md:px-24 text-center font-sans"
+      className="relative overflow-hidden py-24 px-6 sm:px-12 md:px-24 text-left font-sans"
       id="join-team-banner"
     >
       {/* Background image container with subtle parallax zoom */}
@@ -26,12 +26,12 @@ const JoinTeamBanner = () => {
       </div>
 
       {/* Content wrapper */}
-      <div className="relative z-20 max-w-4xl mx-auto flex flex-col items-center justify-center text-white">
-        <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary text-white text-[10px] sm:text-xs font-black uppercase tracking-widest mb-6 font-outfit">
+      <div className="relative z-20 max-w-4xl text-left flex flex-col items-start justify-center text-white">
+        <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary text-white text-[10px] sm:text-xs font-black tracking-widest mb-6 font-outfit">
           Build Your Career With Us
         </span>
         
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
           Join Our Growing <span className="text-brand-primary">Workforce</span> Team
         </h2>
 
@@ -41,7 +41,7 @@ const JoinTeamBanner = () => {
 
         <Link
           to="/career"
-          className="inline-flex items-center gap-3 bg-brand-primary hover:bg-white hover:text-brand-dark text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm uppercase tracking-widest font-outfit shadow-2xl active:scale-95 group border-2 border-brand-primary hover:border-white"
+          className="inline-flex items-center gap-3 bg-brand-primary hover:bg-white hover:text-brand-dark text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-2xl active:scale-95 group border-2 border-brand-primary hover:border-white"
         >
           <span>Join Our Team</span>
           <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>

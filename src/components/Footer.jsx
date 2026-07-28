@@ -45,7 +45,7 @@ const Footer = () => {
             </Link>
             
             <div className="space-y-2 text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
-              <h3 className="text-base font-bold text-white font-outfit uppercase tracking-tight">
+              <h3 className="text-base font-bold text-white font-outfit tracking-tight">
                 Bluegrid Utilities
               </h3>
               <p className="text-slate-300">
@@ -61,7 +61,7 @@ const Footer = () => {
 
             {/* Social Links */}
             <div className="pt-4 flex items-center gap-3">
-              <span className="text-xs font-bold uppercase tracking-widest text-slate-400 font-outfit mr-2">
+              <span className="text-xs font-bold tracking-widest text-slate-400 font-outfit mr-2">
                 Connect:
               </span>
               <a 
@@ -105,7 +105,7 @@ const Footer = () => {
 
           {/* Column 2: Registered Office & Contact */}
           <div className="space-y-4 text-left">
-            <h4 className="text-sm font-bold text-white uppercase tracking-widest font-outfit border-b border-slate-800 pb-2">
+            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2">
               Registered Office
             </h4>
             
@@ -119,13 +119,13 @@ const Footer = () => {
 
             <div className="pt-4 space-y-2 text-xs sm:text-sm">
               <div>
-                <span className="text-slate-400 block text-[10px] uppercase font-bold tracking-wider font-outfit">Email:</span>
+                <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit">Email:</span>
                 <a href="mailto:enquiries@bluegridutilities.com" className="text-white hover:text-[#005f9e] transition-colors font-medium">
                   enquiries@bluegridutilities.com
                 </a>
               </div>
               <div className="pt-1">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold tracking-wider font-outfit">Telephone:</span>
+                <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit">Telephone:</span>
                 <a href="tel:+441733000000" className="text-white hover:text-[#005f9e] transition-colors font-medium">
                   +44 (0) 1733 000000
                 </a>
@@ -135,7 +135,7 @@ const Footer = () => {
 
           {/* Column 3: Quick Links */}
           <div className="space-y-4 text-left">
-            <h4 className="text-sm font-bold text-white uppercase tracking-widest font-outfit border-b border-slate-800 pb-2">
+            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2">
               Quick Links
             </h4>
             
@@ -180,7 +180,7 @@ const Footer = () => {
 
           {/* Column 4: Governance & Policies */}
           <div className="space-y-4 text-left">
-            <h4 className="text-sm font-bold text-white uppercase tracking-widest font-outfit border-b border-slate-800 pb-2">
+            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2">
               Governance & Policies
             </h4>
             
@@ -228,7 +228,7 @@ const Footer = () => {
             © {new Date().getFullYear()} Bluegrid Utilities. A trading name of <span className="text-white">Bluegrid Technology Ltd</span>. All rights reserved.
           </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-6 text-[11px] font-outfit uppercase tracking-wider">
+          <div className="flex flex-wrap justify-center items-center gap-6 text-[11px] font-outfit tracking-wider">
             <Link to="/about/policies" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
