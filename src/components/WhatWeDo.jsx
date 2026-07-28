@@ -116,19 +116,13 @@ const WhatWeDo = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/50 group-hover:to-transparent transition-all duration-500" />
 
               {/* Card Content */}
-              <div className="relative z-10 flex flex-col items-start h-full justify-between w-full">
-                <div className="w-11 h-11 rounded-none bg-white/10 text-white border border-white/15 backdrop-blur-md flex items-center justify-center group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:scale-110 transition-all duration-300">
-                  <span className="material-symbols-outlined text-xl">{item.icon}</span>
-                </div>
-                
-                <div className="text-left w-full mt-auto">
-                  <h3 className="text-base font-bold text-white tracking-tight mb-2 font-outfit leading-snug group-hover:text-brand-light transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="text-slate-300 text-[11px] leading-relaxed line-clamp-3 group-hover:text-slate-200 transition-colors duration-300">
-                    {item.desc}
-                  </p>
-                </div>
+              <div className="relative z-10 flex flex-col items-start justify-end h-full w-full text-left">
+                <h3 className="text-base font-bold text-white tracking-tight mb-2 font-outfit leading-snug group-hover:text-brand-light transition-colors duration-300">
+                  {item.title}
+                </h3>
+                <p className="text-slate-300 text-[11px] leading-relaxed line-clamp-2 group-hover:text-slate-200 transition-colors duration-300">
+                  {item.desc}
+                </p>
               </div>
             </div>
           ))}
