@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MotionSection from '../components/MotionSection';
 import AboutBanner from '../components/AboutBanner';
-import heroThreeImg from '../assets/images/updated/hero_blue_three.png';
+import heroThreeImg from '../assets/images/updated/water_meter_installation.png';
 import workersImg from '../assets/images/uk_utility_workers_site.png';
 import trainingImg from '../assets/images/Training coordination and deployment planning.jpg';
 import complianceImg from '../assets/images/Sectors/Compliance & Onboarding.jpg';

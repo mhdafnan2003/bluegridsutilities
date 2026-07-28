@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import MotionSection from '../components/MotionSection';
 import AboutBanner from '../components/AboutBanner';
-import heroThreeImg from '../assets/images/updated/hero_blue_three.png';
+import heroThreeImg from '../assets/images/updated/water_meter_installation.png';
 
 const FORM_URL = "https://forms.office.com/r/K9vKw1hxcB";
 
