@@ -72,10 +72,10 @@ const sectionsData = {
     overviewP1: "Our Risk Assessment & Method Statements (RAMS) serve as the operational blueprint for every utility contract. They provide clear, unambiguous step-by-step instructions designed to eliminate procedural errors.",
     overviewP2: "RAMS documents are authored by qualified safety coordinators, reviewed with utility clients, and briefed directly to field operatives prior to job execution with documented sign-offs.",
     pillars: [
-      { id: "01", title: "Step-by-Step Task Sequence", icon: "format_list_numbered", desc: "Chronological operational instructions specifying exact tools, plant machinery, and safety precautions required." },
-      { id: "02", title: "Permit-to-Work Integration", icon: "task", desc: "Mandatory permit sign-offs for hot works, confined space entry, deep excavation, and high-voltage proximity." },
-      { id: "03", title: "Plant & Machinery Operational Safe Rules", icon: "precision_manufacturing", desc: "Strict exclusion zones, banksman supervision, and machinery inspection protocols for site excavators and vacuum units." },
-      { id: "04", title: "Emergency Action Procedures", icon: "emergency", desc: "Task-specific emergency escalation steps, emergency contact rosters, and first-aid response routes." }
+      { id: "01", title: "Step-by-Step Task Sequence", icon: "format_list_numbered", bgImage: ukWorkersSiteImg, desc: "Chronological operational instructions specifying exact tools, plant machinery, and safety precautions required." },
+      { id: "02", title: "Permit-to-Work Integration", icon: "task", bgImage: complianceBg, desc: "Mandatory permit sign-offs for hot works, confined space entry, deep excavation, and high-voltage proximity." },
+      { id: "03", title: "Plant & Machinery Operational Safe Rules", icon: "precision_manufacturing", bgImage: utilityGridImg, desc: "Strict exclusion zones, banksman supervision, and machinery inspection protocols for site excavators and vacuum units." },
+      { id: "04", title: "Emergency Action Procedures", icon: "emergency", bgImage: healthSafetyPolicyBg, desc: "Task-specific emergency escalation steps, emergency contact rosters, and first-aid response routes." }
     ],
     checklist: [
       "Client-Approved RAMS Prior to Site Mobilization",
@@ -413,15 +413,15 @@ const HealthSafetyCompliance = () => {
         viewport={undefined}
       >
         <div className="relative rounded-none overflow-hidden bg-brand-dark p-8 md:p-14 lg:p-20 text-white shadow-2xl border border-slate-800">
-          {/* Background Image with Gradient Overlay */}
+          {/* Background Image with Clean Neutral Dark Overlay - NO BLUE TINT */}
           <div className="absolute inset-0 z-0">
             <img 
               src={currentSection.bgImage} 
               alt={currentSection.title} 
-              className="w-full h-full object-cover opacity-45 transition-all duration-700 scale-105"
+              className="w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] transition-all duration-700 scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/80 to-[#005f9e]/60 mix-blend-multiply" />
-            <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent opacity-90" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
           </div>
 
           {/* Hero Content */}
@@ -535,21 +535,33 @@ const HealthSafetyCompliance = () => {
             {currentSection.pillars.map((pillar) => (
               <div 
                 key={pillar.id}
-                className="bg-white border border-slate-200/80 rounded-none p-8 md:p-10 shadow-lg hover:shadow-2xl hover:border-brand-primary/30 transition-all duration-300 flex flex-col justify-between space-y-6 relative overflow-hidden group"
+                className="relative min-h-[300px] sm:min-h-[320px] flex flex-col justify-between p-8 md:p-10 overflow-hidden bg-slate-900 shadow-xl border border-slate-200 group text-left transition-all duration-500 hover:shadow-2xl"
               >
-                <span className="absolute top-4 right-8 text-7xl font-black text-slate-100 group-hover:text-slate-200/60 transition-colors pointer-events-none font-outfit">
-                  {pillar.id}
-                </span>
+                {/* Clean, Natural & Bright Background Photo */}
+                <img 
+                  src={pillar.bgImage || currentSection.bgImage || ukWorkersSiteImg} 
+                  alt={pillar.title} 
+                  className="absolute inset-0 w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {/* Neutral Dark Gradient at Bottom for Text Contrast Only (No Blue or Color Tint) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent z-0" />
 
-                <div className="w-14 h-14 rounded-none bg-blue-50 text-brand-primary flex items-center justify-center group-hover:bg-[#005f9e] group-hover:text-white transition-all duration-300 z-10">
-                  <span className="material-symbols-outlined text-2xl font-bold">{pillar.icon}</span>
+                {/* Top Row: Icon Badge & Big Step Number */}
+                <div className="relative z-10 flex items-center justify-between">
+                  <div className="w-12 h-12 bg-[#0f3a5e] text-white flex items-center justify-center shadow-lg group-hover:bg-[#005f9e] transition-colors">
+                    <span className="material-symbols-outlined text-2xl font-bold">{pillar.icon}</span>
+                  </div>
+                  <span className="text-5xl font-black text-white/40 group-hover:text-white/70 transition-colors font-outfit tracking-tighter drop-shadow-md">
+                    {pillar.id}
+                  </span>
                 </div>
 
-                <div className="space-y-3 z-10">
-                  <h4 className="text-xl font-bold text-brand-dark font-outfit group-hover:text-brand-primary transition-colors">
+                {/* Bottom Row: Title & Text Content */}
+                <div className="relative z-10 space-y-2 pt-6 border-t border-white/20 mt-6">
+                  <h4 className="text-xl md:text-2xl font-extrabold text-white font-outfit uppercase tracking-tight transition-colors">
                     {pillar.title}
                   </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed font-sans font-normal">
+                  <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
                     {pillar.desc}
                   </p>
                 </div>

@@ -177,7 +177,7 @@ const AboutCompanyPage = () => {
 
           {/* NEW SECTION 1: Core Operational Foundations Grid (6 Key Pillars) */}
           <div className="mb-20">
-            <div className="text-center max-w-3xl mx-auto mb-14">
+            <div className="text-left max-w-3xl mb-14">
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
                 Core Operational Capabilities
               </span>
@@ -204,7 +204,7 @@ const AboutCompanyPage = () => {
                   />
 
                   {/* Floating Bottom Content Card - Keeps Image Unshaded & Clear */}
-                  <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+                  <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
                     <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
                       {pillar.badge}
                     </span>
@@ -221,36 +221,34 @@ const AboutCompanyPage = () => {
           </div>
 
           {/* NEW SECTION 2: Experienced Management & Skilled Workforce Showcase */}
-          <div className="bg-[#0f3a5e] text-white rounded-none p-8 sm:p-12 md:p-16 mb-20 shadow-2xl relative overflow-hidden">
-            <div className="absolute -right-20 -top-20 w-96 h-96 bg-[#005f9e]/30 rounded-full blur-3xl pointer-events-none" />
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+          <div className="mb-20 py-6 relative">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
               
-              {/* Left Text Narrative */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e]/40 text-[#60a5fa] border border-[#005f9e]/60 text-xs font-black tracking-widest font-outfit">
+              {/* Left Text Narrative - Placed right next to banner */}
+              <div className="lg:col-span-6 space-y-6 text-left">
+                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 text-xs font-black tracking-widest font-outfit uppercase">
                   Expert Management & Field Teams
                 </span>
 
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight font-outfit leading-tight text-white">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight font-outfit leading-tight text-[#0f3a5e]">
                   Driven by Experienced Leadership & Skilled Operatives
                 </h2>
 
-                <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
                   At Bluegrid Utilities, our operational strength lies in combining seasoned utility contract managers with accredited, multi-skilled field teams. From complex urban smart water meter deployments to nationwide infrastructure support, our teams work in harmony with main contractors and local authorities.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="bg-white/5 border border-white/10 p-5 rounded-none">
-                    <h4 className="font-bold text-white text-sm font-outfit mb-1">Experienced Management</h4>
-                    <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                  <div className="bg-slate-50 border border-slate-200 p-5 rounded-none hover:border-[#005f9e] transition-colors shadow-sm">
+                    <h4 className="font-bold text-[#0f3a5e] text-sm sm:text-base font-outfit mb-1.5">Experienced Management</h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                       Proactive project supervision, route optimization, real-time client reporting, and strict SLA fulfillment.
                     </p>
                   </div>
 
-                  <div className="bg-white/5 border border-white/10 p-5 rounded-none">
-                    <h4 className="font-bold text-white text-sm font-outfit mb-1">Skilled Workforce</h4>
-                    <p className="text-xs text-slate-300 leading-relaxed font-medium">
+                  <div className="bg-slate-50 border border-slate-200 p-5 rounded-none hover:border-[#005f9e] transition-colors shadow-sm">
+                    <h4 className="font-bold text-[#0f3a5e] text-sm sm:text-base font-outfit mb-1.5">Skilled Workforce</h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                       Rigorously vetted operatives holding CSCS, EUSR, and NRSWA credentials ready for immediate site deployment.
                     </p>
                   </div>
@@ -259,7 +257,7 @@ const AboutCompanyPage = () => {
                 <div className="pt-4">
                   <Link 
                     to="/contact" 
-                    className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white border border-[#60a5fa]/40 hover:border-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-xl active:scale-95 group"
+                    className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0f3a5e] text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-md active:scale-95 group"
                   >
                     <span>Discuss Your Contract Requirements</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>
@@ -267,18 +265,18 @@ const AboutCompanyPage = () => {
                 </div>
               </div>
 
-              {/* Right Feature Image */}
-              <div className="lg:col-span-5">
-                <div className="relative w-full h-[350px] sm:h-[420px] overflow-hidden rounded-none border border-white/20 shadow-2xl">
+              {/* Right Feature Image - Increased Banner Size */}
+              <div className="lg:col-span-6">
+                <div className="relative w-full h-[440px] sm:h-[520px] lg:h-[580px] overflow-hidden rounded-none border border-slate-200 shadow-xl group">
                   <img 
                     src={workersImg} 
                     alt="Bluegrid Utilities Skilled Workforce" 
-                    className="w-full h-full object-cover brightness-95"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 bg-[#0f3a5e]/90 backdrop-blur-md p-4 border border-white/20">
-                    <p className="text-xs font-bold tracking-widest text-[#60a5fa] font-outfit">Qualified & Compliant</p>
-                    <p className="text-sm font-bold text-white mt-1">100% Certified Field Workforce Across the UK</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 bg-slate-950/85 backdrop-blur-md p-5 border border-white/20 text-white shadow-xl">
+                    <p className="text-xs font-bold tracking-widest text-[#60a5fa] font-outfit uppercase">Qualified & Compliant</p>
+                    <p className="text-sm sm:text-base font-bold text-white mt-1 font-outfit">100% Certified Field Workforce Across the UK</p>
                   </div>
                 </div>
               </div>
@@ -296,7 +294,7 @@ const AboutCompanyPage = () => {
                 alt="Quality Workmanship" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+              <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
                 <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
                   EXCELLENCE IN EXECUTION
                 </span>
@@ -316,7 +314,7 @@ const AboutCompanyPage = () => {
                 alt="Public Sector Experience" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+              <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
                 <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
                   MUNICIPAL & UTILITY CONTRACTS
                 </span>
@@ -336,7 +334,7 @@ const AboutCompanyPage = () => {
                 alt="Compliance & Satisfaction" 
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="relative z-10 m-4 bg-[#0f3a5e]/90 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
+              <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
                 <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
                   SAFETY & CLIENT TRUST
                 </span>

@@ -25,7 +25,7 @@ const WhyJoinBlueGrid = () => {
       {/* Main Container */}
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         {/* Floating Blue Combination Content Card */}
-        <div className="bg-[#0f3a5e]/95 backdrop-blur-md p-8 sm:p-12 md:p-14 max-w-lg lg:max-w-xl shadow-2xl border border-[#005f9e]/40 rounded-none text-left relative overflow-hidden">
+        <div className="bg-[#0f3a5e]/55 backdrop-blur-md p-8 sm:p-12 md:p-14 max-w-lg lg:max-w-xl shadow-2xl border border-[#005f9e]/40 rounded-none text-left relative overflow-hidden">
           {/* Subtle Glow Accent */}
           <div className="absolute -top-16 -right-16 w-56 h-56 bg-[#0066ff]/20 rounded-full blur-3xl pointer-events-none" />
 

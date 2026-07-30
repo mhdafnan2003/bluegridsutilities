@@ -5,7 +5,23 @@ import logo from '../assets/images/logo.png';
 
 const Header = () => {
   const location = useLocation();
-  const isActive = (to) => location.pathname === to || (to !== '/' && location.pathname.startsWith(to));
+  const isActive = (to) => {
+    if (to === '/') return location.pathname === '/';
+    if (to === '/career') return location.pathname === '/career' || location.pathname === '/apply';
+    return location.pathname === to || location.pathname.startsWith(to + '/') || (to !== '/' && location.pathname.startsWith(to));
+  };
+
+  const isSubActive = (to) => {
+    const currentFull = location.pathname + location.search;
+    if (to === currentFull || location.pathname === to) return true;
+    if (to.includes('?select=')) {
+      const searchParams = new URLSearchParams(location.search);
+      const targetParams = new URLSearchParams(to.split('?')[1] || '');
+      return location.pathname === to.split('?')[0] && searchParams.get('select') === targetParams.get('select');
+    }
+    return false;
+  };
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
@@ -92,11 +108,6 @@ const Header = () => {
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
-              <a href="https://wa.me/447000000000" target="_blank" rel="noopener noreferrer" className="w-7 h-7 rounded bg-gray-100 hover:bg-[#25D366] hover:text-white flex items-center justify-center text-gray-500 transition-all duration-300" aria-label="WhatsApp">
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -120,14 +131,14 @@ const Header = () => {
           </div>
 
           {/* Navigation Links */}
-          <nav className="hidden lg:flex items-stretch gap-2 lg:gap-3 xl:gap-5">
+          <nav className="hidden lg:flex items-stretch gap-1.5 lg:gap-2.5 xl:gap-4">
             {navLinks.map((link) => {
               if (link.label === 'About') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
@@ -151,15 +162,22 @@ const Header = () => {
                           { label: "Accreditation & Awards", to: "/about/accreditations" },
                           { label: "On Board & Directors", to: "/about/directors" },
                           { label: "Our Policies", to: "/about/policies" }
-                        ].map((item, index) => (
-                          <Link
-                            key={index}
-                            to={item.to}
-                            className="px-6 py-3 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                        ].map((item, index) => {
+                          const active = isSubActive(item.to);
+                          return (
+                            <Link
+                              key={index}
+                              to={item.to}
+                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+                                active
+                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -171,7 +189,7 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
@@ -196,15 +214,22 @@ const Header = () => {
                           { label: "Traffic Management Support", to: "/services?select=traffic-management" },
                           { label: "Emergency Utility Response", to: "/services?select=emergency-utility-response" },
                           { label: "Infrastructure Support", to: "/services?select=infrastructure-support" }
-                        ].map((item, index) => (
-                          <Link
-                            key={index}
-                            to={item.to}
-                            className="px-6 py-3 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                        ].map((item, index) => {
+                          const active = isSubActive(item.to);
+                          return (
+                            <Link
+                              key={index}
+                              to={item.to}
+                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+                                active
+                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -216,7 +241,7 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none ${
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
@@ -248,15 +273,22 @@ const Header = () => {
                           { label: "Training", to: "/health-safety/training" },
                           { label: "Continuous Monitoring", to: "/health-safety/monitoring" },
                           { label: "Behavioural Safety", to: "/health-safety/behavioural-safety" }
-                        ].map((item, index) => (
-                          <Link
-                            key={index}
-                            to={item.to}
-                            className="px-4 py-2 text-[11px] lg:text-xs font-bold text-slate-600 uppercase tracking-wider font-outfit hover:bg-slate-50 hover:text-[#005f9e] transition-all duration-200 text-left border-l-4 border-transparent hover:border-[#005f9e] whitespace-nowrap"
-                          >
-                            {item.label}
-                          </Link>
-                        ))}
+                        ].map((item, index) => {
+                          const active = isSubActive(item.to);
+                          return (
+                            <Link
+                              key={index}
+                              to={item.to}
+                              className={`px-4 py-2 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+                                active
+                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -281,11 +313,11 @@ const Header = () => {
           </nav>
 
           {/* Right CTA / Hamburger Menu */}
-          <div className="flex items-center gap-4 ml-4 lg:ml-8 xl:ml-12 pr-2 sm:pr-4 lg:pr-6 shrink-0">
+          <div className="flex items-stretch shrink-0 ml-2 lg:ml-4">
             {/* Join Our Workforce Button */}
             <Link
               to="/career"
-              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-4 py-3 lg:px-6 xl:px-8 font-bold uppercase text-[10px] lg:text-xs xl:text-sm font-outfit tracking-widest flex items-center justify-center h-full border-l border-[#d2e5f5]/50"
+              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-4 lg:px-6 font-bold uppercase text-xs sm:text-xs lg:text-xs xl:text-sm font-outfit tracking-wider flex items-center justify-center whitespace-nowrap h-full cursor-pointer border-l border-[#d2e5f5]/50 shadow-sm"
             >
               Join Our Workforce
             </Link>
@@ -322,7 +354,9 @@ const Header = () => {
                       <div key={link.label} className="flex flex-col">
                         <button
                           onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                          className="transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold text-slate-800 hover:text-[#005f9e] border-slate-50"
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                            isActive('/about') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
+                          }`}
                         >
                           <span>{link.label}</span>
                           <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileAboutOpen ? 'rotate-180' : ''}`}>
@@ -345,19 +379,24 @@ const Header = () => {
                                 { label: "Accreditation & Awards", to: "/about/accreditations" },
                                 { label: "On Board & Directors", to: "/about/directors" },
                                 { label: "Our Policies", to: "/about/policies" }
-                              ].map((item, index) => (
-                                <Link
-                                  key={index}
-                                  to={item.to}
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setIsMobileAboutOpen(false);
-                                  }}
-                                  className="hover:text-[#005f9e] transition-colors py-1 block text-left"
-                                >
-                                  {item.label}
-                                </Link>
-                              ))}
+                              ].map((item, index) => {
+                                const active = isSubActive(item.to);
+                                return (
+                                  <Link
+                                    key={index}
+                                    to={item.to}
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setIsMobileAboutOpen(false);
+                                    }}
+                                    className={`transition-colors py-1 block text-left ${
+                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                );
+                              })}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -370,7 +409,9 @@ const Header = () => {
                       <div key={link.label} className="flex flex-col">
                         <button
                           onClick={() => setIsMobileHealthSafetyOpen(!isMobileHealthSafetyOpen)}
-                          className="transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold text-slate-800 hover:text-[#005f9e] border-slate-50"
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                            isActive('/health-safety') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
+                          }`}
                         >
                           <span>{link.label}</span>
                           <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileHealthSafetyOpen ? 'rotate-180' : ''}`}>
@@ -401,19 +442,24 @@ const Header = () => {
                                 { label: "Training", to: "/health-safety/training" },
                                 { label: "Continuous Monitoring", to: "/health-safety/monitoring" },
                                 { label: "Behavioural Safety", to: "/health-safety/behavioural-safety" }
-                              ].map((item, index) => (
-                                <Link
-                                  key={index}
-                                  to={item.to}
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setIsMobileHealthSafetyOpen(false);
-                                  }}
-                                  className="hover:text-[#005f9e] transition-colors py-1 block text-left"
-                                >
-                                  {item.label}
-                                </Link>
-                              ))}
+                              ].map((item, index) => {
+                                const active = isSubActive(item.to);
+                                return (
+                                  <Link
+                                    key={index}
+                                    to={item.to}
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setIsMobileHealthSafetyOpen(false);
+                                    }}
+                                    className={`transition-colors py-1 block text-left ${
+                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                );
+                              })}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -426,7 +472,9 @@ const Header = () => {
                       <div key={link.label} className="flex flex-col">
                         <button
                           onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                          className="transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold text-slate-800 hover:text-[#005f9e] border-slate-50"
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                            isActive('/services') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
+                          }`}
                         >
                           <span>{link.label}</span>
                           <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`}>
@@ -450,19 +498,24 @@ const Header = () => {
                                 { label: "Traffic Management Support", to: "/services?select=traffic-management" },
                                 { label: "Emergency Utility Response", to: "/services?select=emergency-utility-response" },
                                 { label: "Infrastructure Support", to: "/services?select=infrastructure-support" }
-                              ].map((item, index) => (
-                                <Link
-                                  key={index}
-                                  to={item.to}
-                                  onClick={() => {
-                                    setIsMenuOpen(false);
-                                    setIsMobileServicesOpen(false);
-                                  }}
-                                  className="hover:text-[#005f9e] transition-colors py-1 block text-left"
-                                >
-                                  {item.label}
-                                </Link>
-                              ))}
+                              ].map((item, index) => {
+                                const active = isSubActive(item.to);
+                                return (
+                                  <Link
+                                    key={index}
+                                    to={item.to}
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setIsMobileServicesOpen(false);
+                                    }}
+                                    className={`transition-colors py-1 block text-left ${
+                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                );
+                              })}
                             </motion.div>
                           )}
                         </AnimatePresence>
@@ -475,7 +528,9 @@ const Header = () => {
                       key={link.label}
                       to={link.to}
                       onClick={() => setIsMenuOpen(false)}
-                      className="transition-colors py-2.5 border-b flex items-center justify-between text-slate-800 hover:text-[#005f9e] border-slate-50"
+                      className={`transition-colors py-2.5 border-b flex items-center justify-between border-slate-50 ${
+                        isActive(link.to) ? 'text-[#005f9e] font-bold' : 'text-slate-800 hover:text-[#005f9e]'
+                      }`}
                     >
                       <span>{link.label}</span>
                       <span className="text-[#005f9e] text-xs">➔</span>

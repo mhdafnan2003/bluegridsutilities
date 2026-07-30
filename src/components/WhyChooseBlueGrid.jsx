@@ -60,7 +60,7 @@ const WhyChooseBlueGrid = () => {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
         
         {/* Corporate Container Card */}
-        <div className="bg-[#0f3a5e]/90 backdrop-blur-xl border border-[#005f9e]/40 p-6 sm:p-8 md:p-10 rounded-none shadow-2xl relative overflow-hidden text-left">
+        <div className="bg-[#0f3a5e]/55 backdrop-blur-xl border border-[#005f9e]/40 p-6 sm:p-8 md:p-10 rounded-none shadow-2xl relative overflow-hidden text-left">
           
           {/* Subtle Ambient Radial Glow */}
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-[#0066ff]/20 rounded-full blur-3xl pointer-events-none" />

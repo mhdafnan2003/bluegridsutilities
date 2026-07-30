@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import MotionSection from '../components/MotionSection';
+import PartnerLogos from '../components/PartnerLogos';
 import imgWaterMeter from '../assets/images/Sectors/watermeter2.jpeg';
 import imgCivil from '../assets/images/infrastructure.jpeg';
 import imgReinstatement from '../assets/images/projectcordination.jpeg';
@@ -541,122 +542,133 @@ const ServicesPage = () => {
   const [searchParams] = useSearchParams();
   const selectedService = searchParams.get('select');
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [selectedService]);
+
   const filteredServices = selectedService
     ? servicesData.filter(item => item.slug === selectedService)
     : servicesData;
 
-  // Render Single Service Detail Layout
+  // Render Single Service Detail Layout with Full-Bleed Screen-Fitting Hero Banner
   if (selectedService && filteredServices.length > 0) {
     const service = filteredServices[0];
     return (
       <MotionSection 
         as="div" 
-        className="py-16 md:py-24 bg-white font-sans animate-fade-in" 
+        className="pb-16 md:pb-24 bg-white font-sans animate-fade-in" 
         id="service-detail"
         initial="hidden"
         animate="visible"
         whileInView={undefined}
         viewport={undefined}
       >
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-10">
+        {/* Full-Bleed Edge-to-Edge Hero Banner Fitting Entire Screen Width */}
+        <div className="w-full relative overflow-hidden mb-16 shadow-2xl min-h-[520px] sm:min-h-[580px] lg:min-h-[640px] flex items-center bg-slate-900 border-b border-slate-200">
+          <img 
+            src={service.img} 
+            alt={service.title} 
+            className="absolute inset-0 w-full h-full object-cover brightness-90"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-0" />
           
-          {/* Back button */}
-          <div className="mb-10 text-left">
-            <Link 
-              to="/services" 
-              className="inline-flex items-center gap-2 text-slate-500 hover:text-[#005f9e] font-bold text-xs uppercase tracking-wider transition-colors font-outfit"
-            >
-              ← Back to Our Services
-            </Link>
-          </div>
-
-          {/* Split Layout Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
-            
-            {/* Left Column: Image Banner */}
-            <div className="lg:col-span-5 w-full">
-              <div className="rounded-none overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 relative aspect-[4/3]">
-                <img 
-                  src={service.img} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-out" 
-                />
-              </div>
+          <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 w-full relative z-10 py-12">
+            {/* Back button */}
+            <div className="mb-6 text-left">
+              <Link 
+                to="/services" 
+                className="inline-flex items-center gap-2 text-white/90 hover:text-white bg-black/40 backdrop-blur-md px-4 py-2 border border-white/20 font-bold text-xs uppercase tracking-wider transition-colors font-outfit shadow-md"
+              >
+                ← Back to Our Services
+              </Link>
             </div>
 
-            {/* Right Column: Detailed Contents */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-8">
-              
-              <div>
-                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black uppercase tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
+            {/* Text Container Box Over Banner - Pure White Background */}
+            <div className="p-6 sm:p-10 md:p-12 max-w-3xl text-left text-[#0f3a5e] bg-white border border-slate-200/90 shadow-2xl space-y-4 border-l-4 border-l-[#0066ff]">
+              <div className="flex flex-wrap items-center gap-3">
+                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#0066ff] text-white text-[11px] font-bold tracking-widest font-outfit uppercase border border-white/20 shadow-sm">
                   Service {service.num}
                 </span>
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] leading-tight font-outfit uppercase">
-                  {service.title}
-                </h1>
+                <span className="text-[#005f9e] font-bold text-xs tracking-widest font-outfit uppercase flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#005f9e]" />
+                  Bluegrid Capabilities
+                </span>
               </div>
 
-              {/* Headline & Overview */}
-              <div className="space-y-4">
-                <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit leading-snug">
-                  {service.details.headline}
-                </h3>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                  {service.details.overview}
-                </p>
-              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight uppercase">
+                {service.title}
+              </h1>
 
-              <hr className="w-full border-slate-200" />
+              <blockquote className="text-sm sm:text-base md:text-lg font-bold text-[#005f9e] tracking-tight font-outfit leading-snug border-l-4 border-[#0066ff] pl-4 py-1.5 bg-slate-50 border border-slate-200/60 rounded-none">
+                "{service.details.headline}"
+              </blockquote>
 
-              {/* Grid of Key Focus Areas & Benefits */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-                
-                {/* Key Focus Areas */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-black text-[#0f3a5e] uppercase tracking-wider font-outfit">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                {service.details.overview}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Container Below Banner */}
+        <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
+
+          {/* Organized Cards Section Below Banner */}
+          <div className="space-y-12 mb-16">
+            
+            {/* Section Heading */}
+            <div className="text-left">
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 text-xs font-black tracking-widest font-outfit uppercase mb-2">
+                Operational Framework
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+                Service Breakdown & Benefits
+              </h2>
+            </div>
+
+            {/* 2-Column Cards Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              
+              {/* Card 1: Key Focus Areas */}
+              <div className="bg-[#f4f8fc] border border-slate-200/90 p-6 sm:p-8 text-left shadow-lg border-t-4 border-t-[#005f9e] space-y-4">
+                <div className="flex items-center gap-3 pb-3 border-b border-slate-200">
+                  <span className="w-10 h-10 rounded-none bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center border border-[#005f9e]/20 shrink-0 font-bold">
+                    <span className="material-symbols-outlined text-xl">checklist</span>
+                  </span>
+                  <h3 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-wider font-outfit">
                     Key Focus Areas
-                  </h4>
-                  <ul className="space-y-3">
-                    {service.details.keyAreas.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 font-medium leading-normal">
-                        <span className="material-symbols-outlined text-[#005f9e] text-base shrink-0 mt-0.5">check_circle</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  </h3>
                 </div>
 
-                {/* Benefits */}
-                <div className="space-y-4">
-                  <h4 className="text-sm font-black text-[#0f3a5e] uppercase tracking-wider font-outfit">
-                    Operational Benefits
-                  </h4>
-                  <ul className="space-y-3">
-                    {service.details.benefits.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-600 font-medium leading-normal">
-                        <span className="material-symbols-outlined text-emerald-500 text-base shrink-0 mt-0.5">verified</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
+                <ul className="space-y-3.5 pt-2">
+                  {service.details.keyAreas.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                      <span className="material-symbols-outlined text-[#005f9e] text-lg shrink-0 mt-0.5">check_circle</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-4 pt-2">
-                <Link 
-                  to={`/contact?subject=${encodeURIComponent(`Enquiry - ${service.title}`)}`}
-                  className="inline-flex items-center justify-center px-8 py-4 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 shadow-lg active:scale-95 font-outfit cursor-pointer"
-                >
-                  Enquire About Service
-                </Link>
-                <Link 
-                  to="/services"
-                  className="inline-flex items-center justify-center px-8 py-4 bg-white border border-slate-300 hover:border-[#0f3a5e] hover:text-[#0f3a5e] text-slate-700 font-bold uppercase text-xs tracking-widest transition-all duration-300 active:scale-95 font-outfit cursor-pointer"
-                >
-                  View All Services
-                </Link>
+              {/* Card 2: Operational Benefits */}
+              <div className="bg-[#f4f8fc] border border-slate-200/90 p-6 sm:p-8 text-left shadow-lg border-t-4 border-t-emerald-600 space-y-4">
+                <div className="flex items-center gap-3 pb-3 border-b border-slate-200">
+                  <span className="w-10 h-10 rounded-none bg-emerald-500/10 text-emerald-600 flex items-center justify-center border border-emerald-500/20 shrink-0 font-bold">
+                    <span className="material-symbols-outlined text-xl">verified</span>
+                  </span>
+                  <h3 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-wider font-outfit">
+                    Operational Benefits
+                  </h3>
+                </div>
+
+                <ul className="space-y-3.5 pt-2">
+                  {service.details.benefits.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                      <span className="material-symbols-outlined text-emerald-600 text-lg shrink-0 mt-0.5">task_alt</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
             </div>
@@ -675,61 +687,154 @@ const ServicesPage = () => {
                     {serviceBannersMap[service.slug].title}
                   </h3>
                 </div>
-                <span className="text-xs font-bold text-white bg-[#005f9e] px-5 py-2.5 uppercase tracking-wider font-outfit shadow-md">
-                  {serviceBannersMap[service.slug].banners.length} Individual Banners
-                </span>
               </div>
 
-              <div className="space-y-10">
-                {serviceBannersMap[service.slug].banners.map((banner, idx) => (
-                  <div 
-                    key={idx}
-                    className="relative min-h-[380px] md:min-h-[440px] flex items-end p-8 md:p-12 overflow-hidden bg-slate-950 shadow-xl border border-slate-200 group text-left w-full"
-                  >
-                    {/* Background Photo */}
-                    <img 
-                      src={banner.img} 
-                      alt={banner.title} 
-                      className="absolute inset-0 w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] group-hover:scale-105 transition-all duration-700 ease-out"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/35 to-transparent" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 via-transparent to-transparent" />
+              {/* Big Photo Banners Stack - Alternating Left/Right Sides with Generous Whitespace */}
+              <div className="space-y-24 sm:space-y-32 lg:space-y-40">
+                {serviceBannersMap[service.slug].banners.map((banner, idx) => {
+                  const isEven = idx % 2 === 0;
+                  return (
+                    <div 
+                      key={idx}
+                      className={`relative min-h-[500px] sm:min-h-[560px] lg:min-h-[620px] flex items-center p-6 sm:p-10 md:p-14 overflow-hidden bg-slate-950 shadow-2xl border border-slate-200 group text-left w-full ${isEven ? 'justify-start' : 'justify-end'}`}
+                    >
+                      {/* Background Photo */}
+                      <img 
+                        src={banner.img} 
+                        alt={banner.title} 
+                        className="absolute inset-0 w-full h-full object-cover brightness-[0.88] contrast-[1.05] group-hover:scale-105 transition-all duration-700 ease-out"
+                      />
+                      <div className={`absolute inset-0 z-0 bg-gradient-to-r ${isEven ? 'from-black/80 via-black/45 to-transparent' : 'from-transparent via-black/45 to-black/80'}`} />
 
-                    {/* Top Badge & Number INSIDE Banner */}
-                    <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10 flex items-center gap-4">
-                      <span className="w-12 h-12 md:w-14 md:h-14 bg-[#005f9e] text-white flex items-center justify-center text-lg md:text-xl font-extrabold font-outfit shadow-lg">
-                        {banner.num}
-                      </span>
-                      <span className="bg-white/10 backdrop-blur-md border border-white/20 text-sky-300 text-[10px] md:text-xs font-black px-3.5 py-1.5 uppercase font-outfit tracking-widest">
-                        {banner.badge}
-                      </span>
-                    </div>
+                      {/* Top Badge & Number INSIDE Banner */}
+                      <div className={`absolute top-6 md:top-8 z-10 flex items-center gap-4 ${isEven ? 'left-6 md:left-8' : 'right-6 md:right-8'}`}>
+                        <span className="w-12 h-12 md:w-14 md:h-14 bg-[#005f9e] text-white flex items-center justify-center text-lg md:text-xl font-extrabold font-outfit shadow-lg">
+                          {banner.num}
+                        </span>
+                        <span className="bg-white/90 border border-slate-200 text-[#005f9e] text-[10px] md:text-xs font-black px-3.5 py-1.5 uppercase font-outfit tracking-widest shadow-md">
+                          {banner.badge}
+                        </span>
+                      </div>
 
-                    {/* Content Overlay INSIDE Banner */}
-                    <div className="relative z-10 text-white w-full max-w-4xl pt-16">
-                      <h4 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-outfit mb-4 text-white uppercase tracking-tight group-hover:text-sky-300 transition-colors">
-                        {banner.title}
-                      </h4>
+                      {/* Text Container Box Over Image - Alternating Left/Right */}
+                      <div className={`relative z-10 text-[#0f3a5e] w-full max-w-3xl pt-16 sm:pt-20 bg-white border border-slate-200/90 p-6 sm:p-10 md:p-12 shadow-2xl space-y-4 ${isEven ? 'border-l-4 border-l-[#0066ff]' : 'border-r-4 border-r-[#0066ff]'}`}>
+                        <h4 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-outfit text-[#0f3a5e] uppercase tracking-tight leading-tight">
+                          {banner.title}
+                        </h4>
 
-                      <p className="text-slate-200 text-sm md:text-base leading-relaxed mb-6 font-medium max-w-3xl">
-                        {banner.desc}
-                      </p>
+                        <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium max-w-2xl">
+                          {banner.desc}
+                        </p>
 
-                      {/* Highlights Grid inside Banner */}
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-6 border-t border-white/20">
-                        {banner.highlights.map((hl, hIdx) => (
-                          <div key={hIdx} className="bg-white/10 backdrop-blur-md p-3.5 border border-white/15 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-sky-400 rounded-full shrink-0"></span>
-                            <span className="text-xs font-bold text-slate-100 font-outfit">{hl}</span>
-                          </div>
-                        ))}
+                        {/* Highlights Grid inside Banner Container */}
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-6 border-t border-slate-200">
+                          {banner.highlights.map((hl, hIdx) => (
+                            <div key={hIdx} className="bg-slate-50 p-3.5 border border-slate-200 flex items-center gap-2">
+                              <span className="w-2.5 h-2.5 bg-[#005f9e] rounded-full shrink-0"></span>
+                              <span className="text-xs font-bold text-slate-700 font-outfit">{hl}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
+
+          {/* Service Accreditations & Sector Qualifications Section */}
+          <div className="w-full mt-20 pt-16 border-t border-slate-200 text-left">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="w-3 h-3 bg-[#0066ff] rounded-none animate-pulse" />
+              <span className="text-xs font-black tracking-widest text-[#005f9e] uppercase font-outfit">
+                Compliance & Industry Governance
+              </span>
+            </div>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-3">
+              Accreditations & Operative Standards
+            </h3>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium max-w-3xl mb-10">
+              Every field operative deployed under our {service.title} division is fully vetted, accredited, and trained strictly to UK Water Industry & statutory safety standards.
+            </p>
+
+            {/* Grid of Accreditations */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "EUSR Water Hygiene",
+                  code: "Clean Water Registration",
+                  desc: "Mandatory National Water Hygiene card verification for clean water site operations.",
+                  icon: "verified_user",
+                  color: "bg-teal-50/70 border-teal-200 text-teal-900"
+                },
+                {
+                  title: "WIAPS Approved",
+                  code: "Plumbers Scheme",
+                  desc: "Water Industry Approved Plumbers Scheme accreditation for compliant meter fittings.",
+                  icon: "water_drop",
+                  color: "bg-blue-50/70 border-blue-200 text-blue-900"
+                },
+                {
+                  title: "NRSWA Street Works",
+                  code: "Highway Boundary Excavation",
+                  desc: "Operative & Supervisor SWQR cards for footway and highway boundary box installations.",
+                  icon: "construction",
+                  color: "bg-amber-50/70 border-amber-200 text-amber-900"
+                },
+                {
+                  title: "ISO 9001 / 45001",
+                  code: "Quality & Zero-Harm",
+                  desc: "Audited quality management and occupational health & safety compliance systems.",
+                  icon: "shield",
+                  color: "bg-indigo-50/70 border-indigo-200 text-indigo-900"
+                }
+              ].map((acc, aIdx) => (
+                <div key={aIdx} className={`${acc.color} border p-6 text-left space-y-3 relative shadow-md hover:shadow-xl transition-all`}>
+                  <div className="w-10 h-10 bg-[#0f3a5e] text-white flex items-center justify-center shrink-0 shadow-md">
+                    <span className="material-symbols-outlined text-xl">{acc.icon}</span>
+                  </div>
+                  <h4 className="text-base font-bold font-outfit text-[#0f3a5e]">{acc.title}</h4>
+                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white border border-slate-200 text-[#005f9e]">
+                    {acc.code}
+                  </span>
+                  <p className="text-slate-600 text-xs leading-relaxed font-medium">{acc.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Home Page Partner Logos Component */}
+          <div className="w-full mt-16 pt-8 border-t border-slate-200">
+            <PartnerLogos />
+          </div>
+
+          {/* Action Bar & CTA Buttons - Placed just above the news / next section at bottom */}
+          <div className="flex flex-wrap items-center justify-between gap-6 bg-[#0f3a5e] text-white p-6 sm:p-8 shadow-xl text-left border-l-4 border-l-[#0066ff] mt-16">
+            <div>
+              <h4 className="text-lg font-bold font-outfit text-white">
+                Need {service.title} Support on Your Project?
+              </h4>
+              <p className="text-slate-300 text-xs sm:text-sm font-medium mt-1">
+                Our management team and operative workforce are ready for rapid deployment across the UK.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-4 shrink-0">
+              <Link 
+                to={`/contact?subject=${encodeURIComponent(`Enquiry - ${service.title}`)}`}
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 shadow-lg active:scale-95 font-outfit cursor-pointer border border-[#0066ff]"
+              >
+                Enquire About Service
+              </Link>
+              <Link 
+                to="/services"
+                className="inline-flex items-center justify-center px-8 py-3.5 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/30 font-bold uppercase text-xs tracking-widest transition-all duration-300 active:scale-95 font-outfit cursor-pointer"
+              >
+                View All Services
+              </Link>
+            </div>
+          </div>
 
         </div>
       </MotionSection>
@@ -781,29 +886,29 @@ const ServicesPage = () => {
                 {/* Light Vignette / Gradient for Image Contrast */}
                 <div className="absolute inset-0 bg-black/20" />
 
-                {/* Floating Dark Card Container (Alternating Right and Left in Zig-Zag pattern) */}
+                {/* Floating Light Card Container (Alternating Right and Left in Zig-Zag pattern) */}
                 <div className={`relative z-10 w-full p-4 sm:p-8 md:p-12 flex ${isEven ? 'justify-end' : 'justify-start'}`}>
-                  <div className="w-full max-w-[500px] lg:max-w-[540px] bg-[#2d3748] text-white p-8 sm:p-10 md:p-12 shadow-2xl text-left border-t-4 border-[#005f9e]">
+                  <div className="w-full max-w-[500px] lg:max-w-[540px] bg-[#f4f8fc] text-[#0f3a5e] p-8 sm:p-10 md:p-12 shadow-2xl text-left border border-slate-200/90 border-t-4 border-t-[#0066ff]">
                     
                     {/* Circular Icon Ring */}
-                    <div className="w-14 h-14 rounded-full border-2 border-lime-400/50 bg-lime-400/10 flex items-center justify-center text-lime-400 mb-6 shrink-0">
+                    <div className="w-14 h-14 rounded-full border-2 border-[#005f9e]/30 bg-[#005f9e]/10 flex items-center justify-center text-[#005f9e] mb-6 shrink-0 font-bold">
                       <span className="material-symbols-outlined text-2xl">{service.icon}</span>
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-outfit mb-4 leading-tight">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] font-outfit mb-4 leading-tight">
                       {service.title}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal mb-8">
+                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-8">
                       {service.desc}
                     </p>
 
                     {/* Pill CTA Button */}
                     <Link 
                       to={`/services?select=${service.slug}`}
-                      className="inline-flex items-center gap-3 bg-white text-[#1a202c] hover:bg-lime-400 hover:text-slate-950 font-bold text-xs tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit"
+                      className="inline-flex items-center gap-3 bg-[#0066ff] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit uppercase border border-transparent"
                     >
                       <span>Find Out More</span>
                       <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover/btn:translate-x-1">

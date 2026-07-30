@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import Preloader from './components/Preloader';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -34,12 +35,12 @@ import OurPoliciesPage from './pages/about/OurPoliciesPage';
 import CareerPage from './pages/CareerPage';
 import LatestNews from './components/LatestNews';
 
-// Component to scroll to top on route change
+// Component to scroll to top on route or query param change
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+  }, [pathname, search]);
   return null;
 };
 
@@ -314,12 +315,19 @@ const MainContent = () => {
 };
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <ScrollToAnchor />
-      <MainContent />
-    </BrowserRouter>
+    <>
+      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
+      {!isLoading && (
+        <BrowserRouter>
+          <ScrollToTop />
+          <ScrollToAnchor />
+          <MainContent />
+        </BrowserRouter>
+      )}
+    </>
   );
 }
 

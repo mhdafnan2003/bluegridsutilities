@@ -91,15 +91,7 @@ const Footer = () => {
               >
                 <InstagramIcon />
               </a>
-              <a 
-                href="https://wa.me/447000000000" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="w-9 h-9 bg-slate-800 hover:bg-[#25D366] text-white flex items-center justify-center transition-colors duration-300 shadow-sm"
-                aria-label="WhatsApp"
-              >
-                <WhatsAppIcon />
-              </a>
+             
             </div>
           </div>
 

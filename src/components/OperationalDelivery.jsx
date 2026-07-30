@@ -398,8 +398,8 @@ const OperationalDelivery = () => {
               <div className="space-y-12">
                 
                 {/* Large Feature Banner Card */}
-                <div className="relative min-h-[380px] md:min-h-[440px] flex items-end p-8 md:p-12 overflow-hidden bg-slate-950 shadow-lg border border-slate-200">
-                  {/* Large Photo Background */}
+                {/* <div className="relative min-h-[380px] md:min-h-[440px] flex items-end p-8 md:p-12 overflow-hidden bg-slate-950 shadow-lg border border-slate-200">
+              
                   <img 
                     src={activeCaseStudyObj.heroImg} 
                     alt={activeCaseStudyObj.title}
@@ -408,7 +408,7 @@ const OperationalDelivery = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/45 to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-transparent to-transparent" />
 
-                  {/* Content INSIDE Feature Picture */}
+             
                   <div className="relative z-10 text-white w-full max-w-4xl">
                     <span className="text-xs font-bold text-sky-300 uppercase tracking-widest font-outfit block mb-2">
                       {activeCaseStudyObj.category} • {activeCaseStudyObj.customer}
@@ -437,7 +437,7 @@ const OperationalDelivery = () => {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Case Study Timeline: BEFORE, DURING, AFTER */}
                 <div>

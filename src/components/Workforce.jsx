@@ -76,7 +76,7 @@ const Workforce = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </div>
-                <span className="text-xs font-semibold text-gray-500 group-hover:text-brand-dark transition-colors duration-300">Register Interest</span>
+                <span className="text-xs font-semibold text-gray-500 group-hover:text-brand-dark transition-colors duration-300">Apply Online</span>
               </a>
 
               {/* Decorative Circle Bottom Right */}
