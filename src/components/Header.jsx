@@ -123,10 +123,10 @@ const Header = () => {
       >
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-stretch h-20">
 
-          {/* Larger Navbar Logo moved further to the left */}
-          <div className={`flex items-center py-2 pr-4 lg:pr-6 shrink-0 ${isScrolled ? 'flex' : 'flex md:hidden'}`}>
+          {/* Navbar Logo */}
+          <div className={`flex items-center py-2 pr-2 sm:pr-4 lg:pr-6 shrink-0 ${isScrolled ? 'flex' : 'flex md:hidden'}`}>
             <Link className="flex items-center gap-2" to="/">
-              <img src={logo} alt="BlueGrid Utilities Logo" className="h-11 md:h-12 lg:h-14 w-auto object-contain" />
+              <img src={logo} alt="BlueGrid Utilities Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain" />
             </Link>
           </div>
 
@@ -313,25 +313,26 @@ const Header = () => {
           </nav>
 
           {/* Right CTA / Hamburger Menu */}
-          <div className="flex items-stretch shrink-0 ml-2 lg:ml-4">
+          <div className="flex items-center shrink-0 gap-2 sm:gap-3 ml-2 lg:ml-4">
             {/* Join Our Workforce Button */}
             <Link
               to="/career"
-              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-4 lg:px-6 font-bold uppercase text-xs sm:text-xs lg:text-xs xl:text-sm font-outfit tracking-wider flex items-center justify-center whitespace-nowrap h-full cursor-pointer border-l border-[#d2e5f5]/50 shadow-sm"
+              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-2.5 sm:px-4 lg:px-6 py-2 lg:py-0 font-bold uppercase text-[9px] sm:text-xs lg:text-xs xl:text-sm font-outfit tracking-wider flex items-center justify-center whitespace-nowrap my-auto lg:h-full cursor-pointer rounded sm:rounded-none border-l-0 lg:border-l border-[#d2e5f5]/50 shadow-sm shrink-0"
             >
-              Join Our Workforce
+              <span className="hidden sm:inline">Join Our Workforce</span>
+              <span className="inline sm:hidden">Join Workforce</span>
             </Link>
 
             {/* Mobile Hamburger toggle */}
-            <div className="lg:hidden flex items-center py-4">
+            <div className="lg:hidden flex items-center shrink-0">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex flex-col gap-1.5 justify-center items-center w-10 h-10 border rounded bg-white/5 transition-colors duration-300 border-slate-200 text-[#0f3a5e]"
+                className="flex flex-col gap-1 justify-center items-center w-9 h-9 sm:w-10 sm:h-10 border rounded bg-white shadow-sm transition-colors duration-300 border-slate-200 text-[#0f3a5e] shrink-0"
                 aria-label="Toggle Menu"
               >
-                <span className={`w-6 h-0.5 transition-all duration-300 bg-[#0f3a5e] ${isMenuOpen ? 'transform rotate-45 translate-y-2' : ''}`}></span>
-                <span className={`w-6 h-0.5 transition-all duration-300 bg-[#0f3a5e] ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-                <span className={`w-6 h-0.5 transition-all duration-300 bg-[#0f3a5e] ${isMenuOpen ? 'transform -rotate-45 -translate-y-2' : ''}`}></span>
+                <span className={`w-5 sm:w-6 h-0.5 transition-all duration-300 bg-[#0f3a5e] ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}></span>
+                <span className={`w-5 sm:w-6 h-0.5 transition-all duration-300 bg-[#0f3a5e] ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+                <span className={`w-5 sm:w-6 h-0.5 transition-all duration-300 bg-[#0f3a5e] ${isMenuOpen ? 'transform -rotate-45 -translate-y-1.5' : ''}`}></span>
               </button>
             </div>
           </div>
