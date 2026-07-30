@@ -1,134 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useSearchParams, Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import AboutBanner from '../components/AboutBanner';
-
-import trainingImg from '../assets/images/Training coordination and deployment planning.jpg';
-import complianceImg from '../assets/images/Workforce onboarding and compliance verification.jpg';
-import utilityInfraImg from '../assets/images/Utility infrastructure support.jpg';
-import projectCoordImg from '../assets/images/Project coordination and reporting.jpg';
 import skylineImg from '../assets/images/Urban Skyline View.jpeg';
-import ukWorkersSiteImg from '../assets/images/uk_utility_workers_site.png';
-import utilityGridImg from '../assets/images/utility_grid_work.png';
-import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png';
-import safetyBg from '../assets/images/safety_bg.png';
-
-const newsCategories = [
-  { id: "all", label: "All News" },
-  { id: "company-updates", label: "Company Updates" },
-  { id: "training", label: "Training" },
-  { id: "mobilisation", label: "Mobilisation" },
-  { id: "recruitment", label: "Recruitment" },
-  { id: "accreditations", label: "Accreditations" },
-  { id: "community", label: "Community" },
-  { id: "projects", label: "Projects" },
-  { id: "office-expansion", label: "Office Expansion" }
-];
-
-const newsArticles = [
-  {
-    id: 1,
-    category: "company-updates",
-    categoryLabel: "Company Updates",
-    title: "Bluegrid Utilities Expands Operational Delivery Infrastructure Across UK",
-    date: "July 24, 2026",
-    readTime: "4 min read",
-    img: utilityGridImg,
-    snippet: "Bluegrid Utilities announces a strategic expansion of its utility support logistics, enabling faster operative dispatch and enhanced project coordination across England and Wales."
-  },
-  {
-    id: 2,
-    category: "training",
-    categoryLabel: "Training",
-    title: "Launch of Enhanced EUSR & NRSWA Workforce Training Framework",
-    date: "July 18, 2026",
-    readTime: "5 min read",
-    img: trainingImg,
-    snippet: "Our workforce development team has launched a comprehensive continuous professional development initiative providing fully funded EUSR cards, cable avoidance refreshers, and NRSWA supervisor tickets."
-  },
-  {
-    id: 3,
-    category: "mobilisation",
-    categoryLabel: "Mobilisation",
-    title: "Rapid Field Mobilisation Completed for Major Clean Water Contract",
-    date: "July 12, 2026",
-    readTime: "3 min read",
-    img: ukWorkersSiteImg,
-    snippet: "Bluegrid successfully deployed 40+ accredited meter operatives within 72 hours for a regional water authority, maintaining 100% compliance and zero downtime during rollout."
-  },
-  {
-    id: 4,
-    category: "recruitment",
-    categoryLabel: "Recruitment",
-    title: "Workforce Recruitment Drive Launched for Metering & Groundwork Operatives",
-    date: "July 05, 2026",
-    readTime: "4 min read",
-    img: complianceImg,
-    snippet: "Bluegrid Utilities opens applications for skilled meter installers, pipe layers, groundworkers, and NRSWA supervisors to support our growing UK operational portfolio."
-  },
-  {
-    id: 5,
-    category: "accreditations",
-    categoryLabel: "Accreditations",
-    title: "ISO 45001 & ISO 9001 Compliance Milestones Re-certified",
-    date: "June 28, 2026",
-    readTime: "3 min read",
-    img: safetyBg,
-    snippet: "Our operational systems successfully passed independent quality and health & safety audits, reaffirming our commitment to compliance-led utility delivery."
-  },
-  {
-    id: 6,
-    category: "community",
-    categoryLabel: "Community",
-    title: "Investing in Regional Skills & Local Supply Chain Partnerships",
-    date: "June 20, 2026",
-    readTime: "4 min read",
-    img: environmentalPolicyBg,
-    snippet: "As part of our commitment to sustainable operations, Bluegrid partners with regional supply chains to recruit locally and reduce logistical carbon footprints."
-  },
-  {
-    id: 7,
-    category: "projects",
-    categoryLabel: "Projects",
-    title: "Successful Delivery of Smart Water Metering Rollout Framework",
-    date: "June 14, 2026",
-    readTime: "5 min read",
-    img: projectCoordImg,
-    snippet: "Over 1,000+ planned smart meter installations completed safely with full telemetry verification and positive resident feedback."
-  },
-  {
-    id: 8,
-    category: "office-expansion",
-    categoryLabel: "Office Expansion",
-    title: "Peterborough Operations Hub Capacity Doubled to Support Growth",
-    date: "June 02, 2026",
-    readTime: "3 min read",
-    img: utilityInfraImg,
-    snippet: "Our Stuart House headquarters expansion provides enhanced dispatch capabilities, dedicated training facilities, and expanded logistics support."
-  },
-  {
-    id: 9,
-    category: "company-updates",
-    categoryLabel: "Company Updates",
-    title: "Annual Operational Performance Review Highlights Zero Harm Achievements",
-    date: "May 25, 2026",
-    readTime: "4 min read",
-    img: utilityInfraImg,
-    snippet: "A summary of our annual operational review demonstrating industry-leading audit scores, workforce retention metrics, and strong utility client partnerships."
-  }
-];
+import { newsCategories, newsArticles } from '../data/newsData';
 
 const NewsPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const activeCategory = searchParams.get('category') || 'all';
+  const [searchParams] = useSearchParams();
+  const [activeCategory, setActiveCategory] = useState(() => searchParams.get('category') || 'all');
 
   const handleCategorySelect = (id) => {
-    if (id === 'all') {
-      searchParams.delete('category');
-      setSearchParams(searchParams);
-    } else {
-      setSearchParams({ category: id });
-    }
+    setActiveCategory(id);
   };
 
   const filteredArticles = activeCategory === 'all' 
@@ -138,17 +20,15 @@ const NewsPage = () => {
   return (
     <div className="font-sans bg-slate-50/40 min-h-screen pb-24">
       
-      {/* 1. News Main Hero Banner */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-10 pt-6 md:pt-10">
-        <AboutBanner 
-          badgeText="News & Operational Insights"
-          title="Bluegrid Newsroom"
-          description="Company announcements, project mobilisations, workforce training updates, and regional growth developments across the UK utility sector."
-          bgImage={skylineImg}
-        />
-      </section>
+      {/* 1. News Main Hero Banner - Full Width Edge-to-Edge like Hero */}
+      <AboutBanner 
+        badgeText="News & Operational Insights"
+        title="Bluegrid Newsroom"
+        description="Company announcements, project mobilisations, workforce training updates, and regional growth developments across the UK utility sector."
+        bgImage={skylineImg}
+      />
 
-      {/* 2. Selection Box / Filter Bar (Exact Match to Image Design) */}
+      {/* 2. Selection Box / Filter Bar */}
       <section className="max-w-[1400px] mx-auto px-6 lg:px-10 mb-12">
         <div className="bg-white border border-slate-200/90 rounded-none p-4 md:p-6 shadow-sm">
           <div className="flex flex-nowrap items-center gap-1.5 lg:gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
@@ -185,8 +65,9 @@ const NewsPage = () => {
           >
             {filteredArticles.length > 0 ? (
               filteredArticles.map((article) => (
-                <div 
+                <Link 
                   key={article.id}
+                  to={`/news/${article.id}`}
                   className="bg-white border border-slate-200 rounded-none overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
@@ -231,12 +112,12 @@ const NewsPage = () => {
 
                   {/* Card Footer */}
                   <div className="px-6 pb-6 pt-2">
-                    <button className="inline-flex items-center gap-2 text-xs font-bold text-[#005f9e] tracking-wider font-outfit group-hover:translate-x-1 transition-transform">
+                    <span className="inline-flex items-center gap-2 text-xs font-bold text-[#005f9e] tracking-wider font-outfit group-hover:translate-x-1 transition-transform">
                       <span>Read Full Update</span>
                       <span className="material-symbols-outlined text-base">arrow_forward</span>
-                    </button>
+                    </span>
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <div className="col-span-full bg-white border border-slate-200 rounded-none p-12 text-center space-y-3">

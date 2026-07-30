@@ -4,34 +4,27 @@ import logo from '../assets/images/logo.png';
 
 const Preloader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
-  const [phase, setPhase] = useState('loading'); // 'loading' | 'complete' | 'exit'
+  const [phase, setPhase] = useState('loading');
 
   useEffect(() => {
-    // Simulate asset loading progress
     let current = 0;
-    const totalDuration = 2600; // total ms for loading phase
-    const interval = 18;
-    const steps = totalDuration / interval;
-    const increment = 100 / steps;
+    const totalDuration = 1400; // ms
+    const interval = 16;
+    const increment = 100 / (totalDuration / interval);
 
     const timer = setInterval(() => {
       current += increment;
-      // Add slight easing — faster at start, slows near 100
-      const eased = Math.min(100, current < 80 ? current : current * 0.97 + 2);
-      setProgress(Math.min(100, Math.round(eased)));
-
       if (current >= 100) {
         clearInterval(timer);
         setProgress(100);
         setTimeout(() => {
-          setPhase('complete');
+          setPhase('exit');
           setTimeout(() => {
-            setPhase('exit');
-            setTimeout(() => {
-              onComplete?.();
-            }, 700);
+            onComplete?.();
           }, 400);
-        }, 200);
+        }, 150);
+      } else {
+        setProgress(Math.min(100, Math.round(current)));
       }
     }, interval);
 
@@ -43,113 +36,38 @@ const Preloader = ({ onComplete }) => {
       {phase !== 'exit' && (
         <motion.div
           key="preloader"
-          className="preloader-root"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.65, ease: 'easeInOut' }}
+          transition={{ duration: 0.4, ease: 'easeInOut' }}
         >
-          {/* Animated background grid */}
-          <div className="preloader-grid" aria-hidden="true">
-            {Array.from({ length: 64 }).map((_, i) => (
-              <div
-                key={i}
-                className="preloader-grid-cell"
-                style={{ animationDelay: `${(i * 0.04) % 2}s` }}
-              />
-            ))}
-          </div>
-
-          {/* Scan line sweep */}
-          <div className="preloader-scanline" aria-hidden="true" />
-
-          {/* Central card */}
-          <div className="preloader-card">
-            {/* Corner accents */}
-            <span className="preloader-corner preloader-corner--tl" />
-            <span className="preloader-corner preloader-corner--tr" />
-            <span className="preloader-corner preloader-corner--bl" />
-            <span className="preloader-corner preloader-corner--br" />
-
+          <div className="flex flex-col items-center justify-center px-4">
             {/* Logo */}
             <motion.div
-              className="preloader-logo-wrap"
-              initial={{ opacity: 0, scale: 0.8, y: 12 }}
+              initial={{ opacity: 0, scale: 0.92, y: 4 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+              className="mb-8"
             >
-              <img src={logo} alt="BlueGrid Utilities" className="preloader-logo" />
+              <img
+                src={logo}
+                alt="BlueGrid Utilities"
+                className="h-14 sm:h-16 w-auto object-contain"
+              />
             </motion.div>
 
-            {/* Tagline */}
-            <motion.p
-              className="preloader-tagline"
-              initial={{ opacity: 0, y: 8 }}
+            {/* Minimal loading bar */}
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.45 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
+              className="w-36 h-[3px] bg-gray-100 rounded-full overflow-hidden relative"
             >
-              Precision. Safety. Delivery.
-            </motion.p>
-
-            {/* Animated dots row */}
-            <motion.div
-              className="preloader-dots"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-            >
-              {[0, 1, 2, 3, 4].map((i) => (
-                <span
-                  key={i}
-                  className="preloader-dot"
-                  style={{ animationDelay: `${i * 0.14}s` }}
-                />
-              ))}
+              <div
+                className="h-full bg-[#0160d8] rounded-full transition-all duration-75 ease-linear"
+                style={{ width: `${progress}%` }}
+              />
             </motion.div>
-
-            {/* Progress bar */}
-            <motion.div
-              className="preloader-bar-wrap"
-              initial={{ opacity: 0, scaleX: 0.7 }}
-              animate={{ opacity: 1, scaleX: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <div className="preloader-bar-track">
-                <motion.div
-                  className="preloader-bar-fill"
-                  style={{ width: `${progress}%` }}
-                />
-                {/* Shimmer */}
-                <div className="preloader-bar-shimmer" />
-              </div>
-              <div className="preloader-bar-labels">
-                <span className="preloader-bar-label">Initialising systems</span>
-                <span className="preloader-bar-pct">{progress}%</span>
-              </div>
-            </motion.div>
-
-            {/* Status pills */}
-            <motion.div
-              className="preloader-pills"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.85 }}
-            >
-              {['Water Networks', 'Civil Engineering', 'NRSWA Compliance'].map((label, i) => (
-                <span
-                  key={label}
-                  className="preloader-pill"
-                  style={{ animationDelay: `${0.9 + i * 0.25}s` }}
-                >
-                  <span className="preloader-pill-dot" />
-                  {label}
-                </span>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Bottom strip */}
-          <div className="preloader-bottom-strip">
-            <span className="preloader-strip-text">© 2025 BlueGrid Utilities Ltd · Company No. 16442340</span>
           </div>
         </motion.div>
       )}
@@ -158,3 +76,4 @@ const Preloader = ({ onComplete }) => {
 };
 
 export default Preloader;
+

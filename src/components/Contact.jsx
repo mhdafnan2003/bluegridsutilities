@@ -89,7 +89,7 @@ const Contact = () => {
 
             {/* Left Side: Contact Directory */}
             <div className="flex flex-col gap-6 w-full h-full">
-              <div className="flex-1 rounded-[2.5rem] bg-[#f0f5fa] border border-blue-100/60 shadow-sm w-full overflow-hidden divide-y divide-blue-200/20 flex flex-col justify-between">
+              <div className="flex-1 rounded-xl bg-[#f0f5fa] border border-blue-100/60 shadow-sm w-full overflow-hidden divide-y divide-blue-200/20 flex flex-col justify-between">
                 {contactDetails.map((contact, i) => (
                   <div key={i} className="flex-1 flex items-center justify-between gap-4 px-8 py-5 hover:bg-white/65 transition-colors duration-200 group">
                     <div className="min-w-0 text-left">
@@ -101,7 +101,7 @@ const Contact = () => {
                         {contact.value}
                       </a>
                     </div>
-                    <div className="shrink-0 w-12 h-12 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center text-slate-300 group-hover:text-brand-primary group-hover:border-brand-primary/20 transition-all duration-300">
+                    <div className="shrink-0 w-12 h-12 rounded-lg bg-white shadow-sm border border-slate-100 flex items-center justify-center text-slate-300 group-hover:text-brand-primary group-hover:border-brand-primary/20 transition-all duration-300">
                       <span className="material-symbols-outlined text-xl">{contact.icon}</span>
                     </div>
                   </div>
@@ -109,7 +109,7 @@ const Contact = () => {
               </div>
 
               {/* Brand Logo Card */}
-              <div className="flex-1 p-8 sm:p-10 rounded-[2.5rem] bg-[#f0f5fa] border border-blue-100/60 shadow-sm flex flex-col items-center justify-center text-center gap-6 group relative overflow-hidden">
+              <div className="flex-1 p-8 sm:p-10 rounded-xl bg-[#f0f5fa] border border-blue-100/60 shadow-sm flex flex-col items-center justify-center text-center gap-6 group relative overflow-hidden">
                 <div className="absolute inset-0 blueprint-bg opacity-[0.03] pointer-events-none" />
                 
                 <img 
@@ -125,16 +125,16 @@ const Contact = () => {
             </div>
 
             {/* Right Side: Simple Contact Form */}
-            <div className="bg-[#f0f5fa] p-8 md:p-12 rounded-[3rem] shadow-2xl shadow-blue-900/5 border border-blue-100/60 flex flex-col justify-center">
+            <div className="bg-[#f0f5fa] p-8 md:p-12 rounded-xl shadow-xl shadow-blue-900/5 border border-blue-100/60 flex flex-col justify-center">
               <form className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2 text-left">
                     <label className="text-[10px] font-black text-brand-primary tracking-widest ml-1">Your Name</label>
-                    <input type="text" placeholder="John Doe" className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none" />
+                    <input type="text" placeholder="John Doe" className="w-full px-6 py-4 rounded-lg bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none" />
                   </div>
                   <div className="space-y-2 text-left">
                     <label className="text-[10px] font-black text-brand-primary tracking-widest ml-1">Email Address</label>
-                    <input type="email" placeholder="john@example.com" className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none" />
+                    <input type="email" placeholder="john@example.com" className="w-full px-6 py-4 rounded-lg bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none" />
                   </div>
                 </div>
                 <div className="space-y-2 text-left">
@@ -142,7 +142,7 @@ const Contact = () => {
                   <select 
                     value={subject}
                     onChange={(e) => setSubject(e.target.value)}
-                    className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none appearance-none"
+                    className="w-full px-6 py-4 rounded-lg bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none appearance-none"
                   >
                     {subjects.map((sub, idx) => (
                       <option key={idx} value={sub}>{sub}</option>
@@ -151,9 +151,9 @@ const Contact = () => {
                 </div>
                 <div className="space-y-2 text-left">
                   <label className="text-[10px] font-black text-brand-primary tracking-widest ml-1">Your Message</label>
-                  <textarea rows="4" placeholder="How can we help you?" className="w-full px-6 py-4 rounded-2xl bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none resize-none"></textarea>
+                  <textarea rows="4" placeholder="How can we help you?" className="w-full px-6 py-4 rounded-lg bg-white border border-blue-100/50 focus:border-brand-primary transition-all outline-none resize-none"></textarea>
                 </div>
-                <button className="w-full py-5 bg-brand-primary text-white rounded-2xl font-black tracking-widest hover:bg-brand-dark transition-all duration-300 shadow-xl shadow-brand-primary/20 group flex items-center justify-center gap-3">
+                <button className="w-full py-5 bg-brand-primary text-white rounded-lg font-black tracking-widest hover:bg-brand-dark transition-all duration-300 shadow-lg shadow-brand-primary/20 group flex items-center justify-center gap-3">
                   Send Message
                   <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
                 </button>

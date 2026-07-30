@@ -16,6 +16,7 @@ import TrainingDevelopment from './components/TrainingDevelopment';
 import Workforce from './components/Workforce';
 import ApplyPage from './pages/ApplyPage';
 import NewsPage from './pages/NewsPage';
+import NewsDetailPage from './pages/NewsDetailPage';
 import Management from './components/Management';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -35,12 +36,12 @@ import OurPoliciesPage from './pages/about/OurPoliciesPage';
 import CareerPage from './pages/CareerPage';
 import LatestNews from './components/LatestNews';
 
-// Component to scroll to top on route or query param change
+// Component to scroll to top on route change
 const ScrollToTop = () => {
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname, search]);
+  }, [pathname]);
   return null;
 };
 
@@ -275,6 +276,16 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/news/:articleId"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <NewsDetailPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
           path="/contact"
           element={
             <PageTransition>
@@ -300,7 +311,7 @@ const AnimatedRoutes = () => {
 
 const MainContent = () => {
   const location = useLocation();
-  const isNewsPage = location.pathname === '/news';
+  const isNewsSection = location.pathname.startsWith('/news');
 
   return (
     <div className="min-h-screen bg-gray-50 scroll-smooth flex flex-col justify-between">
@@ -308,7 +319,7 @@ const MainContent = () => {
       <main className="flex-grow">
         <AnimatedRoutes />
       </main>
-      {!isNewsPage && <LatestNews />}
+      {!isNewsSection && <LatestNews />}
       <Footer />
     </div>
   );
@@ -318,16 +329,12 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   return (
-    <>
+    <BrowserRouter>
       {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      {!isLoading && (
-        <BrowserRouter>
-          <ScrollToTop />
-          <ScrollToAnchor />
-          <MainContent />
-        </BrowserRouter>
-      )}
-    </>
+      <ScrollToTop />
+      <ScrollToAnchor />
+      <MainContent />
+    </BrowserRouter>
   );
 }
 

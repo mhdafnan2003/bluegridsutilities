@@ -77,8 +77,9 @@ const LatestNews = () => {
         {/* 3 News Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
           {latestArticles.map((article) => (
-            <div 
+            <Link 
               key={article.id}
+              to={`/news/${article.id}`}
               className="bg-white border border-slate-200 rounded-none overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
@@ -123,15 +124,12 @@ const LatestNews = () => {
 
               {/* Card Footer */}
               <div className="px-6 sm:px-8 pb-6 pt-2">
-                <Link 
-                  to={`/news?category=${article.category}`}
-                  className="inline-flex items-center gap-2 text-xs font-bold text-[#005f9e] tracking-wider font-outfit group-hover:translate-x-1 transition-transform"
-                >
+                <span className="inline-flex items-center gap-2 text-xs font-bold text-[#005f9e] tracking-wider font-outfit group-hover:translate-x-1 transition-transform">
                   <span>Read Full Update</span>
                   <span className="material-symbols-outlined text-base">arrow_forward</span>
-                </Link>
+                </span>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
