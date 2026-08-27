@@ -8,224 +8,200 @@ import sustainabilityBannerImg from '../assets/images/sustainability_banner.png'
 import healthSafetyPolicyBg from '../assets/images/health_safety_policy_bg.png';
 import safetyBg from '../assets/images/safety_bg.png';
 import complianceBg from '../assets/images/compliance_bg.png';
-import operationalImg from '../assets/images/operationalimage.png';
+import ramsBriefingImg from '../assets/images/rams_workforce_briefing.jpg';
 import utilityGridImg from '../assets/images/utility_grid_work.png';
 import ukWorkersSiteImg from '../assets/images/uk_utility_workers_site.png';
 
 const sectionsData = {
   "policy": {
     id: "policy",
-    title: "Health & Safety Policy",
+    title: "Leadership & Responsibilities",
     badge: "Policy & Governance",
     icon: "gavel",
     bgImage: healthSafetyPolicyBg,
-    headline: "Zero-Harm Health & Safety Policy Statement",
-    description: "Bluegrid Utilities is committed to providing a safe, healthy, and compliant working environment across all UK utility and infrastructure operations. Safety is our primary operational metric.",
-    overviewP1: "Our primary objective is to prevent injury, ill health, and occupational hazards across all site activities. We maintain a zero-harm culture where every team member is empowered to prioritize safety above operational speed.",
-    overviewP2: "Our executive board reviews our Health & Safety Policy annually to align with statutory UK legislation (Health & Safety at Work Act 1974), client specifications, and ISO 45001 international standards.",
+    headline: "Health, Safety & Compliance Commitment",
+    description: "Bluegrid Utilities is committed to protecting employees, contractors, customers, the public and the environment through planned work, competent people, effective supervision and continuous improvement.",
+    overviewP1: "Management is responsible for providing suitable arrangements, competent supervision, resources and monitoring.",
+    overviewP2: "Every worker is expected to follow site rules, report hazards and stop work where conditions are unsafe.",
     pillars: [
-      { id: "01", title: "Executive Leadership & Accountability", icon: "shield_person", desc: "Direct board-level oversight ensuring safety resources, regular policy reviews, and executive accountability for site safety performance." },
-      { id: "02", title: "ISO 45001 Occupational Health & Safety", icon: "verified", desc: "Certified management systems driving continuous risk reduction, hazard identification, and operational safety audits across all field operations." },
-      { id: "03", title: "Duty of Care to Public & Operatives", icon: "family_restroom", desc: "Rigorous protection protocols for pedestrians, local residents, third-party contractors, and site operatives during utility civil works." },
-      { id: "04", title: "Stop Work Authority", icon: "front_hand", desc: "Unconditional authority granted to every employee and subcontractor to stop any job immediately if an unsafe condition or hazard is observed." }
+      { id: "01", title: "Management Accountability", icon: "shield_person", desc: "Providing suitable operational arrangements, competent supervision, and necessary resources." },
+      { id: "02", title: "Worker Responsibility", icon: "verified", desc: "Expecting every worker to follow site safety rules and maintain safe working practices." },
+      { id: "03", title: "Hazard Reporting", icon: "family_restroom", desc: "Encouraging prompt reporting of all unsafe conditions and potential hazards on site." },
+      { id: "04", title: "Stop Work Authority", icon: "front_hand", desc: "Empowering every operative to stop work immediately where conditions are unsafe." }
     ],
     checklist: [
-      "Annual Health & Safety Policy Board Review",
-      "Full ISO 45001 Occupational Management Compliance",
-      "Mandatory Safety Induction for 100% of Site Operatives",
-      "Clear Duty of Care Protocols for Pedestrians & Public Highways"
+      "Suitable operational arrangements and competent supervision",
+      "Executive management monitoring and resource allocation",
+      "Worker adherence to site rules and safety protocols",
+      "Immediate stop-work authority for unsafe site conditions"
     ]
   },
 
   "risk-assessments": {
     id: "risk-assessments",
-    title: "Risk Assessments",
+    title: "Risk Assessment",
     badge: "Hazard Identification",
     icon: "assignment_late",
     bgImage: safetyBg,
-    headline: "Dynamic Risk Assessment & Hazard Mitigation Framework",
-    description: "Prior to starting physical work, comprehensive Risk Assessments are produced to identify potential hazards, evaluate severity, and enforce robust risk controls.",
-    overviewP1: "Risk assessment is an ongoing, dynamic process at Bluegrid Utilities. From initial desktop surveys to real-time Point-of-Work Risk Assessments (POWRA), our teams evaluate every variable before breaking ground.",
-    overviewP2: "We utilize standardized matrix scoring (Likelihood vs Severity) to categorize risks and implement the Hierarchy of Controls—Elimination, Substitution, Engineering Controls, Administrative Controls, and PPE.",
+    headline: "Risk Assessment & Hazard Control",
+    description: "Work activities should be assessed before commencement. Controls follow the hierarchy of elimination, substitution, engineering controls, administrative controls and PPE.",
+    overviewP1: "Work activities should be assessed before commencement to identify potential hazards and establish safe working controls.",
+    overviewP2: "Point-of-work assessments should be used where site conditions change to ensure ongoing safety.",
     pillars: [
-      { id: "01", title: "5-Step Hazard Evaluation", icon: "fact_check", desc: "Systematic identification of physical, chemical, electrical, and environmental hazards across underground asset sites." },
-      { id: "02", title: "Point-of-Work Risk Assessment (POWRA)", icon: "edit_note", desc: "Real-time site checks conducted by operatives prior to commencing daily tasks to account for shifting weather or ground conditions." },
-      { id: "03", title: "Hierarchy of Risk Controls", icon: "layers", desc: "Prioritizing physical elimination and engineering barriers over procedural or personal protective measures." },
-      { id: "04", title: "Buried Service Hazard Reviews", icon: "cable", desc: "CAT & Genny cable avoidance scans and utility plan verification integrated into every site risk assessment." }
+      { id: "01", title: "Pre-Work Assessment", icon: "fact_check", desc: "Assessing all work activities before commencement to understand hazards and practical controls." },
+      { id: "02", title: "Hierarchy of Controls", icon: "layers", desc: "Applying elimination, substitution, engineering controls, administrative controls and PPE." },
+      { id: "03", title: "Point-of-Work Reviews", icon: "edit_note", desc: "Using dynamic point-of-work assessments whenever site conditions change." },
+      { id: "04", title: "Hazard Elimination Focus", icon: "cable", desc: "Prioritizing physical hazard elimination and engineering barriers over procedural controls." }
     ],
     checklist: [
-      "Mandatory CAT & Genny Scans Before Excavation",
-      "Likelihood & Severity Risk Matrix Scoring",
-      "Dynamic Daily Point-of-Work Hazard Reviews",
-      "Hierarchy of Control Enforcement Across All Worksites"
+      "Pre-commencement work activity risk assessments",
+      "Enforcement of the hierarchy of risk controls",
+      "Point-of-work assessments for changing site conditions",
+      "Practical control measures understood by all workers"
     ]
   },
 
   "rams": {
     id: "rams",
-    title: "Method Statements (RAMS)",
+    title: "RAMS",
     badge: "Safe Systems of Work",
     icon: "description",
-    bgImage: operationalImg,
-    headline: "Method Statements & Safe Systems of Work (RAMS)",
-    description: "RAMS define step-by-step operational instructions for high-risk utility tasks—such as deep trench excavation, high-pressure water works, live gas proximity, and heavy lifting operations.",
-    overviewP1: "Our Risk Assessment & Method Statements (RAMS) serve as the operational blueprint for every utility contract. They provide clear, unambiguous step-by-step instructions designed to eliminate procedural errors.",
-    overviewP2: "RAMS documents are authored by qualified safety coordinators, reviewed with utility clients, and briefed directly to field operatives prior to job execution with documented sign-offs.",
+    bgImage: ramsBriefingImg,
+    headline: "Task-Specific RAMS & Workforce Acknowledgement",
+    description: "Task-specific RAMS should define scope, work sequence, hazards, controls, emergency arrangements, plant and equipment requirements, competency needs and PPE. Workforce acknowledgement should be recorded.",
+    overviewP1: "Task-specific RAMS serve as the clear operational guide for every utility activity.",
+    overviewP2: "Workforce acknowledgement should be recorded prior to commencing work to ensure all operatives understand the sequence and controls.",
     pillars: [
-      { id: "01", title: "Step-by-Step Task Sequence", icon: "format_list_numbered", bgImage: ukWorkersSiteImg, desc: "Chronological operational instructions specifying exact tools, plant machinery, and safety precautions required." },
-      { id: "02", title: "Permit-to-Work Integration", icon: "task", bgImage: complianceBg, desc: "Mandatory permit sign-offs for hot works, confined space entry, deep excavation, and high-voltage proximity." },
-      { id: "03", title: "Plant & Machinery Operational Safe Rules", icon: "precision_manufacturing", bgImage: utilityGridImg, desc: "Strict exclusion zones, banksman supervision, and machinery inspection protocols for site excavators and vacuum units." },
-      { id: "04", title: "Emergency Action Procedures", icon: "emergency", bgImage: healthSafetyPolicyBg, desc: "Task-specific emergency escalation steps, emergency contact rosters, and first-aid response routes." }
+      { id: "01", title: "Task Scope & Sequence", icon: "format_list_numbered", bgImage: ukWorkersSiteImg, desc: "Defining clear work sequences, plant/equipment requirements, and task scope." },
+      { id: "02", title: "Hazards & Controls", icon: "task", bgImage: complianceBg, desc: "Detailing specific site hazards, required risk controls, and emergency arrangements." },
+      { id: "03", title: "Competency & PPE Needs", icon: "precision_manufacturing", bgImage: utilityGridImg, desc: "Outlining role-relevant competency needs and task-specific personal protective equipment." },
+      { id: "04", title: "Workforce Sign-Off", icon: "emergency", bgImage: healthSafetyPolicyBg, desc: "Recording workforce acknowledgement and briefing confirmation before starting work." }
     ],
     checklist: [
-      "Client-Approved RAMS Prior to Site Mobilization",
-      "Operative Documented RAMS Briefing & Sign-off",
-      "Permit-to-Work Authorization for High-Risk Tasks",
-      "Task-Specific Emergency Evacuation & Rescue Plans"
+      "Task-specific RAMS defining clear work sequences and controls",
+      "Emergency arrangements and plant/equipment requirements specified",
+      "Role-relevant competency and PPE needs identified",
+      "Recorded workforce acknowledgement prior to work execution"
+    ]
+  },
+
+  "utility-avoidance": {
+    id: "utility-avoidance",
+    title: "Utility Avoidance",
+    badge: "Safe Digging Practices",
+    icon: "cable",
+    bgImage: complianceBg,
+    headline: "Underground Utility Avoidance & Safe Digging",
+    description: "Excavation and intrusive works require appropriate utility plans, site assessment, detection equipment used by competent persons and safe digging practices.",
+    overviewP1: "Protecting underground infrastructure requires disciplined pre-excavation checks and safe digging practices.",
+    overviewP2: "Detection equipment must be operated strictly by competent persons trained in CAT & Genny utility location.",
+    pillars: [
+      { id: "01", title: "Utility Plan Review", icon: "map", desc: "Reviewing appropriate underground utility plans prior to any intrusive site work." },
+      { id: "02", title: "Site Assessment", icon: "search", desc: "Conducting thorough site surface inspections to identify asset indicators and risks." },
+      { id: "03", title: "Competent CAT & Genny Scanning", icon: "radar", desc: "Utilizing cable detection equipment operated by trained, competent personnel." },
+      { id: "04", title: "Safe Digging Practices", icon: "construction", desc: "Adhering strictly to HSG47 safe digging guidelines during trial holes and excavation." }
+    ],
+    checklist: [
+      "Up-to-date utility plans reviewed prior to excavation",
+      "Thorough site surface assessment and mark-outs",
+      "CAT & Genny detection executed by competent persons",
+      "HSG47 compliant safe hand-digging and exposure practices"
     ]
   },
 
   "near-miss": {
     id: "near-miss",
-    title: "Near Miss Reporting",
-    badge: "Proactive Hazard Spotting",
+    title: "Near-Miss & Hazard Reporting",
+    badge: "Proactive Reporting Culture",
     icon: "report_problem",
     bgImage: complianceBg,
-    headline: "No-Blame Near Miss & Hazard Spotting Culture",
-    description: "We actively encourage field personnel to report near misses and unsafe conditions immediately. Our no-blame culture turns every observation into a learning opportunity.",
-    overviewP1: "A robust near-miss reporting system is the single most effective tool for preventing workplace injuries. We actively remove reporting barriers and celebrate field personnel who highlight potential risks.",
-    overviewP2: "Reported near misses are logged digitally, analyzed by safety officers within 24 hours, and shared across project teams via safety alerts to prevent recurring hazards across all sites.",
+    headline: "No-Blame Near-Miss & Hazard Reporting",
+    description: "Bluegrid operates a no-blame reporting culture that encourages early reporting of unsafe conditions, near misses and improvement opportunities. Significant learning should be shared through briefings and toolbox talks.",
+    overviewP1: "We operate a no-blame reporting culture that encourages early reporting of unsafe conditions, near misses and improvement opportunities.",
+    overviewP2: "Significant learning should be shared across teams through regular briefings and toolbox talks.",
     pillars: [
-      { id: "01", title: "Digital Mobile Hazard Reporting", icon: "smartphone", desc: "Simple smartphone app reporting enabling field operatives to log photos and location pins of hazardous conditions instantly." },
-      { id: "02", title: "24-Hour Review & Actioning", icon: "schedule", desc: "Safety management triage ensuring reported hazards are inspected and rectified within 24 hours." },
-      { id: "03", title: "No-Blame Reporting Guarantee", icon: "handshake", desc: "Strict policy protecting workers from fault or penalty when reporting hazards, encouraging transparent communication." },
-      { id: "04", title: "Safety Alert Dissemination", icon: "campaign", desc: "Monthly trend analysis and instant safety bulletins broadcast to all site teams to share key lessons learned." }
+      { id: "01", title: "No-Blame Culture", icon: "handshake", desc: "Fostering an open environment where workers report hazards without fear of blame." },
+      { id: "02", title: "Early Hazard Spotting", icon: "smartphone", desc: "Encouraging immediate reporting of unsafe site conditions and near-miss occurrences." },
+      { id: "03", title: "Improvement Opportunities", icon: "trending_up", desc: "Using near-miss data to identify practical workflow and safety improvements." },
+      { id: "04", title: "Shared Learning Briefings", icon: "campaign", desc: "Sharing significant lessons learned across teams via daily briefings and toolbox talks." }
     ],
     checklist: [
-      "Instant Digital Mobile Near Miss App Access",
-      "24-Hour Safety Team Hazard Triage & Actioning",
-      "No-Blame Worker Protection Policy",
-      "Monthly Operative Safety Champion Recognition"
-    ]
-  },
-
-  "environmental-protection": {
-    id: "environmental-protection",
-    title: "Environmental Protection",
-    badge: "Eco-Friendly & Sustainable",
-    icon: "eco",
-    bgImage: environmentalPolicyBg,
-    headline: "Carbon Reduction, Ecological Protection & Social Sustainability",
-    description: "Our comprehensive environmental framework focused on carbon reduction, clean water preservation, ecological protection, localized recruitment, and sustainable waste management across UK utility sites.",
-    overviewP1: "We are committed to minimizing the ecological impact of utility works. By recruiting local field teams, optimizing deployment routes, and utilizing energy-efficient equipment, we significantly reduce transportation emissions.",
-    overviewP2: "Our practices ensure clean water preservation, responsible waste disposal, noise and dust suppression, and minimal disruption to the surrounding environment during street work excavations and reinstatements.",
-    pillars: [
-      { id: "01", title: "Carbon Reduction & Route Optimization", icon: "co2", desc: "Minimizing travel emissions by deploying regional operatives and utilizing low-emission utility fleet vehicles." },
-      { id: "02", title: "Waste Management & Circular Economy", icon: "recycling", desc: "Rigorous segregation of excavated spoil, recycling of aggregate materials, and zero-waste-to-landfill commitments." },
-      { id: "03", title: "Water Preservation & Pollution Prevention", icon: "water_drop", desc: "Spill kit readiness, silt filter protections, and clean water preservation during mains connections and metering works." },
-      { id: "04", title: "Social Sustainability & Local Recruitment", icon: "diversity_3", desc: "Prioritizing local hiring, skill development in regional communities, and ethical local supply chain partnerships." }
-    ],
-    checklist: [
-      "ISO 14001 Environmental Management Alignment",
-      "Spill Kit Equipment & Decontamination Readiness on 100% of Fleet Vehicles",
-      "Recycled Aggregate & Responsible Trench Spoil Disposal",
-      "Local Workforce Deployment & Regional Skill Training Programs"
+      "No-blame policy encouraging open hazard reporting",
+      "Early reporting of unsafe conditions and near misses",
+      "Prompt triage and investigation of reported hazards",
+      "Lessons learned shared through briefings and toolbox talks"
     ]
   },
 
   "incident-management": {
     id: "incident-management",
     title: "Incident Management",
-    badge: "Emergency Preparedness",
+    badge: "Escalation & Response",
     icon: "emergency",
     bgImage: ukWorkersSiteImg,
-    headline: "Incident Escalation, Emergency Response & RIDDOR Compliance",
-    description: "In the event of an incident or injury, our structured response protocol ensures immediate emergency care, thorough root cause analysis, and transparent regulatory reporting.",
-    overviewP1: "While our focus is zero harm, we maintain a battle-tested emergency incident response matrix. Every site supervisor is trained in emergency first aid, site containment, and immediate escalation.",
-    overviewP2: "All incidents are investigated using Root Cause Analysis (RCA) to identify systemic factors, leading to mandatory Corrective and Preventive Action (CAPA) implementation across the organization.",
+    headline: "Prompt Escalation & Incident Investigation",
+    description: "All incidents should be escalated promptly, made safe, recorded, investigated proportionately and followed by corrective actions. Statutory reporting such as RIDDOR must be managed where applicable by a competent responsible person.",
+    overviewP1: "All incidents should be escalated promptly, made safe, recorded, and investigated proportionately.",
+    overviewP2: "Statutory reporting such as RIDDOR must be managed where applicable by a competent responsible person.",
     pillars: [
-      { id: "01", title: "24/7 Incident Escalation Hotline", icon: "phone_in_talk", desc: "Immediate 24/7 access to safety coordinators and senior management for emergency guidance and site support." },
-      { id: "02", title: "On-Site First Aid Response", icon: "medical_services", desc: "Certified First Aiders and fully equipped first-aid kits on every active project site and mobile utility van." },
-      { id: "03", title: "RIDDOR Statutory Reporting", icon: "gavel", desc: "Strict adherence to UK RIDDOR reporting guidelines for reportable injuries, diseases, and dangerous occurrences." },
-      { id: "04", title: "Root Cause Investigation (RCA)", icon: "search", desc: "Comprehensive investigation framework identifying underlying causes and applying CAPA measures to prevent recurrence." }
+      { id: "01", title: "Prompt Escalation & Securing", icon: "phone_in_talk", desc: "Escalating incidents immediately and making the site area safe." },
+      { id: "02", title: "Proportionate Investigation", icon: "search", desc: "Recording and investigating incidents proportionately to identify root causes." },
+      { id: "03", title: "Corrective Actions", icon: "rule", desc: "Implementing effective corrective and preventive actions to prevent recurrence." },
+      { id: "04", title: "RIDDOR Statutory Reporting", icon: "gavel", desc: "Managing statutory HSE reporting such as RIDDOR via a competent responsible person." }
     ],
     checklist: [
-      "24/7 Dedicated Senior Management Incident Hotline",
-      "Certified Emergency First Aiders Assigned to Every Site",
-      "Full RIDDOR Statutory HSE Reporting Compliance",
-      "Root Cause Analysis & Corrective Action Tracking"
-    ]
-  },
-
-  "quality-assurance": {
-    id: "quality-assurance",
-    title: "Quality Assurance",
-    badge: "Quality & Workmanship",
-    icon: "verified",
-    bgImage: utilityGridImg,
-    headline: "Total Quality Assurance & Reinstatement Standards",
-    description: "Quality Assurance ensures all utility reinstatements, meter installations, and civil excavations strictly comply with HAUC and utility client standards.",
-    overviewP1: "Our Quality Assurance framework guarantees right-first-time project execution. We inspect every phase of work—from trench excavation dimensions and bedding to final bituminous surface reinstatement.",
-    overviewP2: "We maintain ISO 9001 aligned processes, conducting photographic audits of meter installations and underground asset fittings to provide complete quality assurance to our utility partners.",
-    pillars: [
-      { id: "01", title: "ISO 9001 Quality Management System", icon: "workspace_premium", desc: "Standardized quality control procedures, documented audit trails, and client satisfaction metrics." },
-      { id: "02", title: "HAUC & SROH Reinstatement Standards", icon: "construction", desc: "Full compliance with the Specification for the Reinstatement of Openings in Highways for long-term road durability." },
-      { id: "03", title: "Digital Photographic Auditing", icon: "photo_camera", desc: "Geotagged photographic evidence captured at every stage of asset installation and reinstatement." },
-      { id: "04", title: "Right-First-Time Workmanship Focus", icon: "thumb_up", desc: "Minimizing defect rework through operative skills training and rigorous quality verification checks." }
-    ],
-    checklist: [
-      "ISO 9001 Quality Management System Certification",
-      "Geotagged Digital Photo Verification of Asset Installs",
-      "Strict HAUC & SROH Reinstatement Compliance Audits",
-      "Defect-Free Performance Guarantees for Utility Clients"
+      "Prompt incident escalation and site securing protocols",
+      "Accurate incident recording and proportionate investigation",
+      "Timely implementation of corrective actions",
+      "Statutory RIDDOR reporting managed by a competent person"
     ]
   },
 
   "site-audits": {
     id: "site-audits",
-    title: "Site Audits",
-    badge: "Inspection & Assurance",
+    title: "Site Audits & Inspections",
+    badge: "Supervisory Verification",
     icon: "fact_check",
     bgImage: safetyBg,
-    headline: "Unannounced Site Inspections & Compliance Auditing",
-    description: "Regular site audits conducted by independent safety coordinators verify that field teams adhere strictly to RAMS, NRSWA signage rules, and personal protective protocols.",
-    overviewP1: "Safety checks are not just scheduled—they are continuous and unannounced. Our safety officers conduct field audits across daytime and night-shift operations to inspect active site standards.",
-    overviewP2: "Audit scores are calculated using standardized scorecards evaluating PPE, NRSWA barrier layouts, CAT & Genny usage, permit logs, and site cleanliness.",
+    headline: "Supervisory Site Inspections & Audits",
+    description: "Supervisory inspections should check barriers, access, excavation controls, PPE, equipment condition, documentation, housekeeping, customer / public protection and work quality.",
+    overviewP1: "Supervisory inspections verify that site controls are maintained consistently during field operations.",
+    overviewP2: "Inspections cover safety barriers, excavation controls, equipment condition, documentation, public protection and work quality.",
     pillars: [
-      { id: "01", title: "Unannounced Field Inspections", icon: "visibility", desc: "Randomized site visits ensuring authentic, daily compliance without advance notification." },
-      { id: "02", title: "Digital Mobile Audit Scorecards", icon: "assignment_checked", desc: "Real-time mobile scoring evaluating site safety, traffic management, and environmental compliance." },
-      { id: "03", title: "Corrective Action Notices (CAN)", icon: "rule", desc: "Immediate issuance of binding corrective notices for any non-compliance observed on site." },
-      { id: "04", title: "Monthly Contractor Compliance Rankings", icon: "bar_chart", desc: "Benchmarking field team audit scores to drive continuous safety improvements across all squads." }
+      { id: "01", title: "Barriers & Access Checks", icon: "visibility", desc: "Inspecting site safety barriers, pedestrian walkways, and secure site access." },
+      { id: "02", title: "Excavation & PPE Controls", icon: "assignment_checked", desc: "Checking trench shoring, utility avoidance, and correct PPE usage." },
+      { id: "03", title: "Equipment & Documentation", icon: "rule", desc: "Verifying calibrated equipment condition, RAMS paperwork, and site logs." },
+      { id: "04", title: "Public Protection & Quality", icon: "thumb_up", desc: "Ensuring customer/public protection, good housekeeping, and high work quality." }
     ],
     checklist: [
-      "Unannounced Daytime & Night-shift Field Audits",
-      "Real-time Digital Audit Scorecards Sent to Management",
-      "Immediate Rectification of Noted Non-Compliances",
-      "Monthly Safety Performance Benchmarking Reports"
+      "Regular supervisory inspections across active worksites",
+      "Verification of barriers, access, and excavation controls",
+      "Equipment condition and documentation checks",
+      "Customer protection, housekeeping, and work quality audits"
     ]
   },
 
   "daily-briefings": {
     id: "daily-briefings",
     title: "Daily Briefings",
-    badge: "Pre-Shift Communications",
+    badge: "Pre-Start Communications",
     icon: "record_voice_over",
     bgImage: operationalImg,
-    headline: "Daily Toolbox & Pre-Shift Safety Briefings",
-    description: "Mandatory pre-shift briefings conducted every morning by site supervisors to communicate site hazards, daily targets, weather alerts, and localized safety notices.",
-    overviewP1: "Every shift starts with a dedicated safety discussion. Daily Briefings ensure that every operative understands the day's specific tasks, high-risk activities, and hazard controls before turning on machinery.",
-    overviewP2: "Briefings review buried utility drawings, pedestrian management plans, manual handling precautions, and weather-related ground stability alerts.",
+    headline: "Pre-Start Briefings & Shift Readiness",
+    description: "Pre-start briefings should cover scope, site-specific risks, utility information, traffic / pedestrian arrangements, weather and environmental conditions, emergency arrangements and changes from the previous shift.",
+    overviewP1: "Pre-start briefings ensure every shift begins with full awareness of site conditions and risks.",
+    overviewP2: "Briefings review utility drawings, traffic management, weather factors, and any changes from previous shifts.",
     pillars: [
-      { id: "01", title: "Pre-Shift Hazard Communication", icon: "forum", desc: "Reviewing daily job scope, buried service plans, and site-specific hazard controls prior to starting work." },
-      { id: "02", title: "Weather & Environmental Impact Alerts", icon: "cloud", desc: "Adapting work practices for heavy rainfall, freezing temperatures, extreme heat, or poor visibility." },
-      { id: "03", title: "Operative Feedback & Q&A", icon: "question_answer", desc: "Encouraging site teams to raise concerns or request additional safety resources during the briefing." },
-      { id: "04", title: "Signed Attendance Records", icon: "draw", desc: "Formal sign-off logging every operative's attendance and confirmation of briefing understanding." }
+      { id: "01", title: "Job Scope & Site Risks", icon: "forum", desc: "Communicating the day's scope of work and site-specific hazards." },
+      { id: "02", title: "Utility & Traffic Arrangements", icon: "traffic", desc: "Reviewing underground utility plans and pedestrian/traffic management setups." },
+      { id: "03", title: "Environmental & Weather Conditions", icon: "cloud", desc: "Addressing weather, ground conditions, and environmental protection needs." },
+      { id: "04", title: "Emergency & Shift Changes", icon: "emergency", desc: "Confirming emergency contacts and reviewing changes from the previous shift." }
     ],
     checklist: [
-      "Mandatory Pre-Shift Briefing Prior to Any Site Work",
-      "Review of Underground Utility Cable Drawings",
-      "Operative Two-Way Safety Discussion & Q&A",
-      "Documented Attendance & Understanding Sign-off Log"
+      "Mandatory pre-start briefings before commencing shift work",
+      "Review of utility information and traffic/pedestrian plans",
+      "Weather, ground, and environmental condition assessments",
+      "Confirmation of emergency routes and shift changes"
     ]
   },
 
@@ -235,141 +211,141 @@ const sectionsData = {
     badge: "Personal Protection",
     icon: "engineering",
     bgImage: healthSafetyPolicyBg,
-    headline: "Personal Protective Equipment (PPE) Standards & Enforcement",
-    description: "Mandatory, high-specification protective gear conforming to EN/UK standards provided to all personnel and audited regularly for condition and compliance.",
-    overviewP1: "Personal Protective Equipment is our final line of defense against physical hazards. Bluegrid Utilities enforces strict minimum PPE requirements across all operational utility contracts.",
-    overviewP2: "All gear is issued free of charge, routinely inspected during site audits, and replaced immediately upon wear or damage to ensure uncompromised protection.",
+    headline: "Risk-Assessed Personal Protective Equipment",
+    description: "PPE requirements should be determined by risk assessment and client rules. Avoid publishing 'Class 3 hi-vis' as a universal requirement unless technically correct for all tasks.",
+    overviewP1: "PPE requirements are determined by thorough risk assessment and client-specific site rules.",
+    overviewP2: "Operatives are provided with role-appropriate, certified protective gear maintained in good condition.",
     pillars: [
-      { id: "01", title: "High-Visibility Class 3 Garments", icon: "dry_cleaning", desc: "EN ISO 20471 certified high-visibility jackets and trousers for day and night roadworks visibility." },
-      { id: "02", title: "Safety Footwear with Metatarsal Protection", icon: "roller_skating", desc: "EN ISO 20345 compliant steel/composite toe and puncture-resistant midsole protective boots." },
-      { id: "03", title: "Head, Eye & Hearing Protection", icon: "hard_drive", desc: "Impact-resistant hard hats, safety eyewear, and ear defenders for high-decibel machinery operations." },
-      { id: "04", title: "Specialist RPE & Hand Protection", icon: "sanitizer", desc: "Cut-resistant safety gloves and Respiratory Protective Equipment (RPE) for dusty or silica environments." }
+      { id: "01", title: "Risk-Assessed Selection", icon: "fact_check", desc: "Selecting PPE based on specific task risk assessments and site environments." },
+      { id: "02", title: "Client Alignment", icon: "handshake", desc: "Ensuring full alignment with client rules and framework specifications." },
+      { id: "03", title: "Certified Quality Standards", icon: "verified", desc: "Issuing EN/UK certified protective equipment appropriate for the task." },
+      { id: "04", title: "Regular Condition Audits", icon: "rule", desc: "Inspecting PPE regularly and replacing worn or damaged gear immediately." }
     ],
     checklist: [
-      "100% Mandatory Enforcement of Class 3 Hi-Vis Gear",
-      "EN ISO Certified Footwear with Steel/Composite Toes",
-      "Routine Operative PPE Condition Inspections & Free Replacements",
-      "Task-Specific RPE & Hearing Protection Mandatory Compliance"
-    ]
-  },
-
-  "toolbox-talks": {
-    id: "toolbox-talks",
-    title: "Toolbox Talks",
-    badge: "Continuous Safety Training",
-    icon: "groups",
-    bgImage: ukWorkersSiteImg,
-    headline: "Weekly Operative Toolbox Talks",
-    description: "Structured weekly refresher sessions covering specific operational hazards—such as underground cable avoidance, manual handling, noise control, and heat stress.",
-    overviewP1: "Toolbox Talks are short, interactive 15-minute safety presentations delivered on site. They refresh operatives' knowledge on critical safety topics and address recent industry safety trends.",
-    overviewP2: "Topics rotate weekly, covering excavator safety, silica dust suppression, trench shoring, CAT & Genny refresher courses, and mental health awareness.",
-    pillars: [
-      { id: "01", title: "15-Minute Interactive Weekly Topics", icon: "timer", desc: "Focused, digestible presentations covering essential field safety skills directly on site." },
-      { id: "02", title: "Real-World Case Studies", icon: "menu_book", desc: "Analyzing real industry incidents to highlight practical hazard prevention techniques." },
-      { id: "03", title: "Operative Knowledge Checks", icon: "quiz", desc: "Engaging operatives in Q&A discussions to confirm topic comprehension." },
-      { id: "04", title: "EUSR Continuous Professional Development", icon: "history_edu", desc: "Logging completed toolbox talks toward operative training records and card renewals." }
-    ],
-    checklist: [
-      "Weekly Scheduled Site Toolbox Talks Across All Teams",
-      "Rotating Operational Topics (Cable Avoidance, Manual Handling, Excavations)",
-      "Interactive Q&A & Practical Knowledge Verification",
-      "Formal Operative Attendance Tracking Records"
-    ]
-  },
-
-  "nrswa": {
-    id: "nrswa",
-    title: "NRSWA Compliance",
-    badge: "Street Works Regulations",
-    icon: "traffic",
-    bgImage: complianceBg,
-    headline: "New Roads and Street Works Act (NRSWA) Accreditation",
-    description: "Full compliance with NRSWA regulations for all highway excavations, traffic management setups, barrier installations, and pedestrian diversion pathways.",
-    overviewP1: "Working on public highways demands strict adherence to the New Roads and Street Works Act 1991 (NRSWA) and the Safety at Street Works and Road Works Code of Practice.",
-    overviewP2: "We guarantee that every active street works team is supervised by a certified NRSWA Supervisor and operated by accredited NRSWA Operatives holding valid Street Works cards.",
-    pillars: [
-      { id: "01", title: "Certified NRSWA Operatives & Supervisors", icon: "badge", desc: "100% card-carrying NRSWA qualified workforce managing street openings and reinstatements." },
-      { id: "02", title: "Safety Code of Practice Signage & Barriers", icon: "traffic", desc: "Compliant Chapter 8 traffic management, retro-reflective signage, safety barriers, and ramps." },
-      { id: "03", title: "Pedestrian & DDA Access Provisions", icon: "accessible", desc: "Maintaining safe, barrier-protected pedestrian walkways with ramps for wheelchair and pushchair accessibility." },
-      { id: "04", title: "SROH Reinstatement Execution", icon: "layers", desc: "Compaction testing, material layering, and hot bituminous reinstatement in full accordance with SROH." }
-    ],
-    checklist: [
-      "100% NRSWA Qualified Supervisors & Operatives on Highway Sites",
-      "Full Chapter 8 Traffic Management & Signage Compliance",
-      "Accessible Pedestrian Ramps & DDA Standard Diversions",
-      "Rigorous SROH Highway Reinstatement Execution"
+      "PPE requirements determined strictly by risk assessment",
+      "Full alignment with client-specific site rules and standards",
+      "Task-appropriate certified protective equipment issued",
+      "Regular inspections and prompt replacement of damaged gear"
     ]
   },
 
   "training": {
     id: "training",
-    title: "Training",
+    title: "Training & Competence",
     badge: "Workforce Competency",
     icon: "school",
     bgImage: sustainabilityHeroBg,
-    headline: "Mandatory Training, EUSR & CSCS Qualifications",
-    description: "Comprehensive training verification ensuring every operative holds valid EUSR cards, CSCS accreditation, NRSWA tickets, and emergency first aid certifications.",
-    overviewP1: "A safe site starts with a highly skilled, certified workforce. Bluegrid Utilities maintains rigorous training verification procedures before deploying any worker to a project site.",
-    overviewP2: "We partner with accredited training providers to offer continuous skill development, card renewals, and specialized certifications in water hygiene, cable avoidance, and plant operation.",
+    headline: "Matching Qualifications to Work Activity",
+    description: "Training and card requirements must match the work activity. Maintain a competence matrix and expiry tracking for role-relevant qualifications.",
+    overviewP1: "Training and qualification card requirements must match the specific work activity undertaken.",
+    overviewP2: "Bluegrid maintains a structured competence matrix and automated expiry tracking for role-relevant qualifications.",
     pillars: [
-      { id: "01", title: "EUSR National Water Hygiene Cards", icon: "card_membership", desc: "Mandatory accreditation for operatives working on clean water mains and metering infrastructure." },
-      { id: "02", title: "CSCS Construction Skills Certification", icon: "badge", desc: "Universal CSCS card verification confirming basic health and safety awareness for all site staff." },
-      { id: "03", title: "CAT & Genny Operator Certification", icon: "radar", desc: "Specialist training in underground utility detection equipment to eliminate cable strikes." },
-      { id: "04", title: "First Aid & Mental Health First Aiders", icon: "health_and_safety", desc: "Investing in certified site first aiders and trained mental health champions for holistic worker well-being." }
+      { id: "01", title: "Role-Relevant Tickets", icon: "card_membership", desc: "Ensuring operatives hold valid cards matching their exact work activity (EUSR, NRSWA, CSCS)." },
+      { id: "02", title: "Competence Matrix", icon: "grid_view", desc: "Maintaining an audited competence matrix for all field personnel." },
+      { id: "03", title: "Expiry Tracking", icon: "schedule", desc: "Tracking qualification card expiry dates to ensure timely refresher training." },
+      { id: "04", title: "Verified Skills", icon: "verified_user", desc: "Verifying operative competence before deployment to active contract sites." }
     ],
     checklist: [
-      "100% Verified EUSR & CSCS Qualifications Before Deployment",
-      "Certified CAT & Genny Cable Avoidance Operators",
-      "Regular Training Card Expiry Tracking & Automated Renewal",
-      "On-Site First Aid & Mental Health Support Personnel"
+      "Qualifications and cards matched directly to work activities",
+      "Maintained competence matrix for all deployed personnel",
+      "Automated card expiry tracking and refresher scheduling",
+      "Pre-deployment verification of role-relevant tickets"
     ]
   },
 
-  "monitoring": {
-    id: "monitoring",
-    title: "Continuous Monitoring",
-    badge: "KPIs & Performance Tracking",
-    icon: "monitoring",
-    bgImage: utilityGridImg,
-    headline: "Real-time Safety KPI Monitoring & Reporting",
-    description: "Continuous monitoring of key safety metrics including Lost Time Incident Frequency (LTIFR), audit pass rates, and training compliance across all active projects.",
-    overviewP1: "We believe that what gets measured gets managed. Bluegrid Utilities tracks safety data continuously using digital dashboards to identify trends, benchmark performance, and eliminate systemic risks.",
-    overviewP2: "Senior leadership reviews monthly safety scorecards, evaluating near-miss reporting volume, site audit grades, vehicle telemetry safety scores, and training compliance metrics.",
+  "environmental-protection": {
+    id: "environmental-protection",
+    title: "Environmental Protection",
+    badge: "Environmental Controls",
+    icon: "eco",
+    bgImage: environmentalPolicyBg,
+    headline: "Environmental Risk Controls & Responsible Delivery",
+    description: "Controls should address waste, spills, water protection, dust, noise, idling, material use, public nuisance and responsible disposal.",
+    overviewP1: "Environmental controls are integrated into work planning to protect local habitats and communities.",
+    overviewP2: "Practices address waste management, spill prevention, noise and dust suppression, and responsible disposal.",
     pillars: [
-      { id: "01", title: "Lost Time Incident Frequency Rate (LTIFR)", icon: "speed", desc: "Tracking zero-harm milestones and measuring accident frequency rates against national industry benchmarks." },
-      { id: "02", title: "Vehicle Telemetry & Driver Safety Monitoring", icon: "directions_car", desc: "GPS telemetry tracking speed, harsh braking, and driver behavior across our utility vehicle fleet." },
-      { id: "03", title: "Real-time Safety KPI Dashboards", icon: "dashboard", desc: "Executive level reporting displaying audit pass rates, open corrective actions, and hazard trends." },
-      { id: "04", title: "Continuous Improvement Action Plans", icon: "trending_up", desc: "Translating data insights into immediate policy updates, toolbox talk topics, and field retraining." }
+      { id: "01", title: "Spill & Water Protection", icon: "water_drop", desc: "Maintaining spill kits and silt controls to protect watercourses and drains." },
+      { id: "02", title: "Waste & Material Controls", icon: "recycling", desc: "Managing excavated material, waste segregation, and responsible disposal." },
+      { id: "03", title: "Dust, Noise & Idling", icon: "volume_off", desc: "Suppressing dust, controlling noise levels, and reducing vehicle engine idling." },
+      { id: "04", title: "Nuisance Prevention", icon: "nature_people", desc: "Minimizing public nuisance and protecting local community environments." }
     ],
     checklist: [
-      "Real-time Digital Safety KPI Executive Dashboard",
-      "Zero Lost Time Injury Target (LTIFR Tracking)",
-      "Utility Fleet GPS Telemetry & Safe Driving Scoring",
-      "Monthly Senior Executive Safety Review Meetings"
+      "Spill kits and watercourse protection measures on site",
+      "Responsible waste segregation and disposal arrangements",
+      "Dust suppression, noise control, and anti-idling practices",
+      "Measures to prevent public nuisance during utility works"
+    ]
+  },
+
+  "quality-assurance": {
+    id: "quality-assurance",
+    title: "Quality Assurance",
+    badge: "Quality Standards",
+    icon: "verified",
+    bgImage: utilityGridImg,
+    headline: "Task Standards & Supervisory Quality Control",
+    description: "Quality controls should include task standards, evidence requirements, supervisory checks, non-conformance management, defect correction and client feedback.",
+    overviewP1: "Quality controls ensure utility works are completed to specification and client standards.",
+    overviewP2: "Work is verified through supervisory checks, photographic evidence, and proactive non-conformance management.",
+    pillars: [
+      { id: "01", title: "Task Standards", icon: "workspace_premium", desc: "Defining clear workmanship standards and technical task specifications." },
+      { id: "02", title: "Evidence Requirements", icon: "photo_camera", desc: "Capturing photographic and digital evidence at key work stages." },
+      { id: "03", title: "Supervisory Checks", icon: "fact_check", desc: "Conducting regular supervisory checks before job sign-off." },
+      { id: "04", title: "Defect Correction", icon: "thumb_up", desc: "Managing non-conformances promptly and incorporating client feedback." }
+    ],
+    checklist: [
+      "Clear task standards and technical specifications",
+      "Photographic evidence capture for installation records",
+      "Supervisory quality checks prior to project handover",
+      "Proactive non-conformance tracking and defect resolution"
     ]
   },
 
   "behavioural-safety": {
     id: "behavioural-safety",
     title: "Behavioural Safety",
-    badge: "Culture of Care",
+    badge: "Safety Decision-Making",
     icon: "psychology",
     bgImage: sustainabilityBannerImg,
-    headline: "Behavioural Safety Culture & Positive Interventions",
-    description: "Fostering a proactive safety culture where every operative has full authority to stop unsafe work ('Stop Work Authority') and actively protect their team members.",
-    overviewP1: "True safety excellence goes beyond rules and compliance paperwork—it is rooted in human behavior, open communication, and mutual care.",
-    overviewP2: "Our Behavioural Safety program focuses on positive reinforcement, peer-to-peer coaching, and breaking down traditional barriers so workers feel confident speaking up.",
+    headline: "Safe Decision-Making & Constructive Challenge",
+    description: "Supervisors should reinforce safe decision-making, constructive challenge and learning from observations. Avoid promising formal behavioural-safety programmes unless implemented.",
+    overviewP1: "Supervisors reinforce safe decision-making, constructive challenge and continuous learning from observations.",
+    overviewP2: "Open communication encourages workers to speak up and address potential safety issues constructively.",
     pillars: [
-      { id: "01", title: "Unconditional Stop Work Authority", icon: "do_not_distribute", desc: "Every worker has the right and responsibility to halt any job if they feel safety is compromised." },
-      { id: "02", title: "Peer-to-Peer Safety Coaching", icon: "supervisor_account", desc: "Encouraging team members to watch out for each other and gently correct unsafe habits in real time." },
-      { id: "03", title: "Positive Safety Reinforcement", icon: "star", desc: "Recognizing and rewarding workers who consistently demonstrate exemplary safety behaviors." },
-      { id: "04", title: "Open Door Safety Dialogue", icon: "forum", desc: "Direct channels between field teams and safety managers to suggest equipment or workflow improvements." }
+      { id: "01", title: "Safe Decision-Making", icon: "do_not_distribute", desc: "Supporting workers in making safe decisions during daily field activities." },
+      { id: "02", title: "Constructive Challenge", icon: "supervisor_account", desc: "Encouraging constructive challenge whenever unsafe practices are noted." },
+      { id: "03", title: "Learning from Observations", icon: "lightbulb", desc: "Using day-to-day site observations as practical learning opportunities." },
+      { id: "04", title: "Supervisory Leadership", icon: "forum", desc: "Supervisors actively modeling safety-focused behaviors on site." }
     ],
     checklist: [
-      "100% Management Support for Worker Stop Work Authority",
-      "Peer-to-Peer Safety Coaching & Intervention Training",
-      "Monthly Safety Champion Recognition & Rewards",
-      "Transparent Operative-to-Management Communication Channels"
+      "Supervisory reinforcement of safe decision-making",
+      "Culture encouraging constructive challenge on site",
+      "Practical learning drawn from site safety observations",
+      "Open channels for operative-to-supervisor safety discussions"
+    ]
+  },
+
+  "monitoring": {
+    id: "monitoring",
+    title: "Performance Reporting",
+    badge: "Safety-Led Delivery",
+    icon: "monitoring",
+    bgImage: utilityGridImg,
+    headline: "Safety-Led Delivery & Verified Metrics",
+    description: "Publish only verified H&S metrics with a defined period and methodology. Until a meaningful dataset exists, use qualitative wording such as 'Safety-led delivery' rather than unverified LTIFR or zero-harm statistics.",
+    overviewP1: "Bluegrid Utilities operates a safety-led delivery model focused on practical controls and supervisory oversight.",
+    overviewP2: "We publish only verified metrics backed by documented reporting periods and clear methodologies.",
+    pillars: [
+      { id: "01", title: "Safety-Led Delivery", icon: "speed", desc: "Focusing operational effort on safety-led planning and risk management." },
+      { id: "02", title: "Verified Data Focus", icon: "verified", desc: "Publishing metrics only when backed by verified reporting periods." },
+      { id: "03", title: "Supervisory Monitoring", icon: "dashboard", desc: "Conducting regular supervisory monitoring of safety compliance." },
+      { id: "04", title: "Continuous Improvement", icon: "trending_up", desc: "Applying review findings to improve field safety arrangements continuously." }
+    ],
+    checklist: [
+      "Safety-led delivery approach across all operational projects",
+      "H&S metrics published only with verified periods and methods",
+      "Regular supervisory monitoring of site compliance",
+      "Continuous improvement driven by operational review findings"
     ]
   }
 };
@@ -449,7 +425,7 @@ const HealthSafetyCompliance = () => {
               </div>
               <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
                 <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Target</p>
-                <p className="text-xs md:text-sm font-bold text-emerald-400">Zero Harm Operations</p>
+                <p className="text-xs md:text-sm font-bold text-emerald-400">Safety-Led Delivery</p>
               </div>
               <div className="col-span-2 sm:col-span-1 bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
                 <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Accreditation</p>

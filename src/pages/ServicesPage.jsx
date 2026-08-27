@@ -3,12 +3,12 @@ import { useSearchParams, Link } from 'react-router-dom';
 import MotionSection from '../components/MotionSection';
 import PartnerLogos from '../components/PartnerLogos';
 import imgWaterMeter from '../assets/images/Sectors/watermeter2.jpeg';
-import imgCivil from '../assets/images/infrastructure.jpeg';
+import imgCivil from '../assets/images/civil_engineering_excavation.jpg';
 import imgReinstatement from '../assets/images/projectcordination.jpeg';
-import imgSurveying from '../assets/images/combliance.jpeg';
-import imgTraffic from '../assets/images/Telecoms and field operations support.jfif';
+import imgSurveying from '../assets/images/utility_surveying_detection.jpg';
+import imgTraffic from '../assets/images/traffic_management_support.jpg';
 import imgEmergency from '../assets/images/Training coordination and deployment planning.jpg';
-import imgInfra from '../assets/images/Sectors/Infrastructure Support.jpg';
+import imgInfra from '../assets/images/field_delivery_support.jpg';
 
 // Additional Image Imports for Smart Water Meter Banners
 import imgWaterWorkers from '../assets/images/uk_utility_workers_site.png';
@@ -369,50 +369,50 @@ const servicesData = [
   {
     num: "01",
     slug: "water-meter-installation",
-    title: "Water Meter Installation",
+    title: "Smart Water Meter Installation",
     icon: "water_drop",
-    desc: "We assist with workforce planning, scheduling, field coordination, and operational support for smart meter and water meter installation projects across the UK.",
+    desc: "Bluegrid supports smart water metering programmes through structured field mobilisation, trained installation teams and quality-controlled work processes. Delivery can include replacement and installation activity, chamber access, commissioning checks, evidence capture and customer-facing conduct, subject to the specific client scope.",
     img: imgWaterMeter,
     details: {
-      headline: "Comprehensive field force coordination for clean water & smart metering rollouts.",
-      overview: "Our water meter installation division coordinates field operatives, scheduling logistics, and customer appointments across six core operational phases: professional installation, meter replacement, new connections, commissioning, testing, and customer education.",
+      headline: "Structured field mobilisation & quality-controlled smart water meter installations.",
+      overview: "Bluegrid supports smart water metering programmes through structured field mobilisation, trained installation teams and quality-controlled work processes. Delivery can include replacement and installation activity, chamber access, commissioning checks, evidence capture and customer-facing conduct, subject to the specific client scope.",
       keyAreas: [
-        "Professional installation — EUSR-certified field operative deployment & meter installation",
-        "Meter replacement — Swapping legacy mechanical meters with next-gen AMR/AMI smart devices",
-        "New connections — End-to-end residential, commercial & new-build utility supply connections",
-        "Commissioning — Digital setup, telemetry signal validation & network authority integration",
-        "Testing — Flow rate benchmarking, pressure validation & leak detection checks",
-        "Customer education — Clear on-site operative guidance on usage, leak alerts & conservation"
+        "Meter installation and replacement",
+        "Meter chamber access and preparation",
+        "Commissioning and functional checks",
+        "Installation evidence and photographic records",
+        "Customer communication in line with programme requirements",
+        "Defect / revisit management where included in scope"
       ],
       benefits: [
-        "Dedicated utility coordinators who understand the clean water sector",
-        "Maximum daily operative utilisation through scheduling checks",
-        "Reliable record-keeping and audit trails for compliance reporting"
+        "Structured field mobilisation across clean water programmes",
+        "Trained, accredited operatives ensuring safe customer-side working",
+        "Photographic evidence capture and quality-controlled sign-offs"
       ]
     }
   },
   {
     num: "02",
     slug: "civil-engineering",
-    title: "Civil Engineering",
+    title: "Civil Engineering & Excavation",
     icon: "engineering",
-    desc: "Our civil engineering infrastructure support includes excavation, pipe exposure, utility chambers, concrete works, surface preparation, and groundworks with full 'construct only' or 'design and construct' capabilities.",
+    desc: "Our civil-engineering support is designed around safe utility access and enabling works. Bluegrid can mobilise field teams for excavation, chamber works, surface preparation and associated groundworks where appropriately trained, authorised and supervised.",
     img: imgCivil,
     details: {
-      headline: "Vetted civil engineering teams & infrastructure groundwork support.",
-      overview: "We deliver civil engineering and site support for utility network development, specializing in excavation, pipe exposure, utility chambers, structural concrete works, surface preparation, and foundational groundworks.",
+      headline: "Safe utility access, enabling works, and civil engineering field support.",
+      overview: "Our civil-engineering support is designed around safe utility access and enabling works. Bluegrid can mobilise field teams for excavation, chamber works, surface preparation and associated groundworks where appropriately trained, authorised and supervised.",
       keyAreas: [
-        "Excavation — Safe trenching, deep excavation & HSG47 service avoidance",
-        "Pipe exposure — Non-destructive vacuum & careful hand exposure of utility mains",
-        "Utility chambers — Modular precast & brickwork chamber, valve vault & pit construction",
-        "Concrete works — Structural concrete pouring, base slabs & pipe thrust block installation",
-        "Surface preparation — Diamond saw-cutting, MOT Type 1 sub-base compaction & site levelling",
-        "Groundworks — Site enabling, trenching, drainage installation & geotextile membrane fitting"
+        "Utility excavation",
+        "Pipe / asset exposure",
+        "Chamber works",
+        "Groundworks",
+        "Concrete and surface preparation",
+        "Backfill and preparation for reinstatement"
       ],
       benefits: [
-        "Fast turnaround in scaling qualified civil engineering personnel",
-        "Strict verification of necessary security and sector certifications",
-        "Seamless reporting between site management and coordinators"
+        "Safe utility access planned strictly around HSG47 guidelines",
+        "Supervised field teams trained for asset exposure and chamber works",
+        "Quality backfill preparation ensuring long-term reinstatement integrity"
       ]
     }
   },
@@ -421,47 +421,48 @@ const servicesData = [
     slug: "reinstatement",
     title: "Reinstatement",
     icon: "construction",
-    desc: "High-standard surface reinstatement for footpaths, highways, block paving, concrete, tarmac, and landscaping following utility excavations.",
+    desc: "Bluegrid supports reinstatement activities following utility works, with delivery planned to project specifications and relevant street-works requirements.",
     img: imgReinstatement,
     details: {
-      headline: "NRSWA-compliant surface reinstatement & defect-free site handovers.",
-      overview: "Our reinstatement division specializes in backfilling and restoring footpaths, highways, block paving, rigid concrete, tarmac macadam, and soft estate landscaping following utility excavations, ensuring full HAUC compliance.",
+      headline: "Quality-focused surface reinstatement aligned to street-works standards.",
+      overview: "Bluegrid supports reinstatement activities following utility works, with delivery planned to project specifications and relevant street-works requirements across footway, highway, and modular surfaces.",
       keyAreas: [
-        "Footpaths — Pedestrian footway restoration, kerbing & NRSWA compliance",
-        "Highways — Hot rolled asphalt, macadam laying & carriageway resurfacing",
-        "Block paving — Interlocking block paving matching, sub-base & jointing",
-        "Concrete — Rigid pavement, slab reinstatement & joint sealing",
-        "Tarmac — Dense bituminous macadam & joint bitumen sealing",
-        "Landscaping — Soft estate restoration, topsoil replacement & verge turfed handovers"
+        "Footway reinstatement",
+        "Asphalt / tarmac surfaces",
+        "Block paving",
+        "Concrete",
+        "Kerbs and edgings where in scope",
+        "Final clean and defect correction"
       ],
       benefits: [
-        "Zero-defect handovers preventing section 74 overrun charges",
-        "Rapid response teams for emergency reinstatement tasks",
-        "Comprehensive photo evidence logging for audit peace of mind"
+        "Delivery planned to exact project specifications",
+        "Street-works compliance across footways and highways",
+        "Final site cleaning and snag-free defect resolution"
       ]
     }
   },
   {
     num: "04",
     slug: "utility-surveying",
-    title: "Utility Surveying",
+    title: "Utility Surveying & Detection",
     icon: "radar",
-    desc: "Underground utility mapping, site surveys, utility locating, asset recording, risk assessments, and project planning prior to excavation works.",
+    desc: "Where included in project scope and delivered by competent personnel, Bluegrid can support pre-work surveys, asset identification and utility-location activities to improve safe planning and reduce strike risk.",
     img: imgSurveying,
     details: {
-      headline: "Precision underground utility mapping & pre-excavation risk mitigation.",
-      overview: "We execute non-intrusive utility surveys using state-of-the-art Ground Penetrating Radar and electromagnetic location tools, providing comprehensive site surveys, utility locating, digital asset recording, risk assessments, and project planning.",
+      headline: "Pre-work surveys, asset identification, and utility-location support.",
+      overview: "Where included in project scope and delivered by competent personnel, Bluegrid can support pre-work surveys, asset identification and utility-location activities to improve safe planning and reduce strike risk.",
       keyAreas: [
-        "Site surveys — Topographical & underground site intelligence audits",
-        "Utility locating — Ground Penetrating Radar (GPR) & CAT & Genny scanning",
-        "Asset recording — PAS 128 digital mapping & CAD utility asset logging",
-        "Risk assessments — Utility strike prevention, RAMS & site safety checks",
-        "Project planning — Pre-construction route planning & trenching feasibility"
+        "Site walkovers",
+        "Utility plan review",
+        "CAT & Genny detection by trained personnel",
+        "Asset and chamber recording",
+        "Photographic surveys",
+        "Pre-start information collection"
       ],
       benefits: [
-        "Drastically reduced risk of underground service strikes",
-        "Accurate pre-construction site intelligence for project managers",
-        "PAS 128 compliant survey reports for council approvals"
+        "Improved safe planning reducing underground utility strike risks",
+        "CAT & Genny detection by trained, competent field personnel",
+        "Comprehensive pre-start photographic and asset records"
       ]
     }
   },
@@ -470,69 +471,71 @@ const servicesData = [
     slug: "traffic-management",
     title: "Traffic Management Support",
     icon: "traffic",
-    desc: "Temporary traffic control setups, pedestrian management, barrier systems, road safety, site signage, and NRSWA streetworks compliance.",
+    desc: "Bluegrid can coordinate or support temporary traffic and pedestrian-management requirements through appropriately competent personnel and approved traffic-management arrangements.",
     img: imgTraffic,
     details: {
-      headline: "Turnkey temporary traffic management & NRSWA streetworks compliance.",
-      overview: "We design, install, and maintain temporary traffic management solutions across urban and rural UK roads, covering temporary traffic management, pedestrian management, barrier systems, road safety, and Chapter 8 site signage.",
+      headline: "Coordinated temporary traffic and pedestrian-management support.",
+      overview: "Bluegrid can coordinate or support temporary traffic and pedestrian-management requirements through appropriately competent personnel and approved traffic-management arrangements.",
       keyAreas: [
-        "Temporary traffic management — 2-way & multi-way temporary traffic light setups",
-        "Pedestrian management — Walkway diversions, safety ramps & barrier protection",
-        "Barrier systems — Chapter 8 fencing, road cones & workzone enclosures",
-        "Road safety — Speed restriction management & NRSWA site safety compliance",
-        "Site signage — CAD traffic scheme signage, warning boards & directional signs"
+        "Site barriers and pedestrian segregation",
+        "Signing and guarding support",
+        "Pedestrian route management",
+        "Coordination with approved TM providers",
+        "Daily condition checks"
       ],
       benefits: [
-        "Guaranteed NRSWA compliance reducing council fines",
-        "Smooth traffic flow minimizing public inconvenience",
-        "Complete safety barrier protection for utility workzones"
+        "Safe pedestrian segregation and workzone guarding support",
+        "Seamless coordination with approved traffic management providers",
+        "Daily condition checks maintaining site safety standards"
       ]
     }
   },
   {
     num: "06",
     slug: "emergency-utility-response",
-    title: "Emergency Utility Response",
+    title: "Reactive Utility Support",
     icon: "warning",
-    desc: "24/7 rapid response field operative dispatch, emergency attendance, leak support, emergency excavation, and infrastructure protection.",
+    desc: "Bluegrid provides reactive field support for utility works, delivering rapid response attendance, leak support, reactive excavation, and infrastructure protection.",
     img: imgEmergency,
     details: {
-      headline: "24/7 rapid deployment field teams for emergency utility incidents.",
-      overview: "Our emergency response division provides 24-hour on-call support for urgent utility incidents, delivering rapid emergency attendance, leak support, emergency excavation, and immediate infrastructure protection within strict SLAs.",
+      headline: "Reactive field support for utility infrastructure programmes.",
+      overview: "Bluegrid provides reactive field support for utility works, delivering rapid response attendance, leak support, reactive excavation, and infrastructure protection.",
       keyAreas: [
-        "Emergency attendance — 24/7 rapid response dispatch within strict SLAs",
-        "Leak support — Burst water main containment, isolation & dewatering support",
-        "Emergency excavation — Urgent hazard uncovering & pipe repair access",
-        "Infrastructure protection — Environmental containment & public safety securing"
+        "Rapid response attendance",
+        "Burst main & leak support",
+        "Reactive excavation & asset exposure",
+        "Infrastructure protection & hazard containment"
       ],
       benefits: [
-        "Rapid on-site arrival times across key UK operational hubs",
-        "Fully certified emergency operatives with active safety cards",
-        "Immediate hazard containment protecting public infrastructure"
+        "Responsive field teams supporting reactive utility needs",
+        "Qualified operatives for asset protection and excavation",
+        "Close coordination with client operational management"
       ]
     }
   },
   {
     num: "07",
     slug: "infrastructure-support",
-    title: "Infrastructure Support",
+    title: "Infrastructure & Field Delivery Support",
     icon: "foundation",
-    desc: "Multi-utility project mobilisation, labour supply, site supervision, project coordination, and operational support for major Tier-1 contractors.",
+    desc: "Flexible operational support for utility programmes, from initial mobilisation through steady-state delivery.",
     img: imgInfra,
     details: {
-      headline: "Integrated multi-utility support logistics & workforce resourcing.",
-      overview: "We provide operational support and labor coordination for utility infrastructure development across project mobilisation, accredited labour supply, site supervision, project coordination, and operational support for Tier-1 contractors.",
+      headline: "Flexible operational support from initial mobilisation through steady-state delivery.",
+      overview: "Flexible operational support for utility programmes, from initial mobilisation through steady-state delivery.",
       keyAreas: [
-        "Project mobilisation — Site welfare setup, plant logistics & initial deployment",
-        "Labour supply — Vetted EUSR, CSCS, and SHEA accredited operative resourcing",
-        "Site supervision — Experienced site supervisors & NRSWA qualified agents",
-        "Project coordination — Client reporting, scheduling & multi-utility liaison",
-        "Operational support — Back-office logistics & operational delivery assistance"
+        "Project mobilisation",
+        "Workforce onboarding",
+        "Field supervision",
+        "Project coordination",
+        "Daily operational reporting",
+        "Equipment and PPE coordination",
+        "Client / supply-chain reporting"
       ],
       benefits: [
-        "Scalable workforce deployment tailored to project phases",
-        "Comprehensive compliance auditing protecting contractor liability",
-        "Single point of contact for multi-utility project coordination"
+        "Structured workforce onboarding and compliance verification",
+        "Field supervision ensuring quality standards on site",
+        "Transparent daily operational and client reporting"
       ]
     }
   }
@@ -863,7 +866,7 @@ const ServicesPage = () => {
             Our Services
           </h1>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium mt-4">
-            Bluegrid Utilities delivers reliable infrastructure support, clean water metering, civil engineering, and specialized field force management across the UK.
+            Bluegrid Utilities provides field-delivery and infrastructure-support services for utility programmes, with a particular focus on smart water metering, civils, reinstatement and operational mobilisation.
           </p>
         </div>
 

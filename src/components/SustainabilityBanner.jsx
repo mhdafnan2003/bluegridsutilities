@@ -15,7 +15,7 @@ const SustainabilityBanner = () => {
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
             loading="lazy"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#0f3a5e]/50 hidden lg:block" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-slate-950/40 hidden lg:block" />
         </div>
 
         {/* Right: Text Banner (BlueGrids Corporate Navy Style) */}
@@ -29,10 +29,10 @@ const SustainabilityBanner = () => {
               Innovation in Sustainable Working
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 leading-tight font-outfit">
-              We invest in the <span className="text-[#60a5fa]">latest machinery</span> and the local workforce
+              Investing in Efficient Delivery and Local Skills
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-8 font-medium">
-              We work with our customers to ensure we deliver services in the most efficient and least disruptive way, whilst providing local job opportunities through direct recruitment and utilising local supply chains.
+              We aim to reduce waste, improve resource efficiency and create opportunities for local people through responsible mobilisation, training and supply-chain collaboration.
             </p>
             <Link 
               to="/sustainability" 

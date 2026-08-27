@@ -25,147 +25,28 @@ const InstagramIcon = () => (
 const departmentTeams = [
   {
     id: "directors",
-    name: "Directors",
-    badge: "Executive Directors",
+    name: "Statutory Directors & Operational Leadership",
+    badge: "Leadership & Management",
     members: [
       {
         name: "Selbert George",
-        role: "Managing Director",
-        desc: "Selbert George is the Managing Director of Bluegrid Utilities, leading operational development, workforce coordination, infrastructure deployment, and project delivery across utility operations within the UK.\nHe holds a Master's degree in International Business Management from Griffith College Dublin, Ireland, and has experience in operational management, workforce coordination, and infrastructure project support.\nHis focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure support services.",
+        role: "Managing Director (Statutory Director)",
+        desc: "Selbert George is the Managing Director of Bluegrid Utilities and an active statutory director of Bluegrid Technology Ltd (Companies House PE1 5DD).\nHe holds a Master's degree in International Business Management from Griffith College Dublin, Ireland, with extensive experience in operational management, workforce coordination, and utility infrastructure support.\nHis focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure delivery services.",
         img: selbertImg,
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
         name: "Gautham Raj",
         role: "Project Manager & Head of Operations",
-        desc: "Responsible for high-level operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects across the UK water and utility sectors.",
+        desc: "Gautham Raj serves as Project Manager & Head of Operations at Bluegrid Utilities, leading operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects across UK utility sectors.\nHe ensures strict adherence to project timelines, site safety standards, client specifications, and seamless field team coordination.",
         img: gauthamImg,
         social: { linkedin: "#", facebook: "#", instagram: "#" }
-      }
-    ]
-  },
-  {
-    id: "operations",
-    name: "Operations",
-    badge: "Operations Team",
-    members: [
-      {
-        name: "Alexander Wright",
-        role: "Head of Operations",
-        desc: "Overseeing field force dispatch, regional logistics coordination, operative scheduling, and operational delivery across utility programmes.",
-        img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
       },
       {
-        name: "Sarah Jenkins",
-        role: "Operations Dispatch Manager",
-        desc: "Managing day-to-day field operative routing, vehicle fleet logistics, emergency response dispatch, and SLA fulfillment.",
-        img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      }
-    ]
-  },
-  {
-    id: "commercial",
-    name: "Commercial",
-    badge: "Commercial Team",
-    members: [
-      {
-        name: "David Miller",
-        role: "Commercial Director",
-        desc: "Leading contract negotiations, commercial valuations, client cost engineering, and risk management for UK utility contracts.",
-        img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      },
-      {
-        name: "Emma Thompson",
-        role: "Senior Estimator & Procurement Lead",
-        desc: "Managing tendering processes, subcontractor agreements, plant procurement, and commercial compliance.",
-        img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      }
-    ]
-  },
-  {
-    id: "project-delivery",
-    name: "Project Delivery",
-    badge: "Project Delivery Team",
-    members: [
-      {
-        name: "James Harrison",
-        role: "Project Delivery Manager",
-        desc: "Supervising clean water meter installation rollouts, excavation quality control, surface reinstatement, and zero-defect site handovers.",
+        name: "Syed Zulqurnain",
+        role: "Statutory Director",
+        desc: "Syed Zulqurnain is an active statutory director of Bluegrid Technology Ltd (trading as Bluegrid Utilities) listed on Companies House UK.\nHe supports corporate governance, statutory compliance, financial oversight, and strategic business development across the organization.",
         img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      },
-      {
-        name: "Claire Roberts",
-        role: "Site Operations Supervisor",
-        desc: "Coordinating field teams, managing NRSWA streetworks compliance, site safety barriers, and local council permits.",
-        img: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      }
-    ]
-  },
-  {
-    id: "health-safety",
-    name: "Health & Safety",
-    badge: "Health & Safety Team",
-    members: [
-      {
-        name: "Michael Bennett",
-        role: "HSE Compliance Manager",
-        desc: "Enforcing zero-harm policies, auditing RAMS documentation, conducting site safety inspections, and verifying CSCS/EUSR credentials.",
-        img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      },
-      {
-        name: "Lisa Morgan",
-        role: "Environmental & Safety Auditor",
-        desc: "Managing environmental compliance, carbon reduction initiatives, site waste management, and safety toolbox talk registers.",
-        img: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      }
-    ]
-  },
-  {
-    id: "recruitment",
-    name: "Recruitment",
-    badge: "Recruitment & Onboarding",
-    members: [
-      {
-        name: "Robert Taylor",
-        role: "Head of Resourcing",
-        desc: "Managing workforce resourcing, Right-to-Work verification, candidate screening, and operative deployment across UK sites.",
-        img: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      },
-      {
-        name: "Hannah Walker",
-        role: "Compliance & Onboarding Specialist",
-        desc: "Verifying EUSR status, CSCS cards, training qualifications, and coordinating operative onboarding inductions.",
-        img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      }
-    ]
-  },
-  {
-    id: "administration",
-    name: "Administration",
-    badge: "Administration Team",
-    members: [
-      {
-        name: "Sophia Chen",
-        role: "Business Administration Lead",
-        desc: "Managing back-office operations, client documentation archives, executive scheduling, and administrative logistics.",
-        img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600",
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      },
-      {
-        name: "Oliver Scott",
-        role: "Client Reporting & Appointment Coordinator",
-        desc: "Coordinating customer appointment bookings, updating real-time client dashboards, and handling resident communications.",
-        img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&q=80&w=600",
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       }
     ]

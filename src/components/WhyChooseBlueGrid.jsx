@@ -7,32 +7,32 @@ const features = [
   {
     icon: "health_and_safety",
     title: "Safety First",
-    desc: "Uncompromising H&S standards, site inductions, and compliance audits for every site deployment."
+    desc: "Safety is embedded in planning, mobilisation and field delivery."
   },
   {
     icon: "badge",
     title: "Qualified Workforce",
-    desc: "Rigorously screened operatives validated with CSCS, EUSR, and NRSWA industry credentials."
+    desc: "Role-relevant competence, onboarding and verification before deployment."
   },
   {
     icon: "schedule_send",
     title: "Reliable Delivery",
-    desc: "Rapid deployment response capability and consistent execution on essential utility contracts."
+    desc: "Structured coordination, supervision and reporting throughout project delivery."
   },
   {
     icon: "support_agent",
     title: "Responsive Support",
-    desc: "Dedicated field supervisor coordination and real-time operational progress reporting."
+    desc: "Clear communication between field teams, project management and clients."
   },
   {
     icon: "workspace_premium",
     title: "Quality Assured",
-    desc: "End-to-end quality assurance aligned with tier-1 principal contractor specifications."
+    desc: "Inspection, photographic evidence and corrective action processes aligned to project requirements."
   },
   {
-    icon: "travel_explore",
-    title: "Nationwide Capability",
-    desc: "Extensive UK-wide coverage supporting major water, energy, and telecom infrastructure projects."
+    icon: "trending_up",
+    title: "Scalable Capability",
+    desc: "Workforce and mobilisation models designed to support regional growth."
   }
 ];
 
@@ -43,7 +43,7 @@ const WhyChooseBlueGrid = () => {
       className="relative w-full overflow-hidden py-12 sm:py-16 lg:py-16 font-sans"
       id="why-choose-bluegrid"
     >
-      {/* Background Image Container with Soft Overlay */}
+      {/* Background Image Container with Neutral Overlay strictly obeying banner rule */}
       <div className="absolute inset-0 z-0">
         <img 
           src={bgImg} 
@@ -51,9 +51,9 @@ const WhyChooseBlueGrid = () => {
           className="w-full h-full object-cover object-center brightness-95"
           loading="lazy"
         />
-        {/* Soft Blue Corporate Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0f3a5e]/45 via-[#0a1e36]/30 to-[#0f3a5e]/45" />
-        <div className="absolute inset-0 bg-black/20 opacity-40" />
+        {/* Neutral Dark Overlay - strictly no blue tinting as per banner rule */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" />
+        <div className="absolute inset-0 bg-black/30 opacity-50" />
       </div>
 
       {/* Main Container */}

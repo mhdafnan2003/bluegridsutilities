@@ -15,49 +15,49 @@ import imgSatisfaction from '../../assets/images/water meter suoort bluegrids.jp
 
 import imgInfrastructure from '../../assets/images/infrastructure.jpeg';
 import imgProjectCoord from '../../assets/images/projectcordination.jpeg';
-import imgComplianceBg from '../../assets/images/combliance.jpeg';
+import imgComplianceBg from '../../assets/images/Workforce onboarding and compliance verification.jpg';
 
 const corePillars = [
   {
     id: "management",
     badge: "OPERATIONAL LEADERSHIP",
     title: "Experienced Management",
-    desc: "Decades of leadership in UK utility infrastructure, ensuring seamless project scheduling, risk mitigation, and tier-1 alignment.",
+    desc: "Operational leadership focused on mobilisation planning, field coordination, compliance, reporting and client communication.",
     bgImage: imgManagement
   },
   {
     id: "workforce",
     badge: "VERIFIED FIELD TEAMS",
     title: "Skilled Workforce",
-    desc: "Fully trained and vetted field operatives supporting clean water metering, civil works, excavation, and reinstatement.",
+    desc: "Field teams selected and deployed according to project requirements, with role-relevant onboarding, identity and right-to-work checks, training records and competence verification.",
     bgImage: imgWorkforce
   },
   {
     id: "workmanship",
     badge: "UNCOMPROMISING PRECISION",
     title: "Quality Workmanship",
-    desc: "Rigorous quality assurance with precision civil engineering, clean site reinstatement, and zero-defect site handovers.",
+    desc: "Delivery processes designed around clear task standards, inspection, photographic evidence, snag resolution and continuous improvement.",
     bgImage: imgWorkmanship
   },
   {
-    id: "public-sector",
-    badge: "TRUSTED MUNICIPAL PARTNERS",
-    title: "Public Sector Experience",
-    desc: "Collaborating with UK local authorities and water networks with StreetWorks (NRSWA) compliance and minimal community disruption.",
+    id: "supply-chain",
+    badge: "DELIVERY CHAIN PARTNERSHIP",
+    title: "Infrastructure Supply-Chain Experience",
+    desc: "Bluegrid operates within UK infrastructure delivery chains and supports programme requirements through coordinated field teams and operational management.",
     bgImage: imgPublicSector
   },
   {
     id: "compliance",
-    badge: "100% REGULATORY ASSURANCE",
+    badge: "REGULATORY ASSURANCE",
     title: "Rigorous Compliance",
-    desc: "Zero-harm safety culture with mandatory pre-deployment vetting, EUSR checks, and strict H&S policy enforcement.",
+    desc: "Compliance controls cover onboarding, RAMS acknowledgement, competency records, PPE, vehicle and equipment requirements, site briefings, documentation and incident escalation.",
     bgImage: imgCompliance
   },
   {
-    id: "satisfaction",
+    id: "relationships",
     badge: "DEDICATED PARTNER RELATIONS",
-    title: "Customer Satisfaction",
-    desc: "Customer-centric service delivery with high appointment fulfillment rates and rapid resolution across all utility contracts.",
+    title: "Client & Partner Relationships",
+    desc: "We aim to build trusted relationships through clear communication, responsive issue resolution and consistent operational performance.",
     bgImage: imgSatisfaction
   }
 ];
@@ -78,9 +78,9 @@ const AboutCompanyPage = () => {
           
           {/* Top Hero Banner Component */}
           <AboutBanner 
-            badgeText="About BlueGrid Utilities"
-            title="Company Profile & Overview"
-            description="UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector."
+            badgeText="About Bluegrid Utilities"
+            title="Company Profile"
+            description="A UK-based utility infrastructure contractor focused on safe, reliable and high-quality operational delivery."
             bgImage={heroTwoImg}
           />
 
@@ -95,7 +95,7 @@ const AboutCompanyPage = () => {
                   alt="Bluegrid Utilities Operations"
                   className="w-full h-full object-cover brightness-95"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#005f9e] text-white px-4 py-2 text-xs font-bold tracking-wider rounded-none border border-white/20 font-outfit">
                   Specialist Utility Infrastructure
                 </div>
@@ -106,13 +106,10 @@ const AboutCompanyPage = () => {
                   Who We Are
                 </h2>
                 <p className="text-slate-700 text-base sm:text-lg font-semibold leading-relaxed">
-                  Bluegrid Utilities is a UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector.
+                  Bluegrid Utilities is a UK utility infrastructure delivery business supporting water and wider infrastructure programmes through field operations, project mobilisation, civil engineering support and workforce coordination. We combine hands-on operational leadership with structured compliance, training and project-control processes.
                 </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Our specialist teams support utility providers, principal contractors and infrastructure partners through the delivery of smart water metering, excavation, reinstatement and associated civil engineering works.
-                </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  With experienced management, qualified field teams and a commitment to operational excellence, Bluegrid Utilities aims to become one of the UK’s most trusted utility infrastructure delivery partners.
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                  Our approach is built around safe mobilisation, clear accountability and dependable execution. We work within established supply chains and aim to build long-term relationships with infrastructure partners who value responsive delivery, quality workmanship and transparent communication.
                 </p>
               </div>
             </div>
@@ -128,18 +125,18 @@ const AboutCompanyPage = () => {
                       Official Details
                     </span>
                     <h3 className="text-2xl font-bold tracking-tight text-white font-outfit">
-                      Company Profile
+                      Official Company Details
                     </h3>
                   </div>
 
                   <div className="space-y-4 text-sm">
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Company Name</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Trading Name</p>
                       <p className="text-base font-bold text-white">Bluegrid Utilities</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Trading Name of</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Legal Entity</p>
                       <p className="text-base font-bold text-white">Bluegrid Technology Ltd</p>
                     </div>
 
@@ -151,11 +148,15 @@ const AboutCompanyPage = () => {
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Registered Office</p>
                       <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
-                        Stuart House<br />
-                        St Johns Street<br />
-                        Peterborough<br />
-                        England, PE1 5DD
+                        Stuart House, St. Johns Street<br />
+                        Peterborough, PE1 5DD<br />
+                        United Kingdom
                       </address>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-4 rounded-none">
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Company Status</p>
+                      <p className="text-base font-bold text-emerald-400">Active</p>
                     </div>
                   </div>
                 </div>
@@ -163,9 +164,9 @@ const AboutCompanyPage = () => {
                 <div className="mt-8 pt-4 border-t border-white/15 relative z-10 flex items-center justify-between text-xs font-bold text-slate-300 font-outfit">
                   <span className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-none bg-[#0066ff]" />
-                    Registered in England & Wales
+                    Registered in United Kingdom
                   </span>
-                  <span className="text-[#60a5fa]">UK Utility Contractor</span>
+                  <span className="text-[#60a5fa]">Active Status</span>
                 </div>
               </div>
             </div>

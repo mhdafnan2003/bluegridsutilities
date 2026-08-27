@@ -160,7 +160,7 @@ const Header = () => {
                           { label: "Our Visions", to: "/about/visions" },
                           { label: "Our History", to: "/about/history" },
                           { label: "Accreditation & Awards", to: "/about/accreditations" },
-                          { label: "On Board & Directors", to: "/about/directors" },
+                          { label: "Leadership & Management", to: "/about/leadership" },
                           { label: "Our Policies", to: "/about/policies" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
@@ -378,7 +378,7 @@ const Header = () => {
                                 { label: "Our Visions", to: "/about/visions" },
                                 { label: "Our History", to: "/about/history" },
                                 { label: "Accreditation & Awards", to: "/about/accreditations" },
-                                { label: "On Board & Directors", to: "/about/directors" },
+                                { label: "Leadership & Management", to: "/about/leadership" },
                                 { label: "Our Policies", to: "/about/policies" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);

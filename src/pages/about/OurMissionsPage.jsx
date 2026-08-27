@@ -62,7 +62,7 @@ const OurMissionsPage = () => {
               Core Pillars of Our Mission
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight">
-              Operational Commitments & Standards
+              Mission Pillars
             </h2>
           </div>
 
@@ -72,32 +72,32 @@ const OurMissionsPage = () => {
               {
                 step: "01",
                 title: "Safety First",
-                badge: "Zero-Harm Culture",
-                desc: "At Bluegrid Utilities, safety is at the core of everything we do. We maintain a zero-harm operational focus, strict H&S compliance oversight, and continuous site safety verification across every water utility contract and excavation project.",
+                badge: "ZERO-HARM CULTURE",
+                desc: "We plan work so that risks are understood, controls are practical and every member of the workforce has authority to raise concerns and stop unsafe work.",
                 icon: "shield",
                 img: complianceImg
               },
               {
                 step: "02",
                 title: "Operational Efficiency",
-                badge: "Precision & Speed",
-                desc: "Deploying qualified, accredited field teams for smart water metering, excavation, reinstatement, and associated civil engineering works. Our teams operate with route optimization, rapid response capability, and strict SLA fulfillment.",
+                badge: "DISCIPLINED MOBILISATION",
+                desc: "We focus on disciplined mobilisation, clear scheduling, accurate field information and responsive coordination so that teams can deliver efficiently without compromising safety or quality.",
                 icon: "bolt",
                 img: waterMeterImg
               },
               {
                 step: "03",
                 title: "Professional Excellence",
-                badge: "Accredited Leadership",
-                desc: "Seasoned management ensuring technical compliance, continuous workforce training, quality delivery, and seamless coordination with principal contractors, local authorities, and UK water utility providers.",
+                badge: "WORKMANSHIP STANDARDS",
+                desc: "We expect professional behaviour, accurate documentation, respect for customers and communities, and a consistent standard of workmanship.",
                 icon: "verified",
                 img: infraImg
               },
               {
                 step: "04",
                 title: "Trusted Partnerships",
-                badge: "UK-Wide Reliability",
-                desc: "Building long-term, transparent relationships with UK utility providers, principal contractors, and public sector partners based on trust, quality workmanship, and consistent site performance.",
+                badge: "RELIABLE DELIVERY PARTNER",
+                desc: "We want clients, contractors, operatives and suppliers to view Bluegrid as a reliable long-term delivery partner that communicates clearly and acts responsibly.",
                 icon: "handshake",
                 img: workersImg
               }

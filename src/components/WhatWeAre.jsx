@@ -4,14 +4,14 @@ import MotionSection from './MotionSection';
 
 // High quality sector & operational images
 import complianceImg from '../assets/images/Sectors/Compliance & Onboarding.jpg';
-import reliabilityImg from '../assets/images/updated/img 3.jpg';
-import readinessImg from '../assets/images/updated/img 1.jpg';
+import trafficMgmtImg from '../assets/images/uk_traffic_management.jpg';
+import excavationImg from '../assets/images/uk_utility_excavation.jpg';
 import coordinationImg from '../assets/images/Sectors/Project Coordination.jpg';
 
 const pillars = [
   {
     step: "01",
-    title: "Our Mission",
+    title: "Mission",
     subtitle: "Safe, Efficient & Professional Delivery",
     desc: "To deliver utility infrastructure safely, efficiently and professionally while building long-term partnerships based on trust, quality and reliability.",
     icon: "flag",
@@ -19,46 +19,46 @@ const pillars = [
     bullets: [
       "Safe, efficient & professional infrastructure delivery",
       "Long-term partnerships built on trust & quality",
-      "Smart water metering, excavation & reinstatement focus"
+      "Reliability & quality in every utility contract"
     ]
   },
   {
     step: "02",
-    title: "Our Vision",
+    title: "Vision",
     subtitle: "Leading UK Utility Infrastructure Partner",
-    desc: "To become one of the UK’s leading utility infrastructure contractors recognised for innovation, safety, quality and operational excellence.",
+    desc: "To become one of the UK's leading utility infrastructure contractors recognised for innovation, safety, quality and operational excellence.",
     icon: "visibility",
     img: coordinationImg,
     bullets: [
       "Recognised leadership in UK utility infrastructure",
       "Driven by innovation, safety & quality standards",
-      "Continuous growth across water, energy & infrastructure"
+      "Operational excellence across all utility contracts"
     ]
   },
   {
     step: "03",
-    title: "Company History & Growth",
-    subtitle: "Built on Experienced Leadership & Partnerships",
-    desc: "Established to provide specialist utility infrastructure services throughout the UK. Built on experienced leadership and strong operational partnerships, focusing on supporting major utility programmes through safe delivery, technical expertise and continuous improvement.",
+    title: "Our Story",
+    subtitle: "Disciplined & Scalable Capability",
+    desc: "Bluegrid Utilities has been established to build a disciplined, scalable delivery capability for UK utility programmes, combining experienced management, field mobilisation and a strong commitment to compliance.",
     icon: "history_edu",
-    img: readinessImg,
+    img: excavationImg,
     bullets: [
-      "Transparent & experienced operational leadership",
-      "Dedicated support for utility providers & main contractors",
-      "Expanding portfolio across UK utility & energy sectors"
+      "Disciplined & scalable delivery capability",
+      "Experienced management & field mobilisation",
+      "Strong commitment to compliance & safety"
     ]
   },
   {
     step: "04",
-    title: "Our Core Values",
+    title: "Values",
     subtitle: "The Principles That Guide Every Project",
-    desc: "Our daily operations and field teams are guided by an unyielding commitment to safety, integrity, environmental responsibility, and continuous improvement across all contracts.",
+    desc: "Safety, integrity, quality, innovation, customer focus, environmental responsibility, people development, continuous improvement, accountability and professionalism.",
     icon: "verified",
-    img: reliabilityImg,
+    img: trafficMgmtImg,
     bullets: [
-      "Safety First, Integrity, Quality & Innovation",
+      "Safety, Integrity, Quality & Innovation",
       "Customer Focus, Environmental Responsibility & Accountability",
-      "People Development & Professional Excellence"
+      "People Development, Continuous Improvement & Professionalism"
     ]
   }
 ];

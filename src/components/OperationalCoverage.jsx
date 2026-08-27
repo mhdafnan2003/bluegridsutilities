@@ -39,7 +39,7 @@ const OperationalCoverage = () => {
             Our Nationwide Coverage
           </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
-            Delivering safe, reliable utility infrastructure services across England, Scotland and Wales — with regional teams strategically positioned for rapid response.
+            Bluegrid Utilities is building operational capability across England and can mobilise teams regionally in line with project requirements. Any Scotland or Wales statement should only be shown where mobilisation capability, contracts and compliance arrangements support it.
           </p>
         </div>
 

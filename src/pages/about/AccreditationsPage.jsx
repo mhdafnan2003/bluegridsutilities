@@ -8,13 +8,13 @@ import safetyBg from '../../assets/images/safety_bg.png';
 
 const futureCertifications = [
   {
-    category: "Procurement & Safety Schemes",
+    category: "Procurement & Safety Schemes Roadmap",
     icon: "verified_user",
     items: [
       {
         name: "Constructionline",
-        code: "Procurement Compliance",
-        desc: "UK government-aligned pre-qualification database for construction and infrastructure contractors.",
+        code: "Procurement Assurance",
+        desc: "Procurement and supplier assurance, subject to business need.",
         theme: {
           bg: "bg-teal-50/60",
           border: "border-teal-200",
@@ -27,8 +27,8 @@ const futureCertifications = [
       },
       {
         name: "SafeContractor",
-        code: "H&S Accreditation",
-        desc: "Leading third-party accreditation scheme verifying rigorous health & safety standards.",
+        code: "H&S Supplier Assurance",
+        desc: "Health, safety and supplier assurance, subject to business need.",
         theme: {
           bg: "bg-blue-50/60",
           border: "border-blue-200",
@@ -41,8 +41,8 @@ const futureCertifications = [
       },
       {
         name: "Achilles UVDB",
-        code: "Utilities Sector Qualification",
-        desc: "Specialist supply chain risk management system tailored for the UK utilities sector.",
+        code: "Utility Supplier Prequalification",
+        desc: "Utility-sector supplier prequalification, subject to eligibility and procurement strategy.",
         theme: {
           bg: "bg-emerald-50/60",
           border: "border-emerald-200",
@@ -56,13 +56,13 @@ const futureCertifications = [
     ]
   },
   {
-    category: "ISO International Standards",
+    category: "ISO International Standards Certification Roadmap",
     icon: "workspace_premium",
     items: [
       {
         name: "ISO 9001",
         code: "Quality Management System",
-        desc: "International standard for consistent operational quality, continuous improvement, and client satisfaction.",
+        desc: "Quality management system certification roadmap.",
         theme: {
           bg: "bg-indigo-50/60",
           border: "border-indigo-200",
@@ -76,7 +76,7 @@ const futureCertifications = [
       {
         name: "ISO 14001",
         code: "Environmental Management",
-        desc: "Framework for reducing environmental impact, carbon footprint, and waste across site operations.",
+        desc: "Environmental management system certification roadmap.",
         theme: {
           bg: "bg-green-50/60",
           border: "border-green-200",
@@ -90,7 +90,7 @@ const futureCertifications = [
       {
         name: "ISO 45001",
         code: "Occupational Health & Safety",
-        desc: "Global benchmark for proactive risk management, workplace safety, and zero-harm culture.",
+        desc: "Occupational health and safety management system certification roadmap.",
         theme: {
           bg: "bg-amber-50/60",
           border: "border-amber-200",
@@ -99,88 +99,6 @@ const futureCertifications = [
           tag: "bg-amber-100 text-amber-800 border-amber-300",
           iconBg: "bg-[#d97706] text-white",
           iconName: "shield"
-        }
-      }
-    ]
-  },
-  {
-    category: "Street Works & Highways Compliance",
-    icon: "engineering",
-    items: [
-      {
-        name: "NRSWA",
-        code: "New Roads & Street Works Act",
-        desc: "Mandatory qualification for excavation, reinstatement, and traffic management on public highways.",
-        theme: {
-          bg: "bg-orange-50/60",
-          border: "border-orange-200",
-          accent: "bg-[#ea580c]",
-          text: "text-[#7c2d12]",
-          tag: "bg-orange-100 text-orange-800 border-orange-300",
-          iconBg: "bg-[#ea580c] text-white",
-          iconName: "construction"
-        }
-      },
-      {
-        name: "Street Works Qualifications",
-        code: "Operative & Supervisor SWQR",
-        desc: "Accredited street works supervisor and operative cards for compliant highway infrastructure delivery.",
-        theme: {
-          bg: "bg-sky-50/60",
-          border: "border-sky-200",
-          accent: "bg-[#0284c7]",
-          text: "text-[#0c4a6e]",
-          tag: "bg-sky-100 text-sky-800 border-sky-300",
-          iconBg: "bg-[#0284c7] text-white",
-          iconName: "minor_crash"
-        }
-      }
-    ]
-  },
-  {
-    category: "Workforce & Plant Competencies",
-    icon: "badge",
-    items: [
-      {
-        name: "CSCS",
-        code: "Construction Skills Certification",
-        desc: "Validation of site safety awareness and professional trade competence across all field staff.",
-        theme: {
-          bg: "bg-cyan-50/60",
-          border: "border-cyan-200",
-          accent: "bg-[#0891b2]",
-          text: "text-[#164e63]",
-          tag: "bg-cyan-100 text-cyan-800 border-cyan-300",
-          iconBg: "bg-[#0891b2] text-white",
-          iconName: "badge"
-        }
-      },
-      {
-        name: "NPORS",
-        code: "National Plant Operators Scheme",
-        desc: "Recognized plant machinery operator certification for safe site excavation and logistics.",
-        theme: {
-          bg: "bg-purple-50/60",
-          border: "border-purple-200",
-          accent: "bg-[#9333ea]",
-          text: "text-[#581c87]",
-          tag: "bg-purple-100 text-purple-800 border-purple-300",
-          iconBg: "bg-[#9333ea] text-white",
-          iconName: "agriculture"
-        }
-      },
-      {
-        name: "CPCS",
-        code: "Construction Plant Competence Scheme",
-        desc: "Industry-standard proof of skills for operating heavy infrastructure plant and equipment.",
-        theme: {
-          bg: "bg-rose-50/60",
-          border: "border-rose-200",
-          accent: "bg-[#e11d48]",
-          text: "text-[#881337]",
-          tag: "bg-rose-100 text-rose-800 border-rose-300",
-          iconBg: "bg-[#e11d48] text-white",
-          iconName: "front_loader"
         }
       }
     ]
@@ -203,9 +121,9 @@ const AccreditationsPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="Operational Quality & Compliance"
+            badgeText="Operational Assurance Framework"
             title="Accreditations & Qualifications"
-            description="Bluegrid Utilities is committed to rigorous safety, quality, and industry governance. Explore our current status and roadmap of sector accreditations."
+            description="Bluegrid Utilities is developing a structured assurance framework covering health and safety, quality, workforce competence and responsible supply-chain delivery."
             bgImage={heroTwoImg}
           />
 
@@ -214,7 +132,7 @@ const AccreditationsPage = () => {
             <div className="flex items-center gap-3 mb-6">
               <span className="w-3 h-3 bg-[#0066ff] rounded-none animate-pulse" />
               <h2 className="text-xs font-black tracking-widest text-[#005f9e] font-outfit uppercase">
-                Current Accreditation Status
+                Current Status
               </h2>
             </div>
 
@@ -224,42 +142,42 @@ const AccreditationsPage = () => {
               <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-8 space-y-4 text-left">
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="bg-[#0066ff] text-white px-3.5 py-1 text-[11px] font-black tracking-widest font-outfit border border-white/20 uppercase">
-                      In Progress
+                    <span className="bg-amber-500 text-slate-950 px-3.5 py-1 text-[11px] font-black tracking-widest font-outfit uppercase">
+                      Accreditation in Progress
                     </span>
-                    <span className="text-xs font-bold text-slate-300 tracking-wider font-outfit">
-                      Contractors Health and Safety Assessment Scheme
+                    <span className="text-xs font-bold text-slate-300 tracking-wider font-outfit uppercase">
+                      Health & Safety Assurance
                     </span>
                   </div>
 
                   <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-outfit">
-                    CHAS Standard
+                    CHAS Standard — Working Towards
                   </h3>
 
                   <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                    Bluegrid Utilities is actively completing formal audit and verification for full <strong className="text-white">CHAS Standard</strong> accreditation. This confirms our compliance with UK health and safety legislation, risk management protocols, and principal contractor standards.
+                    Bluegrid Utilities is working towards CHAS Standard accreditation as part of its commitment to formal health-and-safety assurance and responsible contractor management.
                   </p>
 
                   <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-slate-300">
                     <div className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-[#60a5fa] text-base">check_circle</span>
-                      <span>H&S Risk Assessments & Method Statements</span>
+                      <span>Formal Health & Safety Assurance</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="material-symbols-outlined text-[#60a5fa] text-base">check_circle</span>
-                      <span>Zero-Harm Policy Enforcement</span>
+                      <span>Responsible Contractor Management</span>
                     </div>
                   </div>
                 </div>
 
                 <div className="lg:col-span-4 flex justify-start lg:justify-end">
                   <div className="bg-white/10 backdrop-blur-md border border-white/20 p-6 sm:p-8 rounded-none text-center w-full max-w-sm">
-                    <span className="material-symbols-outlined text-5xl text-[#60a5fa] mb-3 block">verified</span>
-                    <p className="text-xs font-bold tracking-widest text-slate-300 font-outfit uppercase">Assessment Stage</p>
+                    <span className="material-symbols-outlined text-5xl text-amber-400 mb-3 block">hourglass_top</span>
+                    <p className="text-xs font-bold tracking-widest text-slate-300 font-outfit uppercase">Current Status</p>
                     <p className="text-xl font-bold text-white tracking-tight mt-1 font-outfit">CHAS Standard</p>
                     <div className="mt-4 pt-3 border-t border-white/15">
-                      <span className="inline-block px-3 py-1 bg-[#005f9e] text-white text-[10px] font-black tracking-widest font-outfit uppercase">
-                        Status: In Progress
+                      <span className="inline-block px-3 py-1 bg-amber-500/20 border border-amber-400/40 text-amber-300 text-[10px] font-black tracking-widest font-outfit uppercase">
+                        Working Towards
                       </span>
                     </div>
                   </div>
@@ -275,13 +193,13 @@ const AccreditationsPage = () => {
           <div className="mb-16">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
-                Future Accreditation Roadmap
+                Accreditation Roadmap
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Working Towards Industry Certifications
+                Supply-Chain & Governance Roadmap
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                As part of our commitment to continuous growth and Tier-1 procurement standards, Bluegrid Utilities is actively working towards obtaining and embedding the following industry accreditations and operative certifications.
+                Bluegrid Utilities evaluates and progresses company-level accreditations subject to business need, eligibility and procurement strategy.
               </p>
             </div>
 
@@ -328,7 +246,7 @@ const AccreditationsPage = () => {
 
                             <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100/90 text-amber-900 border border-amber-300/80 text-[10px] font-black tracking-wider font-outfit shrink-0 shadow-sm">
                               <span className="w-1.5 h-1.5 rounded-full bg-amber-600 animate-pulse" />
-                              Working Towards
+                              Roadmap
                             </span>
                           </div>
 
@@ -339,8 +257,8 @@ const AccreditationsPage = () => {
 
                         {/* Status Footer */}
                         <div className="pt-4 border-t border-slate-200/80 flex items-center justify-between text-[11px] font-bold text-slate-600 font-outfit">
-                          <span>Governance Roadmap</span>
-                          <span className="text-amber-800 font-extrabold">Status: Working Towards</span>
+                          <span>Company Accreditation</span>
+                          <span className="text-amber-800 font-extrabold">Status: Roadmap</span>
                         </div>
                       </div>
                     ))}
@@ -350,56 +268,37 @@ const AccreditationsPage = () => {
             </div>
           </div>
 
-          {/* Core Foundations Banner (Original Vetting & H&S Info) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {[
-              {
-                title: "EUSR & Industry Vetting",
-                desc: "We enforce strict checks confirming that field operatives hold valid EUSR (Energy & Utility Skills Register) records, CSCS cards, or specific sector safety certifications.",
-                icon: "shield",
-                bg: vettingBg,
-                badgeBg: "bg-teal-600 text-white"
-              },
-              {
-                title: "Right-to-Work Compliance",
-                desc: "100% compliant onboarding verifying identity, qualifications, reference audits, right-to-work documentation, and background suitability screening.",
-                icon: "verified_user",
-                bg: complianceBg,
-                badgeBg: "bg-blue-600 text-white"
-              },
-              {
-                title: "Health & Safety Systems",
-                desc: "Continuous training management and compliance verification structures built to align with UK utility operations safety standards.",
-                icon: "health_and_safety",
-                bg: safetyBg,
-                badgeBg: "bg-indigo-600 text-white"
-              }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-white border border-slate-200 rounded-none shadow-md hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden text-left group">
-                <div className="relative h-48 overflow-hidden bg-slate-900 shrink-0">
-                  <img 
-                    src={item.bg} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover brightness-95 transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                    <span className={`w-7 h-7 ${item.badgeBg} flex items-center justify-center shadow-md`}>
-                      <span className="material-symbols-outlined text-base">{item.icon}</span>
-                    </span>
-                    <span className="text-white text-xs font-bold tracking-wider font-outfit">
-                      {item.title}
-                    </span>
-                  </div>
-                </div>
+          {/* Section Divider */}
+          <hr className="border-slate-200 my-14" />
 
-                <div className="p-6 flex-grow flex flex-col justify-between">
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
-                    {item.desc}
-                  </p>
-                </div>
+          {/* Workforce Competence Section */}
+          <div className="mb-16">
+            <div className="text-left max-w-3xl mb-10">
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
+                Individual Operative Qualifications
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Workforce Competence
+              </h2>
+              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                Where relevant to the task, Bluegrid expects deployed personnel to hold appropriate competency evidence such as NRSWA / SWQR units, EUSR registrations, CSCS or equivalent site competence, CAT & Genny training, first aid, plant qualifications and project-specific training.
+              </p>
+            </div>
+
+            {/* Distinction Banner Box */}
+            <div className="bg-slate-50 border border-slate-200 border-l-4 border-l-[#005f9e] p-6 sm:p-8 rounded-none shadow-md text-left space-y-3">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-8 rounded-none bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center border border-[#005f9e]/20 font-bold shrink-0">
+                  <span className="material-symbols-outlined text-lg">info</span>
+                </span>
+                <h4 className="text-base font-bold text-[#0f3a5e] font-outfit uppercase">
+                  Accreditation & Qualification Distinction
+                </h4>
               </div>
-            ))}
+              <p className="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed">
+                Bluegrid Utilities distinguishes clearly between company-level accreditations (such as organizational CHAS Standard progress and ISO roadmaps) and individual operative qualifications held by deployed personnel (such as NRSWA / SWQR, EUSR, CSCS, and plant tickets).
+              </p>
+            </div>
           </div>
 
           {/* Final Governance Banner */}

@@ -31,11 +31,11 @@ const JoinTeamBanner = () => {
         </span>
         
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
-          Join Our Growing <span className="text-brand-primary">Workforce</span> Team
+          Build Your Career in UK Utilities
         </h2>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-10 max-w-2xl leading-relaxed font-medium">
-          We are always looking for skilled operatives, technicians, project managers, and coordinators. Join a compliance-first utilities provider delivering excellence across the UK.
+          Join a growing delivery business focused on training, safety, professional standards and long-term progression.
         </p>
 
         <Link

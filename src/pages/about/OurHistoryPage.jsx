@@ -42,15 +42,15 @@ const OurHistoryPage = () => {
               </div>
 
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 tracking-tight font-outfit leading-tight">
-                Company History
+                Our Story
               </h1>
 
               <blockquote className="text-base sm:text-xl md:text-2xl font-bold text-white mb-5 tracking-tight font-outfit leading-snug border-l-4 border-[#0066ff] pl-4 sm:pl-5 py-1 bg-white/5 rounded-none">
-                "Built on experienced leadership, operational integrity, and long-term utility infrastructure partnerships throughout the United Kingdom."
+                "Bluegrid Utilities was created to build a modern, scalable utility-infrastructure delivery operation in the United Kingdom."
               </blockquote>
 
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                Bluegrid Utilities was established to provide specialist utility infrastructure services throughout the United Kingdom. Built on experienced leadership and strong operational partnerships, our company focuses on supporting major utility programmes through safe delivery, technical expertise and continuous improvement.
+                The business brings together operational management, field mobilisation, workforce coordination and a strong focus on compliance.
               </p>
             </div>
           </div>
@@ -61,7 +61,7 @@ const OurHistoryPage = () => {
               Core Pillars of Our Journey
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight">
-              Our Operational Foundations
+              Our Journey & Milestones
             </h2>
           </div>
 
@@ -70,25 +70,25 @@ const OurHistoryPage = () => {
             {[
               {
                 step: "01",
-                title: "Specialist UK Delivery",
-                badge: "Foundational Execution",
-                desc: "Established to provide specialist utility infrastructure services across the UK, ensuring fully compliant, accredited, and reliable field execution on every project.",
+                title: "Creation & Core Focus",
+                badge: "FOUNDATIONAL MOBILISATION",
+                desc: "Bluegrid Utilities was created to build a modern, scalable utility-infrastructure delivery operation in the United Kingdom. The business brings together operational management, field mobilisation, workforce coordination and a strong focus on compliance.",
                 icon: "verified",
                 img: workersImg
               },
               {
                 step: "02",
-                title: "Leadership & Technical Expertise",
-                badge: "Seasoned Management",
-                desc: "Built on experienced operational leadership, robust H&S protocols, EUSR/CSCS credentialing, and technical expertise to support major UK water and utility programmes.",
-                icon: "groups",
+                title: "Systems for Sustainable Growth",
+                badge: "SYSTEMS & CONTROLS",
+                desc: "The company's early development has centred on building the systems required for sustainable growth: recruitment and onboarding processes, training and competency controls, project-management capacity, site-readiness procedures, operational reporting, and the development of industry accreditations.",
+                icon: "settings_suggest",
                 img: waterMeterImg
               },
               {
                 step: "03",
-                title: "Portfolio Expansion & Growth",
-                badge: "Multi-Sector Capability",
-                desc: "Continuously expanding our operational portfolio across water metering, clean water civil works, energy distribution support, and regional infrastructure sectors.",
+                title: "Future Growth & Evolution",
+                badge: "INFRASTRUCTURE EVOLUTION",
+                desc: "As Bluegrid develops, the objective is to grow from focused utility delivery into a broader infrastructure-support organisation while protecting the same principles of safety, quality, integrity and accountable leadership.",
                 icon: "trending_up",
                 img: infraImg
               }

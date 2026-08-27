@@ -5,7 +5,7 @@ import MotionSection from './MotionSection';
 
 // Real Local Photographs from assets
 import heroBg from '../assets/images/utilityworksupply.jpeg';
-import ctaBg from '../assets/images/work_with_us.png';
+import ctaBg from '../assets/images/updated/water_meter_installation.png';
 import workersSiteImg from '../assets/images/uk_utility_workers_site.png';
 import gridWorkImg from '../assets/images/utility_grid_work.png';
 import trainingImg from '../assets/images/Training coordination and deployment planning.jpg';
@@ -186,14 +186,13 @@ const completedCaseStudies = [
 
 // 3. Photo Gallery Data
 const galleryItems = [
-  { id: 1, title: "Field Operatives On Site", category: "MOBILISATION", img: workersSiteImg },
-  { id: 2, title: "Grid & Trenching Works", category: "ON-SITE", img: gridWorkImg },
+  { id: 1, title: "Field Squad Mobilisation", category: "MOBILISATION", img: workersSiteImg },
+  { id: 2, title: "Field Operations & Telemetry", category: "ON SITE", img: projectCordJpeg },
   { id: 3, title: "EUSR Training Sessions", category: "TRAINING", img: trainingImg },
   { id: 4, title: "Compliance & RAMS Audits", category: "TRAINING", img: complianceImg },
   { id: 5, title: "On-Site Coordination", category: "MOBILISATION", img: projectCoordImg },
-  { id: 6, title: "Clean Water Metering Squad", category: "COMPLETED", img: waterMeterImg },
-  { id: 7, title: "Telecoms Logistics Unit", category: "ON-SITE", img: telecomsImg },
-  { id: 8, title: "Utility Infrastructure Site", category: "COMPLETED", img: infraSupportImg }
+  { id: 6, title: "Smart Water Metering Squad", category: "COMPLETED WORKS", img: waterMeterImg },
+  { id: 7, title: "Telecoms Logistics Unit", category: "ON SITE", img: telecomsImg }
 ];
 
 const OperationalDelivery = () => {
@@ -244,23 +243,23 @@ const OperationalDelivery = () => {
               Real-time operational mobilisation, workforce readiness, and verified project case studies delivered across UK clean water and utility networks.
             </p>
 
-            {/* Floating Glassmorphism Metric Cards INSIDE Hero Pic */}
+            {/* Floating Glassmorphism Cards INSIDE Hero Pic */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-6 border-t border-white/20">
               <div className="bg-white/10 backdrop-blur-md p-5 border border-white/20 rounded-none">
-                <div className="text-3xl font-extrabold text-white font-outfit">50,000+</div>
-                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">Meters Installed</div>
+                <div className="text-xl font-extrabold text-white font-outfit">Operational Readiness</div>
+                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">Verified Pre-Deployment Checks</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-5 border border-white/20 rounded-none">
-                <div className="text-3xl font-extrabold text-sky-400 font-outfit">100%</div>
-                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">RAMS Audit Compliance</div>
+                <div className="text-xl font-extrabold text-sky-400 font-outfit">Workforce Competence</div>
+                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">EUSR & NRSWA Qualified Teams</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-5 border border-white/20 rounded-none">
-                <div className="text-3xl font-extrabold text-white font-outfit">72 Hours</div>
-                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">Rapid Mobilisation</div>
+                <div className="text-xl font-extrabold text-white font-outfit">Quality Assurance</div>
+                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">Photographic Evidence Audits</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md p-5 border border-white/20 rounded-none">
-                <div className="text-3xl font-extrabold text-emerald-400 font-outfit">0 LTI</div>
-                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">Zero Harm Record</div>
+                <div className="text-xl font-extrabold text-emerald-400 font-outfit">Safety Standards</div>
+                <div className="text-xs text-slate-200 uppercase tracking-wider font-semibold mt-1 font-outfit">Daily RAMS & Site Briefings</div>
               </div>
             </div>
           </div>
@@ -542,16 +541,16 @@ const OperationalDelivery = () => {
               {/* Statistics Summary */}
               <div className="grid grid-cols-3 gap-4 pt-6 border-t border-slate-200">
                 <div className="text-center p-4 bg-slate-50 border border-slate-200/80">
-                  <div className="text-2xl font-bold text-[#005f9e] font-outfit">100%</div>
-                  <div className="text-xs font-semibold text-slate-600 mt-1 font-outfit">Audit Compliance</div>
+                  <div className="text-lg font-bold text-[#005f9e] font-outfit">EUSR & NRSWA</div>
+                  <div className="text-xs font-semibold text-slate-600 mt-1 font-outfit">Qualified Operatives</div>
                 </div>
                 <div className="text-center p-4 bg-slate-50 border border-slate-200/80">
-                  <div className="text-2xl font-bold text-[#005f9e] font-outfit">24/7</div>
-                  <div className="text-xs font-semibold text-slate-600 mt-1 font-outfit">Field Dispatch</div>
+                  <div className="text-lg font-bold text-[#005f9e] font-outfit">Regional</div>
+                  <div className="text-xs font-semibold text-slate-600 mt-1 font-outfit">Operational Coverage</div>
                 </div>
                 <div className="text-center p-4 bg-slate-50 border border-slate-200/80">
-                  <div className="text-2xl font-bold text-emerald-600 font-outfit">Zero</div>
-                  <div className="text-xs font-semibold text-slate-600 mt-1 font-outfit">Utility Strikes</div>
+                  <div className="text-lg font-bold text-emerald-600 font-outfit">RAMS & H&S</div>
+                  <div className="text-xs font-semibold text-slate-600 mt-1 font-outfit">Verified Site Briefings</div>
                 </div>
               </div>
 
@@ -577,7 +576,7 @@ const OperationalDelivery = () => {
 
           {/* Gallery Filter Buttons */}
           <div className="flex flex-wrap gap-2 mb-10">
-            {['ALL', 'MOBILISATION', 'TRAINING', 'ON-SITE', 'COMPLETED'].map(cat => (
+            {['ALL', 'MOBILISATION', 'TRAINING', 'ON SITE', 'COMPLETED WORKS'].map(cat => (
               <button
                 key={cat}
                 onClick={() => setGalleryFilter(cat)}
@@ -598,26 +597,28 @@ const OperationalDelivery = () => {
               <div 
                 key={item.id}
                 onClick={() => setLightboxImage(item)}
-                className="bg-white border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group cursor-pointer text-left min-h-[440px]"
+                className="relative h-[380px] sm:h-[420px] md:h-[460px] rounded-none overflow-hidden group cursor-pointer text-left shadow-xl hover:shadow-2xl border border-slate-200 transition-all duration-500 bg-slate-900"
               >
-                {/* Clear Top Image - Enlarged */}
-                <div className="relative h-[280px] md:h-[320px] w-full overflow-hidden bg-slate-100">
-                  <img 
-                    src={item.img} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {/* Category Badge on Top Left of Image */}
-                  <div className="absolute top-5 left-5 z-10">
-                    <span className="bg-[#0a2540] text-white text-xs font-extrabold px-3.5 py-1.5 uppercase tracking-widest font-outfit shadow-md">
-                      {item.category}
-                    </span>
-                  </div>
+                {/* Full-Card Background Image */}
+                <img 
+                  src={item.img} 
+                  alt={item.title} 
+                  className="absolute inset-0 w-full h-full object-cover filter brightness-[0.98] contrast-[1.02] group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+
+                {/* Neutral Dark Overlay Gradient for Text Contrast (No Blue Tint) */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent z-0" />
+
+                {/* Category Badge on Top Left */}
+                <div className="absolute top-5 left-5 z-10">
+                  <span className="bg-[#0f3a5e] text-white text-xs font-extrabold px-3.5 py-1.5 uppercase tracking-widest font-outfit shadow-md border border-white/20">
+                    {item.category}
+                  </span>
                 </div>
 
-                {/* Content Body Below Image - Enlarged */}
-                <div className="p-7 flex flex-col justify-between flex-1 bg-white border-t border-slate-100">
-                  <h4 className="font-bold text-slate-900 text-xl font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
+                {/* Title Placed Over the Image at Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-10 text-left space-y-1">
+                  <h4 className="font-bold text-white text-xl sm:text-2xl font-outfit leading-tight drop-shadow-md group-hover:text-blue-300 transition-colors">
                     {item.title}
                   </h4>
                 </div>
@@ -684,10 +685,10 @@ const OperationalDelivery = () => {
         <div className="absolute inset-0 z-0 overflow-hidden">
           <img 
             src={ctaBg} 
-            alt="Work With Us" 
-            className="w-full h-full object-cover filter brightness-[0.70] contrast-[1.05]"
+            alt="Smart Water Meter Installation" 
+            className="w-full h-full object-cover filter brightness-[0.88] contrast-[1.02]"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/60 to-transparent z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/30 z-10" />
         </div>
 
         <div className="relative z-20 max-w-4xl mx-auto flex flex-col items-center justify-center text-white">

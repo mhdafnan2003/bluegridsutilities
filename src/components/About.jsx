@@ -32,10 +32,10 @@ const About = () => {
               About Bluegrid Utilities
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight mb-4">
-              Company Profile & Overview
+              Company Profile
             </h1>
             <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
-              UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector.
+              A UK-based utility infrastructure contractor focused on safe, reliable and high-quality operational delivery.
             </p>
           </div>
 
@@ -51,7 +51,7 @@ const About = () => {
                   alt="Bluegrid Utilities Field Team"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#005f9e] text-white px-4 py-2 text-xs font-black tracking-wider rounded-none border border-white/20">
                   Specialist Utility Infrastructure
                 </div>
@@ -63,13 +63,10 @@ const About = () => {
                   Who We Are
                 </h2>
                 <p className="text-slate-700 text-base sm:text-lg font-semibold leading-relaxed">
-                  Bluegrid Utilities is a UK-based utility infrastructure contractor delivering safe, reliable and high-quality services across the water utility sector.
+                  Bluegrid Utilities is a UK utility infrastructure delivery business supporting water and wider infrastructure programmes through field operations, project mobilisation, civil engineering support and workforce coordination. We combine hands-on operational leadership with structured compliance, training and project-control processes.
                 </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  Our specialist teams support utility providers, principal contractors and infrastructure partners through the delivery of smart water metering, excavation, reinstatement and associated civil engineering works.
-                </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                  With experienced management, qualified field teams and a commitment to operational excellence, Bluegrid Utilities aims to become one of the UK’s most trusted utility infrastructure delivery partners.
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                  Our approach is built around safe mobilisation, clear accountability and dependable execution. We work within established supply chains and aim to build long-term relationships with infrastructure partners who value responsive delivery, quality workmanship and transparent communication.
                 </p>
               </div>
             </div>
@@ -87,19 +84,19 @@ const About = () => {
                       Official Details
                     </span>
                     <h3 className="text-2xl font-bold tracking-tight text-white">
-                      Company Profile
+                      Official Company Details
                     </h3>
                   </div>
 
                   {/* Profile Key Value Rows */}
                   <div className="space-y-4 text-sm">
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Company Name</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Trading Name</p>
                       <p className="text-base font-bold text-white">Bluegrid Utilities</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Trading Name of</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Legal Entity</p>
                       <p className="text-base font-bold text-white">Bluegrid Technology Ltd</p>
                     </div>
 
@@ -111,11 +108,15 @@ const About = () => {
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Registered Office</p>
                       <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
-                        Stuart House<br />
-                        St Johns Street<br />
-                        Peterborough<br />
-                        England, PE1 5DD
+                        Stuart House, St. Johns Street<br />
+                        Peterborough, PE1 5DD<br />
+                        United Kingdom
                       </address>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-4 rounded-none">
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Company Status</p>
+                      <p className="text-base font-bold text-emerald-400">Active</p>
                     </div>
                   </div>
                 </div>
@@ -124,9 +125,9 @@ const About = () => {
                 <div className="mt-8 pt-4 border-t border-white/15 relative z-10 flex items-center justify-between text-xs font-bold text-slate-300">
                   <span className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-none bg-[#0066ff]" />
-                    Registered in England & Wales
+                    Registered in United Kingdom
                   </span>
-                  <span className="text-[#60a5fa]">UK Utility Contractor</span>
+                  <span className="text-[#60a5fa]">Active Status</span>
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ import heroOneImg from '../../assets/images/updated/hero_blue_one.png';
 import waterMeterImg from '../../assets/images/water meter suoort bluegrids.jpeg';
 import complianceImg from '../../assets/images/Sectors/Compliance & Onboarding.jpg';
 import infraImg from '../../assets/images/utility_grid_work.png';
+import streetWorksImg from '../../assets/images/street_works_mobilisation.jpg';
 
 const OurVisionsPage = () => {
   return (
@@ -59,10 +60,10 @@ const OurVisionsPage = () => {
           {/* Section Heading with Generous Whitespace */}
           <div className="text-left mb-16">
             <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 text-xs font-black tracking-widest font-outfit uppercase mb-3">
-              Strategic Vision & Milestones
+              Strategic Vision & Roadmap
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight">
-              Driving Long-Term Infrastructure Excellence
+              Strategic Priorities
             </h2>
           </div>
 
@@ -71,35 +72,43 @@ const OurVisionsPage = () => {
             {[
               {
                 step: "01",
-                title: "UK Industry Leadership",
-                badge: "Tier-One Standards",
-                desc: "Becoming a recognized tier-one utility contractor supporting water providers, principal contractors, and local infrastructure partners nationwide across England, Scotland, and Wales.",
-                icon: "emoji_events",
+                title: "Tier-1 Standards & Governance",
+                badge: "GOVERNANCE & SAFETY",
+                desc: "Build Tier-1 quality, safety and governance standards within Bluegrid's delivery scope.",
+                icon: "shield",
                 img: heroOneImg
               },
               {
                 step: "02",
-                title: "Innovation & Technology",
-                badge: "Digital Integration",
-                desc: "Pioneering smart water metering coordination, digital field reporting platforms, route optimization, and modern civil engineering practices across all contracted works.",
-                icon: "lightbulb",
+                title: "Workforce Development",
+                badge: "TRAINING & PROGRESSION",
+                desc: "Develop a strong UK field workforce supported by structured training and progression.",
+                icon: "groups",
                 img: waterMeterImg
               },
               {
                 step: "03",
-                title: "Safety & Compliance",
-                badge: "Zero-Harm Commitment",
-                desc: "Enforcing rigorous H&S compliance systems, CSCS/EUSR/NRSWA qualifications, site safety audits, and zero-harm operational protocols across all active site teams.",
-                icon: "shield",
+                title: "Digital Systems Integration",
+                badge: "DIGITAL COMPLIANCE",
+                desc: "Use digital systems for onboarding, field evidence, reporting and compliance.",
+                icon: "devices_other",
                 img: complianceImg
               },
               {
                 step: "04",
-                title: "Operational Excellence",
-                badge: "Precision Delivery",
-                desc: "Consistently delivering high-quality excavation, reinstatement, smart metering, and civil works safely, on time, and strictly to utility client specification.",
-                icon: "star",
+                title: "Managed Sector Expansion",
+                badge: "CONTROLLED GROWTH",
+                desc: "Expand carefully into additional utility sectors only where competence, contracts and governance are in place.",
+                icon: "trending_up",
                 img: infraImg
+              },
+              {
+                step: "05",
+                title: "Supply-Chain Partnerships",
+                badge: "REGIONAL MOBILISATION",
+                desc: "Develop long-term supply-chain partnerships and repeatable regional mobilisation models.",
+                icon: "handshake",
+                img: streetWorksImg
               }
             ].map((item, idx) => (
               <div key={idx} className="relative text-left pt-2 lg:pt-6 pb-12 lg:pb-20">

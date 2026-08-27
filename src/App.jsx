@@ -34,6 +34,7 @@ import AccreditationsPage from './pages/about/AccreditationsPage';
 import BoardDirectorsPage from './pages/about/BoardDirectorsPage';
 import OurPoliciesPage from './pages/about/OurPoliciesPage';
 import CareerPage from './pages/CareerPage';
+import SustainabilityPage from './pages/SustainabilityPage';
 import LatestNews from './components/LatestNews';
 
 // Component to scroll to top on route change
@@ -206,6 +207,16 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/about/leadership"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <BoardDirectorsPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
           path="/about/policies"
           element={
             <PageTransition>
@@ -256,7 +267,27 @@ const AnimatedRoutes = () => {
           }
         />
         <Route
+          path="/sustainability"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <SustainabilityPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
           path="/career"
+          element={
+            <PageTransition>
+              <PageWrapper>
+                <CareerPage />
+              </PageWrapper>
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/careers"
           element={
             <PageTransition>
               <PageWrapper>

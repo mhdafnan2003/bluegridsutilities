@@ -80,9 +80,39 @@ const NewsDetailPage = () => {
           ))}
         </div>
 
-        {/* Key Operational Takeaways */}
-        {article.keyTakeaways && article.keyTakeaways.length > 0 && (
-          <div className="max-w-5xl py-8 border-y border-slate-200 mb-14 space-y-5">
+        {/* Spokesperson Quote Block */}
+        {article.spokespersonQuote && (
+          <blockquote className="max-w-5xl my-10 p-6 sm:p-8 bg-[#f4f8fc] border-l-4 border-l-[#005f9e] shadow-sm text-left">
+            <p className="text-lg sm:text-xl font-bold font-outfit text-[#0f3a5e] leading-snug italic mb-4">
+              "{article.spokespersonQuote}"
+            </p>
+            <footer className="text-xs sm:text-sm font-bold text-slate-600 font-outfit">
+              — {article.spokespersonName || article.author}, <span className="text-[#005f9e] font-semibold">{article.spokespersonTitle || "Bluegrid Utilities"}</span>
+            </footer>
+          </blockquote>
+        )}
+
+        {/* Verified Facts & Figures Section */}
+        {article.factsFigures && article.factsFigures.length > 0 && (
+          <div className="max-w-5xl py-8 border-y border-slate-200 mb-12 space-y-4">
+            <h3 className="text-xl font-bold font-outfit text-slate-900 flex items-center gap-2.5">
+              <span className="material-symbols-outlined text-[#005f9e] text-2xl">verified</span>
+              Verified Facts & Operational Details
+            </h3>
+            <ul className="space-y-3 text-slate-700 text-base md:text-lg font-medium">
+              {article.factsFigures.map((point, idx) => (
+                <li key={idx} className="flex items-start gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#005f9e] mt-2.5 shrink-0" />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Key Operational Takeaways fallback */}
+        {(!article.factsFigures || article.factsFigures.length === 0) && article.keyTakeaways && article.keyTakeaways.length > 0 && (
+          <div className="max-w-5xl py-8 border-y border-slate-200 mb-12 space-y-5">
             <h3 className="text-xl font-bold font-outfit text-slate-900 flex items-center gap-2.5">
               <span className="material-symbols-outlined text-[#005f9e] text-2xl">verified</span>
               Key Operational Highlights
@@ -97,6 +127,39 @@ const NewsDetailPage = () => {
             </ul>
           </div>
         )}
+
+        {/* Related Service Badge & Contact CTA Box */}
+        <div className="max-w-5xl bg-[#0f3a5e] text-white p-8 sm:p-10 mb-14 shadow-xl border-l-4 border-l-[#0066ff] text-left space-y-4">
+          {article.relatedService && (
+            <div>
+              <span className="text-[10px] font-black uppercase tracking-widest text-[#60a5fa] font-outfit block mb-1">
+                Related Service
+              </span>
+              <span className="inline-block px-3 py-1 bg-white/10 text-white font-bold text-xs sm:text-sm font-outfit border border-white/20">
+                {article.relatedService}
+              </span>
+            </div>
+          )}
+          
+          <div className="pt-2">
+            <h4 className="text-lg font-bold font-outfit text-white uppercase mb-2">
+              Operational Enquiries & Contact
+            </h4>
+            <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
+              {article.contactCta || "For operational enquiries or partnership discussions, reach out to our team at info@bluegridutilities.co.uk."}
+            </p>
+          </div>
+
+          <div className="pt-2">
+            <Link 
+              to="/contact?subject=Newsroom%20Enquiry"
+              className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold text-xs uppercase tracking-widest px-6 py-3 transition-all font-outfit shadow-md border border-[#0066ff]"
+            >
+              <span>Contact Us Today</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
 
         {/* 4. Large Image Gallery Grid */}
         {article.gallery && article.gallery.length > 0 && (

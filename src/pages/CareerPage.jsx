@@ -7,79 +7,72 @@ import workersImg from '../assets/images/uk_utility_workers_site.png';
 import trainingImg from '../assets/images/Training coordination and deployment planning.jpg';
 import complianceImg from '../assets/images/Sectors/Compliance & Onboarding.jpg';
 
-const openRoles = [
+const roleCategories = [
   {
-    title: "Water Meter Technician",
+    title: "Water Meter Technicians",
     category: "Field Operations",
-    code: "REF-WMT-01",
-    desc: "Installation, AMR/AMI deployment, testing, and maintenance of smart water meters across UK clean water utility projects.",
-    badge: "CSCS / EUSR Required",
+    code: "CAT-WMT-01",
+    desc: "Deployment, installation, AMR/AMI upgrading, testing, and field maintenance of clean water meters.",
+    badge: "Field Operations",
     icon: "water_drop"
   },
   {
-    title: "Supervisor",
+    title: "Utility Operatives",
+    category: "Field Delivery",
+    code: "CAT-UOP-02",
+    desc: "Utility excavation, asset exposure, groundworks support, and street-works surface reinstatement.",
+    badge: "Field Operatives",
+    icon: "construction"
+  },
+  {
+    title: "Supervisors",
     category: "Site Operations",
-    code: "REF-SUP-02",
-    desc: "Leading on-site field operatives, ensuring NRSWA streetworks compliance, safety barrier setup, and zero-defect site handovers.",
-    badge: "NRSWA Supervisor Card",
+    code: "CAT-SUP-03",
+    desc: "Supervising field squads, enforcing NRSWA streetworks compliance, safety barriers, and quality handovers.",
+    badge: "Site Leadership",
     icon: "engineering"
   },
   {
-    title: "Project Coordinator",
-    category: "Project Management",
-    code: "REF-PCO-03",
-    desc: "Coordinating daily operative scheduling, field routing, resource allocation, real-time client dashboards, and operational updates.",
-    badge: "Office & Field Based",
+    title: "Project Coordinators",
+    category: "Workforce & Logistics",
+    code: "CAT-PCO-04",
+    desc: "Coordinating daily operative scheduling, field routing, appointment booking, and operational reporting.",
+    badge: "Project Logistics",
     icon: "schedule"
   },
   {
-    title: "Operations Manager",
-    category: "Executive & Operations",
-    code: "REF-OPM-04",
-    desc: "High-level operational oversight, field force optimization, SLA fulfillment, vehicle fleet logistics, and principal contractor delivery.",
+    title: "Operations & Project Management",
+    category: "Operational Leadership",
+    code: "CAT-OPM-05",
+    desc: "Operational oversight, framework mobilization, contract delivery, and client contract management.",
     badge: "Management Level",
-    icon: "settings_suggest"
-  },
-  {
-    title: "Commercial Assistant",
-    category: "Commercial & Finance",
-    code: "REF-CMA-05",
-    desc: "Supporting commercial cost estimations, subcontractor procurement, application valuations, invoice audits, and contract documentation.",
-    badge: "Commercial Support",
-    icon: "request_quote"
-  },
-  {
-    title: "Administrator",
-    category: "Back-Office Support",
-    code: "REF-ADM-06",
-    desc: "Managing back-office operations, client reporting archives, customer appointment scheduling, and general business administration.",
-    badge: "Administrative Support",
-    icon: "admin_panel_settings"
-  },
-  {
-    title: "Project Manager",
-    category: "Project Delivery",
-    code: "REF-PJM-07",
-    desc: "Overall project lifecycle management, budget oversight, stakeholder coordination, site handovers, and Tier-1 utility client reporting.",
-    badge: "Project Delivery Lead",
     icon: "domain"
   },
   {
-    title: "Health & Safety Advisor",
-    category: "HSE Compliance",
-    code: "REF-HSA-08",
-    desc: "Enforcing zero-harm policies, RAMS auditing, site safety inspections, toolbox talks, and environmental compliance oversight.",
-    badge: "NEBOSH / IOSH Required",
+    title: "Health & Safety",
+    category: "HSE Governance",
+    code: "CAT-HSE-06",
+    desc: "H&S compliance monitoring, RAMS auditing, site safety inspections, toolbox talks, and risk management.",
+    badge: "Safety Governance",
     icon: "health_and_safety"
   },
   {
-    title: "Commercial Manager",
-    category: "Commercial & Finance",
-    code: "REF-CMM-09",
-    desc: "Commercial strategy, contract valuation, budget control, subcontractor procurement oversight, and financial risk assessment.",
-    badge: "Senior Commercial Lead",
-    icon: "payments"
+    title: "Commercial & Administration",
+    category: "Commercial & Business Support",
+    code: "CAT-CAD-07",
+    desc: "Commercial cost estimation, contract administration, supplier due diligence, and back-office support.",
+    badge: "Commercial Support",
+    icon: "admin_panel_settings"
   }
+];
+
+const applicationSteps = [
+  { step: "01", title: "Apply Online", desc: "Submit your details via our online portal or fast-track recruitment form." },
+  { step: "02", title: "Identity & Right-to-Work Checks", desc: "Verification of personal identification, right-to-work status, and compliance documentation." },
+  { step: "03", title: "CV / Experience Review", desc: "Review of relevant utility experience, operational background, and current tickets." },
+  { step: "04", title: "Interview & Competency Assessment", desc: "Role-specific interview and practical competency evaluation with our management team." },
+  { step: "05", title: "Training & Evidence Checks", desc: "Verification of EUSR, NRSWA, or CSCS cards, or enrollment into role-specific training." },
+  { step: "06", title: "Offer & Onboarding", desc: "Formal contract offer, site safety induction, equipment issue, and field deployment." }
 ];
 
 const CareerPage = () => {
@@ -98,9 +91,9 @@ const CareerPage = () => {
           
           {/* Top Page Title Banner */}
           <AboutBanner 
-            badgeText="Careers & Workforce Opportunities"
-            title="Join the BlueGrid Workforce"
-            description="Explore nationwide opportunities across UK utility programmes. We offer competitive benefits, structured training, clear career progression, and full compliance support."
+            badgeText="Careers & Workforce Development"
+            title="Build Your Career with Bluegrid Utilities"
+            description="Join a growing UK utility delivery business focused on safety, training, professional standards and progression."
             bgImage={heroThreeImg}
           />
 
@@ -108,13 +101,13 @@ const CareerPage = () => {
           <div className="bg-[#f8fafc] border border-slate-200 p-6 sm:p-8 rounded-none mb-16 flex flex-col md:flex-row items-center justify-between gap-6 shadow-md text-left">
             <div className="space-y-1">
               <span className="text-[11px] font-black text-[#005f9e] tracking-widest font-outfit">
-                Nationwide Recruitment
+                Recruitment Portal
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
-                Ready to Apply or Upload Your CV?
+                Ready to Join Our Utility Delivery Workforce?
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm font-medium">
-                Complete our fast-track online application or upload your CV to register your interest for upcoming utility projects.
+                Complete our fast-track online application to register your interest for upcoming utility projects.
               </p>
             </div>
 
@@ -131,23 +124,23 @@ const CareerPage = () => {
             </div>
           </div>
 
-          {/* Open Roles & Positions Section (Placed directly below the first apply section) */}
+          {/* Job Categories Section */}
           <div className="mb-20">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                Active Opportunities
+                Workforce Categories
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Open Positions & Career Roles
+                Job Categories & Roles
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                We are actively recruiting across 9 core operational and management roles for utility projects throughout the UK.
+                We recruit across key operational, technical, supervisory, and support categories for utility delivery programmes across the UK.
               </p>
             </div>
 
-            {/* 9 Roles Grid */}
+            {/* Role Categories Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {openRoles.map((role, idx) => (
+              {roleCategories.map((role, idx) => (
                 <div 
                   key={idx}
                   className="bg-white border border-slate-200 hover:border-[#005f9e] p-7 rounded-none shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between text-left group relative overflow-hidden"
@@ -163,7 +156,7 @@ const CareerPage = () => {
                       <span className="text-[10px] font-black text-slate-400 font-outfit tracking-widest">
                         {role.code}
                       </span>
-                     </div>
+                    </div>
 
                     <h3 className="text-xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-1 group-hover:text-[#005f9e] transition-colors">
                       {role.title}
@@ -192,7 +185,7 @@ const CareerPage = () => {
                       rel="noopener noreferrer"
                       className="w-full inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-4 py-3 transition-all font-outfit text-center cursor-pointer shadow-md group"
                     >
-                      <span>Apply Online</span>
+                      <span>Register Interest</span>
                       <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">open_in_new</span>
                     </a>
                   </div>
@@ -204,138 +197,92 @@ const CareerPage = () => {
           {/* Section Divider */}
           <hr className="border-slate-200 my-16" />
 
-          {/* 3 Career Pillars (Benefits, Training, Career Progression) */}
-          <div className="mb-20">
+          {/* Why Work With Us Section */}
+          <div className="mb-24">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                Why Work With Us
+                Workforce Value
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Benefits, Training & Career Progression
+                Why Work With Us
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                We invest in our people by offering competitive reward packages, continuous professional development, and structured career pathways.
+                We focus on building a safe, ticketed, and professional workforce supported by structured operational controls.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              
-              {/* Box 1: Benefits */}
-              <div className="bg-white border border-slate-200 hover:border-[#005f9e] p-8 rounded-none shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between text-left group relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-slate-200 group-hover:bg-[#005f9e] transition-colors duration-300" />
-                
-                <div>
-                  <div className="relative h-44 overflow-hidden mb-6 bg-slate-900">
-                    <img src={workersImg} alt="Employee Benefits" className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit">
-                      Rewards & Wellbeing
-                    </div>
+            {/* 5 Points List Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+              {[
+                { title: "Structured Onboarding", desc: "Structured onboarding and role-specific induction before site deployment.", icon: "assignment_ind" },
+                { title: "Training & Development", desc: "Access to project-relevant training and competency development.", icon: "school" },
+                { title: "Clear Operational Standards", desc: "Clear operational standards, RAMS briefings, and supervisor support.", icon: "verified" },
+                { title: "Progression Opportunities", desc: "Opportunities to progress into supervisory, coordination and management roles.", icon: "trending_up" },
+                { title: "Scalable Capability", desc: "A growing business with expanding utility-delivery capability across the UK.", icon: "domain" }
+              ].map((item, idx) => (
+                <div key={idx} className="bg-[#f4f8fc] border border-slate-200/90 p-8 shadow-lg border-t-4 border-t-[#005f9e] space-y-4">
+                  <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center border border-[#005f9e]/20 shrink-0 font-bold">
+                    <span className="material-symbols-outlined text-2xl">{item.icon}</span>
                   </div>
-
-                  <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
-                    Competitive Benefits
+                  <h3 className="text-xl font-bold text-[#0f3a5e] tracking-tight font-outfit uppercase">
+                    {item.title}
                   </h3>
-
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium mb-6">
-                    Attractive day rates and salaries, regional travel allowances, full PPE supply, health & safety support, and long-term utility contract security.
+                  <p className="text-slate-600 text-sm leading-relaxed font-medium">
+                    {item.desc}
                   </p>
                 </div>
-
-                <div className="pt-4 border-t border-slate-100 space-y-2 text-xs font-semibold text-slate-700">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[#005f9e]">check_circle</span>
-                    <span>Competitive rates & paid travel options</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[#005f9e]">check_circle</span>
-                    <span>Full PPE & high-spec safety equipment</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Box 2: Training */}
-              <div className="bg-white border border-slate-200 hover:border-[#005f9e] p-8 rounded-none shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between text-left group relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-slate-200 group-hover:bg-[#005f9e] transition-colors duration-300" />
-
-                <div>
-                  <div className="relative h-44 overflow-hidden mb-6 bg-slate-900">
-                    <img src={trainingImg} alt="Training & Qualifications" className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit">
-                      Skills & Credentials
-                    </div>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
-                    Professional Training
-                  </h3>
-
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium mb-6">
-                    Continuous learning management and fully supported upskilling courses for NRSWA, EUSR, CSCS cards, SMETS metering, and site safety credentials.
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 space-y-2 text-xs font-semibold text-slate-700">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[#005f9e]">check_circle</span>
-                    <span>Funded EUSR, CSCS & NRSWA training</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[#005f9e]">check_circle</span>
-                    <span>Continuous safety toolbox talks & inductions</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Box 3: Career Progression */}
-              <div className="bg-white border border-slate-200 hover:border-[#005f9e] p-8 rounded-none shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between text-left group relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-slate-200 group-hover:bg-[#005f9e] transition-colors duration-300" />
-
-                <div>
-                  <div className="relative h-44 overflow-hidden mb-6 bg-slate-900">
-                    <img src={complianceImg} alt="Career Progression" className="w-full h-full object-cover brightness-95 group-hover:scale-105 transition-transform duration-500" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/80 via-transparent to-transparent" />
-                    <div className="absolute bottom-3 left-3 bg-[#005f9e] text-white text-[10px] font-bold px-3 py-1 tracking-wider font-outfit">
-                      Promotion Pathways
-                    </div>
-                  </div>
-
-                  <h3 className="text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-3 group-hover:text-[#005f9e] transition-colors">
-                    Career Progression
-                  </h3>
-
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium mb-6">
-                    Clear internal promotion pathways enabling field operatives to advance into supervisory, project coordination, HSE, and operations management roles.
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-slate-100 space-y-2 text-xs font-semibold text-slate-700">
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[#005f9e]">check_circle</span>
-                    <span>Operative to Supervisor & Manager pathways</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="material-symbols-outlined text-sm text-[#005f9e]">check_circle</span>
-                    <span>Performance reviews & merit advancement</span>
-                  </div>
-                </div>
-              </div>
-
+              ))}
             </div>
           </div>
 
-          {/* Final Call to Action Banner: Upload CV & Apply Online */}
-          <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-14 rounded-none shadow-2xl relative overflow-hidden text-left flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div className="max-w-2xl space-y-3 relative z-10">
-              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block">
-                Register Your Interest
+          {/* Application Process Section */}
+          <div className="mb-24">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
+                Transparent Recruitment
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
-                Join the UK's Fastest Growing Utility Workforce
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Application Process
+              </h2>
+              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                Our 6-step recruitment process ensures clear communication, thorough compliance checks, and smooth site onboarding.
+              </p>
+            </div>
+
+            {/* 6 Step Cards Process */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+              {applicationSteps.map((stepItem, idx) => (
+                <div key={idx} className="bg-white border border-slate-200 p-8 shadow-md relative overflow-hidden flex flex-col justify-between">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="w-10 h-10 bg-[#0f3a5e] text-white flex items-center justify-center font-bold font-outfit text-sm shadow-md">
+                      {stepItem.step}
+                    </span>
+                    <span className="text-[10px] font-black text-slate-400 font-outfit uppercase tracking-widest">
+                      Step {stepItem.step}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                    {stepItem.title}
+                  </h3>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                    {stepItem.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Final Call to Action Banner: Online Application Form */}
+          <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-14 rounded-none shadow-2xl relative overflow-hidden text-left flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border-l-4 border-l-[#0066ff]">
+            <div className="max-w-2xl space-y-3 relative z-10">
+              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block uppercase">
+                Online Application Portal
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit uppercase">
+                Build Your Career With Bluegrid Utilities
               </h3>
               <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
-                Submit your CV or complete our fast-track online application form to get verified and allocated to upcoming utility programmes.
+                Complete our online application form to register your interest for upcoming utility infrastructure contracts.
               </p>
             </div>
 
@@ -344,7 +291,7 @@ const CareerPage = () => {
                 href="https://forms.office.com/r/K9vKw1hxcB"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit group"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit group uppercase"
               >
                 <span>Apply Online</span>
                 <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">open_in_new</span>
@@ -359,3 +306,4 @@ const CareerPage = () => {
 };
 
 export default CareerPage;
+

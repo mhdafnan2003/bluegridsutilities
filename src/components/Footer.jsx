@@ -20,12 +20,6 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const WhatsAppIcon = () => (
-  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
-    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-  </svg>
-);
-
 const Footer = () => {
   return (
     <footer className="bg-[#0b1324] text-slate-300 font-sans border-t-4 border-[#005f9e]">
@@ -34,7 +28,7 @@ const Footer = () => {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12">
           
-          {/* Column 1: Company Profile & Registration */}
+          {/* Column 1: Company Profile & Legal Registration */}
           <div className="lg:col-span-2 space-y-6 text-left">
             <Link to="/" className="inline-block">
               <img 
@@ -45,23 +39,23 @@ const Footer = () => {
             </Link>
             
             <div className="space-y-2 text-xs sm:text-sm text-slate-400 font-medium leading-relaxed">
-              <h3 className="text-base font-bold text-white font-outfit tracking-tight">
-                Bluegrid Utilities
+              <h3 className="text-base font-bold text-white font-outfit tracking-tight uppercase">
+                BLUEGRID UTILITIES
               </h3>
               <p className="text-slate-300">
-                A trading name of <span className="text-white font-semibold">Bluegrid Technology Ltd</span>
+                Bluegrid Utilities is a trading name of <span className="text-white font-semibold">Bluegrid Technology Ltd</span>.
               </p>
-              <p className="pt-2">
-                Company Registration Number: <span className="text-white font-bold font-mono">16442340</span>
+              <p className="pt-1">
+                Registered in England and Wales. Company No. <span className="text-white font-bold font-mono">16442340</span>.
               </p>
-              <p className="text-slate-400 text-xs">
-                Registered in England and Wales. Specialists in UK utility infrastructure delivery, workforce coordination, and metering operations.
+              <p className="text-slate-400 text-xs pt-1">
+                Registered Office: Stuart House, St. Johns Street, Peterborough, United Kingdom, PE1 5DD.
               </p>
             </div>
 
             {/* Social Links */}
             <div className="pt-4 flex items-center gap-3">
-              <span className="text-xs font-bold tracking-widest text-slate-400 font-outfit mr-2">
+              <span className="text-xs font-bold tracking-widest text-slate-400 font-outfit mr-2 uppercase">
                 Connect:
               </span>
               <a 
@@ -91,52 +85,52 @@ const Footer = () => {
               >
                 <InstagramIcon />
               </a>
-             
             </div>
           </div>
 
           {/* Column 2: Registered Office & Contact */}
           <div className="space-y-4 text-left">
-            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2">
+            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2 uppercase">
               Registered Office
             </h4>
             
             <div className="text-xs sm:text-sm text-slate-400 space-y-1 font-medium leading-relaxed">
               <p className="text-white font-semibold">Stuart House</p>
-              <p>St Johns Street</p>
+              <p>St. Johns Street</p>
               <p>Peterborough</p>
-              <p>England</p>
+              <p>United Kingdom</p>
               <p className="text-white font-bold font-mono">PE1 5DD</p>
             </div>
 
             <div className="pt-4 space-y-2 text-xs sm:text-sm">
               <div>
-                <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit">Email:</span>
+                <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit uppercase">General Enquiries:</span>
                 <a href="mailto:enquiries@bluegridutilities.com" className="text-white hover:text-[#005f9e] transition-colors font-medium">
                   enquiries@bluegridutilities.com
                 </a>
               </div>
+              <div>
+                <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit uppercase">Recruitment:</span>
+                <a href="mailto:recruitment@bluegridutilities.com" className="text-white hover:text-[#005f9e] transition-colors font-medium">
+                  recruitment@bluegridutilities.com
+                </a>
+              </div>
               <div className="pt-1">
-                <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit">Telephone:</span>
-                <a href="tel:+441733000000" className="text-white hover:text-[#005f9e] transition-colors font-medium">
-                  +44 (0) 1733 000000
+                <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit uppercase">Telephone:</span>
+                <a href="tel:+442034880934" className="text-white hover:text-[#005f9e] transition-colors font-medium">
+                  +44 (0)20 3488 0934
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Column 3: Quick Links */}
+          {/* Column 3: Navigation Links */}
           <div className="space-y-4 text-left">
-            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2">
-              Quick Links
+            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2 uppercase">
+              Navigation
             </h4>
             
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400 font-medium">
-              <li>
-                <Link to="/" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Home
-                </Link>
-              </li>
               <li>
                 <Link to="/about" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   About Us
@@ -153,7 +147,17 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/career" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                <Link to="/health-safety" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Health & Safety
+                </Link>
+              </li>
+              <li>
+                <Link to="/sustainability" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Sustainability
+                </Link>
+              </li>
+              <li>
+                <Link to="/careers" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   Careers
                 </Link>
               </li>
@@ -170,18 +174,13 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Column 4: Governance & Policies */}
+          {/* Column 4: Governance & Legal Policies */}
           <div className="space-y-4 text-left">
-            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2">
-              Governance & Policies
+            <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2 uppercase">
+              Legal & Policies
             </h4>
             
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400 font-medium">
-              <li>
-                <Link to="/health-safety" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Health & Safety
-                </Link>
-              </li>
               <li>
                 <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   Privacy Policy
@@ -194,7 +193,12 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Terms & Conditions
+                  Website Terms of Use
+                </Link>
+              </li>
+              <li>
+                <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Accessibility
                 </Link>
               </li>
               <li>
@@ -204,7 +208,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Sitemap
+                  Governance Centre
                 </Link>
               </li>
             </ul>
@@ -216,26 +220,34 @@ const Footer = () => {
       {/* Bottom Copyright Bar */}
       <div className="border-t border-slate-800 bg-[#070d19] py-6">
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-medium">
-          <p className="text-center sm:text-left">
-            © {new Date().getFullYear()} Bluegrid Utilities. A trading name of <span className="text-white">Bluegrid Technology Ltd</span>. All rights reserved.
+          <p className="text-center sm:text-left font-sans">
+            © 2026 Bluegrid Technology Ltd. All rights reserved.
           </p>
 
-          <div className="flex flex-wrap justify-center items-center gap-6 text-[11px] font-outfit tracking-wider">
-            <Link to="/about/policies" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
+          <div className="flex flex-wrap justify-center items-center gap-4 text-[11px] font-outfit tracking-wider">
+            <Link to="/about" className="hover:text-white transition-colors">About</Link>
             <span className="text-slate-700">•</span>
-            <Link to="/about/policies" className="hover:text-white transition-colors">
-              Cookie Policy
-            </Link>
+            <Link to="/services" className="hover:text-white transition-colors">Services</Link>
             <span className="text-slate-700">•</span>
-            <Link to="/about/policies" className="hover:text-white transition-colors">
-              Terms & Conditions
-            </Link>
+            <Link to="/projects" className="hover:text-white transition-colors">Projects</Link>
             <span className="text-slate-700">•</span>
-            <Link to="/about/policies" className="hover:text-white transition-colors">
-              Sitemap
-            </Link>
+            <Link to="/health-safety" className="hover:text-white transition-colors">Health & Safety</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/sustainability" className="hover:text-white transition-colors">Sustainability</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/careers" className="hover:text-white transition-colors">Careers</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/news" className="hover:text-white transition-colors">News</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/about/policies" className="hover:text-white transition-colors">Privacy</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/about/policies" className="hover:text-white transition-colors">Cookies</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/about/policies" className="hover:text-white transition-colors">Website Terms</Link>
+            <span className="text-slate-700">•</span>
+            <Link to="/about/policies" className="hover:text-white transition-colors">Accessibility</Link>
           </div>
         </div>
       </div>

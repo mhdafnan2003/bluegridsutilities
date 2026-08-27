@@ -6,80 +6,63 @@ import heroOneImg from '../../assets/images/updated/hero_blue_one.png';
 const policyDocuments = [
   { 
     name: "Privacy Policy", 
-    category: "Data Protection & Privacy", 
-    code: "BGU-POL-001", 
-    size: "185 KB",
-    desc: "Details on how Bluegrid Utilities collects, processes, and protects personal and business data."
+    category: "Data Protection & Privacy Notice", 
+    size: "Official Notice",
+    desc: "Website and business privacy notice covering personal data, lawful basis, retention, rights and contact routes."
   },
   { 
     name: "Cookie Policy", 
     category: "Website & Digital Security", 
-    code: "BGU-POL-002", 
-    size: "120 KB",
-    desc: "Information regarding cookie usage, tracking technologies, and user consent management."
+    size: "Digital Controls",
+    desc: "Cookie categories, analytics, consent management and browser controls."
   },
   { 
-    name: "Terms & Conditions", 
-    category: "Commercial & Legal Framework", 
-    code: "BGU-POL-003", 
-    size: "210 KB",
-    desc: "Standard commercial, operational, and service agreement terms governing client contracts."
-  },
-  { 
-    name: "Modern Slavery Statement", 
-    category: "Ethical Governance", 
-    code: "BGU-POL-004", 
-    size: "165 KB",
-    desc: "Our anti-slavery commitment, supply chain vetting procedures, and right-to-work enforcement."
+    name: "Website Terms of Use", 
+    category: "Legal Framework", 
+    size: "Terms of Use",
+    desc: "Use of content, intellectual property, liability, acceptable use and third-party links."
   },
   { 
     name: "Health & Safety Policy", 
     category: "Operational Site Safety", 
-    code: "BGU-POL-005", 
-    size: "295 KB",
-    desc: "Zero-harm site policy, RAMS procedures, toolbox talks, and operative safety compliance."
+    size: "H&S Statement",
+    desc: "Signed statement of intent, responsibilities and arrangements."
   },
   { 
     name: "Environmental Policy", 
-    category: "Sustainability & Carbon", 
-    code: "BGU-POL-006", 
-    size: "230 KB",
-    desc: "Commitments to carbon reduction, regional workforce deployment, and environmental management."
+    category: "Sustainability & Environment", 
+    size: "Environmental Commitments",
+    desc: "Waste, pollution prevention, energy, resource efficiency and continuous improvement commitments."
   },
   { 
-    name: "Equality Policy", 
+    name: "Equality, Diversity & Inclusion Policy", 
     category: "Workforce & Inclusion", 
-    code: "BGU-POL-007", 
-    size: "175 KB",
-    desc: "Framework guaranteeing equal opportunities, non-discrimination, and diversity in recruitment."
+    size: "EDI Framework",
+    desc: "Fair recruitment, workplace conduct, equal opportunity and anti-harassment principles."
   },
   { 
-    name: "Anti-Bribery Policy", 
+    name: "Modern Slavery Statement / Policy", 
+    category: "Ethical Supply Chain", 
+    size: "Supply Chain Policy",
+    desc: "Supply-chain due diligence and anti-exploitation commitments; statutory statement where required."
+  },
+  { 
+    name: "Anti-Bribery & Corruption Policy", 
     category: "Ethics & Compliance", 
-    code: "BGU-POL-008", 
-    size: "145 KB",
-    desc: "Strict anti-corruption principles, gift registration rules, and ethical business conduct."
+    size: "Compliance Statement",
+    desc: "Gifts, hospitality, facilitation payments, conflicts and reporting."
   },
   { 
-    name: "GDPR Compliance Statement", 
-    category: "Data Protection", 
-    code: "BGU-POL-009", 
-    size: "190 KB",
-    desc: "UK GDPR alignment confirming data subject rights, encryption, and secure records management."
-  },
-  { 
-    name: "Website Terms", 
-    category: "Digital Terms of Use", 
-    code: "BGU-POL-010", 
-    size: "135 KB",
-    desc: "Rules governing web portal access, candidate registration submissions, and intellectual property."
+    name: "Data Protection / GDPR Policy", 
+    category: "Data Governance", 
+    size: "Internal Policy",
+    desc: "Internal data governance framework establishing organizational records management and compliance."
   },
   { 
     name: "Accessibility Statement", 
     category: "Digital Inclusion", 
-    code: "BGU-POL-011", 
-    size: "115 KB",
-    desc: "Commitment to web accessibility standards (WCAG) ensuring inclusive digital experiences for all."
+    size: "Accessibility Notice",
+    desc: "Commitment to accessible digital content and contact route for accessibility issues."
   }
 ];
 
@@ -168,8 +151,8 @@ const OurPoliciesPage = () => {
                         <span className="text-[10px] font-black font-outfit">PDF</span>
                       </div>
 
-                      <span className="text-[10px] font-bold text-slate-400 font-outfit">
-                        {doc.code}
+                      <span className="text-[10px] font-bold text-slate-400 font-outfit uppercase">
+                        Verified Policy
                       </span>
                     </div>
 
