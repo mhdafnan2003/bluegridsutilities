@@ -9,7 +9,7 @@ import safetyBg from '../assets/images/safety_bg.png';
 import healthSafetyPolicyBg from '../assets/images/health_safety_policy_bg.png';
 import equalOppBg from '../assets/images/equal_opp_bg.png';
 import slaveryPrevBg from '../assets/images/slavery_prev_bg.png';
-import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png';
+import environmentalPolicyBg from '../assets/images/How Environmental Permits Help Protect Natural Resources.jpeg';
 
 const About = () => {
   return (

@@ -3,7 +3,7 @@ import { useLocation, useNavigate, Link } from 'react-router-dom';
 import MotionSection from './MotionSection';
 
 import sustainabilityHeroBg from '../assets/images/sustainability_hero_bg.png';
-import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png';
+import environmentalPolicyBg from '../assets/images/How Environmental Permits Help Protect Natural Resources.jpeg';
 import sustainabilityBannerImg from '../assets/images/sustainability_banner.png';
 import healthSafetyPolicyBg from '../assets/images/health_safety_policy_bg.png';
 import safetyBg from '../assets/images/safety_bg.png';
@@ -11,6 +11,13 @@ import complianceBg from '../assets/images/compliance_bg.png';
 import ramsBriefingImg from '../assets/images/rams_workforce_briefing.jpg';
 import utilityGridImg from '../assets/images/utility_grid_work.png';
 import ukWorkersSiteImg from '../assets/images/uk_utility_workers_site.png';
+import waterSpillImg from '../assets/images/Water Damage Mitigation Temecula.jpeg';
+import wasteRecycleImg from '../assets/images/nathan-cima-TQuq2OtLBNU-unsplash.jpg';
+import nuisanceManholeImg from '../assets/images/claudia-salamone-ujiaaMm5aVg-unsplash.jpg';
+import nuisancePreventionImg from '../assets/images/nuisance_prevention_community.jpg';
+import ultrasonicFlawImg from '../assets/images/The Truth About Ultrasonic Flaw Detectors in the Field.jpeg';
+import workplaceInspectionImg from '../assets/images/Enhance Compliance & Reduce Risks with Workplace Safety Software.jpeg';
+import qualityAssuranceImg from '../assets/images/Boosting Reliability with Professional Software Quality Assurance Testing Services.jpeg';
 
 const sectionsData = {
   "policy": {
@@ -24,10 +31,10 @@ const sectionsData = {
     overviewP1: "Management is responsible for providing suitable arrangements, competent supervision, resources and monitoring.",
     overviewP2: "Every worker is expected to follow site rules, report hazards and stop work where conditions are unsafe.",
     pillars: [
-      { id: "01", title: "Management Accountability", icon: "shield_person", desc: "Providing suitable operational arrangements, competent supervision, and necessary resources." },
-      { id: "02", title: "Worker Responsibility", icon: "verified", desc: "Expecting every worker to follow site safety rules and maintain safe working practices." },
-      { id: "03", title: "Hazard Reporting", icon: "family_restroom", desc: "Encouraging prompt reporting of all unsafe conditions and potential hazards on site." },
-      { id: "04", title: "Stop Work Authority", icon: "front_hand", desc: "Empowering every operative to stop work immediately where conditions are unsafe." }
+      { id: "01", title: "Management Accountability", icon: "shield_person", bgImage: healthSafetyPolicyBg, desc: "Providing suitable operational arrangements, competent supervision, and necessary resources." },
+      { id: "02", title: "Worker Responsibility", icon: "verified", bgImage: ukWorkersSiteImg, desc: "Expecting every worker to follow site safety rules and maintain safe working practices." },
+      { id: "03", title: "Hazard Reporting", icon: "family_restroom", bgImage: workplaceInspectionImg, desc: "Encouraging prompt reporting of all unsafe conditions and potential hazards on site." },
+      { id: "04", title: "Stop Work Authority", icon: "front_hand", bgImage: safetyBg, desc: "Empowering every operative to stop work immediately where conditions are unsafe." }
     ],
     checklist: [
       "Suitable operational arrangements and competent supervision",
@@ -48,10 +55,10 @@ const sectionsData = {
     overviewP1: "Work activities should be assessed before commencement to identify potential hazards and establish safe working controls.",
     overviewP2: "Point-of-work assessments should be used where site conditions change to ensure ongoing safety.",
     pillars: [
-      { id: "01", title: "Pre-Work Assessment", icon: "fact_check", desc: "Assessing all work activities before commencement to understand hazards and practical controls." },
-      { id: "02", title: "Hierarchy of Controls", icon: "layers", desc: "Applying elimination, substitution, engineering controls, administrative controls and PPE." },
-      { id: "03", title: "Point-of-Work Reviews", icon: "edit_note", desc: "Using dynamic point-of-work assessments whenever site conditions change." },
-      { id: "04", title: "Hazard Elimination Focus", icon: "cable", desc: "Prioritizing physical hazard elimination and engineering barriers over procedural controls." }
+      { id: "01", title: "Pre-Work Assessment", icon: "fact_check", bgImage: workplaceInspectionImg, desc: "Assessing all work activities before commencement to understand hazards and practical controls." },
+      { id: "02", title: "Hierarchy of Controls", icon: "layers", bgImage: safetyBg, desc: "Applying elimination, substitution, engineering controls, administrative controls and PPE." },
+      { id: "03", title: "Point-of-Work Reviews", icon: "edit_note", bgImage: complianceBg, desc: "Using dynamic point-of-work assessments whenever site conditions change." },
+      { id: "04", title: "Hazard Elimination Focus", icon: "cable", bgImage: ultrasonicFlawImg, desc: "Prioritizing physical hazard elimination and engineering barriers over procedural controls." }
     ],
     checklist: [
       "Pre-commencement work activity risk assessments",
@@ -90,16 +97,16 @@ const sectionsData = {
     title: "Utility Avoidance",
     badge: "Safe Digging Practices",
     icon: "cable",
-    bgImage: complianceBg,
+    bgImage: ultrasonicFlawImg,
     headline: "Underground Utility Avoidance & Safe Digging",
     description: "Excavation and intrusive works require appropriate utility plans, site assessment, detection equipment used by competent persons and safe digging practices.",
     overviewP1: "Protecting underground infrastructure requires disciplined pre-excavation checks and safe digging practices.",
     overviewP2: "Detection equipment must be operated strictly by competent persons trained in CAT & Genny utility location.",
     pillars: [
-      { id: "01", title: "Utility Plan Review", icon: "map", desc: "Reviewing appropriate underground utility plans prior to any intrusive site work." },
-      { id: "02", title: "Site Assessment", icon: "search", desc: "Conducting thorough site surface inspections to identify asset indicators and risks." },
-      { id: "03", title: "Competent CAT & Genny Scanning", icon: "radar", desc: "Utilizing cable detection equipment operated by trained, competent personnel." },
-      { id: "04", title: "Safe Digging Practices", icon: "construction", desc: "Adhering strictly to HSG47 safe digging guidelines during trial holes and excavation." }
+      { id: "01", title: "Utility Plan Review", icon: "map", bgImage: complianceBg, desc: "Reviewing appropriate underground utility plans prior to any intrusive site work." },
+      { id: "02", title: "Site Assessment", icon: "search", bgImage: utilityGridImg, desc: "Conducting thorough site surface inspections to identify asset indicators and risks." },
+      { id: "03", title: "Competent CAT & Genny Scanning", icon: "radar", bgImage: ultrasonicFlawImg, desc: "Utilizing cable detection and pipeline scanning equipment operated by trained, competent personnel." },
+      { id: "04", title: "Safe Digging Practices", icon: "construction", bgImage: ukWorkersSiteImg, desc: "Adhering strictly to HSG47 safe digging guidelines during trial holes and excavation." }
     ],
     checklist: [
       "Up-to-date utility plans reviewed prior to excavation",
@@ -120,10 +127,10 @@ const sectionsData = {
     overviewP1: "We operate a no-blame reporting culture that encourages early reporting of unsafe conditions, near misses and improvement opportunities.",
     overviewP2: "Significant learning should be shared across teams through regular briefings and toolbox talks.",
     pillars: [
-      { id: "01", title: "No-Blame Culture", icon: "handshake", desc: "Fostering an open environment where workers report hazards without fear of blame." },
-      { id: "02", title: "Early Hazard Spotting", icon: "smartphone", desc: "Encouraging immediate reporting of unsafe site conditions and near-miss occurrences." },
-      { id: "03", title: "Improvement Opportunities", icon: "trending_up", desc: "Using near-miss data to identify practical workflow and safety improvements." },
-      { id: "04", title: "Shared Learning Briefings", icon: "campaign", desc: "Sharing significant lessons learned across teams via daily briefings and toolbox talks." }
+      { id: "01", title: "No-Blame Culture", icon: "handshake", bgImage: complianceBg, desc: "Fostering an open environment where workers report hazards without fear of blame." },
+      { id: "02", title: "Early Hazard Spotting", icon: "smartphone", bgImage: workplaceInspectionImg, desc: "Encouraging immediate reporting of unsafe site conditions and near-miss occurrences." },
+      { id: "03", title: "Improvement Opportunities", icon: "trending_up", bgImage: qualityAssuranceImg, desc: "Using near-miss data to identify practical workflow and safety improvements." },
+      { id: "04", title: "Shared Learning Briefings", icon: "campaign", bgImage: ramsBriefingImg, desc: "Sharing significant lessons learned across teams via daily briefings and toolbox talks." }
     ],
     checklist: [
       "No-blame policy encouraging open hazard reporting",
@@ -144,10 +151,10 @@ const sectionsData = {
     overviewP1: "All incidents should be escalated promptly, made safe, recorded, and investigated proportionately.",
     overviewP2: "Statutory reporting such as RIDDOR must be managed where applicable by a competent responsible person.",
     pillars: [
-      { id: "01", title: "Prompt Escalation & Securing", icon: "phone_in_talk", desc: "Escalating incidents immediately and making the site area safe." },
-      { id: "02", title: "Proportionate Investigation", icon: "search", desc: "Recording and investigating incidents proportionately to identify root causes." },
-      { id: "03", title: "Corrective Actions", icon: "rule", desc: "Implementing effective corrective and preventive actions to prevent recurrence." },
-      { id: "04", title: "RIDDOR Statutory Reporting", icon: "gavel", desc: "Managing statutory HSE reporting such as RIDDOR via a competent responsible person." }
+      { id: "01", title: "Prompt Escalation & Securing", icon: "phone_in_talk", bgImage: ukWorkersSiteImg, desc: "Escalating incidents immediately and making the site area safe." },
+      { id: "02", title: "Proportionate Investigation", icon: "search", bgImage: workplaceInspectionImg, desc: "Recording and investigating incidents proportionately to identify root causes." },
+      { id: "03", title: "Corrective Actions", icon: "rule", bgImage: complianceBg, desc: "Implementing effective corrective and preventive actions to prevent recurrence." },
+      { id: "04", title: "RIDDOR Statutory Reporting", icon: "gavel", bgImage: healthSafetyPolicyBg, desc: "Managing statutory HSE reporting such as RIDDOR via a competent responsible person." }
     ],
     checklist: [
       "Prompt incident escalation and site securing protocols",
@@ -162,16 +169,16 @@ const sectionsData = {
     title: "Site Audits & Inspections",
     badge: "Supervisory Verification",
     icon: "fact_check",
-    bgImage: safetyBg,
+    bgImage: workplaceInspectionImg,
     headline: "Supervisory Site Inspections & Audits",
     description: "Supervisory inspections should check barriers, access, excavation controls, PPE, equipment condition, documentation, housekeeping, customer / public protection and work quality.",
     overviewP1: "Supervisory inspections verify that site controls are maintained consistently during field operations.",
     overviewP2: "Inspections cover safety barriers, excavation controls, equipment condition, documentation, public protection and work quality.",
     pillars: [
-      { id: "01", title: "Barriers & Access Checks", icon: "visibility", desc: "Inspecting site safety barriers, pedestrian walkways, and secure site access." },
-      { id: "02", title: "Excavation & PPE Controls", icon: "assignment_checked", desc: "Checking trench shoring, utility avoidance, and correct PPE usage." },
-      { id: "03", title: "Equipment & Documentation", icon: "rule", desc: "Verifying calibrated equipment condition, RAMS paperwork, and site logs." },
-      { id: "04", title: "Public Protection & Quality", icon: "thumb_up", desc: "Ensuring customer/public protection, good housekeeping, and high work quality." }
+      { id: "01", title: "Barriers & Access Checks", icon: "visibility", bgImage: ukWorkersSiteImg, desc: "Inspecting site safety barriers, pedestrian walkways, and secure site access." },
+      { id: "02", title: "Excavation & PPE Controls", icon: "assignment_checked", bgImage: safetyBg, desc: "Checking trench shoring, utility avoidance, and correct PPE usage." },
+      { id: "03", title: "Equipment & Documentation", icon: "rule", bgImage: workplaceInspectionImg, desc: "Verifying calibrated equipment condition, RAMS paperwork, and site logs." },
+      { id: "04", title: "Public Protection & Quality", icon: "thumb_up", bgImage: qualityAssuranceImg, desc: "Ensuring customer/public protection, good housekeeping, and high work quality." }
     ],
     checklist: [
       "Regular supervisory inspections across active worksites",
@@ -186,16 +193,16 @@ const sectionsData = {
     title: "Daily Briefings",
     badge: "Pre-Start Communications",
     icon: "record_voice_over",
-    bgImage: operationalImg,
+    bgImage: ramsBriefingImg,
     headline: "Pre-Start Briefings & Shift Readiness",
     description: "Pre-start briefings should cover scope, site-specific risks, utility information, traffic / pedestrian arrangements, weather and environmental conditions, emergency arrangements and changes from the previous shift.",
     overviewP1: "Pre-start briefings ensure every shift begins with full awareness of site conditions and risks.",
     overviewP2: "Briefings review utility drawings, traffic management, weather factors, and any changes from previous shifts.",
     pillars: [
-      { id: "01", title: "Job Scope & Site Risks", icon: "forum", desc: "Communicating the day's scope of work and site-specific hazards." },
-      { id: "02", title: "Utility & Traffic Arrangements", icon: "traffic", desc: "Reviewing underground utility plans and pedestrian/traffic management setups." },
-      { id: "03", title: "Environmental & Weather Conditions", icon: "cloud", desc: "Addressing weather, ground conditions, and environmental protection needs." },
-      { id: "04", title: "Emergency & Shift Changes", icon: "emergency", desc: "Confirming emergency contacts and reviewing changes from the previous shift." }
+      { id: "01", title: "Job Scope & Site Risks", icon: "forum", bgImage: ramsBriefingImg, desc: "Communicating the day's scope of work and site-specific hazards." },
+      { id: "02", title: "Utility & Traffic Arrangements", icon: "traffic", bgImage: utilityGridImg, desc: "Reviewing underground utility plans and pedestrian/traffic management setups." },
+      { id: "03", title: "Environmental & Weather Conditions", icon: "cloud", bgImage: environmentalPolicyBg, desc: "Addressing weather, ground conditions, and environmental protection needs." },
+      { id: "04", title: "Emergency & Shift Changes", icon: "emergency", bgImage: ukWorkersSiteImg, desc: "Confirming emergency contacts and reviewing changes from the previous shift." }
     ],
     checklist: [
       "Mandatory pre-start briefings before commencing shift work",
@@ -216,10 +223,10 @@ const sectionsData = {
     overviewP1: "PPE requirements are determined by thorough risk assessment and client-specific site rules.",
     overviewP2: "Operatives are provided with role-appropriate, certified protective gear maintained in good condition.",
     pillars: [
-      { id: "01", title: "Risk-Assessed Selection", icon: "fact_check", desc: "Selecting PPE based on specific task risk assessments and site environments." },
-      { id: "02", title: "Client Alignment", icon: "handshake", desc: "Ensuring full alignment with client rules and framework specifications." },
-      { id: "03", title: "Certified Quality Standards", icon: "verified", desc: "Issuing EN/UK certified protective equipment appropriate for the task." },
-      { id: "04", title: "Regular Condition Audits", icon: "rule", desc: "Inspecting PPE regularly and replacing worn or damaged gear immediately." }
+      { id: "01", title: "Risk-Assessed Selection", icon: "fact_check", bgImage: safetyBg, desc: "Selecting PPE based on specific task risk assessments and site environments." },
+      { id: "02", title: "Client Alignment", icon: "handshake", bgImage: ukWorkersSiteImg, desc: "Ensuring full alignment with client rules and framework specifications." },
+      { id: "03", title: "Certified Quality Standards", icon: "verified", bgImage: qualityAssuranceImg, desc: "Issuing EN/UK certified protective equipment appropriate for the task." },
+      { id: "04", title: "Regular Condition Audits", icon: "rule", bgImage: workplaceInspectionImg, desc: "Inspecting PPE regularly and replacing worn or damaged gear immediately." }
     ],
     checklist: [
       "PPE requirements determined strictly by risk assessment",
@@ -240,10 +247,10 @@ const sectionsData = {
     overviewP1: "Training and qualification card requirements must match the specific work activity undertaken.",
     overviewP2: "Bluegrid maintains a structured competence matrix and automated expiry tracking for role-relevant qualifications.",
     pillars: [
-      { id: "01", title: "Role-Relevant Tickets", icon: "card_membership", desc: "Ensuring operatives hold valid cards matching their exact work activity (EUSR, NRSWA, CSCS)." },
-      { id: "02", title: "Competence Matrix", icon: "grid_view", desc: "Maintaining an audited competence matrix for all field personnel." },
-      { id: "03", title: "Expiry Tracking", icon: "schedule", desc: "Tracking qualification card expiry dates to ensure timely refresher training." },
-      { id: "04", title: "Verified Skills", icon: "verified_user", desc: "Verifying operative competence before deployment to active contract sites." }
+      { id: "01", title: "Role-Relevant Tickets", icon: "card_membership", bgImage: sustainabilityHeroBg, desc: "Ensuring operatives hold valid cards matching their exact work activity (EUSR, NRSWA, CSCS)." },
+      { id: "02", title: "Competence Matrix", icon: "grid_view", bgImage: complianceBg, desc: "Maintaining an audited competence matrix for all field personnel." },
+      { id: "03", title: "Expiry Tracking", icon: "schedule", bgImage: workplaceInspectionImg, desc: "Tracking qualification card expiry dates to ensure timely refresher training." },
+      { id: "04", title: "Verified Skills", icon: "verified_user", bgImage: qualityAssuranceImg, desc: "Verifying operative competence before deployment to active contract sites." }
     ],
     checklist: [
       "Qualifications and cards matched directly to work activities",
@@ -264,10 +271,10 @@ const sectionsData = {
     overviewP1: "Environmental controls are integrated into work planning to protect local habitats and communities.",
     overviewP2: "Practices address waste management, spill prevention, noise and dust suppression, and responsible disposal.",
     pillars: [
-      { id: "01", title: "Spill & Water Protection", icon: "water_drop", desc: "Maintaining spill kits and silt controls to protect watercourses and drains." },
-      { id: "02", title: "Waste & Material Controls", icon: "recycling", desc: "Managing excavated material, waste segregation, and responsible disposal." },
-      { id: "03", title: "Dust, Noise & Idling", icon: "volume_off", desc: "Suppressing dust, controlling noise levels, and reducing vehicle engine idling." },
-      { id: "04", title: "Nuisance Prevention", icon: "nature_people", desc: "Minimizing public nuisance and protecting local community environments." }
+      { id: "01", title: "Spill & Water Protection", icon: "water_drop", bgImage: waterSpillImg, desc: "Maintaining spill kits and silt controls to protect watercourses and drains." },
+      { id: "02", title: "Waste & Material Controls", icon: "recycling", bgImage: wasteRecycleImg, desc: "Managing excavated material, waste segregation, and responsible disposal." },
+      { id: "03", title: "Dust, Noise & Idling", icon: "volume_off", bgImage: nuisanceManholeImg, desc: "Suppressing dust, controlling noise levels, and reducing vehicle engine idling." },
+      { id: "04", title: "Nuisance Prevention", icon: "nature_people", bgImage: nuisancePreventionImg, desc: "Minimizing public nuisance and protecting local community environments." }
     ],
     checklist: [
       "Spill kits and watercourse protection measures on site",
@@ -282,16 +289,16 @@ const sectionsData = {
     title: "Quality Assurance",
     badge: "Quality Standards",
     icon: "verified",
-    bgImage: utilityGridImg,
+    bgImage: qualityAssuranceImg,
     headline: "Task Standards & Supervisory Quality Control",
     description: "Quality controls should include task standards, evidence requirements, supervisory checks, non-conformance management, defect correction and client feedback.",
     overviewP1: "Quality controls ensure utility works are completed to specification and client standards.",
     overviewP2: "Work is verified through supervisory checks, photographic evidence, and proactive non-conformance management.",
     pillars: [
-      { id: "01", title: "Task Standards", icon: "workspace_premium", desc: "Defining clear workmanship standards and technical task specifications." },
-      { id: "02", title: "Evidence Requirements", icon: "photo_camera", desc: "Capturing photographic and digital evidence at key work stages." },
-      { id: "03", title: "Supervisory Checks", icon: "fact_check", desc: "Conducting regular supervisory checks before job sign-off." },
-      { id: "04", title: "Defect Correction", icon: "thumb_up", desc: "Managing non-conformances promptly and incorporating client feedback." }
+      { id: "01", title: "Task Standards", icon: "workspace_premium", bgImage: qualityAssuranceImg, desc: "Defining clear workmanship standards and technical task specifications." },
+      { id: "02", title: "Evidence Requirements", icon: "photo_camera", bgImage: utilityGridImg, desc: "Capturing photographic and digital installation evidence at key work stages." },
+      { id: "03", title: "Supervisory Checks", icon: "fact_check", bgImage: workplaceInspectionImg, desc: "Conducting regular supervisory checks and audits before job sign-off." },
+      { id: "04", title: "Defect Correction", icon: "thumb_up", bgImage: ultrasonicFlawImg, desc: "Managing non-conformances promptly, flaw detection, and incorporating client feedback." }
     ],
     checklist: [
       "Clear task standards and technical specifications",
@@ -312,10 +319,10 @@ const sectionsData = {
     overviewP1: "Supervisors reinforce safe decision-making, constructive challenge and continuous learning from observations.",
     overviewP2: "Open communication encourages workers to speak up and address potential safety issues constructively.",
     pillars: [
-      { id: "01", title: "Safe Decision-Making", icon: "do_not_distribute", desc: "Supporting workers in making safe decisions during daily field activities." },
-      { id: "02", title: "Constructive Challenge", icon: "supervisor_account", desc: "Encouraging constructive challenge whenever unsafe practices are noted." },
-      { id: "03", title: "Learning from Observations", icon: "lightbulb", desc: "Using day-to-day site observations as practical learning opportunities." },
-      { id: "04", title: "Supervisory Leadership", icon: "forum", desc: "Supervisors actively modeling safety-focused behaviors on site." }
+      { id: "01", title: "Safe Decision-Making", icon: "do_not_distribute", bgImage: ukWorkersSiteImg, desc: "Supporting workers in making safe decisions during daily field activities." },
+      { id: "02", title: "Constructive Challenge", icon: "supervisor_account", bgImage: ramsBriefingImg, desc: "Encouraging constructive challenge whenever unsafe practices are noted." },
+      { id: "03", title: "Learning from Observations", icon: "lightbulb", bgImage: workplaceInspectionImg, desc: "Using day-to-day site observations as practical learning opportunities." },
+      { id: "04", title: "Supervisory Leadership", icon: "forum", bgImage: complianceBg, desc: "Supervisors actively modeling safety-focused behaviors on site." }
     ],
     checklist: [
       "Supervisory reinforcement of safe decision-making",
@@ -330,16 +337,16 @@ const sectionsData = {
     title: "Performance Reporting",
     badge: "Safety-Led Delivery",
     icon: "monitoring",
-    bgImage: utilityGridImg,
+    bgImage: qualityAssuranceImg,
     headline: "Safety-Led Delivery & Verified Metrics",
     description: "Publish only verified H&S metrics with a defined period and methodology. Until a meaningful dataset exists, use qualitative wording such as 'Safety-led delivery' rather than unverified LTIFR or zero-harm statistics.",
     overviewP1: "Bluegrid Utilities operates a safety-led delivery model focused on practical controls and supervisory oversight.",
     overviewP2: "We publish only verified metrics backed by documented reporting periods and clear methodologies.",
     pillars: [
-      { id: "01", title: "Safety-Led Delivery", icon: "speed", desc: "Focusing operational effort on safety-led planning and risk management." },
-      { id: "02", title: "Verified Data Focus", icon: "verified", desc: "Publishing metrics only when backed by verified reporting periods." },
-      { id: "03", title: "Supervisory Monitoring", icon: "dashboard", desc: "Conducting regular supervisory monitoring of safety compliance." },
-      { id: "04", title: "Continuous Improvement", icon: "trending_up", desc: "Applying review findings to improve field safety arrangements continuously." }
+      { id: "01", title: "Safety-Led Delivery", icon: "speed", bgImage: ukWorkersSiteImg, desc: "Focusing operational effort on safety-led planning and risk management." },
+      { id: "02", title: "Verified Data Focus", icon: "verified", bgImage: qualityAssuranceImg, desc: "Publishing metrics only when backed by verified reporting periods." },
+      { id: "03", title: "Supervisory Monitoring", icon: "dashboard", bgImage: workplaceInspectionImg, desc: "Conducting regular supervisory monitoring of safety compliance." },
+      { id: "04", title: "Continuous Improvement", icon: "trending_up", bgImage: ultrasonicFlawImg, desc: "Applying review findings to improve field safety arrangements continuously." }
     ],
     checklist: [
       "Safety-led delivery approach across all operational projects",

@@ -1,16 +1,79 @@
-# React + Vite
+# Bluegrid Utilities - Client/Server Architecture
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository is structured as a decoupled **Client-Server Architecture**:
+- **`client/`**: React 19 + Vite frontend application.
+- **`server/`**: Node.js + Express backend API service.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Directory Structure
 
-## React Compiler
+```
+bluegridsutilities/
+├── client/                     # Frontend Application
+│   ├── public/                 # Static assets & favicon
+│   ├── src/                    # React source code (components, pages, assets, data)
+│   ├── index.html              # HTML template
+│   ├── vite.config.js          # Vite config
+│   ├── tailwind.config.js      # Tailwind CSS styling config
+│   ├── postcss.config.js       # PostCSS config
+│   ├── eslint.config.js        # ESLint rules
+│   ├── package.json            # Client dependencies & scripts
+│   └── README.md               # Frontend guide
+│
+├── server/                     # Backend API Service
+│   ├── src/
+│   │   ├── config/             # Environment & server config
+│   │   ├── controllers/        # Route controllers (contact, news, careers, health)
+│   │   ├── middleware/         # Error handler, request logger
+│   │   ├── routes/             # API routes
+│   │   └── app.js              # Express app definition
+│   ├── server.js               # Backend entry point (Port 5000)
+│   ├── .env.example            # Environment variables template
+│   ├── package.json            # Server dependencies & scripts
+│   └── README.md               # Backend guide
+│
+├── package.json                # Root orchestration & workspace scripts
+├── .gitignore                  # Git ignore rules
+└── README.md                   # Project overview
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Quick Start Commands (from Root)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Install All Dependencies
+```bash
+npm run install:all
+```
+
+### 2. Start Frontend & Backend Simultaneously
+```bash
+npm run dev:all
+```
+
+### 3. Start Frontend Only (Vite @ http://localhost:5173)
+```bash
+npm run dev:client
+# or
+npm run dev
+```
+
+### 4. Start Backend API Only (Express @ http://localhost:5000)
+```bash
+npm run dev:server
+```
+
+### 5. Build Frontend for Production
+```bash
+npm run build
+```
+
+---
+
+## Backend API Endpoints (Port 5000)
+- `GET /api/health`: Health status & server uptime.
+- `POST /api/contact`: Receive and process contact enquiries.
+- `GET /api/news`: Retrieve company news articles.
+- `GET /api/careers/vacancies`: List available career roles.
+- `POST /api/careers/apply`: Submit job application.
