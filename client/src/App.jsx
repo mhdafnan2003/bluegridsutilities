@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Preloader from './components/Preloader';
+import ErrorBoundary from './components/ErrorBoundary';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -358,14 +359,19 @@ const MainContent = () => {
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const handlePreloaderComplete = useCallback(() => {
+    setIsLoading(false);
+  }, []);
 
   return (
-    <BrowserRouter>
-      {isLoading && <Preloader onComplete={() => setIsLoading(false)} />}
-      <ScrollToTop />
-      <ScrollToAnchor />
-      <MainContent />
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
+        <ScrollToTop />
+        <ScrollToAnchor />
+        <MainContent />
+      </BrowserRouter>
+    </ErrorBoundary>
   );
 }
 

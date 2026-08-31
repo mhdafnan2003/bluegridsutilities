@@ -1,35 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/images/logo.png';
 
 const Preloader = ({ onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState('loading');
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     let current = 0;
-    const totalDuration = 1400; // ms
+    const totalDuration = 1200; // ms
     const interval = 16;
     const increment = 100 / (totalDuration / interval);
+
+    // Hard fallback safety: ensure preloader unmounts even if background tab throttles setInterval
+    const safetyTimer = setTimeout(() => {
+      setPhase('exit');
+      onCompleteRef.current?.();
+    }, 2000);
 
     const timer = setInterval(() => {
       current += increment;
       if (current >= 100) {
         clearInterval(timer);
+        clearTimeout(safetyTimer);
         setProgress(100);
         setTimeout(() => {
           setPhase('exit');
           setTimeout(() => {
-            onComplete?.();
-          }, 400);
-        }, 150);
+            onCompleteRef.current?.();
+          }, 300);
+        }, 100);
       } else {
         setProgress(Math.min(100, Math.round(current)));
       }
     }, interval);
 
-    return () => clearInterval(timer);
-  }, [onComplete]);
+    return () => {
+      clearInterval(timer);
+      clearTimeout(safetyTimer);
+    };
+  }, []);
 
   return (
     <AnimatePresence>
