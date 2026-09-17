@@ -268,11 +268,14 @@ const servicesData = [
     num: "01",
     slug: "smart-water-metering",
     aliases: ["water-meter-installation"],
-    title: "Smart Water Metering",
+    eyebrow: "SMART WATER METERING",
+    title: "Smart Water Meter Installation Support",
+    hubTitle: "Smart Water Metering",
     icon: "water_drop",
-    desc: "Supporting clean water networks with smart meter delivery through structured field mobilisation, accredited personnel, digital evidence capture and client-focused customer care.",
+    desc: "Structured mobilisation, installation activity, field coordination and completion reporting for authorised smart water-meter programmes.",
+    intro: "Bluegrid Utilities supports authorised smart water-meter programmes through structured mobilisation, field coordination, installation activity and completion reporting.",
     img: imgWaterMeter,
-    ctaText: "Discuss a smart water-meter requirement",
+    ctaText: "Discuss a Project",
     details: {
       headline: "Supporting clean water networks with smart meter delivery.",
       overview: "Smart water metering is a central capability for Bluegrid Utilities. We support utility clients and primary contractors with the field delivery of domestic and commercial smart water meter installations, replacements and associated access works.",
@@ -293,22 +296,54 @@ const servicesData = [
   },
   {
     num: "02",
+    slug: "water-infrastructure-support",
+    aliases: ["infrastructure-support"],
+    eyebrow: "WATER INFRASTRUCTURE SUPPORT",
+    title: "Water Infrastructure Support",
+    hubTitle: "Water Infrastructure Support",
+    icon: "water",
+    desc: "Practical field and project support for authorised water-infrastructure activities.",
+    intro: "Bluegrid Utilities provides operational and field support for authorised water-infrastructure activities, with scope defined by the project, client requirements and competent resources available.",
+    img: imgInfra,
+    ctaText: "Discuss a Project",
+    details: {
+      headline: "Delivery Without Compromising Standards",
+      overview: "The exact scope is agreed for each project and remains subject to competence, resources, approved methods, permits, client instructions and site conditions.",
+      keyAreas: [
+        "Project mobilisation and field-resource coordination",
+        "Site and customer-interface support where authorised",
+        "Access and enabling support associated with water-infrastructure activities",
+        "Supervision, progress monitoring and operational reporting",
+        "Issue, defect and completion-record coordination"
+      ],
+      benefits: [
+        "Controlled from mobilisation to completion: Plan, Mobilise, Deliver, Verify",
+        "Productivity does not override safety, approved methods, permits or client instructions",
+        "Transparent records and prompt escalation through authorised project channels"
+      ]
+    }
+  },
+  {
+    num: "03",
     slug: "utility-civils",
     aliases: ["civils-reinstatement", "civil-engineering"],
-    title: "Utility Civils and Access Works",
+    eyebrow: "CIVIL ENGINEERING & EXCAVATION SUPPORT",
+    title: "Utility Civils & Excavation Support",
+    hubTitle: "Civil Engineering & Excavation Support",
     icon: "engineering",
-    desc: "Delivering safe excavation, trial pitting, duct laying, chamber construction, and boundary box works supporting utility programmes under strict HSG47 standards.",
+    desc: "Utility access, excavation and associated enabling support where scope and competence are approved.",
+    intro: "Bluegrid Utilities can support authorised utility access, excavation and associated civil works where the project scope, competence, equipment and working controls have been confirmed.",
     img: imgCivil,
-    ctaText: "Discuss a civils requirement",
+    ctaText: "Discuss a Project",
     details: {
-      headline: "Civil engineering and groundworks supporting utility delivery.",
-      overview: "Bluegrid Utilities delivers civils support for utility infrastructure projects. From trial pitting and trench excavation to chamber construction and boundary box works, our teams provide the ground-level support that utility programmes depend on.",
+      headline: "Controlled groundworks and civil support for utilities.",
+      overview: "Bluegrid Utilities supports utility infrastructure projects with confirmed access, excavation, and enabling works where competent resources and approved delivery arrangements are in place.",
       keyAreas: [
         "Trial pitting and vacuum excavation support",
         "Trenching and duct-laying for utility connections",
         "Chamber construction, repair and cover replacement",
         "Boundary box installation and adjustment",
-        "Deep excavation support with compliant shoring and safety equipment",
+        "Excavation support with compliant shoring and safety equipment",
         "Safe digging practices compliant with HSG47 (Avoiding Danger from Underground Services)"
       ],
       benefits: [
@@ -319,14 +354,17 @@ const servicesData = [
     }
   },
   {
-    num: "03",
+    num: "04",
     slug: "reinstatement",
     aliases: ["reinstatement-support"],
-    title: "Reinstatement Support",
+    eyebrow: "REINSTATEMENT SUPPORT",
+    title: "Utility Reinstatement Support",
+    hubTitle: "Reinstatement Support",
     icon: "construction",
-    desc: "First-time permanent and temporary reinstatement across all surface categories, meeting the strict standards of the New Roads and Street Works Act (NRSWA).",
+    desc: "Quality-focused reinstatement activity delivered to the requirements of the relevant project and working environment.",
+    intro: "Bluegrid Utilities supports reinstatement activities associated with authorised utility works, with quality and completion requirements defined by the project and working environment.",
     img: imgReinstatement,
-    ctaText: "Discuss reinstatement support",
+    ctaText: "Discuss a Project",
     details: {
       headline: "High-standard reinstatement for footways, carriageways and verges.",
       overview: "Reinstatement is where a utility project's public reputation is won or lost. Bluegrid Utilities delivers first-time permanent and temporary reinstatement across all surface categories, meeting the strict standards of the New Roads and Street Works Act (NRSWA).",
@@ -346,14 +384,17 @@ const servicesData = [
     }
   },
   {
-    num: "04",
+    num: "05",
     slug: "project-delivery",
-    aliases: ["project-delivery-mobilisation", "infrastructure-support", "water-infrastructure-support"],
-    title: "Project Delivery and Field Support",
+    aliases: ["project-delivery-mobilisation"],
+    eyebrow: "PROJECT DELIVERY & OPERATIONAL MANAGEMENT",
+    title: "Project Delivery & Operational Management",
+    hubTitle: "Project Delivery & Operational Management",
     icon: "foundation",
-    desc: "Organised field delivery ensuring works are planned properly, personnel are onboarded compliantly, sites are supervised actively and progress is reported transparently.",
-    img: imgInfra,
-    ctaText: "Discuss project delivery support",
+    desc: "Mobilisation, workforce coordination, supervision, progress reporting and operational escalation.",
+    intro: "Bluegrid Utilities supports utility programmes through structured mobilisation, workforce coordination, day-to-day operational management, progress reporting and escalation.",
+    img: imgProjectCoord,
+    ctaText: "Discuss a Project",
     details: {
       headline: "Organised field delivery from planning through to completion.",
       overview: "Successful utility delivery requires more than operatives on site. Bluegrid Utilities provides structured project delivery support that ensures works are planned properly, personnel are onboarded compliantly, sites are supervised actively and progress is reported transparently.",
@@ -363,7 +404,7 @@ const servicesData = [
         "Programme coordination: scheduling, route planning, access management",
         "Digital reporting: daily work records, photographic audits, snag lists",
         "Logistics and materials: site compound management, materials staging, waste management",
-        "Subcontractor management: coordination, oversight, quality sign-off"
+        "Subcontractor coordination: oversight, quality sign-off and escalation"
       ],
       benefits: [
         "Disciplined mobilisation aligned strictly with framework schedules",
@@ -425,7 +466,7 @@ const ServicesPage = () => {
             <div className="p-6 sm:p-10 md:p-12 max-w-3xl text-left text-[#0f3a5e] bg-white border border-slate-200/90 shadow-2xl space-y-4 border-l-4 border-l-[#0066ff]">
               <div className="flex flex-wrap items-center gap-3">
                 <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#0066ff] text-white text-[11px] font-bold tracking-widest font-outfit uppercase border border-white/20 shadow-sm">
-                  Service {service.num}
+                  {service.eyebrow || `Service ${service.num}`}
                 </span>
                 <span className="text-[#005f9e] font-bold text-xs tracking-widest font-outfit uppercase flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#005f9e]" />
@@ -437,13 +478,19 @@ const ServicesPage = () => {
                 {service.title}
               </h1>
 
-              <blockquote className="text-sm sm:text-base md:text-lg font-bold text-[#005f9e] tracking-tight font-outfit leading-snug border-l-4 border-[#0066ff] pl-4 py-1.5 bg-slate-50 border border-slate-200/60 rounded-none">
-                "{service.details.headline}"
-              </blockquote>
-
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                {service.details.overview}
+              <p className="text-slate-700 text-base sm:text-lg font-medium leading-relaxed">
+                {service.intro}
               </p>
+
+              <div className="pt-2">
+                <Link
+                  to={`/contact?subject=${encodeURIComponent(service.title)}`}
+                  className="inline-flex items-center gap-2 px-7 py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold text-xs tracking-widest uppercase font-outfit shadow-md transition-all"
+                >
+                  <span>Discuss a Project</span>
+                  <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
@@ -629,19 +676,35 @@ const ServicesPage = () => {
       <PageSEO />
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
 
-        {/* Left-Aligned Headline Section */}
-        <div className="text-left mb-20 max-w-4xl">
-          <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-            Our Capabilities
+        {/* Left-Aligned Headline Section (Pack 03 Hero) */}
+        <div className="text-left mb-16 max-w-4xl">
+          <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
+            SERVICES
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-            Our Services
+            Utility Infrastructure Support
           </h1>
-          <h2 className="text-xl sm:text-2xl font-bold text-[#005f9e] font-outfit mt-2">
-            Utility services organised around delivery, not slogans
-          </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium mt-4">
-            Bluegrid Utilities provides field-delivery and infrastructure-support services for utility programmes, with a particular focus on smart water metering, civils, reinstatement and operational mobilisation. We work with utility contractors, network operators and infrastructure clients who need dependable field delivery, properly onboarded operatives, clear supervision and accountable reporting.
+            Bluegrid Utilities supports authorised utility programmes through field delivery, project coordination and associated infrastructure services. Each capability is mobilised in line with the scope, competence, resources and approvals required for the project.
+          </p>
+          <div className="mt-6">
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest uppercase font-outfit transition-all shadow-md"
+            >
+              <span>Discuss a Project</span>
+              <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+
+        {/* Section Header (Pack 03 Section) */}
+        <div className="text-left mb-14 max-w-3xl">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] font-outfit">
+            Our Capabilities
+          </h2>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mt-2">
+            Our service pages explain the areas in which Bluegrid can support utility delivery. The exact scope available on any project depends on the agreed requirements, competent resources, client instructions and applicable authorisations.
           </p>
         </div>
 
@@ -657,7 +720,7 @@ const ServicesPage = () => {
                 {/* Full Large Banner Image */}
                 <img 
                   src={service.img} 
-                  alt={service.title} 
+                  alt={service.hubTitle || service.title} 
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
 
@@ -675,7 +738,7 @@ const ServicesPage = () => {
 
                     {/* Title */}
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] font-outfit mb-4 leading-tight">
-                      {service.title}
+                      {service.hubTitle || service.title}
                     </h2>
 
                     {/* Description */}
@@ -683,12 +746,12 @@ const ServicesPage = () => {
                       {service.desc}
                     </p>
 
-                    {/* Pill CTA Button */}
+                    {/* Link Text: View capability → (Pack 03 Point 12) */}
                     <Link 
-                      to={`/services?select=${service.slug}`}
+                      to={`/services/${service.slug}`}
                       className="inline-flex items-center gap-3 bg-[#0066ff] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit uppercase border border-transparent"
                     >
-                      <span>Find Out More</span>
+                      <span>View capability</span>
                       <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover/btn:translate-x-1">
                         arrow_forward
                       </span>
@@ -702,79 +765,27 @@ const ServicesPage = () => {
           })}
         </div>
 
-        {/* Section 14 Closing: A scope that matches the project */}
-        <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-16 border-l-4 border-l-[#0066ff] shadow-2xl text-left mb-20">
+        {/* Discuss a Project Section (Pack 03 Points 9, 13, 14) */}
+        <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-16 border-l-4 border-l-[#0066ff] shadow-2xl text-left">
           <div className="max-w-4xl space-y-4">
             <span className="text-xs font-black tracking-widest text-[#0066ff] uppercase font-outfit block">
-              Transparent Delivery Commitment
+              Direct Project Consultation
             </span>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-outfit text-white">
-              A scope that matches the project
+              Discuss a Project
             </h3>
             <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-              Every utility contract is different. Bluegrid Utilities works to agreed scopes, defined specifications and client quality standards. We do not overpromise on capabilities we cannot deliver, and we do not deploy personnel without the required competencies.
+              Every utility project requirement is defined by its scope, programme constraints, technical specifications and required authorisations. Contact Bluegrid Utilities to discuss how our field operations and project coordination teams can support your delivery needs.
             </p>
-            <div className="pt-6 flex flex-wrap gap-4">
+            <div className="pt-4">
               <Link 
-                to="/contact?subject=Smart+Water+Metering"
-                className="px-5 py-3 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider transition-colors shadow-md"
+                to="/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest uppercase font-outfit transition-all shadow-md active:scale-95"
               >
-                Discuss a smart water-meter requirement
-              </Link>
-              <Link 
-                to="/contact?subject=Utility+Civils"
-                className="px-5 py-3 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/20 text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
-              >
-                Discuss a civils requirement
-              </Link>
-              <Link 
-                to="/contact?subject=Reinstatement+Support"
-                className="px-5 py-3 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/20 text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
-              >
-                Discuss reinstatement support
-              </Link>
-              <Link 
-                to="/contact?subject=Project+Delivery+Support"
-                className="px-5 py-3 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/20 text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
-              >
-                Discuss project delivery support
+                <span>Discuss a Project</span>
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
-          </div>
-        </div>
-
-        {/* Section 19: Future and adjacent capabilities */}
-        <div className="bg-slate-50 border border-slate-200 p-8 sm:p-10 text-left">
-          <div className="max-w-4xl space-y-3">
-            <span className="text-xs font-bold tracking-widest text-[#005f9e] uppercase font-outfit block">
-              Emerging Services
-            </span>
-            <h4 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] font-outfit">
-              Future and adjacent capabilities
-            </h4>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-              Bluegrid Utilities is developing its capabilities across several related utility support functions:
-            </p>
-            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 pb-4">
-              <li className="bg-white p-4 border border-slate-200 shadow-sm flex items-start gap-3">
-                <span className="material-symbols-outlined text-[#005f9e] text-xl shrink-0">radar</span>
-                <span className="text-xs sm:text-sm font-semibold text-slate-800">Utility surveying and pre-construction support</span>
-              </li>
-              <li className="bg-white p-4 border border-slate-200 shadow-sm flex items-start gap-3">
-                <span className="material-symbols-outlined text-[#005f9e] text-xl shrink-0">traffic</span>
-                <span className="text-xs sm:text-sm font-semibold text-slate-800">Traffic management coordination and support</span>
-              </li>
-              <li className="bg-white p-4 border border-slate-200 shadow-sm flex items-start gap-3">
-                <span className="material-symbols-outlined text-[#005f9e] text-xl shrink-0">crisis_alert</span>
-                <span className="text-xs sm:text-sm font-semibold text-slate-800">Emergency and urgent response support</span>
-              </li>
-            </ul>
-            <p className="text-slate-600 text-xs sm:text-sm font-medium">
-              To discuss these or other specialized requirements, contact{' '}
-              <a href="mailto:enquiries@bluegridutilities.com" className="text-[#0066ff] font-bold underline hover:text-[#0f3a5e]">
-                enquiries@bluegridutilities.com
-              </a>.
-            </p>
           </div>
         </div>
 

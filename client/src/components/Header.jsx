@@ -43,13 +43,15 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Point 57: Keep News out of the top navigation until there are at least 2 or 3 genuine approved news items
+  // Pack 20 Approved Navigation Links
   const navLinks = [
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
     { label: 'Safety & Quality', to: '/safety-quality' },
     { label: 'Careers', to: '/careers' },
-    { label: 'Contact', to: '/contact' }
+    { label: 'Vacancies', to: '/careers/jobs' },
+    { label: 'Contact', to: '/contact' },
+    { label: 'Policies', to: '/policies' }
   ];
 
   return (
@@ -203,11 +205,12 @@ const Header = () => {
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[22rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="flex flex-col">
                         {[
-                          { label: "All Services", to: "/services" },
+                          { label: "Our Capabilities", to: "/services" },
                           { label: "Smart Water Metering", to: "/services/smart-water-metering" },
-                          { label: "Utility Civils & Access Works", to: "/services/utility-civils" },
+                          { label: "Water Infrastructure Support", to: "/services/water-infrastructure-support" },
+                          { label: "Civil Engineering & Excavation Support", to: "/services/utility-civils" },
                           { label: "Reinstatement Support", to: "/services/reinstatement" },
-                          { label: "Project Delivery & Field Support", to: "/services/project-delivery" }
+                          { label: "Project Delivery & Operational Management", to: "/services/project-delivery" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
                           return (
@@ -509,11 +512,12 @@ const Header = () => {
                               className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
-                                { label: "All Services", to: "/services" },
+                                { label: "Our Capabilities", to: "/services" },
                                 { label: "Smart Water Metering", to: "/services/smart-water-metering" },
-                                { label: "Utility Civils & Access Works", to: "/services/utility-civils" },
+                                { label: "Water Infrastructure Support", to: "/services/water-infrastructure-support" },
+                                { label: "Civil Engineering & Excavation Support", to: "/services/utility-civils" },
                                 { label: "Reinstatement Support", to: "/services/reinstatement" },
-                                { label: "Project Delivery & Field Support", to: "/services/project-delivery" }
+                                { label: "Project Delivery & Operational Management", to: "/services/project-delivery" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (

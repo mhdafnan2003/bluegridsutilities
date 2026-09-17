@@ -12,7 +12,7 @@ const seoMatrix = {
   },
   '/services': {
     title: 'Utility Infrastructure Services | Bluegrid Utilities',
-    description: 'Our services are built around practical utility field delivery: mobilising the right resources, carrying out authorised work, supervising activity, recording completion and escalating issues when conditions change.',
+    description: 'Explore Bluegrid Utilities capabilities across smart water metering, water infrastructure support, civils, reinstatement and project delivery.',
   },
   '/services/smart-water-metering': {
     title: 'Smart Water Meter Installation Support | Bluegrid Utilities',

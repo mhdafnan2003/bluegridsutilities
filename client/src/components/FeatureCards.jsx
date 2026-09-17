@@ -13,29 +13,33 @@ const mainServices = [
   {
     num: "01",
     slug: "smart-water-metering",
-    title: "Smart water metering",
-    description: "Field delivery support for smart water-meter installation, including mobilisation, supervision, completion evidence and routine operational coordination.",
+    title: "Smart Water Metering",
+    description: "Support for authorised smart water-meter installation activity, including mobilisation, field coordination, supervision and completion reporting.",
+    cta: "Explore Smart Water Metering",
     img: imgWaterMeter
   },
   {
     num: "02",
     slug: "utility-civils",
-    title: "Utility civils and access works",
-    description: "Support for excavation, chamber and access works and associated civils where required by the project and within approved methods of work.",
+    title: "Utility Civils & Access Works",
+    description: "Support for utility access, excavation and associated enabling works where included within the approved project scope.",
+    cta: "Explore Utility Civils",
     img: imgCivil
   },
   {
     num: "03",
     slug: "reinstatement",
-    title: "Reinstatement support",
-    description: "Support for reinstatement activities following utility works, with delivery aligned to the relevant project specification and approved street-works requirements.",
+    title: "Reinstatement Support",
+    description: "Quality-focused support for reinstatement and completion activity in line with project requirements and authorised working methods.",
+    cta: "Explore Reinstatement",
     img: imgReinstatement
   },
   {
     num: "04",
     slug: "project-delivery",
-    title: "Project delivery and field support",
-    description: "Workforce planning, field coordination, supervision, reporting and issue escalation to keep day-to-day delivery controlled and visible.",
+    title: "Project Delivery & Field Support",
+    description: "Mobilisation, workforce coordination, project administration, operational reporting and escalation support around field delivery.",
+    cta: "Explore Project Delivery",
     img: imgInfra
   }
 ];
@@ -70,14 +74,14 @@ const FeatureCards = () => {
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="mb-14 text-left max-w-3xl">
-          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
+          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20 uppercase">
             What We Do
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-4">
-            Core Service Capabilities
+            Our Capabilities
           </h2>
           <p className="text-gray-600 text-sm md:text-base leading-relaxed font-medium">
-            Bluegrid Utilities delivers disciplined, quality-controlled operational support across key infrastructure disciplines in the United Kingdom.
+            Bluegrid Utilities supports authorised utility programmes through structured field mobilisation, operational coordination and practical delivery.
           </p>
         </div>
 
@@ -122,9 +126,9 @@ const FeatureCards = () => {
                 
                 <Link 
                   to={`/services?select=${card.slug}`}
-                  className="inline-flex items-center gap-2 text-xs font-black tracking-widest text-[#111111] hover:text-[#005f9e] transition-colors duration-300 font-outfit mt-auto"
+                  className="inline-flex items-center gap-2 text-xs font-black tracking-widest text-[#005f9e] hover:text-[#0f3a5e] transition-colors duration-300 font-outfit mt-auto pt-2 uppercase"
                 >
-                  <span>Learn More</span>
+                  <span>{card.cta}</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>
                 </Link>
               </div>

@@ -7,25 +7,25 @@ const deliveryStages = [
   {
     step: "01",
     title: "Plan",
-    desc: "Confirm the work scope, project requirements, resources and relevant documentation before mobilisation.",
+    desc: "Confirm the requirement, resources, documentation and project controls before deployment.",
     icon: "assignment"
   },
   {
     step: "02",
     title: "Mobilise",
-    desc: "Coordinate field resources, supervision, materials and operational arrangements required for the work.",
+    desc: "Coordinate people, equipment, information and authorised project requirements for the work area.",
     icon: "local_shipping"
   },
   {
     step: "03",
     title: "Deliver",
-    desc: "Carry out authorised activities in line with approved procedures, safety requirements and client instructions.",
+    desc: "Support field activity through supervision, communication, accurate records and escalation of issues.",
     icon: "engineering"
   },
   {
     step: "04",
     title: "Verify",
-    desc: "Record completion accurately, identify defects or issues, and follow through on required actions and escalation.",
+    desc: "Review completion information, evidence, outstanding actions and quality requirements before close-out.",
     icon: "verified"
   }
 ];
@@ -65,10 +65,10 @@ const WhyChooseBlueGrid = () => {
               How We Work
             </span>
             <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight font-outfit leading-tight mb-2">
-              Disciplined Four-Stage Delivery Process
+              A Controlled Approach to Delivery
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
-              We structure our utility infrastructure support around a clear four-stage framework designed for safety, quality, and complete operational accountability.
+              We structure our utility infrastructure support around a clear four-stage framework designed for safety, quality and complete operational accountability.
             </p>
           </div>
 

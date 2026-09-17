@@ -34,12 +34,12 @@ const GetInTouch = () => {
 
             {/* Heading */}
             <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl text-[#0b132b] leading-[1.2] font-bold tracking-tight">
-              Talk to Bluegrid Utilities
+              Discuss a Project
             </h2>
 
             {/* Description */}
             <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-md font-sans font-medium">
-              If you would like to discuss a project requirement, business enquiry or recruitment matter, contact the appropriate Bluegrid team.
+              For business and project enquiries, contact Bluegrid Utilities through the approved Company enquiry route. Recruitment enquiries should use the separate careers contact route.
             </p>
 
             {/* Action Buttons */}
@@ -48,7 +48,7 @@ const GetInTouch = () => {
                 to="/contact" 
                 className="inline-flex items-center justify-center px-6 py-3.5 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest uppercase font-outfit transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
               >
-                Contact us
+                Contact Bluegrid
               </Link>
               <Link 
                 to="/careers" 

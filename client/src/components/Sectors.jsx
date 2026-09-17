@@ -38,7 +38,7 @@ const sectorsData = [
   {
     title: "Field service operations",
     category: "Operations",
-    desc: "Coordinated deployment of fully compliant, skilled technicians and operatives nationwide.",
+    desc: "Coordinated deployment of fully compliant, skilled technicians and operatives across authorised project areas.",
     img: imgCoordination,
   },
   {

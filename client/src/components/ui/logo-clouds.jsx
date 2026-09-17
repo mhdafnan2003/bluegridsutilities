@@ -95,8 +95,8 @@ function LogoItem({
 
 export default function LogoCloudSwap({
   logos = DEFAULT_LOGOS,
-  title = "Trusted by Leading UK Utilities & Contractors",
-  subtitle = "Supporting essential infrastructure delivery across water, energy, and telecoms.",
+  title = "Industry Delivery & Capabilities",
+  subtitle = "Supporting authorised infrastructure delivery in line with project requirements.",
   interval = 3200,
   stagger = 0.11,
   className,

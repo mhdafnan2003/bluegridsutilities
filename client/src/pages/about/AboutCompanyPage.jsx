@@ -76,18 +76,31 @@ const AboutCompanyPage = () => {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* Top Hero Banner Component */}
+          {/* Top Hero Banner Component (Pack 02) */}
           <AboutBanner 
-            badgeText="About Bluegrid Utilities"
-            title="A growing utility delivery business built around disciplined operations"
-            description="Bluegrid Technology Ltd, trading as Bluegrid Utilities, is an England and Wales registered company working in the UK utilities and infrastructure sector."
+            badgeText="ABOUT BLUEGRID"
+            title="About Bluegrid Utilities"
+            description="Bluegrid Utilities is the trading name of Bluegrid Technology Ltd, a UK company operating in the utilities and infrastructure sector. Our current operational focus includes smart water-meter installation and associated utility project support."
             bgImage={heroTwoImg}
-          />
+          >
+            <Link
+              to="/services"
+              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold text-xs tracking-wider rounded-none shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 uppercase font-outfit"
+            >
+              Our Capabilities
+            </Link>
+            <Link
+              to="/contact"
+              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-white/10 hover:bg-white/20 border-2 border-white/80 hover:border-white text-white font-bold text-xs tracking-wider rounded-none backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-0.5 uppercase font-outfit"
+            >
+              Contact Us
+            </Link>
+          </AboutBanner>
 
           {/* Main Grid: Story + Profile Card */}
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-stretch mb-20">
             
-            {/* Left Narrative */}
+            {/* Left Narrative (Pack 02: Who We Are) */}
             <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
               <div className="w-full h-72 sm:h-80 md:h-96 relative overflow-hidden rounded-none border border-slate-200 shadow-lg">
                 <img
@@ -102,14 +115,17 @@ const AboutCompanyPage = () => {
               </div>
 
               <div className="space-y-4 text-left">
+                <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit">
+                  Who We Are
+                </span>
                 <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
-                  Who we are
+                  A Structured Approach to Utility Delivery
                 </h2>
-                <p className="text-slate-700 text-base sm:text-lg font-semibold leading-relaxed">
-                  Bluegrid Technology Ltd was incorporated in England and Wales in 2025 and trades as Bluegrid Utilities. The business has its registered office in Peterborough and operates from an operations office in Hemel Hempstead.
+                <p className="text-slate-700 text-base sm:text-lg font-medium leading-relaxed">
+                  We are developing Bluegrid through controlled mobilisation, clear project management, accountable field coordination and accurate reporting. Our aim is to support authorised utility programmes safely, professionally and in line with the requirements of each project.
                 </p>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                  Our focus is practical utility delivery. Current operational activity includes smart water-meter installation and associated utility support, with project management, workforce coordination and operational administration supporting field delivery.
+                  We do not measure credibility by slogans or unsupported scale. We focus on the fundamentals that matter in field delivery: competent people, clear responsibilities, reliable information, safe working and prompt escalation when conditions change.
                 </p>
               </div>
             </div>
@@ -185,243 +201,174 @@ const AboutCompanyPage = () => {
           {/* Section Divider */}
           <hr className="border-slate-200 my-16" />
 
-          {/* HOW WE WORK SECTION */}
+          {/* CURRENT FOCUS SECTION (Pack 02) */}
           <div className="mb-20">
             <div className="text-left max-w-3xl mb-12">
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
-                Operating Principles
+                Current Focus
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Disciplined delivery from planning to completion
+                Built Around Practical Delivery
               </h2>
-              <p className="mt-4 text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
-                We believe utility work should be controlled from mobilisation through to completion. That means clear responsibilities, realistic planning, accurate records and early escalation when something falls outside the agreed scope or authority.
-              </p>
-              <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                We do not treat productivity as more important than safety, quality, legal requirements or client instructions. Where a task requires approved RAMS, permits, traffic-management arrangements, technical authorisation or specific competence, those requirements come first.
+              <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+                Bluegrid Utilities concentrates its resources on core delivery disciplines where competence, working procedures and verified controls are firmly established.
               </p>
             </div>
 
-            {/* 4 WORKING VALUES */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  title: "Safety",
-                  desc: "We do not compromise safe working for programme or output.",
-                  icon: "health_and_safety",
-                  bgImage: imgCompliance
-                },
-                {
-                  title: "Integrity",
-                  desc: "We record work honestly, raise issues early and avoid making claims we cannot support.",
-                  icon: "verified_user",
-                  bgImage: imgManagement
-                },
-                {
-                  title: "Quality",
-                  desc: "We focus on completing authorised work to the required project standard and recording evidence accurately.",
-                  icon: "verified",
-                  bgImage: imgWorkmanship
-                },
-                {
-                  title: "Accountability",
-                  desc: "Responsibilities, decisions and escalation routes should be clear so actions do not get lost between teams.",
-                  icon: "shield_person",
-                  bgImage: imgWorkforce
-                }
-              ].map((val, idx) => (
-                <div 
-                  key={idx}
-                  className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 text-left shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
-                      <span className="material-symbols-outlined text-2xl">{val.icon}</span>
-                    </div>
-                    <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
-                      {val.title}
-                    </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                      {val.desc}
-                    </p>
-                  </div>
-                  <div className="w-8 h-1 bg-[#005f9e] mt-6" />
+            {/* 4 Focus Points Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+                  <span className="material-symbols-outlined text-2xl">water_drop</span>
                 </div>
-              ))}
+                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                  Smart Water Metering
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                  Smart water-meter installation and associated utility support.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+                  <span className="material-symbols-outlined text-2xl">construction</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                  Civil Engineering &amp; Access Works
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                  Civil engineering and access support where scope, competence and approvals are in place.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+                  <span className="material-symbols-outlined text-2xl">layers</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                  Reinstatement Support
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                  Reinstatement support in line with project requirements.
+                </p>
+              </div>
+
+              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+                  <span className="material-symbols-outlined text-2xl">assignment_turned_in</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                  Field Mobilisation &amp; Reporting
+                </h3>
+                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                  Field mobilisation, supervision, project coordination and completion reporting.
+                </p>
+              </div>
             </div>
           </div>
 
-          {/* GROWING RESPONSIBLY SECTION */}
+          {/* ORGANISATION SECTION (Pack 02) */}
+          <div className="mb-20 bg-slate-50 border border-slate-200 p-8 sm:p-12 text-left">
+            <div className="max-w-3xl">
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-xs font-black tracking-widest mb-3 font-outfit uppercase">
+                Organisation
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+                Clear Accountability
+              </h2>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+                Bluegrid operates through a defined management and project-support structure, with operational matters escalated through the project-management line to director level where required. This helps maintain clear accountability for delivery, commercial decisions, external representation and material risk.
+              </p>
+            </div>
+          </div>
+
+          {/* LEADERSHIP SECTION (Pack 02: Approved Statutory Leadership Only) */}
+          <div className="mb-20 text-left">
+            <div className="max-w-3xl mb-12">
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
+                Leadership
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+                Company Leadership
+              </h2>
+              <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+                Statutory directors maintaining corporate governance, operational standards and commercial accountability.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Selbert George */}
+              <div className="bg-white border-2 border-slate-200 p-8 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-start gap-6">
+                <div className="w-20 h-20 bg-slate-900 shrink-0 border border-slate-300 flex items-center justify-center overflow-hidden">
+                  <span className="material-symbols-outlined text-4xl text-slate-400">person</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit">Selbert George</h3>
+                  <p className="text-sm font-bold text-[#005f9e] font-outfit mb-3">Director and Project Director</p>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                    Active statutory director overseeing operational delivery, project management, workforce deployment and client coordination.
+                  </p>
+                </div>
+              </div>
+
+              {/* Syed Zulqurnain Shah */}
+              <div className="bg-white border-2 border-slate-200 p-8 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-start gap-6">
+                <div className="w-20 h-20 bg-slate-900 shrink-0 border border-slate-300 flex items-center justify-center overflow-hidden">
+                  <span className="material-symbols-outlined text-4xl text-slate-400">shield_person</span>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit">Syed Zulqurnain Shah</h3>
+                  <p className="text-sm font-bold text-[#005f9e] font-outfit mb-3">Director</p>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+                    Active statutory director responsible for statutory governance, financial oversight and corporate compliance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* RESPONSIBLE GROWTH SECTION (Pack 02) */}
           <div className="mb-20 bg-slate-100 border border-slate-200 p-8 sm:p-12 text-left">
             <div className="max-w-3xl">
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-xs font-black tracking-widest mb-3 font-outfit uppercase">
-                Sustainable Growth
+                Responsible Growth
               </span>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
-                Growing responsibly
+                Growing Capability Responsibly
               </h2>
               <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
-                Bluegrid is building its capability in a controlled way. Our approach is to add people, resources and services when the operational controls are ready to support them, rather than use broad claims that outpace the work we can evidence.
+                As Bluegrid grows, public claims must remain aligned with the Company’s actual workforce, contracts, resources, accreditations and geographical capability. We would rather describe a capability accurately than overstate what can be delivered.
               </p>
             </div>
           </div>
 
-          {/* NEW SECTION 2: Experienced Management & Skilled Workforce Showcase */}
-          <div className="mb-20 py-6 relative">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-              
-              {/* Left Text Narrative - Placed right next to banner */}
-              <div className="lg:col-span-6 space-y-6 text-left">
-                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 text-xs font-black tracking-widest font-outfit uppercase">
-                  Expert Management & Field Teams
-                </span>
-
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight font-outfit leading-tight text-[#0f3a5e]">
-                  Driven by Experienced Leadership &amp; Skilled Operatives
-                </h2>
-
-                <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
-                  At Bluegrid Utilities, our operational focus combines structured project management with qualified field teams. From smart water meter deployments to utility civils and reinstatement, our activity is planned and delivered in accordance with client specifications, approved RAMS and relevant street-works standards.
-                </p>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="bg-slate-50 border border-slate-200 p-5 rounded-none hover:border-[#005f9e] transition-colors shadow-sm">
-                    <h4 className="font-bold text-[#0f3a5e] text-sm sm:text-base font-outfit mb-1.5">Experienced Management</h4>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                      Project coordination, structured mobilisation, supervision, completion evidence and escalation routes.
-                    </p>
-                  </div>
-
-                  <div className="bg-slate-50 border border-slate-200 p-5 rounded-none hover:border-[#005f9e] transition-colors shadow-sm">
-                    <h4 className="font-bold text-[#0f3a5e] text-sm sm:text-base font-outfit mb-1.5">Skilled Workforce</h4>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                      Operatives deployed in line with verified competencies and statutory requirements for the authorised scope.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-4">
-                  <Link 
-                    to="/contact" 
-                    className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0f3a5e] text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-md active:scale-95 group"
-                  >
-                    <span>Discuss Your Contract Requirements</span>
-                    <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>
-                  </Link>
-                </div>
-              </div>
-
-              {/* Right Feature Image - Increased Banner Size */}
-              <div className="lg:col-span-6">
-                <div className="relative w-full h-[440px] sm:h-[520px] lg:h-[580px] overflow-hidden rounded-none border border-slate-200 shadow-xl group">
-                  <img 
-                    src={workersImg} 
-                    alt="Bluegrid Utilities Skilled Workforce" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-6 left-6 right-6 bg-slate-950/85 backdrop-blur-md p-5 border border-white/20 text-white shadow-xl">
-                    <p className="text-xs font-bold tracking-widest text-[#60a5fa] font-outfit uppercase">Qualified &amp; Compliant</p>
-                    <p className="text-sm sm:text-base font-bold text-white mt-1 font-outfit">Qualified &amp; Vetted Field Operatives</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* NEW SECTION 3: Quality Workmanship, Public Sector & Compliance Showcase */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-            
-            {/* Box 1: Quality Workmanship */}
-            <div className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer">
-              <img 
-                src={imgInfrastructure} 
-                alt="Quality Workmanship" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
-                <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
-                  CONTROLLED DELIVERY
-                </span>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
-                  Quality Workmanship
-                </h3>
-                <p className="text-slate-200 text-xs leading-relaxed font-medium">
-                  Clean execution, precision reinstatement, and quality-controlled handovers across utility contracts.
-                </p>
-              </div>
-            </div>
-
-            {/* Box 2: Public Sector & Municipal Experience */}
-            <div className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer">
-              <img 
-                src={imgProjectCoord} 
-                alt="Public Sector Experience" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
-                <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
-                  MUNICIPAL & UTILITY CONTRACTS
-                </span>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
-                  Public Sector Experience
-                </h3>
-                <p className="text-slate-200 text-xs leading-relaxed font-medium">
-                  Full NRSWA StreetWorks compliance and public safety coordination with minimal community disruption.
-                </p>
-              </div>
-            </div>
-
-            {/* Box 3: Compliance & Customer Satisfaction */}
-            <div className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer">
-              <img 
-                src={imgComplianceBg} 
-                alt="Compliance & Satisfaction" 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
-                <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
-                  SAFETY & CLIENT TRUST
-                </span>
-                <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
-                  Compliance & Satisfaction
-                </h3>
-                <p className="text-slate-200 text-xs leading-relaxed font-medium">
-                  Structured pre-deployment vetting, active H&S risk controls, and professional customer liaison standards.
-                </p>
-              </div>
-            </div>
-
-          </div>
-
-          {/* NEW SECTION 4: Final Call to Action Banner */}
-          <div className="bg-gradient-to-r from-[#0f3a5e] via-[#0b2844] to-[#005f9e] text-white p-8 sm:p-12 md:p-14 rounded-none shadow-xl text-left relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+          {/* FINAL CTA BANNER */}
+          <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-14 rounded-none shadow-xl text-left relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-[#0f3a5e]">
             <div className="max-w-2xl space-y-3 relative z-10">
               <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block uppercase">
-                Partner with Bluegrid Utilities
+                Bluegrid Utilities
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
-                Ready to Work with a Trusted UK Utility Contractor?
+                Discuss Your Utility Infrastructure Requirements
               </h3>
               <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
-                Contact our operational management team today to discuss workforce supply, smart metering support, or utility infrastructure project delivery.
+                Contact our operational management team today to discuss project mobilisation, workforce support or field delivery.
               </p>
             </div>
 
             <div className="shrink-0 relative z-10 flex flex-wrap gap-4">
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit"
+                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit uppercase"
               >
-                <span>Get In Touch</span>
+                <span>Discuss a Project</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
               <Link 
                 to="/services"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit"
+                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit uppercase"
               >
-                <span>Our Services</span>
+                <span>Our Capabilities</span>
               </Link>
             </div>
           </div>

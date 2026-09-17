@@ -9,20 +9,23 @@ const WhatWeAre = () => {
     <MotionSection as="section" className="py-20 md:py-28 bg-white font-sans relative" id="about-intro">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
         
-        {/* Top Section Header / Introduction */}
+        {/* Top Section Header / Introduction (Pack 01: Supporting Utility Delivery in the UK) */}
         <div className="max-w-3xl text-left mb-14 md:mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20">
-            About Bluegrid Utilities
+          <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20 uppercase">
+            Supporting Utility Delivery in the UK
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-4">
-            Disciplined Utility Infrastructure Delivery
+            Supporting Utility Delivery in the UK
           </h2>
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
-            Utility delivery depends on more than people in the field. It requires planning, safe access, competent deployment, clear supervision, accurate records and prompt escalation when conditions change. Bluegrid Utilities brings those disciplines together to support authorised utility projects.
+          <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium mb-3">
+            Bluegrid Utilities is the trading name of Bluegrid Technology Ltd. We support authorised utility project delivery through a combination of field mobilisation, operational coordination and project support.
+          </p>
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+            Our current operational activity includes smart water-meter installation and associated utility support. We focus on controlled mobilisation, clear reporting, safe working and accurate completion records in line with the requirements of each project.
           </p>
         </div>
 
-        {/* Factual Company Overview */}
+        {/* About Section (Pack 01: Structured for Responsible Growth) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center mb-16">
           {/* Image */}
           <div className="lg:col-span-6 relative overflow-hidden h-[340px] sm:h-[400px] w-full border border-slate-200 shadow-lg">
@@ -40,25 +43,26 @@ const WhatWeAre = () => {
 
           {/* Text Content */}
           <div className="lg:col-span-6 text-left flex flex-col justify-center">
+            <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit mb-2">About Bluegrid</span>
             <h3 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
-              A practical utility delivery business
+              Structured for Responsible Growth
             </h3>
             
             <p className="text-slate-700 text-base leading-relaxed font-medium mb-6">
-              Bluegrid Technology Ltd, trading as Bluegrid Utilities, is an England and Wales registered company operating in the UK utilities and infrastructure sector. Our current operational activity includes smart water-meter installation and associated utility support, backed by project management and operational coordination.
+              Bluegrid Utilities is building its capability in the UK utilities and infrastructure sector through disciplined project management, operational coordination and field delivery support. We aim to grow in step with our proven resources, competencies and authorised project opportunities.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-6 py-3.5 font-outfit transition-colors shadow-md group"
+                className="inline-flex items-center gap-2 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-6 py-3.5 font-outfit transition-colors shadow-md group uppercase"
               >
-                <span>About Bluegrid Utilities</span>
+                <span>About Bluegrid</span>
                 <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
               </Link>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 text-[#005f9e] hover:text-[#0f3a5e] font-bold text-xs tracking-widest font-outfit transition-colors"
+                className="inline-flex items-center gap-2 text-[#005f9e] hover:text-[#0f3a5e] font-bold text-xs tracking-widest font-outfit transition-colors uppercase"
               >
                 <span>Discuss a Project</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -67,34 +71,30 @@ const WhatWeAre = () => {
           </div>
         </div>
 
-        {/* Safety & Quality Section */}
+        {/* Safety & Quality Section (Pack 01: Safety and Quality Come Before Output) */}
         <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 border border-[#0f3a5e] shadow-xl text-left relative overflow-hidden">
           <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#005f9e]/30 blur-3xl pointer-events-none" />
           
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit uppercase block">
-                Health, Safety, Environment &amp; Quality
+                Health, Safety &amp; Quality
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold font-outfit tracking-tight text-white">
-                Safety before output
+                Safety and Quality Come Before Output
               </h3>
               
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                Safety takes priority over productivity, cost and programme. Work must be carried out in line with the approved requirements that apply to the project, including relevant RAMS, permits, technical requirements, traffic-management arrangements, environmental obligations and client instructions.
-              </p>
-
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-medium">
-                We expect operational information, completion records, incidents, defects and issues to be recorded accurately so that problems can be acted on rather than hidden.
+                Productivity targets must never override safety, approved working methods, permits, technical requirements, environmental obligations or client instructions. We expect issues, defects, incidents and completion information to be recorded accurately and escalated through the appropriate project route.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex lg:justify-end">
               <Link
-                to="/health-safety"
+                to="/safety-quality"
                 className="inline-flex items-center justify-center gap-2.5 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold text-xs tracking-widest px-7 py-4 border border-white/20 transition-all duration-300 shadow-lg font-outfit uppercase w-full sm:w-auto text-center"
               >
-                <span>Our safety and quality approach</span>
+                <span>Safety &amp; Quality</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>

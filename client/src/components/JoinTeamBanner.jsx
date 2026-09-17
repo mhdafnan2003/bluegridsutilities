@@ -27,11 +27,11 @@ const JoinTeamBanner = () => {
       {/* Content wrapper */}
       <div className="relative z-20 max-w-4xl text-left flex flex-col items-start justify-center text-white">
         <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e] text-white text-[10px] sm:text-xs font-black tracking-widest mb-6 font-outfit uppercase">
-          Careers &amp; Opportunities
+          CAREERS
         </span>
         
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-6 font-outfit max-w-3xl leading-tight">
-          Build your career in utility delivery
+          Build Your Career in Utility Delivery
         </h2>
 
         <p className="text-sm sm:text-base md:text-lg text-slate-200 mb-10 max-w-2xl leading-relaxed font-medium">
@@ -41,16 +41,16 @@ const JoinTeamBanner = () => {
         <div className="flex flex-wrap items-center gap-4">
           <Link
             to="/careers/jobs"
-            className="inline-flex items-center gap-3 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-2xl active:scale-95 group border-2 border-[#0066ff] hover:border-white"
+            className="inline-flex items-center gap-3 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-2xl active:scale-95 group border-2 border-[#0066ff] hover:border-white uppercase"
           >
-            <span>View current vacancies</span>
+            <span>View Current Vacancies</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>
           </Link>
           <Link
             to="/careers"
-            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border-2 border-white/70 hover:border-white px-7 py-3.5 font-bold text-xs sm:text-sm tracking-widest font-outfit backdrop-blur-sm transition-all"
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border-2 border-white/70 hover:border-white px-7 py-3.5 font-bold text-xs sm:text-sm tracking-widest font-outfit backdrop-blur-sm transition-all uppercase"
           >
-            <span>Careers at Bluegrid</span>
+            <span>About Bluegrid Careers</span>
             <span className="material-symbols-outlined text-base">arrow_forward</span>
           </Link>
         </div>

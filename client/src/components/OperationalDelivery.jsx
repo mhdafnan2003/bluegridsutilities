@@ -105,8 +105,8 @@ const OperationalDelivery = () => {
   return (
     <div className="font-sans bg-slate-50/50 min-h-screen text-slate-800 pb-20">
       <PageSEO 
-        customTitle="Project Delivery & Case Studies | Bluegrid Utilities"
-        customDescription="Structured mobilisation, daily coordination, and operational project delivery support for authorised UK utility programmes."
+        customTitle="Utility Projects & Case Studies | Bluegrid Utilities"
+        customDescription="Approved case studies showing how Bluegrid Utilities supports utility project mobilisation, field delivery and operational coordination."
       />
 
       {/* 1. HERO BANNER — Neutral dark overlay, no blue tinting */}
@@ -120,7 +120,7 @@ const OperationalDelivery = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroBg} 
-            alt="Utility Project Delivery Support" 
+            alt="Utility Projects & Case Studies" 
             className="w-full h-full object-cover filter brightness-[0.9] contrast-[1.02]"
           />
           {/* Neutral dark gradient overlay per project rules */}
@@ -131,13 +131,13 @@ const OperationalDelivery = () => {
         <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 py-16 w-full text-left">
           <div className="max-w-4xl space-y-4">
             <span className="inline-block px-3.5 py-1.5 bg-[#005f9e] text-white text-xs font-bold tracking-widest uppercase font-outfit shadow-md">
-              Project Delivery Support
+              PROJECTS & CASE STUDIES
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight font-outfit">
-              Disciplined Utility Project Delivery
+              Utility Projects & Case Studies
             </h1>
             <p className="text-slate-200 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed font-medium">
-              Bluegrid Utilities provides structured mobilisation, workforce planning, on-site supervision, and accurate reporting to keep day-to-day utility project delivery controlled and visible.
+              Approved case studies showing how Bluegrid Utilities supports utility project mobilisation, field delivery and operational coordination.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">

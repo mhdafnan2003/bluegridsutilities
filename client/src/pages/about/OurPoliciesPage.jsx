@@ -5,76 +5,67 @@ import heroOneImg from '../../assets/images/updated/hero_blue_one.png';
 
 const policyDocuments = [
   { 
-    name: "Privacy Policy", 
-    category: "Data Protection & Privacy Notice", 
-    size: "Official Notice",
-    desc: "Website and business privacy notice covering personal data, lawful basis, retention, rights and contact routes."
-  },
-  { 
-    name: "Cookie Policy", 
-    category: "Website & Digital Controls", 
-    size: "Digital Controls",
-    desc: "Cookie categories, analytics, consent management and browser controls."
-  },
-  { 
     name: "Candidate Privacy Notice", 
     category: "Recruitment Data Governance", 
-    size: "Recruitment Notice",
-    desc: "Processing of recruitment data, retention of CVs, applicant rights, and verification checks."
+    ref: "BG-POL-CPN-2026",
+    reviewDate: "January 2026",
+    desc: "Details the data controller identity, lawful bases, recruitment processing, applicant rights, retention periods and contact route."
   },
   { 
     name: "Website Terms of Use", 
-    category: "Legal Framework", 
-    size: "Terms of Use",
-    desc: "Use of content, intellectual property, liability, acceptable use and third-party links."
-  },
-  { 
-    name: "Health & Safety Policy Statement", 
-    category: "Operational Site Safety", 
-    size: "H&S Statement",
-    desc: "Formal statement of intent, safety responsibilities, risk management arrangements, and statutory compliance."
-  },
-  { 
-    name: "Environmental Policy Statement", 
-    category: "Sustainability & Environment", 
-    size: "Environmental Policy",
-    desc: "Waste hierarchy, pollution prevention, energy, resource efficiency and continuous environmental improvement."
-  },
-  { 
-    name: "Quality Policy Statement", 
-    category: "Quality Management", 
-    size: "Quality Statement",
-    desc: "Right-first-time delivery standard, on-site supervision, photographic evidence capture, and corrective action procedures."
-  },
-  { 
-    name: "Equality, Diversity & Inclusion Policy", 
-    category: "Workforce & Inclusion", 
-    size: "EDI Framework",
-    desc: "Fair recruitment, workplace conduct, equal opportunity and non-discrimination principles."
-  },
-  { 
-    name: "Modern Slavery Statement", 
-    category: "Ethical Supply Chain", 
-    size: "Supply Chain Statement",
-    desc: "Supply-chain due diligence, worker welfare validation, and anti-exploitation commitments."
-  },
-  { 
-    name: "Anti-Bribery & Corruption Policy", 
-    category: "Ethics & Compliance", 
-    size: "Compliance Policy",
-    desc: "Gifts, hospitality, facilitation payments, conflicts of interest and whistleblowing reporting."
+    category: "Legal & Regulatory", 
+    ref: "BG-POL-TOU-2026",
+    reviewDate: "January 2026",
+    desc: "Rules and terms governing the use of this website, intellectual property, liability limits, and contact information."
   },
   { 
     name: "Accessibility Statement", 
-    category: "Digital Inclusion", 
-    size: "Accessibility Notice",
-    desc: "Commitment to accessible digital communication and dedicated contact route for accessibility assistance."
+    category: "Digital Standards", 
+    ref: "BG-POL-ACC-2026",
+    reviewDate: "January 2026",
+    desc: "Commitment to digital accessibility across our web platforms, standard compliance targets, known issues and dedicated assistance route."
   },
   { 
-    name: "Capability Statement", 
-    category: "Commercial Prequalification", 
-    size: "Prequalification Pack",
-    desc: "Formal capability documentation prepared for principal contractor procurement, framework evaluation, and tender packs."
+    name: "Health & Safety Policy Statement", 
+    category: "HSEQ Governance", 
+    ref: "BG-POL-HSE-2026",
+    reviewDate: "Annual (2026)",
+    desc: "Approved public statement confirming management accountability, risk assessment principles, safe working methods and stop-work authority."
+  },
+  { 
+    name: "Environmental Policy Statement", 
+    category: "HSEQ Governance", 
+    ref: "BG-POL-ENV-2026",
+    reviewDate: "Annual (2026)",
+    desc: "Approved statement covering environmental obligations, waste control, pollution prevention and resource efficiency."
+  },
+  { 
+    name: "Quality Policy Statement", 
+    category: "HSEQ Governance", 
+    ref: "BG-POL-QMS-2026",
+    reviewDate: "Annual (2026)",
+    desc: "Approved statement regarding right-first-time delivery, supervisory standards, accurate records and defect escalation."
+  },
+  { 
+    name: "Modern Slavery Statement", 
+    category: "Corporate Responsibility", 
+    ref: "BG-POL-MSS-2026",
+    reviewDate: "Annual (2026)",
+    desc: "Statement confirming our approach to modern slavery risk prevention and supply-chain due diligence."
+  },
+  { 
+    name: "Anti-Bribery & Ethical Statement", 
+    category: "Corporate Governance", 
+    ref: "BG-POL-ABE-2026",
+    reviewDate: "Annual (2026)",
+    desc: "Approved ethical statement establishing zero tolerance for bribery, improper payments or unethical commercial conduct."
+  },
+  { 
+    name: "Privacy Notice (Website & General)", 
+    category: "Data Protection", 
+    ref: "BG-POL-PRV-2026",
+    reviewDate: "January 2026",
+    desc: "Information covering general business enquiries, personal data handling, storage, statutory rights and privacy contact routes."
   }
 ];
 
@@ -83,7 +74,7 @@ const OurPoliciesPage = () => {
 
   const handleRequest = (docName) => {
     const subject = encodeURIComponent(`Policy Document Request: ${docName}`);
-    const body = encodeURIComponent(`Hello Bluegrid Utilities Governance Team,\n\nPlease provide an official signed copy of the ${docName} for our compliance records.\n\nOrganisation / Name:\nContact Telephone:`);
+    const body = encodeURIComponent(`Hello Bluegrid Utilities Governance Team,\n\nPlease provide the authorised public copy of ${docName}.\n\nName:\nOrganisation / Project:\nEmail:`);
     window.location.href = `mailto:enquiries@bluegridutilities.com?subject=${subject}&body=${body}`;
 
     setRequestNotice(docName);
@@ -103,25 +94,25 @@ const OurPoliciesPage = () => {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* Top Page Title Banner */}
+          {/* Top Page Title Banner — PACK 19 */}
           <AboutBanner 
-            badgeText="Governance & Responsibility"
-            title="Our policies"
-            description="Bluegrid Utilities operates under clear, documented policies covering health and safety, quality, environmental management, equality, data protection and modern slavery. Our policy statements are reviewed annually and signed by company leadership. Copies of signed policy statements are available to clients, partners and procurement teams upon request."
+            badgeText="POLICIES & CORPORATE INFORMATION"
+            title="Policies & Corporate Information"
+            description="This page provides approved public information relating to Bluegrid Utilities. Documents are published only where a current public version has been authorised."
             bgImage={heroOneImg}
           />
 
-          {/* PDF Policy Documents Center */}
+          {/* Policy Documents Center */}
           <div className="mb-16">
             <div className="text-center max-w-3xl mx-auto mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                Official Documentation
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
+                Approved Public Documents
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Policy Documents & Governance Framework
+                Policies & Corporate Information
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                Official policy statements and signed governance documentation are maintained by Bluegrid Technology Ltd (trading as Bluegrid Utilities) and are available upon request to clients, partners, and stakeholders.
+                For each policy document, we maintain approved versions with documented review dates. To request authorised copies for compliance or project files, use the contact route below.
               </p>
             </div>
 
@@ -151,8 +142,8 @@ const OurPoliciesPage = () => {
                         <span className="text-[10px] font-black font-outfit">POLICY</span>
                       </div>
 
-                      <span className="text-[10px] font-bold text-slate-400 font-outfit uppercase">
-                        Formal Statement
+                      <span className="text-[10px] font-bold text-slate-500 font-outfit uppercase">
+                        {doc.ref}
                       </span>
                     </div>
 
@@ -171,8 +162,8 @@ const OurPoliciesPage = () => {
 
                   {/* Action Footer Button */}
                   <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <span className="text-[10px] font-bold text-slate-400 font-outfit">
-                      {doc.size}
+                    <span className="text-[10px] font-bold text-slate-500 font-outfit">
+                      Review: {doc.reviewDate}
                     </span>
 
                     <button
@@ -199,7 +190,7 @@ const OurPoliciesPage = () => {
                 Need Specific Policy Details or Prequalification Evidence?
               </h2>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                For formal contractor onboarding packs, CHAS alignment documentation, or specific compliance questionnaires, please contact our operational governance team at{' '}
+                For formal contractor onboarding packs, policy statements, or specific compliance enquiries, please contact our operational governance team at{' '}
                 <a href="mailto:enquiries@bluegridutilities.com" className="text-[#60a5fa] underline hover:text-white transition-colors">
                   enquiries@bluegridutilities.com
                 </a>.

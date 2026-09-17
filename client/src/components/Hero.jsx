@@ -48,34 +48,34 @@ const Hero = () => {
           {/* Subtitle / Category Tag */}
           <div className="flex flex-col items-start mb-3">
             <span className="text-[#005f9e] text-xs font-black tracking-widest font-outfit uppercase">
-              Bluegrid Utilities
+              BLUEGRID UTILITIES
             </span>
             <div className="w-10 h-1 bg-[#005f9e] mt-1 rounded-full"></div>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight font-outfit tracking-tight">
-            Supporting UK utility infrastructure delivery
+            Utility Infrastructure Delivery Built Around Safety, Quality and Accountability
           </h1>
 
           {/* Description */}
-          <p className="text-xs sm:text-sm md:text-base text-slate-100 mt-3 sm:mt-4 max-w-xl leading-relaxed font-sans font-medium">
-            Bluegrid Utilities supports smart water metering, utility civils, reinstatement and associated field delivery through structured mobilisation, supervision and project support.
+          <p className="text-xs sm:text-sm md:text-base text-slate-100 mt-3 sm:mt-4 max-w-2xl leading-relaxed font-sans font-medium">
+            Bluegrid Utilities supports smart water-meter installation, utility civils, reinstatement and associated project delivery through structured field operations and project coordination.
           </p>
 
           {/* CTA Buttons */}
           <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3.5">
             <a
               href="/services"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold text-xs tracking-wider rounded-none shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
+              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold text-xs tracking-wider rounded-none shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 uppercase"
             >
-              Explore our capabilities
+              Our Capabilities
             </a>
             <a
               href="/contact"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-white/10 hover:bg-white/20 border-2 border-white/80 hover:border-white text-white font-bold text-xs tracking-wider rounded-none backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-0.5"
+              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-white/10 hover:bg-white/20 border-2 border-white/80 hover:border-white text-white font-bold text-xs tracking-wider rounded-none backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-0.5 uppercase"
             >
-              Discuss a project
+              Discuss a Project
             </a>
           </div>
         </motion.div>

@@ -5,7 +5,7 @@ import logo from '../assets/images/logo.png';
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
-  const initialEnquiryType = searchParams.get('subject') || 'General Enquiry';
+  const initialEnquiryType = searchParams.get('subject') || 'General';
   
   const [formData, setFormData] = useState({
     fullName: '',
@@ -20,10 +20,10 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const enquiryTypes = [
-    'Project or delivery enquiry',
-    'Workforce or recruitment enquiry',
-    'Supply-chain or partnership enquiry',
-    'General enquiry'
+    'Project',
+    'Supplier',
+    'General',
+    'Other'
   ];
 
   const contactRoutes = [
@@ -34,27 +34,32 @@ const Contact = () => {
       icon: "mail" 
     },
     { 
-      label: "Recruitment", 
-      value: "recruitment@bluegridutilities.com", 
-      href: "mailto:recruitment@bluegridutilities.com",
-      icon: "work" 
-    },
-    { 
       label: "Telephone", 
-      value: "+44 (0)20 3488 0934", 
+      value: "020 3488 0934 / +44 20 3488 0934", 
       href: "tel:+442034880934",
       icon: "call" 
     },
     { 
+      label: "Recruitment", 
+      value: "recruitment@bluegridutilities.com", 
+      href: "mailto:recruitment@bluegridutilities.com",
+      subText: "Recruitment enquiries should use the dedicated careers route.",
+      ctaText: "View Current Vacancies",
+      ctaHref: "/careers/jobs",
+      icon: "work" 
+    },
+    { 
       label: "Operations Office", 
-      value: "Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG", 
+      value: "Bluegrid Utilities\nOffice 68, Spaces, The Maylands Building\nHemel Hempstead, HP2 7TG\nUnited Kingdom", 
       href: "https://maps.google.com/?q=Spaces+The+Maylands+Building+Hemel+Hempstead+HP2+7TG",
+      note: "Operations and field project support office.",
       icon: "domain" 
     },
     { 
       label: "Registered Office", 
-      value: "Stuart House, St. Johns Street, Peterborough, PE1 5DD", 
+      value: "Bluegrid Technology Ltd\nStuart House, St. Johns Street\nPeterborough, United Kingdom, PE1 5DD", 
       href: "https://maps.google.com/?q=Stuart+House+St+Johns+Street+Peterborough+PE1+5DD",
+      note: "Registered office for corporate/legal purposes.",
       icon: "location_on" 
     }
   ];
@@ -74,7 +79,7 @@ const Contact = () => {
 
   return (
     <div className="w-full font-sans">
-      {/* Contact Hero Banner */}
+      {/* Contact Hero Banner — PACK 18 */}
       <MotionSection 
         as="div" 
         className="relative bg-[#0f3a5e] py-20 md:py-24 text-center text-white overflow-hidden blueprint-bg"
@@ -89,14 +94,23 @@ const Contact = () => {
         
         <div className="relative z-20 max-w-4xl mx-auto px-6 flex flex-col items-center">
           <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e] text-white text-[10px] sm:text-xs font-black tracking-widest mb-6 font-outfit shadow-sm uppercase">
-            Get In Touch
+            CONTACT
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 font-outfit leading-tight text-white uppercase">
-            Talk to Bluegrid Utilities
+            Contact Bluegrid Utilities
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
-            Whether you are a utility contractor looking for delivery support, an operative seeking work, or a client with an enquiry, we want to hear from you. Use the details below or complete our contact form, and we will direct your enquiry to the right person.
+            For project, business or general enquiries, contact Bluegrid Utilities using the approved Company details below. Recruitment enquiries should use the dedicated careers route.
           </p>
+          <div className="mt-8">
+            <a 
+              href="#contact-form-section" 
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest uppercase font-outfit transition-all shadow-md active:scale-95"
+            >
+              <span>Send an Enquiry</span>
+              <span className="material-symbols-outlined text-sm">arrow_downward</span>
+            </a>
+          </div>
         </div>
       </MotionSection>
 
@@ -113,26 +127,48 @@ const Contact = () => {
             <div className="lg:col-span-5 flex flex-col gap-6 w-full h-full text-left">
               <div className="flex-1 rounded-none bg-[#f4f8fc] border border-slate-200 shadow-md w-full overflow-hidden divide-y divide-slate-200 flex flex-col justify-between">
                 {contactRoutes.map((contact, i) => (
-                  <div key={i} className="flex-1 flex items-center justify-between gap-4 px-8 py-5 hover:bg-white transition-colors duration-200 group">
-                    <div className="min-w-0">
-                      <p className="text-[10px] font-black text-[#005f9e] tracking-widest uppercase font-outfit mb-1">
-                        {contact.label}
-                      </p>
-                      <a
-                        href={contact.href}
-                        className="text-xs sm:text-sm font-semibold text-[#0f3a5e] hover:text-[#005f9e] transition-colors break-words leading-snug block font-outfit"
-                      >
-                        {contact.value}
-                      </a>
-                    </div>
-                    <div className="shrink-0 w-10 h-10 rounded-none bg-white shadow-sm border border-slate-200 flex items-center justify-center text-[#005f9e] group-hover:bg-[#005f9e] group-hover:text-white transition-all duration-300">
-                      <span className="material-symbols-outlined text-lg">{contact.icon}</span>
+                  <div key={i} className="flex-1 flex flex-col justify-center px-8 py-5 hover:bg-white transition-colors duration-200 group">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-black text-[#005f9e] tracking-widest uppercase font-outfit mb-1">
+                          {contact.label}
+                        </p>
+                        {contact.href ? (
+                          <a
+                            href={contact.href}
+                            className="text-xs sm:text-sm font-semibold text-[#0f3a5e] hover:text-[#005f9e] transition-colors break-words leading-snug block font-outfit whitespace-pre-line"
+                          >
+                            {contact.value}
+                          </a>
+                        ) : (
+                          <p className="text-xs sm:text-sm font-semibold text-[#0f3a5e] break-words leading-snug font-outfit whitespace-pre-line">
+                            {contact.value}
+                          </p>
+                        )}
+                        {contact.note && (
+                          <p className="text-[11px] text-slate-500 mt-1 font-medium italic">
+                            {contact.note}
+                          </p>
+                        )}
+                        {contact.ctaText && (
+                          <a
+                            href={contact.ctaHref}
+                            className="inline-flex items-center gap-1 text-xs font-bold text-[#0066ff] hover:text-[#0052cc] mt-2 uppercase tracking-wide font-outfit"
+                          >
+                            <span>{contact.ctaText}</span>
+                            <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                          </a>
+                        )}
+                      </div>
+                      <div className="shrink-0 w-10 h-10 rounded-none bg-white shadow-sm border border-slate-200 flex items-center justify-center text-[#005f9e] group-hover:bg-[#005f9e] group-hover:text-white transition-all duration-300">
+                        <span className="material-symbols-outlined text-lg">{contact.icon}</span>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Company Info Box */}
+              {/* Company Legal Identity Box — PACK 18 */}
               <div className="p-8 rounded-none bg-[#0f3a5e] text-white border border-slate-800 shadow-lg flex flex-col items-start justify-center text-left gap-4">
                 <img 
                   src={logo} 
@@ -140,23 +176,23 @@ const Contact = () => {
                   className="h-10 w-auto object-contain brightness-0 invert opacity-95" 
                 />
                 <div className="space-y-2 text-xs text-slate-300 font-medium">
-                  <p className="text-white font-bold font-outfit text-sm">Bluegrid Utilities</p>
-                  <p className="text-slate-300">Bluegrid Technology Ltd, trading as Bluegrid Utilities (Company No. 16442340). Registered in England and Wales.</p>
+                  <p className="text-white font-bold font-outfit text-sm">Legal Company Identity</p>
+                  <p className="text-slate-300">Bluegrid Technology Ltd, trading as Bluegrid Utilities. Registered in England and Wales. Company No. 16442340.</p>
                   <div className="pt-2 border-t border-slate-700/60 space-y-1 text-[11px]">
-                    <p><strong className="text-white font-semibold">Operations:</strong> Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG</p>
-                    <p><strong className="text-white font-semibold">Registered Office:</strong> Stuart House, St. Johns Street, Peterborough, PE1 5DD</p>
+                    <p><strong className="text-white font-semibold">Operations:</strong> Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG, United Kingdom</p>
+                    <p><strong className="text-white font-semibold">Registered Office:</strong> Stuart House, St. Johns Street, Peterborough, United Kingdom, PE1 5DD</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Side: Contact Form */}
-            <div className="lg:col-span-7 bg-[#f4f8fc] p-8 md:p-12 rounded-none shadow-xl border border-slate-200 flex flex-col justify-center text-left">
+            <div id="contact-form-section" className="lg:col-span-7 bg-[#f4f8fc] p-8 md:p-12 rounded-none shadow-xl border border-slate-200 flex flex-col justify-center text-left">
               <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] font-outfit mb-2">
-                Send Us a Message
+                Send an Enquiry
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium mb-8">
-                Fill in the form below and our team will respond to your enquiry promptly.
+                For project, business or general enquiries, complete the form below. Recruitment enquiries should use the separate careers route.
               </p>
 
               {submitted ? (

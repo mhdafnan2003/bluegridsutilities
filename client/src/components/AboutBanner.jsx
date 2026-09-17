@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AboutBanner = ({ badgeText, title, description, bgImage }) => {
+const AboutBanner = ({ badgeText, title, description, bgImage, children }) => {
   return (
     <div className="relative w-full min-h-[400px] sm:min-h-[460px] md:min-h-[500px] flex items-center overflow-hidden bg-slate-950 font-sans mb-12">
       {/* Full Hero Image */}
@@ -30,6 +30,11 @@ const AboutBanner = ({ badgeText, title, description, bgImage }) => {
           <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-xl">
             {description}
           </p>
+          {children && (
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              {children}
+            </div>
+          )}
         </div>
       </div>
     </div>

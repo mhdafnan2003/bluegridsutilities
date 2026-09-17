@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MotionSection from './MotionSection';
 import selbertImg from '../assets/images/updated/SELBERT GEORGE.jpeg';
-import gauthamImg from '../assets/images/updated/And goutham raj.jpeg';
 
 const LinkedInIcon = () => (
   <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -25,29 +24,22 @@ const InstagramIcon = () => (
 const departmentTeams = [
   {
     id: "directors",
-    name: "Statutory Directors & Operational Leadership",
-    badge: "Leadership & Management",
+    name: "Leadership",
+    badge: "Clear Accountability",
     members: [
       {
         name: "Selbert George",
-        role: "Managing Director (Statutory Director)",
-        desc: "Selbert George is the Managing Director of Bluegrid Utilities and an active statutory director of Bluegrid Technology Ltd (Companies House PE1 5DD).\nHe holds a Master's degree in International Business Management from Griffith College Dublin, Ireland, with extensive experience in operational management, workforce coordination, and utility infrastructure support.\nHis focus is on building compliance-focused operational systems, scalable workforce structures, and reliable utility infrastructure delivery services.",
+        role: "Director and Project Director",
+        desc: "Active director of Bluegrid Technology Ltd, trading as Bluegrid Utilities, overseeing operational delivery, project management and field coordination.",
         img: selbertImg,
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
+        social: { linkedin: "#" }
       },
       {
-        name: "Gautham Raj",
-        role: "Project Manager & Head of Operations",
-        desc: "Gautham Raj serves as Project Manager & Head of Operations at Bluegrid Utilities, leading operational project management, workforce deployment, field coordination, and day-to-day supervision of critical infrastructure projects across UK utility sectors.\nHe ensures strict adherence to project timelines, site safety standards, client specifications, and seamless field team coordination.",
-        img: gauthamImg,
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
-      },
-      {
-        name: "Syed Zulqurnain",
-        role: "Statutory Director",
-        desc: "Syed Zulqurnain is an active statutory director of Bluegrid Technology Ltd, trading as Bluegrid Utilities, listed on Companies House UK.\nHe supports corporate governance, statutory compliance, financial oversight, and strategic business development across the organisation.",
+        name: "Syed Zulqurnain Shah",
+        role: "Director",
+        desc: "Active director of Bluegrid Technology Ltd, trading as Bluegrid Utilities, supporting corporate governance, compliance and strategic direction.",
         img: null,
-        social: { linkedin: "#", facebook: "#", instagram: "#" }
+        social: { linkedin: "#" }
       }
     ]
   }

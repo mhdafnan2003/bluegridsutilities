@@ -107,7 +107,7 @@ const Footer = () => {
               <div className="pt-1">
                 <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit uppercase">Telephone:</span>
                 <a href="tel:+442034880934" className="text-white hover:text-[#005f9e] transition-colors font-medium">
-                  020 3488 0934
+                  020 3488 0934 / +44 20 3488 0934
                 </a>
               </div>
             </div>
@@ -131,7 +131,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/health-safety" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                <Link to="/safety-quality" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   Safety &amp; Quality
                 </Link>
               </li>
@@ -141,8 +141,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/news" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  News
+                <Link to="/careers/jobs" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Vacancies
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Projects
                 </Link>
               </li>
               <li>
@@ -156,33 +161,28 @@ const Footer = () => {
           {/* Column 4: Governance & Legal Policies */}
           <div className="space-y-4 text-left">
             <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2 uppercase">
-              Legal &amp; Policies
+              Policies &amp; Legal
             </h4>
             
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400 font-medium">
               <li>
-                <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Privacy Policy
+                <Link to="/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Policies &amp; Statements
                 </Link>
               </li>
               <li>
-                <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Cookie Policy
-                </Link>
-              </li>
-              <li>
-                <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                <Link to="/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   Candidate Privacy Notice
                 </Link>
               </li>
               <li>
-                <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                <Link to="/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   Website Terms of Use
                 </Link>
               </li>
               <li>
-                <Link to="/about/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
-                  Policies &amp; Statements
+                <Link to="/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                  Accessibility Statement
                 </Link>
               </li>
             </ul>

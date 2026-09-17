@@ -3,66 +3,60 @@ import { Link } from 'react-router-dom';
 import MotionSection from '../components/MotionSection';
 import PageSEO from '../components/PageSEO';
 
-// Point 41 Categories
-const roleCategories = [
+// Pack 14 Role Families
+const roleFamilies = [
   {
     title: "Field operations",
     code: "FIELD-OPS",
-    desc: "Utility operatives/installers and other approved field roles.",
+    desc: "Operative/installer roles where vacancies are approved.",
     icon: "construction"
   },
   {
     title: "Supervision",
     code: "SUPERVISION",
-    desc: "Supervisors and team leaders for authorised project delivery.",
+    desc: "Team-leader or supervisor roles linked to live project requirements.",
     icon: "engineering"
   },
   {
-    title: "Project and operations",
+    title: "Project and operational support",
     code: "PRJ-OPS",
-    desc: "Project management, assistant project management and operational coordination roles.",
+    desc: "Coordination, administration and reporting roles.",
     icon: "manage_accounts"
   },
   {
-    title: "Project support",
-    code: "PRJ-SUPPORT",
-    desc: "Project administration, reporting, document and deployment support.",
+    title: "Management and specialist roles",
+    code: "MGMT-SPEC",
+    desc: "Only when an approved vacancy exists.",
     icon: "assignment"
-  },
-  {
-    title: "Business support",
-    code: "BIZ-SUPPORT",
-    desc: "Approved roles in procurement, HR, executive or other support functions.",
-    icon: "domain"
   }
 ];
 
-// Point 43 Recruitment Process
+// Pack 14 Recruitment Process
 const recruitmentSteps = [
   {
     step: "01",
     title: "Apply",
-    desc: "Submit your application through the live vacancy page using the information requested for that role."
+    desc: "Use the live vacancy page and submit only the information requested."
   },
   {
     step: "02",
     title: "Review",
-    desc: "Applications are reviewed against the published role requirements."
+    desc: "Applications are reviewed against the requirements of the specific role."
   },
   {
     step: "03",
-    title: "Interview / Assessment",
-    desc: "Shortlisted candidates may be invited to an interview, practical assessment or other role-relevant assessment."
+    title: "Selection",
+    desc: "Suitable candidates may be invited to interview and/or role-relevant assessment."
   },
   {
     step: "04",
-    title: "Checks and offer",
-    desc: "Any offer is subject to the checks and evidence required for the role and project."
+    title: "Pre-employment",
+    desc: "Any right-to-work, reference, competence or other checks are completed at the appropriate stage."
   },
   {
     step: "05",
-    title: "Onboarding",
-    desc: "Successful candidates receive the information needed for onboarding and authorised deployment."
+    title: "Offer/onboarding",
+    desc: "Employment or engagement is confirmed only through authorised written documentation."
   }
 ];
 
@@ -80,7 +74,7 @@ const CareerPage = () => {
         whileInView={undefined}
         viewport={undefined}
       >
-        {/* Point 39: CAREERS — HERO */}
+        {/* Pack 14: CAREERS — HERO */}
         <div className="bg-[#0f3a5e] text-white py-16 sm:py-24 border-b-4 border-[#0066ff]">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 text-left space-y-6">
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 font-outfit uppercase tracking-wider">
@@ -90,26 +84,26 @@ const CareerPage = () => {
             </div>
 
             <span className="inline-block px-3.5 py-1.5 bg-white/10 text-white text-xs font-black tracking-widest font-outfit uppercase border border-white/20">
-              Careers at Bluegrid Utilities
+              CAREERS
             </span>
 
-            {/* Point 39 Heading */}
+            {/* Pack 14 Heading */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-outfit max-w-4xl">
-              Build your career in utility delivery
+              Careers at Bluegrid Utilities
             </h1>
 
-            {/* Point 39 Supporting Copy */}
+            {/* Pack 14 Intro */}
             <p className="text-slate-200 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed font-medium">
-              Bluegrid Utilities recruits field, supervisory, project-support and business-support roles as genuine project requirements arise. If you value practical work, clear expectations and a safety-led operating environment, explore our current opportunities.
+              Our utility projects depend on people who work safely, communicate clearly and take responsibility for the quality of their work. We recruit for field, supervisory, project-support and operational roles as project requirements arise.
             </p>
 
-            {/* Point 39 Buttons */}
+            {/* Pack 14 Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <Link
                 to="/careers/jobs"
                 className="inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
               >
-                <span>View current vacancies</span>
+                <span>View Current Vacancies</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
 
@@ -117,7 +111,7 @@ const CareerPage = () => {
                 href="mailto:recruitment@bluegridutilities.com"
                 className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#0f3a5e] font-extrabold text-xs tracking-widest px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
               >
-                <span>Recruitment enquiries</span>
+                <span>Recruitment Enquiries</span>
                 <span className="material-symbols-outlined text-sm">mail</span>
               </a>
             </div>
@@ -127,28 +121,25 @@ const CareerPage = () => {
         {/* Content Container */}
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 pt-16 space-y-20">
 
-          {/* Point 40: CAREERS — WORKING AT BLUEGRID */}
+          {/* Pack 14: WORKING HERE */}
           <div className="bg-white border border-slate-200 p-8 sm:p-12 shadow-md text-left border-l-4 border-l-[#005f9e] max-w-5xl mx-auto space-y-6">
             <span className="inline-block px-3 py-1 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest font-outfit uppercase border border-[#005f9e]/20">
-              Employer Proposition
+              Working Here
             </span>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
-              What working at Bluegrid means
+              Practical Work. Clear Expectations.
             </h2>
 
             <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
               <p>
-                We are a growing business, so people joining Bluegrid should expect a practical working environment where communication, reliability and accountability matter. Field delivery is supported by project and operations teams, and issues are expected to be raised early rather than hidden.
-              </p>
-              <p>
-                We are building our capability carefully. That means roles, responsibilities and project requirements can develop as the business grows, but safety, professionalism and accurate reporting remain basic expectations.
+                Roles at Bluegrid may involve field delivery, supervision, mobilisation, project administration or operational support. Whatever the role, we expect accurate information, professional conduct, respect for safety requirements and timely escalation when something is not right.
               </p>
             </div>
 
             <div className="pt-4 border-t border-slate-100 flex items-center justify-between flex-wrap gap-4">
               <span className="text-xs text-slate-500 font-medium">
-                Permanent employer proposition • Genuine vacancies published as operational needs arise
+                Direct route: recruitment@bluegridutilities.com
               </span>
               <Link
                 to="/careers/jobs"
@@ -167,15 +158,15 @@ const CareerPage = () => {
                 Role Categories
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Disciplines We Recruit
+                Role Families
               </h2>
               <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                Bluegrid Utilities recruits across defined operational categories supporting authorised utility delivery.
+                Bluegrid Utilities recruits across defined role families as authorised project requirements arise.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-              {roleCategories.map((cat, idx) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+              {roleFamilies.map((cat, idx) => (
                 <div
                   key={idx}
                   className="bg-white border border-slate-200 p-8 shadow-md hover:shadow-xl transition-all flex flex-col justify-between border-t-4 border-t-[#0f3a5e] group"
@@ -185,7 +176,7 @@ const CareerPage = () => {
                       <span className="material-symbols-outlined text-2xl">{cat.icon}</span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit">
+                    <h3 className="text-lg font-bold text-[#0f3a5e] font-outfit">
                       {cat.title}
                     </h3>
 
@@ -208,37 +199,17 @@ const CareerPage = () => {
             </div>
           </div>
 
-          {/* Point 42: CAREERS — WHAT WE LOOK FOR */}
-          <div className="bg-slate-900 text-white p-8 sm:p-12 shadow-xl text-left border-l-4 border-l-[#0066ff] max-w-5xl mx-auto space-y-6">
-            <span className="inline-block px-3 py-1 bg-white/10 text-white text-xs font-black tracking-widest font-outfit uppercase border border-white/20">
-              Expectations & Values
-            </span>
-
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight font-outfit">
-              What we look for
-            </h2>
-
-            <div className="space-y-4 text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-              <p>
-                Requirements differ by role, but we value people who take safety seriously, turn up reliably, communicate clearly, treat customers and colleagues professionally, keep accurate records and work within the instructions and authority given to them.
-              </p>
-              <p>
-                Any mandatory qualifications, cards, licences, experience or other role requirements will be stated on the individual vacancy.
-              </p>
-            </div>
-          </div>
-
-          {/* Point 43: CAREERS — RECRUITMENT PROCESS */}
+          {/* Pack 14: RECRUITMENT PROCESS */}
           <div>
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
-                Structured Process
+                Staged Process
               </span>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Recruitment Process
               </h2>
               <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                A clear, staged recruitment pathway ensuring all candidates and project checks are handled transparently.
+                A disciplined, five-step pathway ensuring transparent and authorised candidate progression.
               </p>
             </div>
 
@@ -262,33 +233,42 @@ const CareerPage = () => {
                 </div>
               ))}
             </div>
-
-            {/* Point 43 Disclaimer */}
-            <div className="mt-6 p-4 bg-slate-100 border border-slate-200 text-slate-600 text-xs font-medium text-left max-w-3xl mx-auto">
-              <strong>Disclaimer:</strong> The exact recruitment process may vary by role. The vacancy page will explain any role-specific requirements.
-            </div>
           </div>
 
-          {/* Point 44: CAREERS — FAIR RECRUITMENT */}
-          <div className="bg-white border border-slate-200 p-8 sm:p-10 shadow-md text-left max-w-4xl mx-auto space-y-4 border-l-4 border-l-[#0f3a5e]">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] font-outfit">
-              Fair recruitment and adjustments
+          {/* Pack 14: NO VACANCY / KEEP AN EYE ON NEW OPPORTUNITIES */}
+          <div className="bg-white border border-slate-200 p-8 sm:p-12 shadow-md text-left border-l-4 border-l-amber-500 max-w-5xl mx-auto space-y-6">
+            <span className="inline-block px-3 py-1 bg-amber-500/10 text-amber-700 text-xs font-black tracking-widest font-outfit uppercase border border-amber-500/20">
+              Notice
+            </span>
+
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
+              Keep an Eye on New Opportunities
             </h2>
-            <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
-              Bluegrid Utilities is committed to fair and consistent recruitment. Applications are considered against the requirements of the role. If you need a reasonable adjustment during the recruitment process, contact{' '}
-              <a href="mailto:recruitment@bluegridutilities.com" className="text-[#0066ff] font-bold underline">
-                recruitment@bluegridutilities.com
-              </a>.
-            </p>
-            <div className="pt-2 text-xs text-slate-500">
-              Candidate personal information is handled in strict compliance with our Candidate Privacy Notice.
+
+            <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
+              <p>
+                If there is no suitable live vacancy, please check this page again as project requirements change. Do not send identity documents, banking information or other sensitive records unless specifically requested through an authorised recruitment process.
+              </p>
+            </div>
+
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between flex-wrap gap-4">
+              <span className="text-xs text-slate-500 font-medium">
+                Recruitment contact: recruitment@bluegridutilities.com
+              </span>
+              <Link
+                to="/careers/jobs"
+                className="inline-flex items-center gap-2 text-[#0066ff] hover:text-[#0052cc] text-xs font-extrabold uppercase tracking-wider font-outfit"
+              >
+                <span>View Current Vacancies</span>
+                <span className="material-symbols-outlined text-sm">arrow_forward</span>
+              </Link>
             </div>
           </div>
 
           {/* Bottom Action CTA */}
           <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 shadow-xl text-center space-y-4">
             <h3 className="text-2xl sm:text-3xl font-extrabold font-outfit">
-              Ready to explore live opportunities?
+              View Current Vacancies
             </h3>
             <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto font-medium">
               All approved vacancies are published on our Current Vacancies page with full role specifications and direct application routes.
@@ -298,7 +278,7 @@ const CareerPage = () => {
                 to="/careers/jobs"
                 className="inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95"
               >
-                <span>View current vacancies</span>
+                <span>View Current Vacancies</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
             </div>
