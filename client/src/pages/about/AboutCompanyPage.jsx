@@ -79,8 +79,8 @@ const AboutCompanyPage = () => {
           {/* Top Hero Banner Component */}
           <AboutBanner 
             badgeText="About Bluegrid Utilities"
-            title="Company Profile"
-            description="A UK-based utility infrastructure contractor focused on safe, reliable and high-quality operational delivery."
+            title="A growing utility delivery business built around disciplined operations"
+            description="Bluegrid Utilities is the trading name of Bluegrid Technology Ltd, an England and Wales registered company working in the UK utilities and infrastructure sector."
             bgImage={heroTwoImg}
           />
 
@@ -97,19 +97,19 @@ const AboutCompanyPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-[#005f9e] text-white px-4 py-2 text-xs font-bold tracking-wider rounded-none border border-white/20 font-outfit">
-                  Specialist Utility Infrastructure
+                  Practical Utility Delivery
                 </div>
               </div>
 
               <div className="space-y-4 text-left">
                 <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
-                  Who We Are
+                  Who we are
                 </h2>
                 <p className="text-slate-700 text-base sm:text-lg font-semibold leading-relaxed">
-                  Bluegrid Utilities is a UK utility infrastructure delivery business supporting water and wider infrastructure programmes through field operations, project mobilisation, civil engineering support and workforce coordination. We combine hands-on operational leadership with structured compliance, training and project-control processes.
+                  Bluegrid Technology Ltd was incorporated in England and Wales in 2025 and trades as Bluegrid Utilities. The business has its registered office in Peterborough and operates from an operations office in Hemel Hempstead.
                 </p>
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                  Our approach is built around safe mobilisation, clear accountability and dependable execution. We work within established supply chains and aim to build long-term relationships with infrastructure partners who value responsive delivery, quality workmanship and transparent communication.
+                  Our focus is practical utility delivery. Current operational activity includes smart water-meter installation and associated utility support, with project management, workforce coordination and operational administration supporting field delivery.
                 </p>
               </div>
             </div>
@@ -146,7 +146,16 @@ const AboutCompanyPage = () => {
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Registered Office</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit uppercase">Operations Office</p>
+                      <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
+                        Office 68, Spaces, The Maylands Building<br />
+                        Hemel Hempstead, HP2 7TG<br />
+                        United Kingdom
+                      </address>
+                    </div>
+
+                    <div className="bg-white/5 border border-white/10 p-4 rounded-none">
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit uppercase">Registered Office</p>
                       <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
                         Stuart House, St. Johns Street<br />
                         Peterborough, PE1 5DD<br />
@@ -155,7 +164,7 @@ const AboutCompanyPage = () => {
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
-                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Company Status</p>
+                      <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit uppercase">Company Status</p>
                       <p className="text-base font-bold text-emerald-400">Active</p>
                     </div>
                   </div>
@@ -164,7 +173,7 @@ const AboutCompanyPage = () => {
                 <div className="mt-8 pt-4 border-t border-white/15 relative z-10 flex items-center justify-between text-xs font-bold text-slate-300 font-outfit">
                   <span className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-none bg-[#0066ff]" />
-                    Registered in United Kingdom
+                    Registered in England &amp; Wales
                   </span>
                   <span className="text-[#60a5fa]">Active Status</span>
                 </div>
@@ -176,48 +185,84 @@ const AboutCompanyPage = () => {
           {/* Section Divider */}
           <hr className="border-slate-200 my-16" />
 
-          {/* NEW SECTION 1: Core Operational Foundations Grid (6 Key Pillars) */}
+          {/* HOW WE WORK SECTION */}
           <div className="mb-20">
-            <div className="text-left max-w-3xl mb-14">
-              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
-                Core Operational Capabilities
+            <div className="text-left max-w-3xl mb-12">
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
+                Operating Principles
               </span>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Our Core Strengths & Commitments
+                Disciplined delivery from planning to completion
               </h2>
-              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                Built on experienced management, certified field operatives, precision workmanship, public sector capability, strict compliance, and total customer satisfaction.
+              <p className="mt-4 text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+                We believe utility work should be controlled from mobilisation through to completion. That means clear responsibilities, realistic planning, accurate records and early escalation when something falls outside the agreed scope or authority.
+              </p>
+              <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                We do not treat productivity as more important than safety, quality, legal requirements or client instructions. Where a task requires approved RAMS, permits, traffic-management arrangements, technical authorisation or specific competence, those requirements come first.
               </p>
             </div>
 
-            {/* 6 Cards Grid with Clean Unshaded Images */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {corePillars.map((pillar) => (
+            {/* 4 WORKING VALUES */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  title: "Safety",
+                  desc: "We do not compromise safe working for programme or output.",
+                  icon: "health_and_safety",
+                  bgImage: imgCompliance
+                },
+                {
+                  title: "Integrity",
+                  desc: "We record work honestly, raise issues early and avoid making claims we cannot support.",
+                  icon: "verified_user",
+                  bgImage: imgManagement
+                },
+                {
+                  title: "Quality",
+                  desc: "We focus on completing authorised work to the required project standard and recording evidence accurately.",
+                  icon: "verified",
+                  bgImage: imgWorkmanship
+                },
+                {
+                  title: "Accountability",
+                  desc: "Responsibilities, decisions and escalation routes should be clear so actions do not get lost between teams.",
+                  icon: "shield_person",
+                  bgImage: imgWorkforce
+                }
+              ].map((val, idx) => (
                 <div 
-                  key={pillar.id}
-                  className="relative group h-[340px] sm:h-[360px] rounded-none overflow-hidden shadow-lg hover:shadow-2xl border border-slate-200 transition-all duration-500 flex flex-col justify-end cursor-pointer"
+                  key={idx}
+                  className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 text-left shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
                 >
-                  {/* Background Image - 100% Full Natural Brightness, No Dark Shade */}
-                  <img 
-                    src={pillar.bgImage} 
-                    alt={pillar.title} 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-
-                  {/* Floating Bottom Content Card - Keeps Image Unshaded & Clear */}
-                  <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
-                    <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
-                      {pillar.badge}
-                    </span>
-                    <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
-                      {pillar.title}
+                  <div>
+                    <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+                      <span className="material-symbols-outlined text-2xl">{val.icon}</span>
+                    </div>
+                    <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                      {val.title}
                     </h3>
-                    <p className="text-slate-200 text-xs leading-relaxed font-medium line-clamp-2">
-                      {pillar.desc}
+                    <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                      {val.desc}
                     </p>
                   </div>
+                  <div className="w-8 h-1 bg-[#005f9e] mt-6" />
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* GROWING RESPONSIBLY SECTION */}
+          <div className="mb-20 bg-slate-100 border border-slate-200 p-8 sm:p-12 text-left">
+            <div className="max-w-3xl">
+              <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-xs font-black tracking-widest mb-3 font-outfit uppercase">
+                Sustainable Growth
+              </span>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+                Growing responsibly
+              </h2>
+              <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+                Bluegrid is building its capability in a controlled way. Our approach is to add people, resources and services when the operational controls are ready to support them, rather than use broad claims that outpace the work we can evidence.
+              </p>
             </div>
           </div>
 
@@ -232,25 +277,25 @@ const AboutCompanyPage = () => {
                 </span>
 
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight font-outfit leading-tight text-[#0f3a5e]">
-                  Driven by Experienced Leadership & Skilled Operatives
+                  Driven by Experienced Leadership &amp; Skilled Operatives
                 </h2>
 
                 <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
-                  At Bluegrid Utilities, our operational strength lies in combining seasoned utility contract managers with accredited, multi-skilled field teams. From complex urban smart water meter deployments to nationwide infrastructure support, our teams work in harmony with main contractors and local authorities.
+                  At Bluegrid Utilities, our operational focus combines structured project management with qualified field teams. From smart water meter deployments to utility civils and reinstatement, our activity is planned and delivered in accordance with client specifications, approved RAMS and relevant street-works standards.
                 </p>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div className="bg-slate-50 border border-slate-200 p-5 rounded-none hover:border-[#005f9e] transition-colors shadow-sm">
                     <h4 className="font-bold text-[#0f3a5e] text-sm sm:text-base font-outfit mb-1.5">Experienced Management</h4>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                      Proactive project supervision, route optimization, real-time client reporting, and strict SLA fulfillment.
+                      Project coordination, structured mobilisation, supervision, completion evidence and escalation routes.
                     </p>
                   </div>
 
                   <div className="bg-slate-50 border border-slate-200 p-5 rounded-none hover:border-[#005f9e] transition-colors shadow-sm">
                     <h4 className="font-bold text-[#0f3a5e] text-sm sm:text-base font-outfit mb-1.5">Skilled Workforce</h4>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                      Rigorously vetted operatives holding CSCS, EUSR, and NRSWA credentials ready for immediate site deployment.
+                      Operatives deployed in line with verified competencies and statutory requirements for the authorised scope.
                     </p>
                   </div>
                 </div>
@@ -276,8 +321,8 @@ const AboutCompanyPage = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6 bg-slate-950/85 backdrop-blur-md p-5 border border-white/20 text-white shadow-xl">
-                    <p className="text-xs font-bold tracking-widest text-[#60a5fa] font-outfit uppercase">Qualified & Compliant</p>
-                    <p className="text-sm sm:text-base font-bold text-white mt-1 font-outfit">100% Certified Field Workforce Across the UK</p>
+                    <p className="text-xs font-bold tracking-widest text-[#60a5fa] font-outfit uppercase">Qualified &amp; Compliant</p>
+                    <p className="text-sm sm:text-base font-bold text-white mt-1 font-outfit">Qualified &amp; Vetted Field Operatives</p>
                   </div>
                 </div>
               </div>
@@ -297,13 +342,13 @@ const AboutCompanyPage = () => {
               />
               <div className="relative z-10 m-4 bg-[#0f3a5e]/50 backdrop-blur-md p-5 border border-white/20 shadow-xl text-left space-y-2 transition-transform duration-300 group-hover:-translate-y-1">
                 <span className="inline-block text-[10px] font-black text-[#60a5fa] tracking-widest font-outfit uppercase bg-white/10 px-2 py-0.5 border border-white/10">
-                  EXCELLENCE IN EXECUTION
+                  CONTROLLED DELIVERY
                 </span>
                 <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight font-outfit leading-tight group-hover:text-[#60a5fa] transition-colors">
                   Quality Workmanship
                 </h3>
                 <p className="text-slate-200 text-xs leading-relaxed font-medium">
-                  Clean execution, precision reinstatement, and zero-defect handovers across all utility contracts.
+                  Clean execution, precision reinstatement, and quality-controlled handovers across utility contracts.
                 </p>
               </div>
             </div>
@@ -343,7 +388,7 @@ const AboutCompanyPage = () => {
                   Compliance & Satisfaction
                 </h3>
                 <p className="text-slate-200 text-xs leading-relaxed font-medium">
-                  100% pre-deployment vetting, zero-harm H&S protocols, and high appointment satisfaction rates.
+                  Structured pre-deployment vetting, active H&S risk controls, and professional customer liaison standards.
                 </p>
               </div>
             </div>
@@ -353,8 +398,8 @@ const AboutCompanyPage = () => {
           {/* NEW SECTION 4: Final Call to Action Banner */}
           <div className="bg-gradient-to-r from-[#0f3a5e] via-[#0b2844] to-[#005f9e] text-white p-8 sm:p-12 md:p-14 rounded-none shadow-xl text-left relative overflow-hidden flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
             <div className="max-w-2xl space-y-3 relative z-10">
-              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block">
-                Partner with BlueGrid Utilities
+              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block uppercase">
+                Partner with Bluegrid Utilities
               </span>
               <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
                 Ready to Work with a Trusted UK Utility Contractor?

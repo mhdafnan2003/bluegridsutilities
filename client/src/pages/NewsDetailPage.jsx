@@ -146,7 +146,7 @@ const NewsDetailPage = () => {
               Operational Enquiries & Contact
             </h4>
             <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
-              {article.contactCta || "For operational enquiries or partnership discussions, reach out to our team at info@bluegridutilities.co.uk."}
+              {article.contactCta || "For operational enquiries or partnership discussions, reach out to our team at enquiries@bluegridutilities.com."}
             </p>
           </div>
 

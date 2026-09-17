@@ -7,8 +7,9 @@ const Header = () => {
   const location = useLocation();
   const isActive = (to) => {
     if (to === '/') return location.pathname === '/';
-    if (to === '/career') return location.pathname === '/career' || location.pathname === '/apply';
-    return location.pathname === to || location.pathname.startsWith(to + '/') || (to !== '/' && location.pathname.startsWith(to));
+    if (to === '/careers' || to === '/career') return location.pathname.startsWith('/career') || location.pathname === '/apply';
+    if (to === '/safety-quality' || to === '/health-safety') return location.pathname.startsWith('/safety-quality') || location.pathname.startsWith('/health-safety');
+    return location.pathname === to || location.pathname.startsWith(to + '/');
   };
 
   const isSubActive = (to) => {
@@ -41,15 +42,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Point 57: Keep News out of the top navigation until there are at least 2 or 3 genuine approved news items
   const navLinks = [
-    { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
-    { label: 'Projects', to: '/projects' },
-    { label: 'Health & Safety', to: '/health-safety' },
-    { label: 'Career', to: '/career' },
-    { label: 'News', to: '/news' },
-    { label: 'Contact Us', to: '/contact' }
+    { label: 'Safety & Quality', to: '/safety-quality' },
+    { label: 'Careers', to: '/careers' },
+    { label: 'Contact', to: '/contact' }
   ];
 
   return (
@@ -64,7 +63,7 @@ const Header = () => {
         <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           {/* Logo Area in Top Bar */}
           <Link className="flex items-center" to="/">
-            <img src={logo} alt="BlueGrid Utilities Logo" className="h-11 md:h-13 w-auto object-contain" />
+            <img src={logo} alt="Bluegrid Utilities Logo" className="h-11 md:h-13 w-auto object-contain" />
           </Link>
 
           {/* Contact Details Section */}
@@ -87,12 +86,12 @@ const Header = () => {
               </div>
             </div>
 
-            {/* Work Hours */}
+            {/* Telephone */}
             <div className="flex items-center gap-2.5">
-              <span className="material-symbols-outlined text-[#005f9e] text-xl">schedule</span>
+              <span className="material-symbols-outlined text-[#005f9e] text-xl">call</span>
               <div className="text-left">
-                <p className="text-[9px] text-gray-400 uppercase tracking-widest font-bold font-outfit">Work Hour</p>
-                <p className="text-xs font-bold text-[#111111]">Mon - Fri: 08:00 - 17:00</p>
+                <p className="text-[9px] text-gray-400 uppercase tracking-widest font-bold font-outfit">Telephone</p>
+                <a href="tel:+442034880934" className="text-xs font-bold text-[#111111] hover:text-[#005f9e] transition-colors">020 3488 0934</a>
               </div>
             </div>
 
@@ -126,7 +125,7 @@ const Header = () => {
           {/* Navbar Logo */}
           <div className={`flex items-center py-2 pr-2 sm:pr-4 lg:pr-6 shrink-0 ${isScrolled ? 'flex' : 'flex md:hidden'}`}>
             <Link className="flex items-center gap-2" to="/">
-              <img src={logo} alt="BlueGrid Utilities Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain" />
+              <img src={logo} alt="Bluegrid Utilities Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain" />
             </Link>
           </div>
 
@@ -155,7 +154,7 @@ const Header = () => {
                     <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[20rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="flex flex-col">
                         {[
-                          { label: "About BlueGrid", to: "/about" },
+                          { label: "About Bluegrid Utilities", to: "/about" },
                           { label: "Our Missions", to: "/about/missions" },
                           { label: "Our Visions", to: "/about/visions" },
                           { label: "Our History", to: "/about/history" },
@@ -203,17 +202,14 @@ const Header = () => {
                     </Link>
 
                     {/* Dropdown Menu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[26rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[22rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="flex flex-col">
                         {[
                           { label: "All Services", to: "/services" },
-                          { label: "Water Meter Installation", to: "/services?select=water-meter-installation" },
-                          { label: "Civil Engineering", to: "/services?select=civil-engineering" },
-                          { label: "Reinstatement", to: "/services?select=reinstatement" },
-                          { label: "Utility Surveying", to: "/services?select=utility-surveying" },
-                          { label: "Traffic Management Support", to: "/services?select=traffic-management" },
-                          { label: "Emergency Utility Response", to: "/services?select=emergency-utility-response" },
-                          { label: "Infrastructure Support", to: "/services?select=infrastructure-support" }
+                          { label: "Smart Water Metering", to: "/services?select=smart-water-metering" },
+                          { label: "Utility Civils & Access Works", to: "/services?select=utility-civils" },
+                          { label: "Reinstatement Support", to: "/services?select=reinstatement" },
+                          { label: "Project Delivery & Field Support", to: "/services?select=project-delivery" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
                           return (
@@ -236,7 +232,7 @@ const Header = () => {
                 );
               }
 
-              if (link.label === 'Health & Safety') {
+              if (link.label === 'Safety & Quality') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
@@ -254,25 +250,18 @@ const Header = () => {
                       <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                     </Link>
 
-                    {/* Health & Safety Dropdown Menu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[38rem] bg-white border border-slate-100 shadow-2xl rounded-none p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    {/* Safety & Quality Dropdown Menu */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[30rem] bg-white border border-slate-100 shadow-2xl rounded-none p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="grid grid-cols-2 gap-x-2">
                         {[
+                          { label: "Safety & Quality Overview", to: "/health-safety" },
                           { label: "Health & Safety Policy", to: "/health-safety/policy" },
                           { label: "Risk Assessments", to: "/health-safety/risk-assessments" },
                           { label: "Method Statements (RAMS)", to: "/health-safety/rams" },
-                          { label: "Near Miss Reporting", to: "/health-safety/near-miss" },
                           { label: "Environmental Protection", to: "/health-safety/environmental-protection" },
-                          { label: "Incident Management", to: "/health-safety/incident-management" },
                           { label: "Quality Assurance", to: "/health-safety/quality-assurance" },
-                          { label: "Site Audits", to: "/health-safety/site-audits" },
-                          { label: "Daily Briefings", to: "/health-safety/daily-briefings" },
-                          { label: "PPE", to: "/health-safety/ppe" },
                           { label: "Toolbox Talks", to: "/health-safety/toolbox-talks" },
-                          { label: "NRSWA Compliance", to: "/health-safety/nrswa" },
-                          { label: "Training", to: "/health-safety/training" },
-                          { label: "Continuous Monitoring", to: "/health-safety/monitoring" },
-                          { label: "Behavioural Safety", to: "/health-safety/behavioural-safety" }
+                          { label: "Continuous Monitoring", to: "/health-safety/monitoring" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
                           return (
@@ -314,13 +303,12 @@ const Header = () => {
 
           {/* Right CTA / Hamburger Menu */}
           <div className="flex items-center shrink-0 gap-2 sm:gap-3 ml-2 lg:ml-4">
-            {/* Join Our Workforce Button */}
+            {/* Discuss a Project Button */}
             <Link
-              to="/career"
-              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-2.5 sm:px-4 lg:px-6 py-2 lg:py-0 font-bold uppercase text-[9px] sm:text-xs lg:text-xs xl:text-sm font-outfit tracking-wider flex items-center justify-center whitespace-nowrap my-auto lg:h-full cursor-pointer rounded sm:rounded-none border-l-0 lg:border-l border-[#d2e5f5]/50 shadow-sm shrink-0"
+              to="/contact"
+              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-3 sm:px-5 lg:px-6 py-2 lg:py-0 font-bold uppercase text-[9px] sm:text-xs lg:text-xs xl:text-sm font-outfit tracking-wider flex items-center justify-center whitespace-nowrap my-auto lg:h-full cursor-pointer rounded sm:rounded-none border-l-0 lg:border-l border-[#d2e5f5]/50 shadow-sm shrink-0"
             >
-              <span className="hidden sm:inline">Join Our Workforce</span>
-              <span className="inline sm:hidden">Join Workforce</span>
+              <span>Discuss a project</span>
             </Link>
 
             {/* Mobile Hamburger toggle */}
@@ -373,13 +361,12 @@ const Header = () => {
                               className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
-                                { label: "About BlueGrid", to: "/about" },
+                                { label: "About Bluegrid Utilities", to: "/about" },
                                 { label: "Our Missions", to: "/about/missions" },
                                 { label: "Our Visions", to: "/about/visions" },
                                 { label: "Our History", to: "/about/history" },
-                                { label: "Accreditation & Awards", to: "/about/accreditations" },
                                 { label: "Leadership & Management", to: "/about/leadership" },
-                                { label: "Our Policies", to: "/about/policies" }
+                                { label: "Policies & Company Information", to: "/about/policies" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (
@@ -405,7 +392,7 @@ const Header = () => {
                     );
                   }
 
-                  if (link.label === 'Health & Safety') {
+                  if (link.label === 'Safety & Quality') {
                     return (
                       <div key={link.label} className="flex flex-col">
                         <button
@@ -428,21 +415,14 @@ const Header = () => {
                               className="pl-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 font-sans normal-case text-xs text-slate-500 py-2 border-l border-brand-primary/20 mt-1"
                             >
                               {[
+                                { label: "Safety & Quality Overview", to: "/health-safety" },
                                 { label: "Health & Safety Policy", to: "/health-safety/policy" },
                                 { label: "Risk Assessments", to: "/health-safety/risk-assessments" },
                                 { label: "Method Statements (RAMS)", to: "/health-safety/rams" },
-                                { label: "Near Miss Reporting", to: "/health-safety/near-miss" },
                                 { label: "Environmental Protection", to: "/health-safety/environmental-protection" },
-                                { label: "Incident Management", to: "/health-safety/incident-management" },
                                 { label: "Quality Assurance", to: "/health-safety/quality-assurance" },
-                                { label: "Site Audits", to: "/health-safety/site-audits" },
-                                { label: "Daily Briefings", to: "/health-safety/daily-briefings" },
-                                { label: "PPE", to: "/health-safety/ppe" },
                                 { label: "Toolbox Talks", to: "/health-safety/toolbox-talks" },
-                                { label: "NRSWA Compliance", to: "/health-safety/nrswa" },
-                                { label: "Training", to: "/health-safety/training" },
-                                { label: "Continuous Monitoring", to: "/health-safety/monitoring" },
-                                { label: "Behavioural Safety", to: "/health-safety/behavioural-safety" }
+                                { label: "Continuous Monitoring", to: "/health-safety/monitoring" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (
@@ -492,13 +472,10 @@ const Header = () => {
                             >
                               {[
                                 { label: "All Services", to: "/services" },
-                                { label: "Water Meter Installation", to: "/services?select=water-meter-installation" },
-                                { label: "Civil Engineering", to: "/services?select=civil-engineering" },
-                                { label: "Reinstatement", to: "/services?select=reinstatement" },
-                                { label: "Utility Surveying", to: "/services?select=utility-surveying" },
-                                { label: "Traffic Management Support", to: "/services?select=traffic-management" },
-                                { label: "Emergency Utility Response", to: "/services?select=emergency-utility-response" },
-                                { label: "Infrastructure Support", to: "/services?select=infrastructure-support" }
+                                { label: "Smart Water Metering", to: "/services?select=smart-water-metering" },
+                                { label: "Utility Civils & Access Works", to: "/services?select=utility-civils" },
+                                { label: "Reinstatement Support", to: "/services?select=reinstatement" },
+                                { label: "Project Delivery & Field Support", to: "/services?select=project-delivery" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (

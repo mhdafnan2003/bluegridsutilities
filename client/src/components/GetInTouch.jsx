@@ -27,29 +27,36 @@ const GetInTouch = () => {
           <div className="p-8 sm:p-12 md:p-16 lg:p-20 flex flex-col justify-center items-start text-left space-y-6">
             
             {/* Label */}
-            <span className="flex items-center gap-2 text-[10px] font-black tracking-widest text-[#005f9e] font-outfit">
+            <span className="flex items-center gap-2 text-[10px] font-black tracking-widest text-[#005f9e] font-outfit uppercase">
               <span className="w-1.5 h-1.5 rounded-none bg-[#005f9e]" />
-              Work With Us
+              Get In Touch
             </span>
 
             {/* Heading */}
-            <h2 className="font-sans text-3xl sm:text-4xl md:text-5xl text-[#0b132b] leading-[1.2] font-normal tracking-tight">
-              Driven by experience,<br className="hidden sm:inline" />
-              committed to excellence
+            <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl text-[#0b132b] leading-[1.2] font-bold tracking-tight">
+              Talk to Bluegrid Utilities
             </h2>
 
             {/* Description */}
-            <p className="text-gray-500 text-sm sm:text-base leading-relaxed max-w-md font-sans font-medium">
-              Our goal each day is to provide the level of outstanding service we once wished we'd found.
+            <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-md font-sans font-medium">
+              If you would like to discuss a project requirement, business enquiry or recruitment matter, contact the appropriate Bluegrid team.
             </p>
 
-            {/* Action Button */}
-            <Link 
-              to="/contact" 
-              className="inline-flex items-center justify-center px-6 py-3 bg-[#284cb5] hover:bg-[#1b3480] text-white font-semibold text-sm tracking-wide rounded-none transition-all duration-300 shadow-sm hover:shadow-md active:scale-95 font-sans cursor-pointer"
-            >
-              Get In Touch
-            </Link>
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Link 
+                to="/contact" 
+                className="inline-flex items-center justify-center px-6 py-3.5 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest uppercase font-outfit transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+              >
+                Contact us
+              </Link>
+              <Link 
+                to="/careers" 
+                className="inline-flex items-center justify-center px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-[#0f3a5e] border border-slate-300 font-bold text-xs tracking-widest uppercase font-outfit transition-all duration-300"
+              >
+                Careers
+              </Link>
+            </div>
 
           </div>
 

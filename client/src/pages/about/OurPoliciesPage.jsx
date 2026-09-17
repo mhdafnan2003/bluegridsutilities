@@ -12,9 +12,15 @@ const policyDocuments = [
   },
   { 
     name: "Cookie Policy", 
-    category: "Website & Digital Security", 
+    category: "Website & Digital Controls", 
     size: "Digital Controls",
     desc: "Cookie categories, analytics, consent management and browser controls."
+  },
+  { 
+    name: "Candidate Privacy Notice", 
+    category: "Recruitment Data Governance", 
+    size: "Recruitment Notice",
+    desc: "Processing of recruitment data, retention of CVs, applicant rights, and verification checks."
   },
   { 
     name: "Website Terms of Use", 
@@ -23,66 +29,65 @@ const policyDocuments = [
     desc: "Use of content, intellectual property, liability, acceptable use and third-party links."
   },
   { 
-    name: "Health & Safety Policy", 
+    name: "Health & Safety Policy Statement", 
     category: "Operational Site Safety", 
     size: "H&S Statement",
-    desc: "Signed statement of intent, responsibilities and arrangements."
+    desc: "Formal statement of intent, safety responsibilities, risk management arrangements, and statutory compliance."
   },
   { 
-    name: "Environmental Policy", 
+    name: "Environmental Policy Statement", 
     category: "Sustainability & Environment", 
-    size: "Environmental Commitments",
-    desc: "Waste, pollution prevention, energy, resource efficiency and continuous improvement commitments."
+    size: "Environmental Policy",
+    desc: "Waste hierarchy, pollution prevention, energy, resource efficiency and continuous environmental improvement."
+  },
+  { 
+    name: "Quality Policy Statement", 
+    category: "Quality Management", 
+    size: "Quality Statement",
+    desc: "Right-first-time delivery standard, on-site supervision, photographic evidence capture, and corrective action procedures."
   },
   { 
     name: "Equality, Diversity & Inclusion Policy", 
     category: "Workforce & Inclusion", 
     size: "EDI Framework",
-    desc: "Fair recruitment, workplace conduct, equal opportunity and anti-harassment principles."
+    desc: "Fair recruitment, workplace conduct, equal opportunity and non-discrimination principles."
   },
   { 
-    name: "Modern Slavery Statement / Policy", 
+    name: "Modern Slavery Statement", 
     category: "Ethical Supply Chain", 
-    size: "Supply Chain Policy",
-    desc: "Supply-chain due diligence and anti-exploitation commitments; statutory statement where required."
+    size: "Supply Chain Statement",
+    desc: "Supply-chain due diligence, worker welfare validation, and anti-exploitation commitments."
   },
   { 
     name: "Anti-Bribery & Corruption Policy", 
     category: "Ethics & Compliance", 
-    size: "Compliance Statement",
-    desc: "Gifts, hospitality, facilitation payments, conflicts and reporting."
-  },
-  { 
-    name: "Data Protection / GDPR Policy", 
-    category: "Data Governance", 
-    size: "Internal Policy",
-    desc: "Internal data governance framework establishing organizational records management and compliance."
+    size: "Compliance Policy",
+    desc: "Gifts, hospitality, facilitation payments, conflicts of interest and whistleblowing reporting."
   },
   { 
     name: "Accessibility Statement", 
     category: "Digital Inclusion", 
     size: "Accessibility Notice",
-    desc: "Commitment to accessible digital content and contact route for accessibility issues."
+    desc: "Commitment to accessible digital communication and dedicated contact route for accessibility assistance."
+  },
+  { 
+    name: "Capability Statement", 
+    category: "Commercial Prequalification", 
+    size: "Prequalification Pack",
+    desc: "Formal capability documentation prepared for principal contractor procurement, framework evaluation, and tender packs."
   }
 ];
 
 const OurPoliciesPage = () => {
-  const [downloadNotice, setDownloadNotice] = useState(null);
+  const [requestNotice, setRequestNotice] = useState(null);
 
-  const handleDownload = (docName) => {
-    // Generate a simple dummy downloadable text file simulating PDF download
-    const element = document.createElement("a");
-    const file = new Blob([
-      `BLUEGRID UTILITIES LIMITED\nOFFICIAL STATUTORY DOCUMENT\nDocument: ${docName}\nStatus: Verified & Approved\nYear: 2026\n\nThis is an official compliance policy document preview for ${docName} issued by Bluegrid Utilities.`
-    ], { type: 'text/plain;charset=utf-8' });
-    element.href = URL.createObjectURL(file);
-    element.download = `${docName.replace(/\s+/g, '_')}_Bluegrid_Utilities.txt`;
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+  const handleRequest = (docName) => {
+    const subject = encodeURIComponent(`Policy Document Request: ${docName}`);
+    const body = encodeURIComponent(`Hello Bluegrid Utilities Governance Team,\n\nPlease provide an official signed copy of the ${docName} for our compliance records.\n\nOrganisation / Name:\nContact Telephone:`);
+    window.location.href = `mailto:enquiries@bluegridutilities.com?subject=${subject}&body=${body}`;
 
-    setDownloadNotice(docName);
-    setTimeout(() => setDownloadNotice(null), 4000);
+    setRequestNotice(docName);
+    setTimeout(() => setRequestNotice(null), 5000);
   };
 
   return (
@@ -101,14 +106,10 @@ const OurPoliciesPage = () => {
           {/* Top Page Title Banner */}
           <AboutBanner 
             badgeText="Governance & Responsibility"
-            title="Our Policies & Statutory Documents"
-            description="Operating under robust ethical, environmental, and safety frameworks to ensure total compliance and transparency across all UK contracts."
+            title="Our policies"
+            description="Bluegrid Utilities operates under clear, documented policies covering health and safety, quality, environmental management, equality, data protection and modern slavery. Our policy statements are reviewed annually and signed by company leadership. Copies of signed policy statements are available to clients, partners and procurement teams upon request."
             bgImage={heroOneImg}
           />
-
-
-
-
 
           {/* PDF Policy Documents Center */}
           <div className="mb-16">
@@ -117,22 +118,22 @@ const OurPoliciesPage = () => {
                 Official Documentation
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
-                Policy Documents & Compliance Downloads
+                Policy Documents & Governance Framework
               </h2>
               <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
-                Click on any policy document below to download or view the official Bluegrid Utilities governance statement.
+                Official policy statements and signed governance documentation are maintained by Bluegrid Technology Ltd (trading as Bluegrid Utilities) and are available upon request to clients, partners, and stakeholders.
               </p>
             </div>
 
             {/* Notification Bar */}
-            {downloadNotice && (
+            {requestNotice && (
               <div className="max-w-2xl mx-auto mb-8 bg-emerald-50 border border-emerald-200 text-emerald-800 px-6 py-3 text-xs font-bold flex items-center justify-center gap-3 font-outfit">
-                <span className="material-symbols-outlined text-emerald-600 text-base">download_done</span>
-                <span>Document "{downloadNotice}" download initiated successfully.</span>
+                <span className="material-symbols-outlined text-emerald-600 text-base">mail</span>
+                <span>Opening email client to request official signed copy of "{requestNotice}".</span>
               </div>
             )}
 
-            {/* 11 PDF Document Cards Grid */}
+            {/* Policy Document Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {policyDocuments.map((doc, idx) => (
                 <div 
@@ -143,16 +144,15 @@ const OurPoliciesPage = () => {
                   <div className="absolute top-0 left-0 right-0 h-1 bg-slate-200 group-hover:bg-[#005f9e] transition-colors duration-300" />
 
                   <div>
-                    {/* Top Row: PDF Icon & Category Badge */}
+                    {/* Top Row: Doc Icon & Status */}
                     <div className="flex items-center justify-between mb-4">
-                      {/* Styled PDF Icon */}
                       <div className="flex items-center gap-2 bg-red-50 text-red-600 px-3 py-1.5 border border-red-200 group-hover:bg-red-600 group-hover:text-white transition-colors duration-300">
-                        <span className="material-symbols-outlined text-xl">picture_as_pdf</span>
-                        <span className="text-[10px] font-black font-outfit">PDF</span>
+                        <span className="material-symbols-outlined text-xl">description</span>
+                        <span className="text-[10px] font-black font-outfit">POLICY</span>
                       </div>
 
                       <span className="text-[10px] font-bold text-slate-400 font-outfit uppercase">
-                        Verified Policy
+                        Formal Statement
                       </span>
                     </div>
 
@@ -176,11 +176,11 @@ const OurPoliciesPage = () => {
                     </span>
 
                     <button
-                      onClick={() => handleDownload(doc.name)}
-                      className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm active:scale-95 cursor-pointer"
+                      onClick={() => handleRequest(doc.name)}
+                      className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm active:scale-95 cursor-pointer uppercase"
                     >
-                      <span>Download</span>
-                      <span className="material-symbols-outlined text-xs">download</span>
+                      <span>Request Copy</span>
+                      <span className="material-symbols-outlined text-xs">mail</span>
                     </button>
                   </div>
                 </div>
@@ -192,14 +192,14 @@ const OurPoliciesPage = () => {
           <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 border border-[#0f3a5e] rounded-none shadow-xl text-left relative overflow-hidden">
             <div className="absolute -right-10 -bottom-10 w-64 h-64 bg-[#005f9e]/30 rounded-none blur-3xl pointer-events-none" />
             <div className="relative z-10 max-w-4xl space-y-4">
-              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block">
-                Compliance & Legal Enquiries
+              <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block uppercase">
+                Compliance & Legal Governance
               </span>
               <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
-                Need Specific Policy Details or Contractual Copies?
+                Need Specific Policy Details or Prequalification Evidence?
               </h2>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                For formal contractor onboarding, compliance verification, or policy enquiries, please contact our operational governance team at{' '}
+                For formal contractor onboarding packs, CHAS alignment documentation, or specific compliance questionnaires, please contact our operational governance team at{' '}
                 <a href="mailto:enquiries@bluegridutilities.com" className="text-[#60a5fa] underline hover:text-white transition-colors">
                   enquiries@bluegridutilities.com
                 </a>.

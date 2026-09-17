@@ -1,43 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MotionSection from './MotionSection';
+import { newsArticles } from '../data/newsData';
 
-import utilityGridImg from '../assets/images/utility_grid_work.png';
-import trainingImg from '../assets/images/Training coordination and deployment planning.jpg';
-import ukWorkersSiteImg from '../assets/images/uk_utility_workers_site.png';
-
-const latestArticles = [
-  {
-    id: 1,
-    category: "company-updates",
-    categoryLabel: "Company Updates",
-    title: "Bluegrid Utilities Expands Operational Delivery Infrastructure Across UK",
-    date: "July 24, 2026",
-    readTime: "4 min read",
-    img: utilityGridImg,
-    snippet: "Bluegrid Utilities announces a strategic expansion of its utility support logistics, enabling faster operative dispatch and enhanced project coordination across England and Wales."
-  },
-  {
-    id: 2,
-    category: "training",
-    categoryLabel: "Training",
-    title: "Launch of Enhanced EUSR & NRSWA Workforce Training Framework",
-    date: "July 18, 2026",
-    readTime: "5 min read",
-    img: trainingImg,
-    snippet: "Our workforce development team has launched a comprehensive continuous professional development initiative providing fully funded EUSR cards, cable avoidance refreshers, and NRSWA supervisor tickets."
-  },
-  {
-    id: 3,
-    category: "mobilisation",
-    categoryLabel: "Mobilisation",
-    title: "Rapid Field Mobilisation Completed for Major Clean Water Contract",
-    date: "July 12, 2026",
-    readTime: "3 min read",
-    img: ukWorkersSiteImg,
-    snippet: "Bluegrid successfully deployed 40+ accredited meter operatives within 72 hours for a regional water authority, maintaining 100% compliance and zero downtime during rollout."
-  }
-];
+const latestArticles = newsArticles.slice(0, 3);
 
 const LatestNews = () => {
   return (

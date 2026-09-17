@@ -427,16 +427,16 @@ const HealthSafetyCompliance = () => {
             {/* Quick Hero Highlights Bar */}
             <div className="pt-4 grid grid-cols-2 sm:grid-cols-3 gap-4 max-w-2xl">
               <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
-                <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Standards</p>
-                <p className="text-xs md:text-sm font-bold text-white">ISO 45001 & 14001</p>
+                <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Governance</p>
+                <p className="text-xs md:text-sm font-bold text-white">NRSWA & HSG47</p>
               </div>
               <div className="bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
-                <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Target</p>
+                <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Priority</p>
                 <p className="text-xs md:text-sm font-bold text-emerald-400">Safety-Led Delivery</p>
               </div>
               <div className="col-span-2 sm:col-span-1 bg-white/10 backdrop-blur-md border border-white/15 rounded-none p-3.5 text-left">
                 <p className="text-[10px] text-blue-200 uppercase tracking-widest font-bold font-outfit">Accreditation</p>
-                <p className="text-xs md:text-sm font-bold text-white">NRSWA & EUSR</p>
+                <p className="text-xs md:text-sm font-bold text-white">EUSR & SWQR Cards</p>
               </div>
             </div>
           </div>
@@ -475,7 +475,7 @@ const HealthSafetyCompliance = () => {
 
               <div className="pt-2 flex items-center gap-3 text-[#005f9e] font-bold text-sm font-outfit">
                 <span className="material-symbols-outlined text-xl">verified</span>
-                <span>Enforced across 100% of Bluegrid Utilities worksites</span>
+                <span>Enforced across active Bluegrid Utilities worksites</span>
               </div>
             </div>
 
@@ -510,7 +510,7 @@ const HealthSafetyCompliance = () => {
               Operational Pillars & Safe Execution
             </h3>
             <p className="text-gray-500 text-base font-sans mt-2">
-              Key standards driving our zero-harm performance for {currentSection.title}.
+              Key standards driving our safety-led performance for {currentSection.title}.
             </p>
           </div>
 
@@ -589,7 +589,7 @@ const HealthSafetyCompliance = () => {
                 </div>
                 <h4 className="text-xl font-bold font-outfit text-white">Community Career Building</h4>
                 <p className="text-emerald-100 text-sm leading-relaxed font-sans">
-                  Our circular recruitment approach invests in local talents, offering fully funded EUSR and NRSWA qualifications to build a resilient regional workforce.
+                  Our circular recruitment approach invests in local talents, supporting role-relevant training and competency to build a resilient regional workforce.
                 </p>
               </div>
             </div>
@@ -619,6 +619,75 @@ const HealthSafetyCompliance = () => {
                 <span className="text-sm font-semibold text-white font-sans">{item}</span>
               </div>
             ))}
+          </div>
+        </div>
+
+        {/* Section 20 Core Framework Box */}
+        <div className="bg-white border border-slate-200 p-8 md:p-12 lg:p-16 shadow-xl text-left space-y-8">
+          <div className="max-w-3xl space-y-3">
+            <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit">
+              Section 20 Principles
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-[#0f3a5e] font-outfit">
+              Safety first. Accurate delivery. Clear accountability.
+            </h3>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              In utility contracting, safety is not an aspiration; it is the condition under which all work takes place. Bluegrid Utilities operates on a straightforward principle: no job is so urgent that it cannot be done safely, correctly and in compliance with applicable standards.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+              <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Safety before output</h4>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                Field operatives and supervisors are empowered to stop work whenever site conditions are unsafe, utility information is uncertain or control measures cannot be maintained. Production targets never override safe working practices.
+              </p>
+            </div>
+            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+              <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Quality through accurate records</h4>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                Every installation, excavation and reinstatement is documented with clear photographic evidence, pre- and post-work records and supervisor sign-offs. Transparent records protect our clients, the public and our teams.
+              </p>
+            </div>
+            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+              <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Environmental and public considerations</h4>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                Utility works take place in public spaces, customer properties and sensitive environments. We manage noise, dust, waste, water protection and pedestrian access with care and respect for local communities.
+              </p>
+            </div>
+            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+              <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Escalating serious issues</h4>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                When unexpected conditions arise on site—such as unmarked utilities, structural hazards, contaminated ground or customer disputes—our operatives follow defined escalation pathways to project supervisors and client representatives.
+              </p>
+            </div>
+          </div>
+
+          <div className="pt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+            <div className="space-y-1">
+              <h5 className="text-sm font-bold text-[#0f3a5e] font-outfit">Governance Policies</h5>
+              <p className="text-xs text-slate-500 font-medium">Review our formal operating policies online:</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Link 
+                to="/about/policies" 
+                className="px-4 py-2 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider hover:bg-[#0066ff] transition-colors shadow-sm"
+              >
+                Health & Safety Policy
+              </Link>
+              <Link 
+                to="/about/policies" 
+                className="px-4 py-2 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider hover:bg-[#0066ff] transition-colors shadow-sm"
+              >
+                Quality Policy
+              </Link>
+              <Link 
+                to="/about/policies" 
+                className="px-4 py-2 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider hover:bg-[#0066ff] transition-colors shadow-sm"
+              >
+                Environmental Policy
+              </Link>
+            </div>
           </div>
         </div>
 

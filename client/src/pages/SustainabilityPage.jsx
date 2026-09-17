@@ -4,8 +4,7 @@ import MotionSection from '../components/MotionSection';
 import sustainabilityBannerImg from '../assets/images/sustainability_banner.png';
 import environmentalPolicyBg from '../assets/images/environmental_policy_bg.png';
 import complianceImg from '../assets/images/Workforce onboarding and compliance verification.jpg';
-import workersImg from '../assets/images/uk_utility_workers_site.png';
-import PartnerLogos from '../components/PartnerLogos';
+
 
 const SustainabilityPage = () => {
   return (
@@ -178,10 +177,7 @@ const SustainabilityPage = () => {
             </p>
           </div>
 
-          {/* Partner Logos Component */}
-          <div className="w-full mt-16 pt-8 border-t border-slate-200">
-            <PartnerLogos />
-          </div>
+
 
           {/* Action Bar & CTA Button */}
           <div className="flex flex-wrap items-center justify-between gap-6 bg-[#0f3a5e] text-white p-8 sm:p-10 shadow-xl text-left border-l-4 border-l-[#0066ff] mt-16">

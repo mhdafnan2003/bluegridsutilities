@@ -44,7 +44,7 @@ export const newsArticles = [
       "Compliance Basis: EUSR, CSCS, and NRSWA ticket verification prior to site deployment."
     ],
     relatedService: "Smart Water Meter Installation & Civil Engineering Support",
-    contactCta: "For operational enquiries or sub-contracting coordination, contact our team at info@bluegridutilities.co.uk.",
+    contactCta: "For operational enquiries or sub-contracting coordination, contact our team at enquiries@bluegridutilities.com.",
     gallery: [
       { img: ukWorkersSiteImg, caption: "Field operative team conducting pre-site safety briefing before deployment." },
       { img: projectCoordImg, caption: "Regional project coordination tracking real-time field deployments." },
@@ -60,7 +60,7 @@ export const newsArticles = [
     readTime: "3 min read",
     author: "Gautham Raj, Head of Operations",
     img: trainingImg,
-    snippet: "Bluegrid Utilities strengthens its workforce readiness strategy with structured competency tracking, safety inductions, and funded ticket development for utility operatives.",
+    snippet: "Bluegrid Utilities strengthens its workforce readiness strategy with structured competency tracking, safety inductions, and compliance verification for utility operatives.",
     description: "Bluegrid Utilities continues to prioritize workforce competence and safety through its structured training and skills development initiative. Designed to prepare operatives for clean water metering, excavation, and reinstatement tasks, the programme emphasizes practical competency checks, site risk reviews, and card expiry tracking.",
     content: [
       "Field teams participate in comprehensive safety inductions, cable avoidance equipment familiarisation, and customer engagement training prior to entering active operational environments.",
@@ -73,7 +73,7 @@ export const newsArticles = [
     factsFigures: [
       "Training Scope: EUSR Water Hygiene, NRSWA Street Works, and CSCS card alignment.",
       "Safety Protocol: Mandatory CAT & Genny cable avoidance familiarisation.",
-      "Quality Assurance: Pre-deployment competence matrix checks for 100% of personnel."
+      "Quality Assurance: Pre-deployment competence matrix checks for deployed personnel."
     ],
     relatedService: "Workforce Supply & Competency Development",
     contactCta: "To find out more about our workforce standards or career opportunities, contact our team.",
@@ -103,7 +103,7 @@ export const newsArticles = [
     spokespersonName: "Recruitment Management Desk",
     spokespersonTitle: "Bluegrid Utilities Operations",
     factsFigures: [
-      "Vetting Standard: 100% Right-to-Work and identity verification prior to contract offer.",
+      "Vetting Standard: Statutory Right-to-Work and identity verification prior to contract offer.",
       "Card Verification: CSCS, EUSR, and NRSWA card authenticity audits.",
       "Onboarding Workflow: Structured 6-step candidate verification process."
     ],
@@ -140,7 +140,7 @@ export const newsArticles = [
       "Roadmap: Preparing assurance documentation for Constructionline and SafeContractor alignment."
     ],
     relatedService: "Health, Safety & Compliance Framework",
-    contactCta: "For details on our compliance framework or policy documents, email info@bluegridutilities.co.uk.",
+    contactCta: "For details on our compliance framework or policy documents, email enquiries@bluegridutilities.com.",
     gallery: [
       { img: complianceImg, caption: "Compliance team reviewing safety management archives and RAMS documents." },
       { img: projectCoordImg, caption: "Quality assurance dashboard monitoring live field compliance scores." },

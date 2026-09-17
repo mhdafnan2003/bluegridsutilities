@@ -48,11 +48,11 @@ const OurVisionsPage = () => {
               </h1>
 
               <blockquote className="text-base sm:text-xl md:text-2xl font-bold text-white mb-5 tracking-tight font-outfit leading-snug border-l-4 border-[#0066ff] pl-4 sm:pl-5 py-1 bg-white/5 rounded-none">
-                "To become one of the UK’s leading utility infrastructure contractors recognised for innovation, safety, quality and operational excellence."
+                "To build a dependable UK utility infrastructure business recognised for safety, disciplined operations, quality workmanship and transparent accountability."
               </blockquote>
 
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                Our vision shapes our strategic expansion. Bluegrid Utilities aims to set the national benchmark for utility infrastructure delivery through continuous workforce development, smart metering rollouts, stringent safety systems, and trusted contractor partnerships across England, Scotland, and Wales.
+                Our vision guides our controlled growth. Bluegrid Utilities focuses on practical utility delivery through structured workforce mobilisation, smart water-meter installation, robust safety controls and dependable project partnerships.
               </p>
             </div>
           </div>

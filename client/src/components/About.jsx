@@ -203,7 +203,7 @@ const About = () => {
                   Vision Statement
                 </h3>
                 <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                  To become one of the UK’s leading utility infrastructure contractors recognised for innovation, safety, quality and operational excellence.
+                  To build a respected utility infrastructure delivery business recognised for practical competence, safety, quality and dependable execution.
                 </p>
               </div>
             </div>
@@ -243,7 +243,7 @@ const About = () => {
               {
                 step: "03",
                 title: "Operational Trust",
-                desc: "Built on long-term partnerships, continuous improvement and national UK infrastructure growth."
+                desc: "Built on long-term partnerships, continuous improvement and responsible infrastructure delivery."
               }
             ].map((item, idx) => (
               <div key={idx} className="bg-[#f8fafc] border border-slate-200 p-8 rounded-none shadow-md flex flex-col justify-between">
@@ -288,7 +288,7 @@ const About = () => {
               },
               {
                 title: "Right-to-Work Compliance",
-                desc: "100% compliant onboarding verifying identity, qualifications, reference audits, and background suitability screening.",
+                desc: "Compliant onboarding verifying statutory right to work, identity, qualifications, reference audits, and background suitability screening.",
                 icon: "verified_user",
                 bg: complianceBg
               },
@@ -345,7 +345,7 @@ const About = () => {
             {[
               {
                 title: "Health & Safety Policy",
-                desc: "Strict adherence to a zero-harm environment on all operational sites through regular toolbox talks and compliance oversight.",
+                desc: "Commitment to a safety-first working environment on all operational sites through regular toolbox talks and compliance oversight.",
                 icon: "gavel",
                 bg: healthSafetyPolicyBg
               },

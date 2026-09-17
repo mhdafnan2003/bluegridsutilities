@@ -45,8 +45,8 @@ const departmentTeams = [
       {
         name: "Syed Zulqurnain",
         role: "Statutory Director",
-        desc: "Syed Zulqurnain is an active statutory director of Bluegrid Technology Ltd (trading as Bluegrid Utilities) listed on Companies House UK.\nHe supports corporate governance, statutory compliance, financial oversight, and strategic business development across the organization.",
-        img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600",
+        desc: "Syed Zulqurnain is an active statutory director of Bluegrid Technology Ltd (trading as Bluegrid Utilities) listed on Companies House UK.\nHe supports corporate governance, statutory compliance, financial oversight, and strategic business development across the organisation.",
+        img: null,
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       }
     ]
@@ -75,14 +75,19 @@ const MemberCard = ({ member }) => {
           <a href={member.social?.facebook || '#'} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
             <FacebookIcon />
           </a>
-          <a href={member.social?.instagram || '#'} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-none bg-[#0f3a5e] text-white flex items-center justify-center hover:bg-[#005f9e] transition-all shadow-md">
-            <InstagramIcon />
-          </a>
         </div>
 
         {/* Photo Container */}
-        <div className="aspect-[4/4.5] w-full relative overflow-hidden bg-slate-900">
-          <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src={member.img} />
+        <div className="aspect-[4/4.5] w-full relative overflow-hidden bg-slate-900 flex items-center justify-center">
+          {member.img ? (
+            <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src={member.img} />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-gradient-to-b from-slate-800 to-slate-900 text-slate-400 p-6">
+              <span className="material-symbols-outlined text-6xl text-slate-500 mb-2">account_circle</span>
+              <span className="text-xs font-bold font-outfit uppercase tracking-widest text-slate-300">Statutory Director</span>
+              <span className="text-[10px] text-slate-500 mt-1">Bluegrid Technology Ltd</span>
+            </div>
+          )}
         </div>
         
         {/* Content Overlay */}

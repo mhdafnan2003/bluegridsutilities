@@ -2,30 +2,21 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Preloader from './components/Preloader';
 import ErrorBoundary from './components/ErrorBoundary';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FeatureCards from './components/FeatureCards';
-import QuickInfo from './components/QuickInfo';
-import About from './components/About';
 import ServicesPage from './pages/ServicesPage';
 import OperationalDelivery from './components/OperationalDelivery';
 import HealthSafetyCompliance from './components/HealthSafetyCompliance';
-import KPIOperationalMonitoring from './components/KPIOperationalMonitoring';
-import OperationalCoverage from './components/OperationalCoverage';
-import TrainingDevelopment from './components/TrainingDevelopment';
-import Workforce from './components/Workforce';
 import ApplyPage from './pages/ApplyPage';
 import NewsPage from './pages/NewsPage';
 import NewsDetailPage from './pages/NewsDetailPage';
-import Management from './components/Management';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatWeAre from './components/WhatWeAre';
 import WhyChooseBlueGrid from './components/WhyChooseBlueGrid';
-import SustainabilityBanner from './components/SustainabilityBanner';
 import JoinTeamBanner from './components/JoinTeamBanner';
-import PartnerLogos from './components/PartnerLogos';
 import GetInTouch from './components/GetInTouch';
 import AboutCompanyPage from './pages/about/AboutCompanyPage';
 import OurMissionsPage from './pages/about/OurMissionsPage';
@@ -35,8 +26,10 @@ import AccreditationsPage from './pages/about/AccreditationsPage';
 import BoardDirectorsPage from './pages/about/BoardDirectorsPage';
 import OurPoliciesPage from './pages/about/OurPoliciesPage';
 import CareerPage from './pages/CareerPage';
+import VacanciesPage from './pages/VacanciesPage';
+import VacancyDetailPage from './pages/VacancyDetailPage';
 import SustainabilityPage from './pages/SustainabilityPage';
-import LatestNews from './components/LatestNews';
+import PageSEO from './components/PageSEO';
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -61,23 +54,15 @@ const ScrollToAnchor = () => {
   return null;
 };
 
+// Point 5 & 14: Evidence-led Homepage removing template banners and unevidenced partner logos
 const HomePage = () => (
   <>
     <Hero />
     <FeatureCards />
     <WhyChooseBlueGrid />
     <WhatWeAre />
-    <PartnerLogos />
     <JoinTeamBanner />
-    <OperationalCoverage />
-    <SustainabilityBanner />
-  </>
-);
-
-const AboutPage = () => (
-  <>
-    <About />
-    <Management />
+    <GetInTouch />
   </>
 );
 
@@ -98,9 +83,6 @@ const HealthSafetyPage = () => (
     <HealthSafetyCompliance />
   </>
 );
-
-
-
 
 const ContactPage = () => (
   <>
@@ -137,221 +119,323 @@ const AnimatedRoutes = () => {
 
   return (
     <Routes location={location} key={location.pathname}>
-        <Route
-          path="/"
-          element={
-            <PageTransition>
-              <PageWrapper isHome>
-                <HomePage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <AboutCompanyPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about/missions"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <OurMissionsPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about/visions"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <OurVisionsPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about/history"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <OurHistoryPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about/accreditations"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <AccreditationsPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about/directors"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <BoardDirectorsPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about/leadership"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <BoardDirectorsPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/about/policies"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <OurPoliciesPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/services"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <ServicesRoutePage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/projects"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <ProjectsPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/health-safety"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <HealthSafetyPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/health-safety/:sectionId"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <HealthSafetyPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/sustainability"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <SustainabilityPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/career"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <CareerPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/careers"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <CareerPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/news"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <NewsPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/news/:articleId"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <NewsDetailPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <ContactPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-        <Route
-          path="/apply"
-          element={
-            <PageTransition>
-              <PageWrapper>
-                <ApplyPage />
-              </PageWrapper>
-            </PageTransition>
-          }
-        />
-      </Routes>
+      {/* Home (Point 73: /) */}
+      <Route
+        path="/"
+        element={
+          <PageTransition>
+            <PageWrapper isHome>
+              <HomePage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* About (Point 73: /about) */}
+      <Route
+        path="/about"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <AboutCompanyPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/about/missions"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <OurMissionsPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/about/visions"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <OurVisionsPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/about/history"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <OurHistoryPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/about/accreditations"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <AccreditationsPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/about/directors"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <BoardDirectorsPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/about/leadership"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <BoardDirectorsPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/about/policies"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <OurPoliciesPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Policies (Point 73: /policies) */}
+      <Route
+        path="/policies"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <OurPoliciesPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Services Overview (Point 73: /services) */}
+      <Route
+        path="/services"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <ServicesRoutePage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Individual Service Direct URLs (Point 73 Matrix) */}
+      <Route
+        path="/services/:serviceSlug"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <ServicesRoutePage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      <Route
+        path="/projects"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <ProjectsPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Safety & Quality (Point 73: /safety-quality with /health-safety alias) */}
+      <Route
+        path="/safety-quality"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <HealthSafetyPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/safety-quality/:sectionId"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <HealthSafetyPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/health-safety"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <HealthSafetyPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/health-safety/:sectionId"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <HealthSafetyPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      <Route
+        path="/sustainability"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <SustainabilityPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Careers Permanent Employer Page (Point 38 & 73: /careers) */}
+      <Route
+        path="/career"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <CareerPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/careers"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <CareerPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Current Vacancies Dynamic Listing (Point 45 & 73: /careers/jobs) */}
+      <Route
+        path="/careers/jobs"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <VacanciesPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Individual Vacancy Page (Point 49 & 74: /careers/jobs/:slug) */}
+      <Route
+        path="/careers/jobs/:slug"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <VacancyDetailPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/careers/water-meter-installation-operative"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <VacancyDetailPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/careers/:slug"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <VacancyDetailPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* News (Point 73: /news) */}
+      <Route
+        path="/news"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <NewsPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+      <Route
+        path="/news/:articleId"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <NewsDetailPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Contact (Point 73: /contact) */}
+      <Route
+        path="/contact"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <ContactPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+
+      {/* Apply Direct Form */}
+      <Route
+        path="/apply"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <ApplyPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
+    </Routes>
   );
 };
 
 const MainContent = () => {
-  const location = useLocation();
-  const isNewsSection = location.pathname.startsWith('/news');
-
   return (
     <div className="min-h-screen bg-gray-50 scroll-smooth flex flex-col justify-between">
+      <PageSEO />
       <Header />
       <main className="flex-grow">
         <AnimatedRoutes />
       </main>
-      {!isNewsSection && <LatestNews />}
       <Footer />
     </div>
   );

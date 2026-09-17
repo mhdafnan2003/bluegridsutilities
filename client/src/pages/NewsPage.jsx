@@ -22,9 +22,9 @@ const NewsPage = () => {
       
       {/* 1. News Main Hero Banner - Full Width Edge-to-Edge like Hero */}
       <AboutBanner 
-        badgeText="News & Operational Insights"
-        title="Bluegrid Newsroom"
-        description="Company announcements, project mobilisations, workforce training updates, and regional growth developments across the UK utility sector."
+        badgeText="News & Operational Updates"
+        title="News and operational updates"
+        description="Updates, announcements and operational developments from Bluegrid Utilities."
         bgImage={skylineImg}
       />
 

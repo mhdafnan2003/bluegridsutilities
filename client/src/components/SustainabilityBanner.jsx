@@ -18,7 +18,7 @@ const SustainabilityBanner = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-slate-950/40 hidden lg:block" />
         </div>
 
-        {/* Right: Text Banner (BlueGrids Corporate Navy Style) */}
+        {/* Right: Text Banner (Bluegrid Utilities Corporate Navy Style) */}
         <div className="bg-gradient-to-br from-[#0f3a5e] via-[#0b2844] to-[#071d33] flex flex-col justify-center items-start text-left p-8 sm:p-12 md:p-16 lg:p-20 text-white relative overflow-hidden">
           {/* Ambient Radial Glow Effect */}
           <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#005f9e]/30 rounded-full blur-3xl pointer-events-none" />

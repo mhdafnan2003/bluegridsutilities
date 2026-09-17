@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import { useSearchParams, useParams, Link } from 'react-router-dom';
 import MotionSection from '../components/MotionSection';
-import PartnerLogos from '../components/PartnerLogos';
+import PageSEO from '../components/PageSEO';
 import imgWaterMeter from '../assets/images/Sectors/watermeter2.jpeg';
+
 import imgCivil from '../assets/images/civil_engineering_excavation.jpg';
 import imgReinstatement from '../assets/images/projectcordination.jpeg';
 import imgSurveying from '../assets/images/utility_surveying_detection.jpg';
@@ -21,50 +22,50 @@ const smartWaterMeterBanners = [
   {
     num: "01",
     title: "Professional installation",
-    badge: "EUSR CERTIFIED ENGINEER DEPLOYMENT",
-    desc: "Precision deployment of smart water meters by accredited EUSR field engineers. Operating under strict statutory guidelines, our teams ensure flawless physical installation, proper pipe fitting, and robust seal integrity for all clean water distribution assets.",
+    badge: "EUSR ACCREDITED SQUAD MOBILISATION",
+    desc: "Deployment of smart water meter operatives supported by structured onboarding and role-relevant competency. Operating under utility guidelines, our teams ensure safe physical installation, proper pipe fitting, and robust seal integrity for clean water distribution assets.",
     img: imgWaterWorkers,
-    highlights: ["EUSR Water Hygiene Certified Operatives", "RAMS Site Safety & Quality Verification", "Full Alignment with Regional Water Authority SLAs"]
+    highlights: ["EUSR Water Hygiene Competency Verification", "RAMS Site Safety & Quality Verification", "Alignment with Client Scope & Specifications"]
   },
   {
     num: "02",
     title: "Meter replacement",
     badge: "SMART AMR / AMI ASSET UPGRADE",
-    desc: "Seamless swapping of aging mechanical water meters with next-generation smart AMR/AMI metering units. Executed with zero domestic supply downtime, comprehensive asset auditing, and digital serial tracking logged directly into telemetry databases.",
+    desc: "Swapping of legacy mechanical water meters with smart AMR/AMI metering units, planned to minimise customer interruption with comprehensive asset auditing and digital serial tracking.",
     img: imgWaterMeterSupport,
-    highlights: ["Zero-Downtime Domestic & Commercial Swaps", "AMR / AMI Telemetry Module Retrofitting", "Full Asset Serial Logging & Removal Audits"]
+    highlights: ["Planned Domestic & Commercial Replacements", "AMR / AMI Telemetry Module Retrofitting", "Full Asset Serial Logging & Removal Audits"]
   },
   {
     num: "03",
     title: "New connections",
     badge: "INFRASTRUCTURE & MAINS INTEGRATION",
-    desc: "End-to-end site connections for residential developments, commercial premises, and new utility developments. Includes boundary box placement, pipe laying, mains tap-ins, and direct water supply integration.",
+    desc: "Site connection support for residential developments and utility projects, including boundary box placement, pipe laying, and direct clean water supply integration where authorised.",
     img: imgCivil,
-    highlights: ["Boundary Box Placement & Excavation", "Direct Water Mains Tap-in & Groundworks", "New Build & Commercial Supply Integration"]
+    highlights: ["Boundary Box Placement & Excavation", "Water Mains Groundworks Support", "New Build & Commercial Supply Integration"]
   },
   {
     num: "04",
     title: "Commissioning",
     badge: "TELEMETRY & DATA SIGNAL ACTIVATION",
-    desc: "Digital setup, signal telemetry validation, AMR/AMI transmitter pairing, and direct data integration with regional water authority monitoring systems for real-time remote consumption tracking.",
+    desc: "Digital setup, signal telemetry validation, AMR/AMI transmitter pairing, and data integration with regional monitoring systems for remote consumption tracking.",
     img: imgComplianceVerification,
-    highlights: ["AMR/AMI Radio Signal Strength Testing", "Real-Time Telemetry Database Registration", "Water Board Systems Pairing & Handover"]
+    highlights: ["AMR/AMI Radio Signal Strength Checks", "Telemetry Database Registration", "Quality-Controlled Handover Records"]
   },
   {
     num: "05",
     title: "Testing",
-    badge: "HYDROSTATIC & ANTI-LEAKAGE AUDITS",
-    desc: "Comprehensive hydrostatic pressure testing, flow rate benchmarking, anti-leakage audits, and joint integrity sign-offs conducted prior to final client handover and statutory sign-off.",
+    badge: "PRESSURE & INTEGRITY AUDITS",
+    desc: "Hydrostatic pressure testing, flow rate checks, seal audits, and joint integrity sign-offs conducted in accordance with project inspection protocols.",
     img: imgGridWork,
-    highlights: ["Hydrostatic Pressure & Flow Rate Testing", "Acoustic Leak Detection & Seal Verification", "Zero-Defect Sign-off & QA Documentation"]
+    highlights: ["Hydrostatic Pressure & Flow Rate Testing", "Leak Auditing & Seal Verification", "Quality-Controlled Sign-off & QA Documentation"]
   },
   {
     num: "06",
     title: "Customer education",
     badge: "ON-SITE GUIDANCE & ADVISORY",
-    desc: "Clear in-person operative guidance provided to property owners on smart meter readings, online portal tracking, automatic leak detection alerts, and water conservation best practices.",
+    desc: "Clear operative guidance provided to property owners on smart meter readings, online tracking, leak notifications, and responsible water conservation advice.",
     img: imgProjectCoord,
-    highlights: ["In-Person Smart Meter Display Briefing", "Automatic Leak Alert System Setup", "Water Saving Advice & Digital Portal Guidance"]
+    highlights: ["In-Person Smart Meter Briefing", "Leak Notification Guidance", "Water Saving Advice & Contact Routing"]
   }
 ];
 
@@ -295,18 +296,18 @@ const infrastructureSupportBanners = [
   {
     num: "01",
     title: "Project mobilisation",
-    badge: "RAPID SITE SETUP & LOGISTICS",
-    desc: "Fast-track site welfare setup, plant logistics, operative onboarding, and initial mobilisation for Tier-1 multi-utility framework contracts.",
+    badge: "STRUCTURED MOBILISATION & LOGISTICS",
+    desc: "Structured site setup, plant logistics, operative onboarding, and coordinated mobilisation for multi-utility framework contracts.",
     img: imgInfra,
-    highlights: ["72-Hour Rapid Mobilisation Setup", "Site Welfare & Compound Logistics", "Fleet & Tooling Supply Management"]
+    highlights: ["Structured Mobilisation Workflow", "Site Welfare & Compound Logistics", "Fleet & Tooling Supply Management"]
   },
   {
     num: "02",
     title: "Labour supply",
     badge: "EUSR & CSCS QUALIFIED WORKFORCE",
-    desc: "Supply of fully accredited utility operatives, groundworkers, pipe layers, and meter technicians holding active EUSR, CSCS, and SHEA credentials.",
+    desc: "Supply of accredited utility operatives, groundworkers, pipe layers, and meter technicians holding active EUSR, CSCS, and SHEA credentials.",
     img: imgWaterWorkers,
-    highlights: ["Vetted EUSR Water Hygiene Operatives", "CSCS Skilled Groundwork Resourcing", "100% Credential Audit Verification"]
+    highlights: ["Vetted EUSR Water Hygiene Operatives", "CSCS Skilled Groundwork Resourcing", "Comprehensive Credential Audits"]
   },
   {
     num: "03",
@@ -335,222 +336,190 @@ const infrastructureSupportBanners = [
 ];
 
 const serviceBannersMap = {
-  'water-meter-installation': {
-    title: "Smart Water Meter Installation",
+  'smart-water-metering': {
+    title: "Smart Water Metering",
     banners: smartWaterMeterBanners
   },
+  'water-meter-installation': {
+    title: "Smart Water Metering",
+    banners: smartWaterMeterBanners
+  },
+  'utility-civils': {
+    title: "Utility Civils & Access Works",
+    banners: civilEngineeringBanners
+  },
+  'civils-reinstatement': {
+    title: "Utility Civils & Access Works",
+    banners: civilEngineeringBanners
+  },
   'civil-engineering': {
-    title: "Civil Engineering Services",
+    title: "Utility Civils & Access Works",
     banners: civilEngineeringBanners
   },
   'reinstatement': {
-    title: "Reinstatement Services",
+    title: "Reinstatement Support",
     banners: reinstatementBanners
   },
-  'utility-surveying': {
-    title: "Utility Surveying Services",
-    banners: utilitySurveyingBanners
+  'reinstatement-support': {
+    title: "Reinstatement Support",
+    banners: reinstatementBanners
   },
-  'traffic-management': {
-    title: "Traffic Management Support Services",
-    banners: trafficManagementBanners
+  'project-delivery': {
+    title: "Project Delivery & Field Support",
+    banners: infrastructureSupportBanners
   },
-  'emergency-utility-response': {
-    title: "Emergency Utility Response Services",
-    banners: emergencyUtilityResponseBanners
+  'project-delivery-mobilisation': {
+    title: "Project Delivery & Field Support",
+    banners: infrastructureSupportBanners
   },
   'infrastructure-support': {
-    title: "Infrastructure Support Services",
+    title: "Project Delivery & Field Support",
     banners: infrastructureSupportBanners
+  },
+  'water-infrastructure-support': {
+    title: "Project Delivery & Field Support",
+    banners: infrastructureSupportBanners
+  },
+  'surveying-field-support': {
+    title: "Utility Surveying Support",
+    banners: utilitySurveyingBanners
+  },
+  'utility-surveying': {
+    title: "Utility Surveying Support",
+    banners: utilitySurveyingBanners
+  },
+  'traffic-management-support': {
+    title: "Traffic Management Coordination",
+    banners: trafficManagementBanners
+  },
+  'traffic-management': {
+    title: "Traffic Management Coordination",
+    banners: trafficManagementBanners
   }
 };
 
 const servicesData = [
   {
     num: "01",
-    slug: "water-meter-installation",
-    title: "Smart Water Meter Installation",
+    slug: "smart-water-metering",
+    aliases: ["water-meter-installation"],
+    title: "Smart Water Metering",
     icon: "water_drop",
-    desc: "Bluegrid supports smart water metering programmes through structured field mobilisation, trained installation teams and quality-controlled work processes. Delivery can include replacement and installation activity, chamber access, commissioning checks, evidence capture and customer-facing conduct, subject to the specific client scope.",
+    desc: "Supporting clean water networks with smart meter delivery through structured field mobilisation, accredited personnel, digital evidence capture and client-focused customer care.",
     img: imgWaterMeter,
+    ctaText: "Discuss a smart water-meter requirement",
     details: {
-      headline: "Structured field mobilisation & quality-controlled smart water meter installations.",
-      overview: "Bluegrid supports smart water metering programmes through structured field mobilisation, trained installation teams and quality-controlled work processes. Delivery can include replacement and installation activity, chamber access, commissioning checks, evidence capture and customer-facing conduct, subject to the specific client scope.",
+      headline: "Supporting clean water networks with smart meter delivery.",
+      overview: "Smart water metering is a central capability for Bluegrid Utilities. We support utility clients and primary contractors with the field delivery of domestic and commercial smart water meter installations, replacements and associated access works.",
       keyAreas: [
-        "Meter installation and replacement",
-        "Meter chamber access and preparation",
-        "Commissioning and functional checks",
-        "Installation evidence and photographic records",
-        "Customer communication in line with programme requirements",
-        "Defect / revisit management where included in scope"
+        "Meter replacements (swapping legacy mechanical meters for AMR/AMI units)",
+        "Boundary box meter installations and chamber works",
+        "Internal and external meter fitting",
+        "Commissioning checks and signal verification",
+        "Pre- and post-installation photographic evidence",
+        "Customer engagement at the doorstep, representing clients professionally"
       ],
       benefits: [
-        "Structured field mobilisation across clean water programmes",
-        "Trained, accredited operatives ensuring safe customer-side working",
-        "Photographic evidence capture and quality-controlled sign-offs"
+        "Trained and accredited installation personnel holding EUSR National Water Hygiene cards",
+        "Structured site mobilisation and daily supervisor briefings ensuring quality controls",
+        "Digital installation recording, photographic evidence, and rapid escalation pathways"
       ]
     }
   },
   {
     num: "02",
-    slug: "civil-engineering",
-    title: "Civil Engineering & Excavation",
+    slug: "utility-civils",
+    aliases: ["civils-reinstatement", "civil-engineering"],
+    title: "Utility Civils and Access Works",
     icon: "engineering",
-    desc: "Our civil-engineering support is designed around safe utility access and enabling works. Bluegrid can mobilise field teams for excavation, chamber works, surface preparation and associated groundworks where appropriately trained, authorised and supervised.",
+    desc: "Delivering safe excavation, trial pitting, duct laying, chamber construction, and boundary box works supporting utility programmes under strict HSG47 standards.",
     img: imgCivil,
+    ctaText: "Discuss a civils requirement",
     details: {
-      headline: "Safe utility access, enabling works, and civil engineering field support.",
-      overview: "Our civil-engineering support is designed around safe utility access and enabling works. Bluegrid can mobilise field teams for excavation, chamber works, surface preparation and associated groundworks where appropriately trained, authorised and supervised.",
+      headline: "Civil engineering and groundworks supporting utility delivery.",
+      overview: "Bluegrid Utilities delivers civils support for utility infrastructure projects. From trial pitting and trench excavation to chamber construction and boundary box works, our teams provide the ground-level support that utility programmes depend on.",
       keyAreas: [
-        "Utility excavation",
-        "Pipe / asset exposure",
-        "Chamber works",
-        "Groundworks",
-        "Concrete and surface preparation",
-        "Backfill and preparation for reinstatement"
+        "Trial pitting and vacuum excavation support",
+        "Trenching and duct-laying for utility connections",
+        "Chamber construction, repair and cover replacement",
+        "Boundary box installation and adjustment",
+        "Deep excavation support with compliant shoring and safety equipment",
+        "Safe digging practices compliant with HSG47 (Avoiding Danger from Underground Services)"
       ],
       benefits: [
-        "Safe utility access planned strictly around HSG47 guidelines",
-        "Supervised field teams trained for asset exposure and chamber works",
-        "Quality backfill preparation ensuring long-term reinstatement integrity"
+        "Street Works Qualifications (NRSWA) held by operative and supervisor personnel",
+        "Daily site-specific risk assessments and method statements (RAMS)",
+        "Environmental controls covering silt management, waste segregation, and spill response"
       ]
     }
   },
   {
     num: "03",
     slug: "reinstatement",
-    title: "Reinstatement",
+    aliases: ["reinstatement-support"],
+    title: "Reinstatement Support",
     icon: "construction",
-    desc: "Bluegrid supports reinstatement activities following utility works, with delivery planned to project specifications and relevant street-works requirements.",
+    desc: "First-time permanent and temporary reinstatement across all surface categories, meeting the strict standards of the New Roads and Street Works Act (NRSWA).",
     img: imgReinstatement,
+    ctaText: "Discuss reinstatement support",
     details: {
-      headline: "Quality-focused surface reinstatement aligned to street-works standards.",
-      overview: "Bluegrid supports reinstatement activities following utility works, with delivery planned to project specifications and relevant street-works requirements across footway, highway, and modular surfaces.",
+      headline: "High-standard reinstatement for footways, carriageways and verges.",
+      overview: "Reinstatement is where a utility project's public reputation is won or lost. Bluegrid Utilities delivers first-time permanent and temporary reinstatement across all surface categories, meeting the strict standards of the New Roads and Street Works Act (NRSWA).",
       keyAreas: [
-        "Footway reinstatement",
-        "Asphalt / tarmac surfaces",
-        "Block paving",
-        "Concrete",
-        "Kerbs and edgings where in scope",
-        "Final clean and defect correction"
+        "Hot-rolled asphalt and bituminous macadam (carriageways and footways)",
+        "Modular paving, flags and block paving (matching existing materials)",
+        "Concrete surfaces and structural slabs",
+        "Soft landscaping: topsoiling, seeding, turfing and verge restoration",
+        "Compaction testing and thickness verification",
+        "Defect prevention focus: avoiding settlement, cracking and edge deterioration"
       ],
       benefits: [
-        "Delivery planned to exact project specifications",
-        "Street-works compliance across footways and highways",
-        "Final site cleaning and snag-free defect resolution"
+        "NRSWA-qualified operatives carrying current SWQR cards",
+        "Material compliance using approved asphalt mixes, sub-base materials and edge-sealants",
+        "Comprehensive photographic records before, during and after works"
       ]
     }
   },
   {
     num: "04",
-    slug: "utility-surveying",
-    title: "Utility Surveying & Detection",
-    icon: "radar",
-    desc: "Where included in project scope and delivered by competent personnel, Bluegrid can support pre-work surveys, asset identification and utility-location activities to improve safe planning and reduce strike risk.",
-    img: imgSurveying,
-    details: {
-      headline: "Pre-work surveys, asset identification, and utility-location support.",
-      overview: "Where included in project scope and delivered by competent personnel, Bluegrid can support pre-work surveys, asset identification and utility-location activities to improve safe planning and reduce strike risk.",
-      keyAreas: [
-        "Site walkovers",
-        "Utility plan review",
-        "CAT & Genny detection by trained personnel",
-        "Asset and chamber recording",
-        "Photographic surveys",
-        "Pre-start information collection"
-      ],
-      benefits: [
-        "Improved safe planning reducing underground utility strike risks",
-        "CAT & Genny detection by trained, competent field personnel",
-        "Comprehensive pre-start photographic and asset records"
-      ]
-    }
-  },
-  {
-    num: "05",
-    slug: "traffic-management",
-    title: "Traffic Management Support",
-    icon: "traffic",
-    desc: "Bluegrid can coordinate or support temporary traffic and pedestrian-management requirements through appropriately competent personnel and approved traffic-management arrangements.",
-    img: imgTraffic,
-    details: {
-      headline: "Coordinated temporary traffic and pedestrian-management support.",
-      overview: "Bluegrid can coordinate or support temporary traffic and pedestrian-management requirements through appropriately competent personnel and approved traffic-management arrangements.",
-      keyAreas: [
-        "Site barriers and pedestrian segregation",
-        "Signing and guarding support",
-        "Pedestrian route management",
-        "Coordination with approved TM providers",
-        "Daily condition checks"
-      ],
-      benefits: [
-        "Safe pedestrian segregation and workzone guarding support",
-        "Seamless coordination with approved traffic management providers",
-        "Daily condition checks maintaining site safety standards"
-      ]
-    }
-  },
-  {
-    num: "06",
-    slug: "emergency-utility-response",
-    title: "Reactive Utility Support",
-    icon: "warning",
-    desc: "Bluegrid provides reactive field support for utility works, delivering rapid response attendance, leak support, reactive excavation, and infrastructure protection.",
-    img: imgEmergency,
-    details: {
-      headline: "Reactive field support for utility infrastructure programmes.",
-      overview: "Bluegrid provides reactive field support for utility works, delivering rapid response attendance, leak support, reactive excavation, and infrastructure protection.",
-      keyAreas: [
-        "Rapid response attendance",
-        "Burst main & leak support",
-        "Reactive excavation & asset exposure",
-        "Infrastructure protection & hazard containment"
-      ],
-      benefits: [
-        "Responsive field teams supporting reactive utility needs",
-        "Qualified operatives for asset protection and excavation",
-        "Close coordination with client operational management"
-      ]
-    }
-  },
-  {
-    num: "07",
-    slug: "infrastructure-support",
-    title: "Infrastructure & Field Delivery Support",
+    slug: "project-delivery",
+    aliases: ["project-delivery-mobilisation", "infrastructure-support", "water-infrastructure-support"],
+    title: "Project Delivery and Field Support",
     icon: "foundation",
-    desc: "Flexible operational support for utility programmes, from initial mobilisation through steady-state delivery.",
+    desc: "Organised field delivery ensuring works are planned properly, personnel are onboarded compliantly, sites are supervised actively and progress is reported transparently.",
     img: imgInfra,
+    ctaText: "Discuss project delivery support",
     details: {
-      headline: "Flexible operational support from initial mobilisation through steady-state delivery.",
-      overview: "Flexible operational support for utility programmes, from initial mobilisation through steady-state delivery.",
+      headline: "Organised field delivery from planning through to completion.",
+      overview: "Successful utility delivery requires more than operatives on site. Bluegrid Utilities provides structured project delivery support that ensures works are planned properly, personnel are onboarded compliantly, sites are supervised actively and progress is reported transparently.",
       keyAreas: [
-        "Project mobilisation",
-        "Workforce onboarding",
-        "Field supervision",
-        "Project coordination",
-        "Daily operational reporting",
-        "Equipment and PPE coordination",
-        "Client / supply-chain reporting"
+        "Workforce mobilisation: vetting, onboarding, competency checks, PPE issue",
+        "Site supervision: daily briefings, quality audits, safety inspections",
+        "Programme coordination: scheduling, route planning, access management",
+        "Digital reporting: daily work records, photographic audits, snag lists",
+        "Logistics and materials: site compound management, materials staging, waste management",
+        "Subcontractor management: coordination, oversight, quality sign-off"
       ],
       benefits: [
-        "Structured workforce onboarding and compliance verification",
-        "Field supervision ensuring quality standards on site",
-        "Transparent daily operational and client reporting"
+        "Disciplined mobilisation aligned strictly with framework schedules",
+        "Supervised field execution enforcing client quality and statutory safety standards",
+        "Direct management accountability and clear, verifiable audit trails"
       ]
     }
   }
 ];
 
 const ServicesPage = () => {
+  const { serviceSlug } = useParams();
   const [searchParams] = useSearchParams();
-  const selectedService = searchParams.get('select');
+  const selectedService = serviceSlug || searchParams.get('select');
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [selectedService]);
 
   const filteredServices = selectedService
-    ? servicesData.filter(item => item.slug === selectedService)
+    ? servicesData.filter(item => item.slug === selectedService || (item.aliases && item.aliases.includes(selectedService)))
     : servicesData;
 
   // Render Single Service Detail Layout with Full-Bleed Screen-Fitting Hero Banner
@@ -566,6 +535,7 @@ const ServicesPage = () => {
         whileInView={undefined}
         viewport={undefined}
       >
+        <PageSEO />
         {/* Full-Bleed Edge-to-Edge Hero Banner Fitting Entire Screen Width */}
         <div className="w-full relative overflow-hidden mb-16 shadow-2xl min-h-[520px] sm:min-h-[580px] lg:min-h-[640px] flex items-center bg-slate-900 border-b border-slate-200">
           <img 
@@ -746,89 +716,25 @@ const ServicesPage = () => {
             </div>
           )}
 
-          {/* Service Accreditations & Sector Qualifications Section */}
-          <div className="w-full mt-20 pt-16 border-t border-slate-200 text-left">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="w-3 h-3 bg-[#0066ff] rounded-none animate-pulse" />
-              <span className="text-xs font-black tracking-widest text-[#005f9e] uppercase font-outfit">
-                Compliance & Industry Governance
-              </span>
-            </div>
-            <h3 className="text-3xl md:text-4xl font-extrabold text-[#0f3a5e] uppercase tracking-tight font-outfit mb-3">
-              Accreditations & Operative Standards
-            </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium max-w-3xl mb-10">
-              Every field operative deployed under our {service.title} division is fully vetted, accredited, and trained strictly to UK Water Industry & statutory safety standards.
-            </p>
 
-            {/* Grid of Accreditations */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  title: "EUSR Water Hygiene",
-                  code: "Clean Water Registration",
-                  desc: "Mandatory National Water Hygiene card verification for clean water site operations.",
-                  icon: "verified_user",
-                  color: "bg-teal-50/70 border-teal-200 text-teal-900"
-                },
-                {
-                  title: "WIAPS Approved",
-                  code: "Plumbers Scheme",
-                  desc: "Water Industry Approved Plumbers Scheme accreditation for compliant meter fittings.",
-                  icon: "water_drop",
-                  color: "bg-blue-50/70 border-blue-200 text-blue-900"
-                },
-                {
-                  title: "NRSWA Street Works",
-                  code: "Highway Boundary Excavation",
-                  desc: "Operative & Supervisor SWQR cards for footway and highway boundary box installations.",
-                  icon: "construction",
-                  color: "bg-amber-50/70 border-amber-200 text-amber-900"
-                },
-                {
-                  title: "ISO 9001 / 45001",
-                  code: "Quality & Zero-Harm",
-                  desc: "Audited quality management and occupational health & safety compliance systems.",
-                  icon: "shield",
-                  color: "bg-indigo-50/70 border-indigo-200 text-indigo-900"
-                }
-              ].map((acc, aIdx) => (
-                <div key={aIdx} className={`${acc.color} border p-6 text-left space-y-3 relative shadow-md hover:shadow-xl transition-all`}>
-                  <div className="w-10 h-10 bg-[#0f3a5e] text-white flex items-center justify-center shrink-0 shadow-md">
-                    <span className="material-symbols-outlined text-xl">{acc.icon}</span>
-                  </div>
-                  <h4 className="text-base font-bold font-outfit text-[#0f3a5e]">{acc.title}</h4>
-                  <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 bg-white border border-slate-200 text-[#005f9e]">
-                    {acc.code}
-                  </span>
-                  <p className="text-slate-600 text-xs leading-relaxed font-medium">{acc.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Home Page Partner Logos Component */}
-          <div className="w-full mt-16 pt-8 border-t border-slate-200">
-            <PartnerLogos />
-          </div>
 
           {/* Action Bar & CTA Buttons - Placed just above the news / next section at bottom */}
           <div className="flex flex-wrap items-center justify-between gap-6 bg-[#0f3a5e] text-white p-6 sm:p-8 shadow-xl text-left border-l-4 border-l-[#0066ff] mt-16">
-            <div>
-              <h4 className="text-lg font-bold font-outfit text-white">
-                Need {service.title} Support on Your Project?
+            <div className="max-w-2xl">
+              <h4 className="text-lg sm:text-xl font-bold font-outfit text-white">
+                {service.ctaText || `Discuss a ${service.title.toLowerCase()} requirement`}
               </h4>
               <p className="text-slate-300 text-xs sm:text-sm font-medium mt-1">
-                Our management team and operative workforce are ready for rapid deployment across the UK.
+                Bluegrid Utilities works to agreed scopes, defined specifications and client quality standards.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-4 shrink-0">
               <Link 
-                to={`/contact?subject=${encodeURIComponent(`Enquiry - ${service.title}`)}`}
+                to={`/contact?subject=${encodeURIComponent(service.title)}`}
                 className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 shadow-lg active:scale-95 font-outfit cursor-pointer border border-[#0066ff]"
               >
-                Enquire About Service
+                {service.ctaText || "Discuss a project"}
               </Link>
               <Link 
                 to="/services"
@@ -855,23 +761,27 @@ const ServicesPage = () => {
       whileInView={undefined}
       viewport={undefined}
     >
+      <PageSEO />
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
 
         {/* Left-Aligned Headline Section */}
-        <div className="text-left mb-20 max-w-3xl">
+        <div className="text-left mb-20 max-w-4xl">
           <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
             Our Capabilities
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
             Our Services
           </h1>
+          <h2 className="text-xl sm:text-2xl font-bold text-[#005f9e] font-outfit mt-2">
+            Utility services organised around delivery, not slogans
+          </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium mt-4">
-            Bluegrid Utilities provides field-delivery and infrastructure-support services for utility programmes, with a particular focus on smart water metering, civils, reinstatement and operational mobilisation.
+            Bluegrid Utilities provides field-delivery and infrastructure-support services for utility programmes, with a particular focus on smart water metering, civils, reinstatement and operational mobilisation. We work with utility contractors, network operators and infrastructure clients who need dependable field delivery, properly onboarded operatives, clear supervision and accountable reporting.
           </p>
         </div>
 
         {/* Zig-Zag Service Banner Cards Stack */}
-        <div className="space-y-24 md:space-y-32">
+        <div className="space-y-24 md:space-y-32 mb-24">
           {servicesData.map((service, index) => {
             const isEven = index % 2 === 0;
             return (
@@ -886,8 +796,8 @@ const ServicesPage = () => {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
                 />
 
-                {/* Light Vignette / Gradient for Image Contrast */}
-                <div className="absolute inset-0 bg-black/20" />
+                {/* Neutral Vignette / Gradient for Image Contrast */}
+                <div className="absolute inset-0 bg-black/30" />
 
                 {/* Floating Light Card Container (Alternating Right and Left in Zig-Zag pattern) */}
                 <div className={`relative z-10 w-full p-4 sm:p-8 md:p-12 flex ${isEven ? 'justify-end' : 'justify-start'}`}>
@@ -925,6 +835,82 @@ const ServicesPage = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Section 14 Closing: A scope that matches the project */}
+        <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-16 border-l-4 border-l-[#0066ff] shadow-2xl text-left mb-20">
+          <div className="max-w-4xl space-y-4">
+            <span className="text-xs font-black tracking-widest text-[#0066ff] uppercase font-outfit block">
+              Transparent Delivery Commitment
+            </span>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-outfit text-white">
+              A scope that matches the project
+            </h3>
+            <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+              Every utility contract is different. Bluegrid Utilities works to agreed scopes, defined specifications and client quality standards. We do not overpromise on capabilities we cannot deliver, and we do not deploy personnel without the required competencies.
+            </p>
+            <div className="pt-6 flex flex-wrap gap-4">
+              <Link 
+                to="/contact?subject=Smart+Water+Metering"
+                className="px-5 py-3 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider transition-colors shadow-md"
+              >
+                Discuss a smart water-meter requirement
+              </Link>
+              <Link 
+                to="/contact?subject=Utility+Civils"
+                className="px-5 py-3 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/20 text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
+              >
+                Discuss a civils requirement
+              </Link>
+              <Link 
+                to="/contact?subject=Reinstatement+Support"
+                className="px-5 py-3 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/20 text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
+              >
+                Discuss reinstatement support
+              </Link>
+              <Link 
+                to="/contact?subject=Project+Delivery+Support"
+                className="px-5 py-3 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/20 text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
+              >
+                Discuss project delivery support
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Section 19: Future and adjacent capabilities */}
+        <div className="bg-slate-50 border border-slate-200 p-8 sm:p-10 text-left">
+          <div className="max-w-4xl space-y-3">
+            <span className="text-xs font-bold tracking-widest text-[#005f9e] uppercase font-outfit block">
+              Emerging Services
+            </span>
+            <h4 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] font-outfit">
+              Future and adjacent capabilities
+            </h4>
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              Bluegrid Utilities is developing its capabilities across several related utility support functions:
+            </p>
+            <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 pb-4">
+              <li className="bg-white p-4 border border-slate-200 shadow-sm flex items-start gap-3">
+                <span className="material-symbols-outlined text-[#005f9e] text-xl shrink-0">radar</span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-800">Utility surveying and pre-construction support</span>
+              </li>
+              <li className="bg-white p-4 border border-slate-200 shadow-sm flex items-start gap-3">
+                <span className="material-symbols-outlined text-[#005f9e] text-xl shrink-0">traffic</span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-800">Traffic management coordination and support</span>
+              </li>
+              <li className="bg-white p-4 border border-slate-200 shadow-sm flex items-start gap-3">
+                <span className="material-symbols-outlined text-[#005f9e] text-xl shrink-0">crisis_alert</span>
+                <span className="text-xs sm:text-sm font-semibold text-slate-800">Emergency and urgent response support</span>
+              </li>
+            </ul>
+            <p className="text-slate-600 text-xs sm:text-sm font-medium">
+              To discuss these or other specialized requirements, contact{' '}
+              <a href="mailto:enquiries@bluegridutilities.com" className="text-[#0066ff] font-bold underline hover:text-[#0f3a5e]">
+                enquiries@bluegridutilities.com
+              </a>.
+            </p>
+          </div>
         </div>
 
       </div>

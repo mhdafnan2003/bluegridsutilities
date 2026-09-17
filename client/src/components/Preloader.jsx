@@ -66,7 +66,7 @@ const Preloader = ({ onComplete }) => {
             >
               <img
                 src={logo}
-                alt="BlueGrid Utilities"
+                alt="Bluegrid Utilities"
                 className="h-14 sm:h-16 w-auto object-contain"
               />
             </motion.div>

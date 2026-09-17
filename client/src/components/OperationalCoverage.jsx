@@ -33,13 +33,13 @@ const OperationalCoverage = () => {
         {/* Section Header */}
         <div className="max-w-3xl text-left mb-14 md:mb-20">
           <span className="inline-block px-4 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
-            Service Areas
+            Regional Delivery
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight mb-5">
-            Our Nationwide Coverage
+            Operational Coverage &amp; Mobilisation
           </h2>
           <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
-            Bluegrid Utilities is building operational capability across England and can mobilise teams regionally in line with project requirements. Any Scotland or Wales statement should only be shown where mobilisation capability, contracts and compliance arrangements support it.
+            Bluegrid Utilities is building operational delivery capability across England and can mobilise field squads regionally in line with project requirements and framework agreements.
           </p>
         </div>
 
@@ -53,8 +53,8 @@ const OperationalCoverage = () => {
               <div className="bg-[#0f3a5e] px-6 py-4 flex items-center gap-3">
                 <span className="material-symbols-outlined text-[#60a5fa] text-lg">map</span>
                 <div>
-                  <p className="text-white font-black text-xs tracking-widest">Service Coverage Map</p>
-                  <p className="text-slate-400 text-[10px] font-medium mt-0.5">England · Scotland · Wales</p>
+                  <p className="text-white font-black text-xs tracking-widest">Regional Mobilisation Map</p>
+                  <p className="text-slate-400 text-[10px] font-medium mt-0.5">England Regional Areas &amp; Project Hubs</p>
                 </div>
                 {active && (
                   <div className="ml-auto flex items-center gap-2 bg-[#005f9e]/40 border border-[#0066ff]/40 px-3 py-1.5">
@@ -70,13 +70,13 @@ const OperationalCoverage = () => {
               <div className="flex-1 relative overflow-hidden bg-[#e8f4f8] min-h-[380px] sm:min-h-[460px]">
                 <img
                   src={ukMapImg}
-                  alt="Bluegrid Utilities UK service coverage map showing England, Scotland and Wales regions"
+                  alt="Bluegrid Utilities regional service coverage map"
                   className="w-full h-full object-contain p-4 md:p-8"
                   style={{ transition: 'transform 0.4s ease' }}
                 />
                 {/* Overlay hint */}
                 <div className="absolute bottom-4 right-4 bg-white/80 backdrop-blur-sm border border-slate-200 px-3 py-1.5 text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                  10 Regions Active
+                  Regional Deployment
                 </div>
               </div>
             </div>
@@ -85,16 +85,16 @@ const OperationalCoverage = () => {
           {/* Right: Region List + Stats */}
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
 
-            {/* Stats Row */}
+            {/* Stats Row - Qualitative Verified Metrics */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { value: '10',   label: 'Service Regions',  icon: 'grid_view' },
-                { value: '3',    label: 'Nations Covered',  icon: 'public' },
-                { value: '120+', label: 'Active Field Teams', icon: 'groups' },
+                { value: 'Regional', label: 'England Delivery', icon: 'grid_view' },
+                { value: 'Structured', label: 'Mobilisation Model', icon: 'local_shipping' },
+                { value: 'Supervised', label: 'Field Squads', icon: 'groups' },
               ].map((stat, i) => (
                 <div key={i} className="bg-white border border-slate-200 shadow-md p-4 md:p-5 text-center">
                   <span className="material-symbols-outlined text-[#005f9e] text-xl mb-1 block">{stat.icon}</span>
-                  <p className="text-2xl md:text-3xl font-black text-[#0f3a5e] leading-none mb-1">{stat.value}</p>
+                  <p className="text-lg md:text-xl font-black text-[#0f3a5e] leading-tight mb-1">{stat.value}</p>
                   <p className="text-[9px] md:text-[10px] font-bold tracking-widest text-slate-500">{stat.label}</p>
                 </div>
               ))}
@@ -104,7 +104,7 @@ const OperationalCoverage = () => {
             <div className="bg-white border border-slate-200 shadow-md overflow-hidden flex-1">
               <div className="bg-[#0f3a5e] px-5 py-3 flex items-center gap-3">
                 <span className="material-symbols-outlined text-[#60a5fa] text-sm">flag</span>
-                <span className="text-white font-black text-xs tracking-widest">England — Regional Areas</span>
+                <span className="text-white font-black text-xs tracking-widest">England — Operational Areas</span>
               </div>
               <div className="grid grid-cols-2 divide-x divide-y divide-slate-100">
                 {serviceAreas.filter(a => a.nation === 'England').map((area) => {
@@ -128,31 +128,12 @@ const OperationalCoverage = () => {
               </div>
             </div>
 
-            {/* Scotland & Wales */}
-            <div className="grid grid-cols-2 gap-3">
-              {serviceAreas.filter(a => a.nation !== 'England').map((area) => {
-                const isActive = activeRegion === area.id;
-                return (
-                  <div
-                    key={area.id}
-                    className={`bg-white border shadow-md overflow-hidden cursor-pointer transition-all duration-200 ${
-                      isActive ? 'border-[#005f9e]' : 'border-slate-200'
-                    }`}
-                    onMouseEnter={() => setActiveRegion(area.id)}
-                    onMouseLeave={() => setActiveRegion(null)}
-                  >
-                    <div className={`px-4 py-4 flex items-center gap-3 transition-colors duration-200 ${isActive ? 'bg-[#005f9e]/10' : ''}`}>
-                      <span className="material-symbols-outlined text-[#005f9e] text-sm">location_on</span>
-                      <div>
-                        <p className={`text-sm font-bold tracking-wide transition-colors duration-200 ${isActive ? 'text-[#005f9e]' : 'text-[#0f3a5e]'}`}>
-                          {area.label}
-                        </p>
-                        <p className="text-[10px] text-slate-400 font-medium">{area.nation}</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+            {/* Additional Regional Deployment Note */}
+            <div className="bg-slate-100 border border-slate-200 p-4 text-xs text-slate-600">
+              <p className="font-semibold text-slate-700">Project-Specific Mobilisation:</p>
+              <p className="mt-1 leading-relaxed">
+                Squad deployment outside active core hubs is assessed and scheduled in accordance with contract scope, operative competence verification, and compliance arrangements.
+              </p>
             </div>
 
             {/* CTA */}

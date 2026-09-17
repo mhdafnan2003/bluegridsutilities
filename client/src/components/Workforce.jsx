@@ -4,9 +4,10 @@ import MotionSection from './MotionSection';
 
 const roles = [
   {
-    title: "Water Meter Technicians",
-    desc: "Experienced Water Meter Technicians for nationwide utility projects.",
-    icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+    title: "Water Meter Installation Operative – Digging & Reinstatement",
+    desc: "Physical field operations involving digging, meter installation, backfilling, and surface reinstatement.",
+    icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />,
+    link: "/careers/water-meter-installation-operative"
   },
   {
     title: "Field Operations",
@@ -70,14 +71,25 @@ const Workforce = () => {
               <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight z-10 relative">{role.title}</h3>
               <p className="text-gray-500 text-sm leading-relaxed mb-12 relative z-10 max-w-[82%]">{role.desc}</p>
 
-              <a href="https://forms.office.com/r/K9vKw1hxcB" target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-3 relative z-10 w-fit">
-                <div className="w-10 h-10 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-gray-600 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white transition-all duration-300 bg-white">
-                  <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </div>
-                <span className="text-xs font-semibold text-gray-500 group-hover:text-brand-dark transition-colors duration-300">Apply Online</span>
-              </a>
+              {role.link ? (
+                <Link to={role.link} className="mt-auto flex items-center gap-3 relative z-10 w-fit">
+                  <div className="w-10 h-10 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-gray-600 group-hover:bg-[#005f9e] group-hover:border-[#005f9e] group-hover:text-white transition-all duration-300 bg-white">
+                    <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-semibold text-gray-500 group-hover:text-[#0f3a5e] transition-colors duration-300">View Vacancy</span>
+                </Link>
+              ) : (
+                <a href="https://forms.office.com/r/K9vKw1hxcB" target="_blank" rel="noopener noreferrer" className="mt-auto flex items-center gap-3 relative z-10 w-fit">
+                  <div className="w-10 h-10 rounded-full border border-gray-100 shadow-sm flex items-center justify-center text-gray-600 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white transition-all duration-300 bg-white">
+                    <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </div>
+                  <span className="text-xs font-semibold text-gray-500 group-hover:text-brand-dark transition-colors duration-300">Apply Online</span>
+                </a>
+              )}
 
               {/* Decorative Circle Bottom Right */}
               <div className="absolute -bottom-12 -right-12 w-44 h-44 bg-slate-50 rounded-full transition-transform duration-700 ease-out group-hover:scale-110" />

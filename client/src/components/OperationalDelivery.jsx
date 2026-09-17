@@ -25,17 +25,17 @@ const ongoingMobilisationPhases = [
     id: "current-mobilisation",
     title: "Current Mobilisation",
     status: "ACTIVE DISPATCH",
-    desc: "Strategic deployment of qualified meter operatives and utility squads across UK regional water authorities.",
+    desc: "Structured deployment of qualified meter operatives and utility squads across regional infrastructure contracts.",
     img: workersSiteImg,
-    highlights: ["40+ Operatives Dispatched", "72-Hour Rapid Rollout", "Regional Coordination"]
+    highlights: ["Supervised Field Squads", "Structured Mobilisation", "Regional Coordination"]
   },
   {
     id: "training-programme",
     title: "Training Programme",
     status: "IN PROGRESS",
-    desc: "Structured academy training delivering fully funded EUSR cards, NRSWA tickets, and cable avoidance certifications.",
+    desc: "Structured training coordination covering EUSR Water Hygiene, NRSWA qualifications, and cable avoidance certifications.",
     img: trainingImg,
-    highlights: ["EUSR Water Hygiene", "NRSWA Supervisor Tickets", "CAT & Genny Training"]
+    highlights: ["EUSR Water Hygiene", "NRSWA Qualifications", "CAT & Genny Training"]
   },
   {
     id: "site-preparation",
@@ -49,17 +49,17 @@ const ongoingMobilisationPhases = [
     id: "operational-readiness",
     title: "Operational Readiness",
     status: "READY FOR FIELD",
-    desc: "Strict verification of calibrated testing gear, specialized tools, PPE compliance, and fleet logistics.",
+    desc: "Strict verification of calibrated testing gear, specialised tools, PPE compliance, and fleet logistics.",
     img: complianceImg,
-    highlights: ["100% RAMS Verification", "Tooling Audits", "PPE & Van Inspection"]
+    highlights: ["RAMS Site Verification", "Tooling Audits", "PPE & Van Inspection"]
   },
   {
     id: "workforce-development",
     title: "Workforce Development",
     status: "CONTINUOUS",
-    desc: "Ongoing operative mentorship, multi-skill career progression, and quality assurance monitoring.",
+    desc: "Ongoing operative mentorship, multi-skill progression, and quality assurance monitoring.",
     img: heroBg,
-    highlights: ["Senior Mentorship", "Multi-Skill Upgrade", "Performance Reviews"]
+    highlights: ["Senior Mentorship", "Multi-Skill Upgrade", "Competency Reviews"]
   },
   {
     id: "equipment-deployment",
@@ -73,9 +73,9 @@ const ongoingMobilisationPhases = [
     id: "health-safety-induction",
     title: "Health & Safety Induction",
     status: "MANDATORY DAILY",
-    desc: "On-site daily briefings, site-specific RAMS reviews, and zero-harm hazard awareness protocols.",
+    desc: "On-site daily briefings, site-specific RAMS reviews, and hazard awareness protocols.",
     img: safetyBg,
-    highlights: ["Daily Toolbox Talks", "Zero Harm Standard", "Environmental Checks"]
+    highlights: ["Daily Toolbox Talks", "Site Hazard Control", "Environmental Checks"]
   },
   {
     id: "project-mobilisation",
@@ -83,101 +83,101 @@ const ongoingMobilisationPhases = [
     status: "ON-SITE LEADERSHIP",
     desc: "Full integration of Bluegrid supervisors and field leads with client contract management teams.",
     img: projectCoordImg,
-    highlights: ["Dedicated Supervisors", "Live KPI Dashboards", "Handover Protocols"]
+    highlights: ["Dedicated Supervisors", "Daily Progress Reporting", "Handover Protocols"]
   }
 ];
 
-// 2. Completed Works Case Studies Data (Before, During, After)
+// 2. Completed Works Case Studies Data (Delivery Methodologies)
 const completedCaseStudies = [
   {
     id: "cs-water-metering",
-    title: "Clean Water Smart Metering Rollout",
+    title: "Clean Water Smart Metering Rollout Methodology",
     category: "Meter Infrastructure & Distribution",
-    customer: "Regional Water Authority (UK)",
-    period: "2025 - 2026",
+    customer: "Regional Water Framework Specification",
+    period: "Delivery Methodology",
     heroImg: waterMeterImg,
-    challenges: "Replacing 50,000 legacy mechanical meters in dense urban areas under strict SLAs without disrupting domestic water supply.",
-    solution: "Mobilized 40+ EUSR-certified meter operatives, deployed regional coordinators, and established real-time quality assurance telemetry.",
-    results: "50,000+ smart meters installed with 99.8% customer satisfaction and 0 lost-time incidents over 12 months.",
+    challenges: "Upgrading legacy mechanical meters in urban environments under strict customer SLAs without disrupting domestic water supply.",
+    solution: "Mobilised EUSR-certified meter operatives, deployed regional coordinators, and established structured quality assurance workflows.",
+    results: "Comprehensive meter installation programme executed under structured RAMS and verified supervisor sign-offs.",
     timeline: [
       {
         stage: "BEFORE",
         title: "Initial Site Survey & Asset Audit",
-        desc: "High non-revenue water loss and aging mechanical meter infrastructure requiring urgent digital upgrade.",
+        desc: "Site surveying, asset condition logging, and customer liaison planning prior to scheduled replacement.",
         img: workersSiteImg
       },
       {
         stage: "DURING",
         title: "Active Field Operations & Installation",
-        desc: "Rapid deployment of accredited squads executing street works under strict NRSWA safety guidelines.",
+        desc: "Deployment of accredited squads executing meter replacements under strict Street Works and water hygiene guidelines.",
         img: gridWorkImg
       },
       {
         stage: "AFTER",
-        title: "Commissioned Smart Meter Network",
-        desc: "Fully digitized clean water distribution network delivering real-time telemetry and leakage alerts.",
+        title: "Commissioned Meter & Verification",
+        desc: "Commissioned smart water meters verified with photographic asset logging and QA audit sign-off.",
         img: projectCordJpeg
       }
     ]
   },
   {
     id: "cs-utility-trenching",
-    title: "Underground Utility Ducting & Street Works",
+    title: "Underground Utility Ducting & Street Works Support",
     category: "Civil & Infrastructure Support",
-    customer: "National Utility Framework Lead",
-    period: "2025",
+    customer: "Utility Framework Support Specification",
+    period: "Delivery Methodology",
     heroImg: infraSupportImg,
-    challenges: "Navigating highly congested underground gas, water, and power networks demanding zero-strike compliance under NRSWA.",
-    solution: "Deployed senior cable avoidance supervisors, CAT & Genny scanning teams, and structured daily RAMS briefings.",
-    results: "120km of utility ducting completed 2 weeks ahead of target deadline with zero statutory non-conformances.",
+    challenges: "Navigating congested underground gas, water, and power networks requiring strict adherence to NRSWA guidelines and asset protection.",
+    solution: "Deployed qualified cable avoidance supervisors, CAT & Genny scanning teams, and structured daily RAMS briefings.",
+    results: "Utility ducting and trenching completed with structured daily permits, supervisor inspections, and highway authority compliance.",
     timeline: [
       {
         stage: "BEFORE",
         title: "Pre-Work Surveying & Utility Mapping",
-        desc: "Complex urban underground utility congestion requiring detailed risk assessment and trial holes.",
+        desc: "Detailed site hazard assessment, utility record reviews, and non-destructive trial holes prior to excavation.",
         img: infraImg
       },
       {
         stage: "DURING",
         title: "Trenching & Excavation Operations",
-        desc: "Precision ducting execution with continuous CAT & Genny cable location and supervisor monitoring.",
+        desc: "Precision ducting execution with continuous CAT & Genny cable location and on-site supervisor oversight.",
         img: telecomsImg
       },
       {
         stage: "AFTER",
         title: "Reinstated Site & Statutory Sign-off",
-        desc: "Full road surface reinstatement adhering to highway authority specifications and client handover.",
+        desc: "Full surface reinstatement adhering to highway authority specifications and completed handover documentation.",
         img: infraSupportImg
       }
     ]
   },
   {
     id: "cs-workforce-academy",
-    title: "EUSR & NRSWA Workforce Training & Deployment",
-    category: "Workforce & Compliance Academy",
-    customer: "Tier-1 Utility Contractor Network",
-    period: "2024 - 2026",
+    title: "EUSR & NRSWA Workforce Readiness & Deployment Model",
+    category: "Workforce & Compliance Model",
+    customer: "Tier-1 Framework Alignment",
+    period: "Operational Framework",
     heroImg: trainingImg,
-    challenges: "Field operative skill gaps and high compliance audit failure rates in contract labor forces.",
-    solution: "End-to-end Bluegrid academy training covering EUSR water hygiene, NRSWA tickets, and hands-on site mentorship.",
-    results: "100% certified workforce retention and zero safety audit non-conformances over 12 months.",
+    challenges: "Meeting stringent client compliance standards and ticket verification requirements for utility field squads.",
+    solution: "Structured workforce onboarding covering EUSR water hygiene, NRSWA tickets, and hands-on site mentorship.",
+    results: "Robust competency tracking matrix and ongoing supervisory audits ensuring all operatives meet contract standards.",
     timeline: [
       {
         stage: "BEFORE",
         title: "Operative Vetting & Onboarding",
-        desc: "Rigorous background checks, eligibility validation, and baseline safety skill evaluation.",
+        desc: "Rigorous background checks, right-to-work validation, and baseline safety skill evaluation.",
         img: complianceImg
       },
       {
         stage: "DURING",
-        title: "Practical Academy Training",
-        desc: "Intensive training modules covering EUSR cards, cable avoidance, and customer service standards.",
+        title: "Competency Verification & Training",
+        desc: "Verification modules covering EUSR cards, cable avoidance, and customer-facing site conduct standards.",
         img: trainingImg
       },
       {
         stage: "AFTER",
-        title: "Full Field Integration",
-        desc: "High-performing, fully ticketed utility workforce deployed directly into client operational frameworks.",
+        title: "Supervised Field Integration",
+        desc: "Qualified, fully ticketed utility squads deployed directly into client operational frameworks.",
         img: heroBg
       }
     ]
@@ -521,10 +521,10 @@ const OperationalDelivery = () => {
 
               <div className="space-y-4">
                 {[
-                  { region: "London & South East", focus: "Clean Water Metering & Rapid Mobilisation", status: "Active Field Operations" },
-                  { region: "Midlands Hub", focus: "EUSR Training Academy & Logistics Hub", status: "Operational Headquarters" },
-                  { region: "North West & Yorkshire", focus: "Utility Infrastructure & Street Works", status: "Active Support Squads" },
-                  { region: "Wales & South West", focus: "Emergency Meter Replacement & Audit QA", status: "Framework Operations" }
+                  { region: "London & South East", focus: "Clean Water Metering & Field Support", status: "Active Field Operations" },
+                  { region: "East of England & Midlands", focus: "Operational Coordination & Logistics Hub", status: "Operational Hub" },
+                  { region: "North West & Yorkshire", focus: "Utility Infrastructure & Civils Support", status: "Active Support Squads" },
+                  { region: "South West", focus: "Water Meter Replacement & Survey Support", status: "Framework Support" }
                 ].map((item, idx) => (
                   <div key={idx} className="bg-slate-50 p-5 border border-slate-200/90 flex items-start justify-between">
                     <div>

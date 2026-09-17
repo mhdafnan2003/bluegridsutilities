@@ -20,11 +20,10 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const enquiryTypes = [
-    'Project / Delivery Enquiry',
-    'Supply-Chain / Partnership Enquiry',
-    'Recruitment',
-    'Supplier Enquiry',
-    'General Enquiry'
+    'Project or delivery enquiry',
+    'Workforce or recruitment enquiry',
+    'Supply-chain or partnership enquiry',
+    'General enquiry'
   ];
 
   const contactRoutes = [
@@ -47,9 +46,15 @@ const Contact = () => {
       icon: "call" 
     },
     { 
+      label: "Operations Office", 
+      value: "Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG", 
+      href: "https://maps.google.com/?q=Spaces+The+Maylands+Building+Hemel+Hempstead+HP2+7TG",
+      icon: "domain" 
+    },
+    { 
       label: "Registered Office", 
-      value: "Stuart House, St. Johns Street, Peterborough, United Kingdom, PE1 5DD", 
-      href: "https://maps.google.com/?q=Stuart House, St Johns Street, Peterborough, PE1 5DD",
+      value: "Stuart House, St. Johns Street, Peterborough, PE1 5DD", 
+      href: "https://maps.google.com/?q=Stuart+House+St+Johns+Street+Peterborough+PE1+5DD",
       icon: "location_on" 
     }
   ];
@@ -87,10 +92,10 @@ const Contact = () => {
             Get In Touch
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 font-outfit leading-tight text-white uppercase">
-            Contact Us
+            Talk to Bluegrid Utilities
           </h1>
           <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
-            Whether you are discussing project delivery, workforce mobilisation, supply-chain collaboration or a career opportunity, our team will direct your enquiry to the right person.
+            Whether you are a utility contractor looking for delivery support, an operative seeking work, or a client with an enquiry, we want to hear from you. Use the details below or complete our contact form, and we will direct your enquiry to the right person.
           </p>
         </div>
       </MotionSection>
@@ -134,12 +139,13 @@ const Contact = () => {
                   alt="Bluegrid Utilities" 
                   className="h-10 w-auto object-contain brightness-0 invert opacity-95" 
                 />
-                <div className="space-y-1 text-xs text-slate-300 font-medium">
-                  <p className="text-white font-bold font-outfit">Bluegrid Utilities</p>
-                  <p>Trading name of Bluegrid Technology Ltd (Co. No. 16442340)</p>
-                  <p className="text-slate-400 text-[11px] pt-1">
-                    <strong className="text-white">Registered Office:</strong> Stuart House, St. Johns Street, Peterborough, PE1 5DD
-                  </p>
+                <div className="space-y-2 text-xs text-slate-300 font-medium">
+                  <p className="text-white font-bold font-outfit text-sm">Bluegrid Utilities</p>
+                  <p className="text-slate-300">Trading name of Bluegrid Technology Ltd (Company No. 16442340). Registered in England and Wales.</p>
+                  <div className="pt-2 border-t border-slate-700/60 space-y-1 text-[11px]">
+                    <p><strong className="text-white font-semibold">Operations:</strong> Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG</p>
+                    <p><strong className="text-white font-semibold">Registered Office:</strong> Stuart House, St. Johns Street, Peterborough, PE1 5DD</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -281,7 +287,9 @@ const Contact = () => {
                       className="mt-1 w-4 h-4 text-[#005f9e] border-slate-300 rounded-none focus:ring-[#005f9e]"
                     />
                     <label htmlFor="privacyConsent" className="text-xs text-slate-600 font-medium leading-relaxed">
-                      I consent to Bluegrid Utilities processing my personal data in accordance with the Privacy Policy to respond to my enquiry. <span className="text-red-500">*</span>
+                      I agree to Bluegrid Utilities processing my personal data in accordance with its{' '}
+                      <a href="/about/policies" className="text-[#005f9e] hover:underline font-semibold">Privacy Policy</a>{' '}
+                      to respond to my enquiry. <span className="text-red-500">*</span>
                     </label>
                   </div>
 
@@ -290,7 +298,7 @@ const Contact = () => {
                     type="submit"
                     className="w-full py-4 bg-[#0066ff] hover:bg-[#005f9e] text-white rounded-none font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md font-outfit flex items-center justify-center gap-3 cursor-pointer"
                   >
-                    <span>Send Message</span>
+                    <span>Send enquiry</span>
                     <span className="material-symbols-outlined text-sm">send</span>
                   </button>
 

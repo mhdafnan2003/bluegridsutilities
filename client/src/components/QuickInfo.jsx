@@ -16,14 +16,14 @@ const QuickInfo = () => {
     },
     {
       title: "Compliance First",
-      desc: "100% verified teams meeting the highest UK utility H&S compliance standards.",
+      desc: "Verified teams meeting UK utility health, safety and quality compliance standards.",
       icon: "verified",
       color: "bg-gradient-to-br from-emerald-500/10 to-emerald-500/5 text-emerald-600 border-emerald-500/20 group-hover:bg-white group-hover:text-emerald-600 group-hover:border-white",
       bgImage: complianceBg
     },
     {
-      title: "Nationwide",
-      desc: "Seamless logistical coverage supporting critical infrastructure across the UK.",
+      title: "Regional Delivery",
+      desc: "Logistical coordination supporting infrastructure delivery across regional operational hubs.",
       icon: "public",
       color: "bg-gradient-to-br from-indigo-500/10 to-indigo-500/5 text-indigo-600 border-indigo-500/20 group-hover:bg-white group-hover:text-indigo-600 group-hover:border-white",
       bgImage: nationwideBg
