@@ -119,7 +119,7 @@ const KPIOperationalMonitoring = () => {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <span className="inline-block px-2 py-1 rounded bg-emerald-500/10 text-emerald-500 text-[10px] font-bold mb-2">Compliance</span>
-                    <h4 className="text-[#0B2545] font-bold text-lg">100% Safety Compliance</h4>
+                    <h4 className="text-[#0B2545] font-bold text-lg">Active Safety Governance</h4>
                   </div>
                   <span className="material-symbols-outlined text-emerald-500 text-2xl">shield_with_heart</span>
                 </div>

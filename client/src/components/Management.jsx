@@ -45,7 +45,7 @@ const departmentTeams = [
       {
         name: "Syed Zulqurnain",
         role: "Statutory Director",
-        desc: "Syed Zulqurnain is an active statutory director of Bluegrid Technology Ltd (trading as Bluegrid Utilities) listed on Companies House UK.\nHe supports corporate governance, statutory compliance, financial oversight, and strategic business development across the organisation.",
+        desc: "Syed Zulqurnain is an active statutory director of Bluegrid Technology Ltd, trading as Bluegrid Utilities, listed on Companies House UK.\nHe supports corporate governance, statutory compliance, financial oversight, and strategic business development across the organisation.",
         img: null,
         social: { linkedin: "#", facebook: "#", instagram: "#" }
       }

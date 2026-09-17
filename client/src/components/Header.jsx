@@ -28,6 +28,7 @@ const Header = () => {
   const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isMobileHealthSafetyOpen, setIsMobileHealthSafetyOpen] = useState(false);
+  const [isMobileCareersOpen, setIsMobileCareersOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -151,16 +152,13 @@ const Header = () => {
                     </Link>
 
                     {/* Dropdown Menu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[20rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[18rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                       <div className="flex flex-col">
                         {[
                           { label: "About Bluegrid Utilities", to: "/about" },
-                          { label: "Our Missions", to: "/about/missions" },
-                          { label: "Our Visions", to: "/about/visions" },
-                          { label: "Our History", to: "/about/history" },
-                          { label: "Accreditation & Awards", to: "/about/accreditations" },
-                          { label: "Leadership & Management", to: "/about/leadership" },
-                          { label: "Our Policies", to: "/about/policies" }
+                          { label: "Our Working Principles", to: "/about#how-we-work" },
+                          { label: "Responsible Growth", to: "/about#growing-responsibly" },
+                          { label: "Policies & Company Information", to: "/policies" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
                           return (
@@ -206,10 +204,10 @@ const Header = () => {
                       <div className="flex flex-col">
                         {[
                           { label: "All Services", to: "/services" },
-                          { label: "Smart Water Metering", to: "/services?select=smart-water-metering" },
-                          { label: "Utility Civils & Access Works", to: "/services?select=utility-civils" },
-                          { label: "Reinstatement Support", to: "/services?select=reinstatement" },
-                          { label: "Project Delivery & Field Support", to: "/services?select=project-delivery" }
+                          { label: "Smart Water Metering", to: "/services/smart-water-metering" },
+                          { label: "Utility Civils & Access Works", to: "/services/utility-civils" },
+                          { label: "Reinstatement Support", to: "/services/reinstatement" },
+                          { label: "Project Delivery & Field Support", to: "/services/project-delivery" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
                           return (
@@ -251,24 +249,69 @@ const Header = () => {
                     </Link>
 
                     {/* Safety & Quality Dropdown Menu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[30rem] bg-white border border-slate-100 shadow-2xl rounded-none p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                      <div className="grid grid-cols-2 gap-x-2">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[20rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                      <div className="flex flex-col">
                         {[
-                          { label: "Safety & Quality Overview", to: "/health-safety" },
-                          { label: "Health & Safety Policy", to: "/health-safety/policy" },
-                          { label: "Risk Assessments", to: "/health-safety/risk-assessments" },
-                          { label: "Method Statements (RAMS)", to: "/health-safety/rams" },
-                          { label: "Environmental Protection", to: "/health-safety/environmental-protection" },
-                          { label: "Quality Assurance", to: "/health-safety/quality-assurance" },
-                          { label: "Toolbox Talks", to: "/health-safety/toolbox-talks" },
-                          { label: "Continuous Monitoring", to: "/health-safety/monitoring" }
+                          { label: "Safety & Quality Overview", to: "/safety-quality" },
+                          { label: "Approved Methods (RAMS)", to: "/safety-quality#rams" },
+                          { label: "Accurate Record Keeping", to: "/safety-quality#records" },
+                          { label: "Environmental & Public Safety", to: "/safety-quality#environment" },
+                          { label: "Policies & Statements", to: "/policies" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
                           return (
                             <Link
                               key={index}
                               to={item.to}
-                              className={`px-4 py-2 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+                                active
+                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              if (link.label === 'Careers') {
+                return (
+                  <div key={link.label} className="relative group flex items-stretch">
+                    <Link
+                      to={link.to}
+                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
+                        isActive(link.to) 
+                          ? 'text-[#005f9e]' 
+                          : 'text-[#0f3a5e] hover:text-[#005f9e]'
+                      }`}
+                    >
+                      {link.label}
+                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                        keyboard_arrow_down
+                      </span>
+                      <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
+                    </Link>
+
+                    {/* Careers Dropdown Menu */}
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[18rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
+                      <div className="flex flex-col">
+                        {[
+                          { label: "Careers at Bluegrid", to: "/careers" },
+                          { label: "Current Vacancies", to: "/careers/jobs" },
+                          { label: "Recruitment Process", to: "/careers#recruitment-process" },
+                          { label: "Candidate Privacy Notice", to: "/policies" }
+                        ].map((item, index) => {
+                          const active = isSubActive(item.to);
+                          return (
+                            <Link
+                              key={index}
+                              to={item.to}
+                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
                                 active
                                   ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
                                   : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
@@ -362,11 +405,9 @@ const Header = () => {
                             >
                               {[
                                 { label: "About Bluegrid Utilities", to: "/about" },
-                                { label: "Our Missions", to: "/about/missions" },
-                                { label: "Our Visions", to: "/about/visions" },
-                                { label: "Our History", to: "/about/history" },
-                                { label: "Leadership & Management", to: "/about/leadership" },
-                                { label: "Policies & Company Information", to: "/about/policies" }
+                                { label: "Our Working Principles", to: "/about#how-we-work" },
+                                { label: "Responsible Growth", to: "/about#growing-responsibly" },
+                                { label: "Policies & Company Information", to: "/policies" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (
@@ -398,7 +439,7 @@ const Header = () => {
                         <button
                           onClick={() => setIsMobileHealthSafetyOpen(!isMobileHealthSafetyOpen)}
                           className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
-                            isActive('/health-safety') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
+                            isActive('/safety-quality') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
                           }`}
                         >
                           <span>{link.label}</span>
@@ -412,17 +453,14 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 font-sans normal-case text-xs text-slate-500 py-2 border-l border-brand-primary/20 mt-1"
+                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
-                                { label: "Safety & Quality Overview", to: "/health-safety" },
-                                { label: "Health & Safety Policy", to: "/health-safety/policy" },
-                                { label: "Risk Assessments", to: "/health-safety/risk-assessments" },
-                                { label: "Method Statements (RAMS)", to: "/health-safety/rams" },
-                                { label: "Environmental Protection", to: "/health-safety/environmental-protection" },
-                                { label: "Quality Assurance", to: "/health-safety/quality-assurance" },
-                                { label: "Toolbox Talks", to: "/health-safety/toolbox-talks" },
-                                { label: "Continuous Monitoring", to: "/health-safety/monitoring" }
+                                { label: "Safety & Quality Overview", to: "/safety-quality" },
+                                { label: "Approved Methods (RAMS)", to: "/safety-quality#rams" },
+                                { label: "Accurate Record Keeping", to: "/safety-quality#records" },
+                                { label: "Environmental & Public Safety", to: "/safety-quality#environment" },
+                                { label: "Policies & Statements", to: "/policies" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (
@@ -472,10 +510,10 @@ const Header = () => {
                             >
                               {[
                                 { label: "All Services", to: "/services" },
-                                { label: "Smart Water Metering", to: "/services?select=smart-water-metering" },
-                                { label: "Utility Civils & Access Works", to: "/services?select=utility-civils" },
-                                { label: "Reinstatement Support", to: "/services?select=reinstatement" },
-                                { label: "Project Delivery & Field Support", to: "/services?select=project-delivery" }
+                                { label: "Smart Water Metering", to: "/services/smart-water-metering" },
+                                { label: "Utility Civils & Access Works", to: "/services/utility-civils" },
+                                { label: "Reinstatement Support", to: "/services/reinstatement" },
+                                { label: "Project Delivery & Field Support", to: "/services/project-delivery" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (
@@ -485,6 +523,58 @@ const Header = () => {
                                     onClick={() => {
                                       setIsMenuOpen(false);
                                       setIsMobileServicesOpen(false);
+                                    }}
+                                    className={`transition-colors py-1 block text-left ${
+                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                    }`}
+                                  >
+                                    {item.label}
+                                  </Link>
+                                );
+                              })}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  if (link.label === 'Careers') {
+                    return (
+                      <div key={link.label} className="flex flex-col">
+                        <button
+                          onClick={() => setIsMobileCareersOpen(!isMobileCareersOpen)}
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                            isActive('/careers') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
+                          }`}
+                        >
+                          <span>{link.label}</span>
+                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileCareersOpen ? 'rotate-180' : ''}`}>
+                            keyboard_arrow_down
+                          </span>
+                        </button>
+                        <AnimatePresence>
+                          {isMobileCareersOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: 'auto' }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                            >
+                              {[
+                                { label: "Careers at Bluegrid", to: "/careers" },
+                                { label: "Current Vacancies", to: "/careers/jobs" },
+                                { label: "Recruitment Process", to: "/careers#recruitment-process" },
+                                { label: "Candidate Privacy Notice", to: "/policies" }
+                              ].map((item, index) => {
+                                const active = isSubActive(item.to);
+                                return (
+                                  <Link
+                                    key={index}
+                                    to={item.to}
+                                    onClick={() => {
+                                      setIsMenuOpen(false);
+                                      setIsMobileCareersOpen(false);
                                     }}
                                     className={`transition-colors py-1 block text-left ${
                                       active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'

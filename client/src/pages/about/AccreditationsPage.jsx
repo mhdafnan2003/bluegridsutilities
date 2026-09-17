@@ -312,7 +312,7 @@ const AccreditationsPage = () => {
                 Our Unwavering Accreditation Commitment
               </h2>
               <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
-                Every member of our field workforce undergoes strict pre-deployment verification, ensuring complete compliance with UK statutory requirements, environmental standards, and principal contractor policies.
+                Every member of our field workforce undergoes strict pre-deployment verification, supporting adherence to UK statutory requirements, environmental standards, and principal contractor policies.
               </p>
             </div>
           </div>

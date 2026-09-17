@@ -171,126 +171,7 @@ const reinstatementBanners = [
   }
 ];
 
-const utilitySurveyingBanners = [
-  {
-    num: "01",
-    title: "Site surveys",
-    badge: "TOPOGRAPHICAL & UTILITY SITE AUDITS",
-    desc: "Comprehensive topographical and subsurface site audits providing clear ground intelligence prior to design and excavation works.",
-    img: imgSurveying,
-    highlights: ["Topographical & Site Boundary Audits", "3D Underground Feature Mapping", "Pre-Design Site Intelligence"]
-  },
-  {
-    num: "02",
-    title: "Utility locating",
-    badge: "GPR & ELECTROMAGNETIC SCANNING",
-    desc: "Non-intrusive underground utility detection using advanced Ground Penetrating Radar (GPR) and precision electromagnetic CAT & Genny locators.",
-    img: imgGridWork,
-    highlights: ["Ground Penetrating Radar (GPR) Scans", "Electromagnetic Pipe & Cable Tracing", "Metallic & Non-Metallic Asset Detection"]
-  },
-  {
-    num: "03",
-    title: "Asset recording",
-    badge: "PAS 128 DIGITAL MAP GENERATION",
-    desc: "Rigorous digital asset logging, PAS 128 survey quality level mapping, and CAD deliverable creation for utility network operators.",
-    img: imgComplianceVerification,
-    highlights: ["PAS 128 Quality Level Compliance", "GIS & CAD Utility Asset Vector Maps", "Depth & Alignment Verification Data"]
-  },
-  {
-    num: "04",
-    title: "Risk assessments",
-    badge: "STRIKE PREVENTION & RAMS AUDITING",
-    desc: "Detailed utility strike risk assessments, pre-excavation hazard identification, and site-specific RAMS documentation to safeguard operatives.",
-    img: imgCivil,
-    highlights: ["Utility Strike Risk Identification", "HSG47 Pre-Work Safety Checks", "Comprehensive RAMS Documentation"]
-  },
-  {
-    num: "05",
-    title: "Project planning",
-    badge: "PRE-CONSTRUCTION SITE INTELLIGENCE",
-    desc: "Strategic route planning, trenchless feasibility studies, and utility diversion strategy consulting to prevent costly site delays.",
-    img: imgProjectCoord,
-    highlights: ["Utility Diversion Route Planning", "Trenchless vs Excavation Feasibility", "Contractor & Council Liaison Support"]
-  }
-];
 
-const trafficManagementBanners = [
-  {
-    num: "01",
-    title: "Temporary traffic management",
-    badge: "2-WAY & MULTI-WAY SIGNAL CONTROL",
-    desc: "Turnkey temporary traffic control setups including 2-way, 3-way, and 4-way portable traffic light systems for safe utility workzones.",
-    img: imgTraffic,
-    highlights: ["Portable Traffic Signal Deployment", "Priority Flow & Stop/Go Control", "CAD Traffic Scheme Implementation"]
-  },
-  {
-    num: "02",
-    title: "Pedestrian management",
-    badge: "WALKWAY DIVERSION & RAMP SYSTEMS",
-    desc: "Safe pedestrian routing around utility excavations featuring Chapter 8 compliant temporary footways, ramps, and clear direction signage.",
-    img: imgWaterWorkers,
-    highlights: ["Chapter 8 Temporary Walkways", "Disabled Access Ramps & Handrails", "Pedestrian Safety Signage & Lighting"]
-  },
-  {
-    num: "03",
-    title: "Barrier systems",
-    badge: "WORKZONE FENCING & PROTECTION",
-    desc: "Heavy-duty workzone barrier fencing, water-filled safety barriers, and site enclosures to isolate highway traffic from excavation operatives.",
-    img: imgGridWork,
-    highlights: ["Chapter 8 Safety Fencing Systems", "Water-Filled Crash Barriers", "Reflective Excavation Guarding"]
-  },
-  {
-    num: "04",
-    title: "Road safety",
-    badge: "TRAFFIC AUDITS & SPEED CONTROL",
-    desc: "On-site road safety auditing, speed reduction measures, and continuous traffic monitoring to maintain public and operative safety.",
-    img: imgComplianceVerification,
-    highlights: ["Temporary Speed Limit Setup", "NRSWA Site Safety Audits", "24/7 Traffic Control Maintenance"]
-  },
-  {
-    num: "05",
-    title: "Site signage",
-    badge: "CHAPTER 8 COMPLIANT SIGNAGE",
-    desc: "Complete Chapter 8 traffic signage arrays including road works ahead, lane closures, diversion routes, and VMS digital message boards.",
-    img: imgProjectCoord,
-    highlights: ["High-Visibility Chapter 8 Signs", "Advanced Warning & Diversion Routing", "VMS Digital Message Board Setup"]
-  }
-];
-
-const emergencyUtilityResponseBanners = [
-  {
-    num: "01",
-    title: "Emergency attendance",
-    badge: "24/7 RAPID OPERATIVE DISPATCH",
-    desc: "Round-the-clock emergency field operative dispatch within strict 2-hour SLAs to attend critical utility failures and public hazards across the UK.",
-    img: imgEmergency,
-    highlights: ["24/7/365 Emergency Dispatch SLA", "Fully Equipped Rapid Response Vans", "Direct Client Control Room Telemetry"]
-  },
-  {
-    num: "02",
-    title: "Leak support",
-    badge: "BURST MAIN CONTAINMENT & ISOLATION",
-    desc: "Immediate containment and valve isolation support for major burst clean water mains, sewer overflows, and commercial pipe failures.",
-    img: imgWaterMeterSupport,
-    highlights: ["Clean Water Burst Main Containment", "Valve Isolation & Flow Control", "Emergency Dewatering & Pumping"]
-  },
-  {
-    num: "03",
-    title: "Emergency excavation",
-    badge: "URGENT HAZARD UNCOVERING",
-    desc: "Rapid emergency trenching and pipe exposure under blue-light protocols to allow urgent repair access to damaged utility assets.",
-    img: imgCivil,
-    highlights: ["Rapid Utility Exposure Trenching", "Immediate Shoring & Safety Setup", "Fast-Track Council Permit Liaison"]
-  },
-  {
-    num: "04",
-    title: "Infrastructure protection",
-    badge: "ASSET SECURING & POLLUTION CONTROL",
-    desc: "Urgent site perimeter securing, environmental pollution containment, and structural shoring to prevent catastrophic infrastructure damage.",
-    img: imgComplianceVerification,
-    highlights: ["Environmental Spill & Runoff Control", "Structural Shoring & Asset Securing", "Public Safety Perimeter Isolation"]
-  }
-];
 
 const infrastructureSupportBanners = [
   {
@@ -379,22 +260,6 @@ const serviceBannersMap = {
   'water-infrastructure-support': {
     title: "Project Delivery & Field Support",
     banners: infrastructureSupportBanners
-  },
-  'surveying-field-support': {
-    title: "Utility Surveying Support",
-    banners: utilitySurveyingBanners
-  },
-  'utility-surveying': {
-    title: "Utility Surveying Support",
-    banners: utilitySurveyingBanners
-  },
-  'traffic-management-support': {
-    title: "Traffic Management Coordination",
-    banners: trafficManagementBanners
-  },
-  'traffic-management': {
-    title: "Traffic Management Coordination",
-    banners: trafficManagementBanners
   }
 };
 
@@ -422,7 +287,7 @@ const servicesData = [
       benefits: [
         "Trained and accredited installation personnel holding EUSR National Water Hygiene cards",
         "Structured site mobilisation and daily supervisor briefings ensuring quality controls",
-        "Digital installation recording, photographic evidence, and rapid escalation pathways"
+        "Digital installation recording, photographic evidence, and prompt escalation pathways"
       ]
     }
   },

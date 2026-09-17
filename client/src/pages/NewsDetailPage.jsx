@@ -6,8 +6,23 @@ const NewsDetailPage = () => {
   const { articleId } = useParams();
   const numericId = parseInt(articleId, 10);
   
-  // Find current article or fallback to first
-  const article = newsArticles.find(art => art.id === numericId) || newsArticles[0];
+  // Find current article
+  const article = newsArticles.find(art => art.id === numericId);
+
+  if (!article) {
+    return (
+      <div className="font-sans bg-white min-h-[60vh] flex items-center justify-center py-24 text-center px-4">
+        <div className="max-w-md">
+          <span className="material-symbols-outlined text-5xl text-slate-400 mb-4 block">newspaper</span>
+          <h1 className="text-2xl font-bold text-[#0f3a5e] font-outfit mb-3">Article Not Found</h1>
+          <p className="text-slate-600 text-sm mb-6 font-medium">There is currently no published article at this address. News releases are published following formal approval and verification.</p>
+          <Link to="/news" className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-widest hover:bg-[#005f9e] transition-colors shadow-sm">
+            <span>Back to Newsroom</span>
+          </Link>
+        </div>
+      </div>
+    );
+  }
   
   // Filter 3 other related news articles
   const otherNews = newsArticles.filter(art => art.id !== article.id).slice(0, 3);

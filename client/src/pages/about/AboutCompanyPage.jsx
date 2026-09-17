@@ -80,7 +80,7 @@ const AboutCompanyPage = () => {
           <AboutBanner 
             badgeText="About Bluegrid Utilities"
             title="A growing utility delivery business built around disciplined operations"
-            description="Bluegrid Utilities is the trading name of Bluegrid Technology Ltd, an England and Wales registered company working in the UK utilities and infrastructure sector."
+            description="Bluegrid Technology Ltd, trading as Bluegrid Utilities, is an England and Wales registered company working in the UK utilities and infrastructure sector."
             bgImage={heroTwoImg}
           />
 

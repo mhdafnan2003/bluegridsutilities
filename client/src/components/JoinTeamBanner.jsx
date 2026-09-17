@@ -40,7 +40,7 @@ const JoinTeamBanner = () => {
 
         <div className="flex flex-wrap items-center gap-4">
           <Link
-            to="/careers"
+            to="/careers/jobs"
             className="inline-flex items-center gap-3 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-2xl active:scale-95 group border-2 border-[#0066ff] hover:border-white"
           >
             <span>View current vacancies</span>

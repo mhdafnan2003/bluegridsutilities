@@ -120,10 +120,21 @@ const NewsPage = () => {
                 </Link>
               ))
             ) : (
-              <div className="col-span-full bg-white border border-slate-200 rounded-none p-12 text-center space-y-3">
-                <span className="material-symbols-outlined text-4xl text-slate-300">article</span>
-                <p className="text-lg font-bold font-outfit text-brand-dark">No updates in this category yet</p>
-                <p className="text-sm text-slate-500 font-sans">Check back soon for new announcements.</p>
+              <div className="col-span-full bg-white border border-slate-200 p-12 text-center max-w-2xl mx-auto space-y-4 shadow-sm border-l-4 border-l-[#005f9e]">
+                <span className="material-symbols-outlined text-4xl text-[#005f9e]">campaign</span>
+                <h3 className="text-xl font-bold font-outfit text-[#0f3a5e]">No Operational Updates Published Yet</h3>
+                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                  Operational announcements, recruitment campaigns, and verified milestones from Bluegrid Utilities will appear here as approved events occur.
+                </p>
+                <div className="pt-2">
+                  <a
+                    href="mailto:enquiries@bluegridutilities.com"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
+                  >
+                    <span>General Enquiries</span>
+                    <span className="material-symbols-outlined text-sm">mail</span>
+                  </a>
+                </div>
               </div>
             )}
           </motion.div>

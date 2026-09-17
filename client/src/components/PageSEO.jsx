@@ -8,7 +8,7 @@ const seoMatrix = {
   },
   '/about': {
     title: 'About Bluegrid Utilities | UK Utility Infrastructure Delivery',
-    description: 'Bluegrid Utilities is the trading name of Bluegrid Technology Ltd, an England and Wales registered company working in the UK utilities and infrastructure sector.',
+    description: 'Bluegrid Technology Ltd, trading as Bluegrid Utilities, is an England and Wales registered company working in the UK utilities and infrastructure sector.',
   },
   '/services': {
     title: 'Utility Infrastructure Services | Bluegrid Utilities',

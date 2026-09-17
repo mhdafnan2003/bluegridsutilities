@@ -141,7 +141,7 @@ const Contact = () => {
                 />
                 <div className="space-y-2 text-xs text-slate-300 font-medium">
                   <p className="text-white font-bold font-outfit text-sm">Bluegrid Utilities</p>
-                  <p className="text-slate-300">Trading name of Bluegrid Technology Ltd (Company No. 16442340). Registered in England and Wales.</p>
+                  <p className="text-slate-300">Bluegrid Technology Ltd, trading as Bluegrid Utilities (Company No. 16442340). Registered in England and Wales.</p>
                   <div className="pt-2 border-t border-slate-700/60 space-y-1 text-[11px]">
                     <p><strong className="text-white font-semibold">Operations:</strong> Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG</p>
                     <p><strong className="text-white font-semibold">Registered Office:</strong> Stuart House, St. Johns Street, Peterborough, PE1 5DD</p>
