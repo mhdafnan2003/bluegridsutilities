@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MotionSection from './MotionSection';
-import sustainabilityBannerImg from '../assets/images/sustainability_banner.png';
+import sustainabilityBannerImg from '../assets/images/WhatsApp Image 2026-09-22 at 9.30.54 AM.jpeg';
 
 const SustainabilityBanner = () => {
   return (
@@ -13,6 +13,7 @@ const SustainabilityBanner = () => {
             src={sustainabilityBannerImg} 
             alt="Innovation in sustainable working" 
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+            style={{ objectPosition: 'center 35%' }}
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/20 to-slate-950/40 hidden lg:block" />

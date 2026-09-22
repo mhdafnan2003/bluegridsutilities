@@ -1,8 +1,33 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import heroBg from '../assets/images/bluegrids hero.jpeg';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import heroBg1 from '../assets/images/bluegrids hero.jpeg';
+import heroBg2 from '../assets/images/WhatsApp Image 2026-09-22 at 9.30.54 AM.jpeg';
+
+const slides = [
+  {
+    id: 1,
+    image: heroBg1,
+    position: 'center',
+    alt: 'Bluegrid Utilities Infrastructure Delivery'
+  },
+  {
+    id: 2,
+    image: heroBg2,
+    position: 'center 35%',
+    alt: 'Bluegrid Utilities Field Team'
+  }
+];
 
 const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
   const contentVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -25,14 +50,26 @@ const Hero = () => {
 
   return (
     <div className="relative w-full min-h-screen lg:h-screen flex flex-col justify-between overflow-hidden bg-slate-950 font-sans">
-      {/* Natural Background Image (No blue tint filter) */}
-      <motion.div
-        initial={{ scale: 1.05 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 6, ease: 'easeOut' }}
-        style={{ backgroundImage: `url("${heroBg}")` }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat w-full h-full"
-      />
+      {/* Background Carousel (No blue tint filter, preserving natural photo vibrancy) */}
+      <div className="absolute inset-0 z-0 overflow-hidden bg-slate-950">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ 
+              opacity: { duration: 1.2, ease: 'easeInOut' },
+              scale: { duration: 7, ease: 'easeOut' }
+            }}
+            style={{ 
+              backgroundImage: `url("${slides[currentSlide].image}")`,
+              backgroundPosition: slides[currentSlide].position
+            }}
+            className="absolute inset-0 bg-cover bg-no-repeat w-full h-full"
+          />
+        </AnimatePresence>
+      </div>
 
       {/* Neutral Left-to-Right Dark Gradient for Text Contrast ONLY (No Blue Tint) */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/50 to-transparent z-10 pointer-events-none" />

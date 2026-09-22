@@ -1,13 +1,14 @@
 import React from 'react';
 
-const AboutBanner = ({ badgeText, title, description, bgImage, children }) => {
+const AboutBanner = ({ badgeText, title, description, bgImage, imagePosition = 'center', children }) => {
   return (
     <div className="relative w-full min-h-[400px] sm:min-h-[460px] md:min-h-[500px] flex items-center overflow-hidden bg-slate-950 font-sans mb-12">
       {/* Full Hero Image */}
       <img 
         src={bgImage} 
         alt={title} 
-        className="absolute inset-0 w-full h-full object-cover object-center"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ objectPosition: imagePosition }}
       />
       
       {/* Dark Neutral Gradient Overlay (No blue tinting, no letterbox) */}

@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MotionSection from './MotionSection';
-import excavationImg from '../assets/images/uk_utility_excavation.jpg';
-import safetyBg from '../assets/images/safety_bg.png';
+import growthImg from '../assets/images/edb132ce-4e08-43ea-aef4-5ba3888c1c01.JPG';
 
 const WhatWeAre = () => {
   return (
@@ -30,9 +29,10 @@ const WhatWeAre = () => {
           {/* Image */}
           <div className="lg:col-span-6 relative overflow-hidden h-[340px] sm:h-[400px] w-full border border-slate-200 shadow-lg">
             <img 
-              src={excavationImg} 
-              alt="Bluegrid Utilities Field Operations" 
-              className="w-full h-full object-cover"
+              src={growthImg} 
+              alt="Bluegrid Utilities Team" 
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              style={{ objectPosition: 'center 25%' }}
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import bannerImg from '../assets/images/join_team_banner.png';
+import bannerImg from '../assets/images/IMG_5255.jpeg';
 import MotionSection from './MotionSection';
 
 const JoinTeamBanner = () => {
@@ -17,8 +17,8 @@ const JoinTeamBanner = () => {
           initial={{ scale: 1.1 }}
           whileInView={{ scale: 1 }}
           transition={{ duration: 1.5, ease: 'easeOut' }}
-          style={{ backgroundImage: `url(${bannerImg})` }}
-          className="w-full h-full bg-cover bg-center bg-no-repeat absolute inset-0 filter brightness-90 contrast-[1.05]"
+          style={{ backgroundImage: `url(${bannerImg})`, backgroundPosition: 'center 55%' }}
+          className="w-full h-full bg-cover bg-no-repeat absolute inset-0 filter brightness-90 contrast-[1.05]"
         />
         {/* Clean neutral dark gradient overlay for text readability without blue tint */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/85 via-slate-950/55 to-slate-950/20 z-10" />

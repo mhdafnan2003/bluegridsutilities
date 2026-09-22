@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MotionSection from '../../components/MotionSection';
 import aboutImage from '../../assets/images/about.jpeg';
-import heroTwoImg from '../../assets/images/updated/hero_blue_two.png';
+import heroTwoImg from '../../assets/images/26411341-cb03-4736-aa5b-488fc975bdc5.JPG';
 import workersImg from '../../assets/images/uk_utility_workers_site.png';
 import AboutBanner from '../../components/AboutBanner';
 
@@ -82,6 +82,7 @@ const AboutCompanyPage = () => {
             title="About Bluegrid Utilities"
             description="Bluegrid Utilities is the trading name of Bluegrid Technology Ltd, a UK company operating in the utilities and infrastructure sector. Our current operational focus includes smart water-meter installation and associated utility project support."
             bgImage={heroTwoImg}
+            imagePosition="center 35%"
           >
             <Link
               to="/services"

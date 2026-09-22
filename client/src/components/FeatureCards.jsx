@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import imgWaterMeter from '../assets/images/water meter suoort bluegrids.jpeg';
-import imgCivil from '../assets/images/civil_engineering_excavation.jpg';
-import imgReinstatement from '../assets/images/projectcordination.jpeg';
-import imgInfra from '../assets/images/field_delivery_support.jpg';
-import imgSurveying from '../assets/images/utility_surveying_detection.jpg';
-import imgTraffic from '../assets/images/traffic_management_support.jpg';
+import imgCivilsWork from '../assets/images/1550ea50-f62d-4c3b-828b-3713f9c44355.jpg';
+import imgTeamBriefing from '../assets/images/de40f788-8696-4e19-bb08-565d2e68c1af.jpg';
+import imgTrenchWork from '../assets/images/dcf7a6e6-b3c4-4ee3-9740-8f88f8ba842a.jpg';
 
 const mainServices = [
   {
@@ -16,7 +14,8 @@ const mainServices = [
     title: "Smart Water Metering",
     description: "Support for authorised smart water-meter installation activity, including mobilisation, field coordination, supervision and completion reporting.",
     cta: "Explore Smart Water Metering",
-    img: imgWaterMeter
+    img: imgWaterMeter,
+    position: "center"
   },
   {
     num: "02",
@@ -24,7 +23,8 @@ const mainServices = [
     title: "Utility Civils & Access Works",
     description: "Support for utility access, excavation and associated enabling works where included within the approved project scope.",
     cta: "Explore Utility Civils",
-    img: imgCivil
+    img: imgCivilsWork,
+    position: "center 70%"
   },
   {
     num: "03",
@@ -32,7 +32,8 @@ const mainServices = [
     title: "Reinstatement Support",
     description: "Quality-focused support for reinstatement and completion activity in line with project requirements and authorised working methods.",
     cta: "Explore Reinstatement",
-    img: imgReinstatement
+    img: imgTeamBriefing,
+    position: "center 75%"
   },
   {
     num: "04",
@@ -40,7 +41,8 @@ const mainServices = [
     title: "Project Delivery & Field Support",
     description: "Mobilisation, workforce coordination, project administration, operational reporting and escalation support around field delivery.",
     cta: "Explore Project Delivery",
-    img: imgInfra
+    img: imgTrenchWork,
+    position: "center 35%"
   }
 ];
 
@@ -105,6 +107,7 @@ const FeatureCards = () => {
                   src={card.img} 
                   alt={card.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  style={{ objectPosition: card.position || 'center' }}
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
