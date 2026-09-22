@@ -7,7 +7,10 @@ const Header = () => {
   const location = useLocation();
   const isActive = (to) => {
     if (to === '/') return location.pathname === '/';
-    if (to === '/careers' || to === '/career') return location.pathname.startsWith('/career') || location.pathname === '/apply';
+    if (to === '/careers/jobs') return location.pathname.startsWith('/careers/jobs');
+    if (to === '/careers' || to === '/career') {
+      return (location.pathname.startsWith('/career') && !location.pathname.startsWith('/careers/jobs')) || location.pathname === '/apply';
+    }
     if (to === '/safety-quality' || to === '/health-safety') return location.pathname.startsWith('/safety-quality') || location.pathname.startsWith('/health-safety');
     return location.pathname === to || location.pathname.startsWith(to + '/');
   };
@@ -43,8 +46,9 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Pack 20 Approved Navigation Links
+  // Approved Navigation Links
   const navLinks = [
+    { label: 'Home', to: '/' },
     { label: 'About', to: '/about' },
     { label: 'Services', to: '/services' },
     { label: 'Safety & Quality', to: '/safety-quality' },
@@ -123,30 +127,32 @@ const Header = () => {
             : 'bg-[#eef6fc] border-b border-[#d8e9f6]'
         }`}
       >
-        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-stretch h-20">
+        <div className={`max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-stretch transition-all duration-300 ${
+          isScrolled ? 'h-16 lg:h-[72px]' : 'h-20'
+        }`}>
 
           {/* Navbar Logo */}
           <div className={`flex items-center py-2 pr-2 sm:pr-4 lg:pr-6 shrink-0 ${isScrolled ? 'flex' : 'flex md:hidden'}`}>
             <Link className="flex items-center gap-2" to="/">
-              <img src={logo} alt="Bluegrid Utilities Logo" className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain" />
+              <img src={logo} alt="Bluegrid Utilities Logo" className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto object-contain transition-all duration-300" />
             </Link>
           </div>
 
-          {/* Navigation Links */}
-          <nav className="hidden lg:flex items-stretch gap-1.5 lg:gap-2.5 xl:gap-4">
+          {/* Navigation Links - Centered with good gap */}
+          <nav className="hidden lg:flex items-stretch justify-center mx-auto h-full gap-1.5 lg:gap-2 xl:gap-3.5">
             {navLinks.map((link) => {
               if (link.label === 'About') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
                       <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
@@ -188,13 +194,13 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
                       <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
@@ -238,13 +244,13 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
                       <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
@@ -287,13 +293,13 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center gap-1 px-1 lg:px-2 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
-                      {link.label}
+                      <span>{link.label}</span>
                       <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
@@ -334,13 +340,13 @@ const Header = () => {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className={`whitespace-nowrap transition-colors text-[10px] lg:text-xs xl:text-sm font-bold uppercase tracking-widest font-outfit flex items-center relative group px-1 lg:px-2 ${
+                  className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center relative group px-1.5 lg:px-2 xl:px-2.5 ${
                     isActive(link.to) 
                       ? 'text-[#005f9e]' 
                       : 'text-[#0f3a5e] hover:text-[#005f9e]'
                   }`}
                 >
-                  {link.label}
+                  <span>{link.label}</span>
                   <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
                 </Link>
               );
@@ -348,20 +354,20 @@ const Header = () => {
           </nav>
 
           {/* Right CTA / Hamburger Menu */}
-          <div className="flex items-center shrink-0 gap-2 sm:gap-3 ml-2 lg:ml-4">
-            {/* Discuss a Project Button */}
+          <div className="flex items-center shrink-0 gap-2 sm:gap-3 ml-2 lg:ml-4 mr-2 sm:mr-4 lg:mr-6 my-auto">
+            {/* Discuss Project Button */}
             <Link
               to="/contact"
-              className="bg-[#005f9e] text-white hover:bg-[#0f3a5e] transition-all duration-300 px-3 sm:px-5 lg:px-6 py-2 lg:py-0 font-bold uppercase text-[9px] sm:text-xs lg:text-xs xl:text-sm font-outfit tracking-wider flex items-center justify-center whitespace-nowrap my-auto lg:h-full cursor-pointer rounded sm:rounded-none border-l-0 lg:border-l border-[#d2e5f5]/50 shadow-sm shrink-0"
+              className="bg-[#005f9e] hover:bg-[#004c80] text-white transition-all duration-200 px-3 sm:px-3.5 lg:px-4 py-2 sm:py-2.5 rounded-lg font-bold uppercase text-[10px] sm:text-[11px] lg:text-xs font-outfit tracking-wider flex items-center justify-center whitespace-nowrap shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer shrink-0"
             >
-              <span>Discuss a project</span>
+              <span>Discuss Project</span>
             </Link>
 
             {/* Mobile Hamburger toggle */}
             <div className="lg:hidden flex items-center shrink-0">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="flex flex-col gap-1 justify-center items-center w-9 h-9 sm:w-10 sm:h-10 border rounded bg-white shadow-sm transition-colors duration-300 border-slate-200 text-[#0f3a5e] shrink-0"
+                className="flex flex-col gap-1 justify-center items-center w-9 h-9 sm:w-10 sm:h-10 border rounded-lg bg-white shadow-sm transition-colors duration-300 border-slate-200 text-[#0f3a5e] shrink-0 hover:bg-slate-50"
                 aria-label="Toggle Menu"
               >
                 <span className={`w-5 sm:w-6 h-0.5 transition-all duration-300 bg-[#0f3a5e] ${isMenuOpen ? 'transform rotate-45 translate-y-1.5' : ''}`}></span>
@@ -609,6 +615,18 @@ const Header = () => {
                     </Link>
                   );
                 })}
+
+                {/* Mobile Drawer CTA */}
+                <div className="pt-2">
+                  <Link
+                    to="/contact"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="w-full bg-[#005f9e] hover:bg-[#004c80] text-white py-3 px-4 rounded-lg font-bold text-center text-xs tracking-wider uppercase font-outfit flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-all"
+                  >
+                    <span>Discuss a project</span>
+                    <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           )}

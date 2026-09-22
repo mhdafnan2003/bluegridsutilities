@@ -16,7 +16,10 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import WhatWeAre from './components/WhatWeAre';
 import WhyChooseBlueGrid from './components/WhyChooseBlueGrid';
+import PartnerLogos from './components/PartnerLogos';
 import JoinTeamBanner from './components/JoinTeamBanner';
+import OperationalCoverage from './components/OperationalCoverage';
+import SustainabilityBanner from './components/SustainabilityBanner';
 import GetInTouch from './components/GetInTouch';
 import AboutCompanyPage from './pages/about/AboutCompanyPage';
 import OurMissionsPage from './pages/about/OurMissionsPage';
@@ -54,14 +57,16 @@ const ScrollToAnchor = () => {
   return null;
 };
 
-// Point 5 & 14: Evidence-led Homepage removing template banners and unevidenced partner logos
 const HomePage = () => (
   <>
     <Hero />
     <FeatureCards />
     <WhyChooseBlueGrid />
     <WhatWeAre />
+    <PartnerLogos />
     <JoinTeamBanner />
+    <OperationalCoverage />
+    <SustainabilityBanner />
     <GetInTouch />
   </>
 );
