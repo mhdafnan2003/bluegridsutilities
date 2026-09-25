@@ -7,14 +7,20 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "test:forms": "node scripts/e2e-forms.mjs"
+    "test:forms": "node scripts/e2e-forms.mjs",
+    "seed": "node scripts/seed.mjs",
+    "admin:create": "node scripts/create-admin.mjs"
   },
   "dependencies": {
+    "better-sqlite3": "^13.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "morgan": "^1.10.0",
     "multer": "^2.4.0",
     "nodemailer": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

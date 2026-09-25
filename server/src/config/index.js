@@ -14,6 +14,10 @@ export const config = {
   rateLimitMax: num(process.env.RATE_LIMIT_MAX, 5),
   rateLimitWindowMinutes: num(process.env.RATE_LIMIT_WINDOW_MINUTES, 10),
   trustProxy: process.env.TRUST_PROXY || '',
+  dbPath: process.env.DB_PATH || '',
+  // Admin dashboard sessions
+  authSecret: process.env.AUTH_SECRET || '',
+  sessionHours: num(process.env.SESSION_HOURS, 12),
 };
 
 export const isProduction = () => config.nodeEnv === 'production';

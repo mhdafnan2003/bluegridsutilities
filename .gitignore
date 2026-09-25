@@ -31,3 +31,9 @@ client/.env
 *.njsproj
 *.sln
 *.sw?
+
+# SQLite database (applications and CVs - personal data)
+server/data
+*.db
+*.db-wal
+*.db-shm

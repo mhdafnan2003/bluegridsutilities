@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Preloader from './components/Preloader';
 import ErrorBoundary from './components/ErrorBoundary';
@@ -34,6 +34,9 @@ import VacanciesPage from './pages/VacanciesPage';
 import VacancyDetailPage from './pages/VacancyDetailPage';
 import SustainabilityPage from './pages/SustainabilityPage';
 import PageSEO from './components/PageSEO';
+
+// Recruitment dashboard: loaded only when /admin is visited, so public pages don't download it.
+const AdminApp = lazy(() => import('./admin/AdminApp'));
 
 // Component to scroll to top on route change
 const ScrollToTop = () => {
@@ -467,10 +470,27 @@ function App() {
   return (
     <ErrorBoundary>
       <BrowserRouter>
-        {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
-        <ScrollToTop />
-        <ScrollToAnchor />
-        <MainContent />
+        <Routes>
+          <Route
+            path="/admin/*"
+            element={
+              <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+                <AdminApp />
+              </Suspense>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <>
+                {isLoading && <Preloader onComplete={handlePreloaderComplete} />}
+                <ScrollToTop />
+                <ScrollToAnchor />
+                <MainContent />
+              </>
+            }
+          />
+        </Routes>
       </BrowserRouter>
     </ErrorBoundary>
   );

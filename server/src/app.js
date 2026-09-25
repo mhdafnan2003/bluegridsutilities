@@ -9,13 +9,21 @@ import healthRoutes from './routes/health.routes.js';
 import contactRoutes from './routes/contact.routes.js';
 import newsRoutes from './routes/news.routes.js';
 import careersRoutes from './routes/careers.routes.js';
+import adminRoutes from './routes/admin.routes.js';
+import { seedIfEmpty } from './db/seed.js';
+import { syncEnvAdmin } from './services/auth.service.js';
 import { errorHandler, notFoundHandler } from './middleware/errorHandler.js';
 import { requestLogger } from './middleware/requestLogger.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Database is opened and migrated on import; seed the live vacancy on first run and apply the dashboard login from .env.
+seedIfEmpty();
+syncEnvAdmin();
+
 const app = express();
+app.disable('x-powered-by');
 if (config.trustProxy) app.set('trust proxy', /^\d+$/.test(config.trustProxy) ? Number(config.trustProxy) : config.trustProxy);
 
 // Security and CORS middleware
@@ -42,6 +50,7 @@ app.use('/api/health', healthRoutes);
 app.use('/api/contact', contactRoutes);
 app.use('/api/news', newsRoutes);
 app.use('/api/careers', careersRoutes);
+app.use('/api/admin', adminRoutes);
 
 // Static client serving if built
 const clientDistPath = path.resolve(__dirname, '../../client/dist');

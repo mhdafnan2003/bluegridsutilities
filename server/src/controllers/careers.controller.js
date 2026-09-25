@@ -7,70 +7,8 @@ import {
   buildApplicationMessage,
   buildApplicantConfirmation,
 } from '../services/email.service.js';
-
-// In-memory vacancy store. The shape is mirrored in client/src/data/vacancies.js (used as the
-// offline fallback) - keep the two in sync.
-const vacanciesStore = [
-  {
-    id: 'JOB-BG-01',
-    slug: 'water-meter-installation-operative',
-    title: 'Water Meter Installation Operative – Digging & Reinstatement',
-    shortTitle: 'Water Meter Installation Operative',
-    town: 'Coventry',
-    reference: 'BG-WM-COV-2026',
-    category: 'Field operations',
-    location: 'Coventry and surrounding operational areas',
-    employmentType: 'Permanent full-time or CIS subcontract',
-    engagementTypes: ['Permanent full-time (PAYE employment)', 'Self-employed CIS subcontract'],
-    workingPattern: 'Monday – Friday (standard site hours)',
-    salaryRate: 'Permanent PAYE: £34,000 per annum | CIS subcontract: £180–£220 per authorised working day',
-    displaySalary: true,
-    openingDate: '2026-03-01T08:00:00Z',
-    closingDate: '2026-10-31T17:00:00Z',
-    status: 'published', // draft | pending_approval | published | closed | archived
-    roleSummary:
-      'Physical field delivery role carrying out smart water meter installations, manual excavation, trenching, boundary box placement and street-works reinstatement across authorised project areas. Operatives work under direct supervision adhering strictly to approved RAMS (risk assessments and method statements) and utility procedures.',
-    keyResponsibilities: [
-      'Carry out manual digging, chamber excavation and boundary box exposure in accordance with approved utility drawings and HSG47 safe digging guidelines.',
-      'Install and exchange smart water meters and associated fittings compliant with client technical requirements.',
-      'Perform clean water jointing, leak testing and seal verification following approved procedures.',
-      'Carry out first-time surface reinstatement on footways, verges and modular paving to required street-works specifications.',
-      'Accurately record installation serial numbers, photographic completion evidence and operational reports on mobile field devices.',
-      'Adhere strictly to site safety controls, PPE requirements, customer care protocols and traffic-management arrangements.',
-    ],
-    essentialRequirements: [
-      'Physical fitness and willingness to perform manual outdoor excavation and reinstatement work in all weather conditions.',
-      'Proven reliability, strong punctuality and a safety-first mindset on operational utility sites.',
-      'Clear communication skills and professional conduct when interfacing with residents and customers.',
-      'Ability to follow detailed RAMS, technical instructions and supervisor direction.',
-      'Eligible to live and work in the United Kingdom without restriction.',
-    ],
-    desirableRequirements: [
-      'Prior experience in clean water distribution, utility groundworks or street-works reinstatement.',
-      'Demonstrated experience using CAT and Genny cable location equipment.',
-      'Experience with mobile digital completion reporting systems.',
-    ],
-    requiredCardsLicences: [
-      'Full valid UK driving licence (preferred for team mobility).',
-      'EUSR National Water Hygiene Card (or commitment to complete during induction).',
-      'EUSR SHEA Water Safety Passport (or commitment to complete).',
-      'NRSWA Street Works Operative Card (Units 1–5, 8) advantageous.',
-    ],
-    rightToWorkSponsorship:
-      'Applicants must possess existing right to work in the UK. Bluegrid Utilities does not provide visa sponsorship for this vacancy.',
-    applicationMethod: 'Online application form via live vacancy page',
-    hiringManager: 'Operations Lead (Internal)',
-    approver: 'HSEQ & Operations Director (Internal)',
-    candidatePrivacyUrl: '/policies/candidate-privacy',
-    seoTitle: 'Water Meter Installation Operative – Coventry',
-    seoDescription:
-      'Apply for Water Meter Installation Operative with Bluegrid Utilities in Coventry. View role requirements, working details, closing date and application route.',
-    auditTrail: [
-      { changedBy: 'Admin', changeType: 'CREATED', timestamp: '2026-03-01T08:00:00Z', notes: 'Initial vacancy created for Coventry smart water meter deployment' },
-      { changedBy: 'HSEQ Director', changeType: 'STATUS_CHANGE', timestamp: '2026-03-01T09:00:00Z', notes: 'Approved and published for active recruitment' },
-    ],
-  },
-];
+import { findVacancy, isVacancyOpen, listVacancies } from '../models/vacancy.model.js';
+import { hasRecentApplication, insertApplication, setEmailStatus } from '../models/application.model.js';
 
 // Allowed answers for select fields (mirrored in client/src/components/ApplicationForm.jsx).
 export const RIGHT_TO_WORK = [
@@ -113,12 +51,8 @@ export const CERTIFICATES = [
   'CSCS card',
 ];
 
-// A vacancy is open only if published and not past its closing time.
-const isVacancyOpen = (vacancy) => {
-  if (vacancy.status !== 'published') return false;
-  if (vacancy.closingDate && Date.now() > new Date(vacancy.closingDate).getTime()) return false;
-  return true;
-};
+// Fields the public site never sees.
+const INTERNAL_FIELDS = ['hiringManager', 'approver', 'displaySalary', 'applicationCount', 'newApplicationCount', 'createdAt', 'updatedAt'];
 
 const listShape = (v) => ({
   id: v.id,
@@ -139,28 +73,25 @@ const listShape = (v) => ({
 });
 
 export const getVacancies = (req, res) => {
-  const data = vacanciesStore.filter(isVacancyOpen).map(listShape);
+  const data = listVacancies().filter(isVacancyOpen).map(listShape);
   res.status(200).json({ success: true, count: data.length, data });
 };
 
 export const getVacancyBySlug = (req, res) => {
-  const vacancy = vacanciesStore.find((v) => v.slug === req.params.slug);
+  const vacancy = findVacancy(req.params.slug);
   if (!vacancy || vacancy.status === 'archived' || vacancy.status === 'draft' || vacancy.status === 'pending_approval') {
     return res.status(404).json({ success: false, error: { message: 'Vacancy not found.' } });
   }
   const open = isVacancyOpen(vacancy);
-  const { hiringManager, approver, auditTrail, displaySalary, ...rest } = vacancy; // eslint-disable-line no-unused-vars
-  res.status(200).json({
-    success: true,
-    data: { ...rest, salaryRate: displaySalary ? vacancy.salaryRate : null, isOpen: open, isExpired: !open },
-  });
+  const data = { ...vacancy, salaryRate: vacancy.displaySalary ? vacancy.salaryRate : null, isOpen: open, isExpired: !open };
+  for (const key of INTERNAL_FIELDS) delete data[key];
+  res.status(200).json({ success: true, data });
 };
 
 // ---------------------------------------------------------------------------------------------
 // Applications
 // ---------------------------------------------------------------------------------------------
 
-const recentApplications = new Map(); // email|vacancy -> timestamp, to stop accidental double submits
 const DUPLICATE_WINDOW_MS = 2 * 60 * 1000;
 
 const UK_POSTCODE_RE = /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/;
@@ -244,7 +175,7 @@ export const submitApplication = async (req, res, next) => {
     }
 
     const slug = clean(body.roleSlug, 100);
-    const vacancy = vacanciesStore.find((v) => v.slug === slug || v.id === slug);
+    const vacancy = slug ? findVacancy(slug) : null;
     if (!vacancy || vacancy.status === 'archived') {
       return res.status(400).json({
         success: false,
@@ -267,9 +198,7 @@ export const submitApplication = async (req, res, next) => {
     }
 
     // Prevent accidental duplicate submissions (double click, retry after a slow response).
-    const dupKey = `${values.email}|${vacancy.id}`;
-    const last = recentApplications.get(dupKey);
-    if (last && Date.now() - last < DUPLICATE_WINDOW_MS) {
+    if (hasRecentApplication(values.email, vacancy.id, new Date(Date.now() - DUPLICATE_WINDOW_MS).toISOString())) {
       return res.status(409).json({
         success: false,
         error: { message: 'We have already received an application from this email address for this vacancy. If you need to change anything, please email ' + config.recruitmentEmail + '.' },
@@ -294,21 +223,23 @@ export const submitApplication = async (req, res, next) => {
         }
       : null;
 
-    const message = buildApplicationMessage(application, cv);
-    let delivery;
+    // The database is the record of the application; the email to the recruitment inbox is a notification.
+    insertApplication({ ...application, vacancyId: vacancy.id, vacancyTitle: vacancy.title, vacancyReference: vacancy.reference }, cv);
+    console.log(`[Careers] Application ${application.id} for ${vacancy.reference} saved`);
+
+    let delivery = null;
     try {
       delivery = await sendMail({
         to: config.recruitmentEmail,
         replyTo: application.email,
         fallbackAddress: config.recruitmentEmail,
-        ...message,
+        ...buildApplicationMessage(application, cv),
       });
+      setEmailStatus(application.id, 'sent');
     } catch (err) {
-      return res.status(err.statusCode || 502).json({ success: false, error: { message: err.message } });
+      setEmailStatus(application.id, 'failed', String(err.message).slice(0, 500));
+      console.warn(`[Careers] Notification email for ${application.id} failed (application is saved):`, err.message);
     }
-
-    recentApplications.set(dupKey, Date.now());
-    console.log(`[Careers] Application ${application.id} for ${vacancy.reference} delivered`);
 
     // Short plain-text acknowledgement to the candidate, only when a real SMTP account is configured.
     let confirmationSent = false;
@@ -322,7 +253,7 @@ export const submitApplication = async (req, res, next) => {
     }
 
     const data = { applicationId: application.id, reference: vacancy.reference, roleTitle: vacancy.title, confirmationEmailSent: confirmationSent };
-    if (config.nodeEnv !== 'production') {
+    if (config.nodeEnv !== 'production' && delivery) {
       data.delivery = { to: config.recruitmentEmail, mode: delivery.mode, previewUrl: delivery.previewUrl, captured: delivery.captured, attachments: cv ? [cv.filename] : [] };
       if (delivery.previewUrl) data.previewUrl = delivery.previewUrl;
     }
@@ -334,84 +265,4 @@ export const submitApplication = async (req, res, next) => {
   } catch (err) {
     return next(err);
   }
-};
-
-// ---------------------------------------------------------------------------------------------
-// Vacancy management. These endpoints change what the public sees, so they are DISABLED unless
-// ADMIN_TOKEN is set, and then require `Authorization: Bearer <ADMIN_TOKEN>`.
-// ---------------------------------------------------------------------------------------------
-
-export const requireAdmin = (req, res, next) => {
-  const token = process.env.ADMIN_TOKEN;
-  if (!token) return res.status(404).json({ success: false, error: { message: 'Not found.' } });
-  if (req.get('authorization') !== `Bearer ${token}`) {
-    return res.status(401).json({ success: false, error: { message: 'Authentication required.' } });
-  }
-  return next();
-};
-
-export const manageGetVacancies = (req, res) => {
-  res.status(200).json({ success: true, count: vacanciesStore.length, data: vacanciesStore });
-};
-
-export const manageCreateVacancy = (req, res) => {
-  const { title, location, category, employmentType, closingDate, roleSummary } = req.body || {};
-  if (!title || !category) {
-    return res.status(400).json({ success: false, error: { message: 'Title and category are required to create a vacancy.' } });
-  }
-  const id = `JOB-BG-${String(vacanciesStore.length + 1).padStart(2, '0')}`;
-  const slug = String(title).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-  const newVacancy = {
-    id,
-    slug,
-    title,
-    shortTitle: req.body.shortTitle || title,
-    town: req.body.town || '',
-    reference: req.body.reference || `BG-${String(category).substring(0, 3).toUpperCase()}-${Date.now().toString().slice(-4)}`,
-    category,
-    location: location || 'To be confirmed',
-    employmentType: employmentType || 'To be confirmed',
-    engagementTypes: req.body.engagementTypes || [employmentType || 'To be confirmed'],
-    workingPattern: req.body.workingPattern || 'To be confirmed',
-    salaryRate: req.body.salaryRate || null,
-    displaySalary: Boolean(req.body.displaySalary),
-    openingDate: new Date().toISOString(),
-    closingDate: closingDate || null,
-    status: 'draft',
-    roleSummary: roleSummary || '',
-    keyResponsibilities: req.body.keyResponsibilities || [],
-    essentialRequirements: req.body.essentialRequirements || [],
-    desirableRequirements: req.body.desirableRequirements || [],
-    requiredCardsLicences: req.body.requiredCardsLicences || [],
-    rightToWorkSponsorship: req.body.rightToWorkSponsorship || 'Applicants must possess right to work in the UK.',
-    applicationMethod: 'Online application form via live vacancy page',
-    hiringManager: req.body.hiringManager || null,
-    approver: req.body.approver || null,
-    candidatePrivacyUrl: '/policies/candidate-privacy',
-    seoTitle: req.body.seoTitle || `${req.body.shortTitle || title}${req.body.town ? ` – ${req.body.town}` : ''}`,
-    seoDescription: `Apply for ${title} with Bluegrid Utilities. View requirements and application details.`,
-    auditTrail: [{ changedBy: req.body.author || 'Recruitment staff', changeType: 'CREATED', timestamp: new Date().toISOString(), notes: 'Vacancy created as draft' }],
-  };
-  vacanciesStore.push(newVacancy);
-  res.status(201).json({ success: true, message: 'Vacancy created in draft status.', data: newVacancy });
-};
-
-export const manageUpdateStatus = (req, res) => {
-  const { status, changedBy, notes } = req.body || {};
-  const allowed = ['draft', 'pending_approval', 'published', 'closed', 'archived'];
-  if (!allowed.includes(status)) {
-    return res.status(400).json({ success: false, error: { message: `Invalid status. Must be one of: ${allowed.join(', ')}` } });
-  }
-  const vacancy = vacanciesStore.find((v) => v.id === req.params.id || v.slug === req.params.id);
-  if (!vacancy) return res.status(404).json({ success: false, error: { message: 'Vacancy not found.' } });
-  const old = vacancy.status;
-  vacancy.status = status;
-  vacancy.auditTrail.push({ changedBy: changedBy || 'Authorised staff', changeType: `STATUS_CHANGE (${old} -> ${status})`, timestamp: new Date().toISOString(), notes: notes || `Status changed to ${status}` });
-  res.status(200).json({ success: true, message: `Vacancy status updated to ${status}.`, data: vacancy });
-};
-
-export const managePreviewVacancy = (req, res) => {
-  const vacancy = vacanciesStore.find((v) => v.id === req.params.id || v.slug === req.params.id);
-  if (!vacancy) return res.status(404).json({ success: false, error: { message: 'Vacancy not found.' } });
-  res.status(200).json({ success: true, isPreview: true, data: vacancy });
 };
