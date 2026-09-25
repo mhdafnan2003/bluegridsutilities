@@ -46,7 +46,7 @@ const Footer = () => {
                 Bluegrid Technology Ltd, trading as Bluegrid Utilities. Registered in England and Wales. Company No. <span className="text-white font-bold font-mono">16442340</span>.
               </p>
               <p className="text-slate-400 text-xs pt-1">
-                <strong className="text-slate-300">Registered Office:</strong> Office 68, Spaces, The Marylands Building, Maylands Avenue, Hemel Hempstead Industrial Estate, Hemel Hempstead, England, HP2 7TG.
+                <strong className="text-slate-300">Registered Office:</strong> Office 68, Spaces, The Maylands Building, Maylands Avenue, Hemel Hempstead Industrial Estate, Hemel Hempstead, England, HP2 7TG.
               </p>
               <p className="text-slate-400 text-xs pt-1">
                 <strong className="text-slate-300">Operations Office:</strong> Bluegrid Utilities, Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG, United Kingdom.
@@ -79,20 +79,13 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Column 2: Registered Office & Contact */}
+          {/* Column 2: Contact */}
           <div className="space-y-4 text-left">
             <h4 className="text-sm font-bold text-white tracking-widest font-outfit border-b border-slate-800 pb-2 uppercase">
               Contact &amp; Offices
             </h4>
             
-            <div className="text-xs sm:text-sm text-slate-400 space-y-1 font-medium leading-relaxed">
-              <p className="text-[10px] font-bold text-[#60a5fa] uppercase font-outfit">Registered Office:</p>
-              <p className="text-white font-semibold">Office 68, Spaces, The Marylands Building</p>
-              <p>Maylands Avenue, Hemel Hempstead Industrial Estate</p>
-              <p>Hemel Hempstead, England, HP2 7TG</p>
-            </div>
-
-            <div className="pt-2 space-y-2 text-xs sm:text-sm">
+            <div className="space-y-2 text-xs sm:text-sm">
               <div>
                 <span className="text-slate-400 block text-[10px] font-bold tracking-wider font-outfit uppercase">General Enquiries:</span>
                 <a href="mailto:enquiries@bluegridutilities.com" className="text-white hover:text-[#005f9e] transition-colors font-medium">

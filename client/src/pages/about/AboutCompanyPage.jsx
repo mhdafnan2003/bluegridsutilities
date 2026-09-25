@@ -194,7 +194,7 @@ const AboutCompanyPage = () => {
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit uppercase">Registered Office</p>
                       <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
-                        Office 68, Spaces, The Marylands Building<br />
+                        Office 68, Spaces, The Maylands Building<br />
                         Maylands Avenue, Hemel Hempstead Industrial Estate<br />
                         Hemel Hempstead, England, HP2 7TG
                       </address>
