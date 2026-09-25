@@ -171,7 +171,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/policies" className="hover:text-white hover:translate-x-1 inline-block transition-all">
+                <Link to="/policies/candidate-privacy" className="hover:text-white hover:translate-x-1 inline-block transition-all">
                   Candidate Privacy Notice
                 </Link>
               </li>

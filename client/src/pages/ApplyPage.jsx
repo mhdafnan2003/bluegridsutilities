@@ -54,7 +54,7 @@ const ApplyPage = () => {
 
           {/* Integrated Interactive Application Form */}
           <div className="max-w-4xl mx-auto mb-16">
-            <ApplicationForm defaultRole="Water Meter Installation Operative – Digging & Reinstatement" />
+            <ApplicationForm />
           </div>
 
           {/* Alternative External Submission Option */}

@@ -1,0 +1,432 @@
+diff --git a/client/src/components/Header.jsx b/client/src/components/Header.jsx
+index d13334c..326c0ac 100644
+--- a/client/src/components/Header.jsx
++++ b/client/src/components/Header.jsx
+@@ -262,9 +262,9 @@ const Header = () => {
+                       <div className="flex flex-col">
+                         {[
+                           { label: "Safety & Quality Overview", to: "/safety-quality" },
+-                          { label: "Approved Methods (RAMS)", to: "/safety-quality#rams" },
+-                          { label: "Accurate Record Keeping", to: "/safety-quality#records" },
+-                          { label: "Environmental & Public Safety", to: "/safety-quality#environment" },
++                          { label: "Approved Methods (RAMS)", to: "/safety-quality/rams" },
++                          { label: "Accurate Record Keeping", to: "/safety-quality/site-audits" },
++                          { label: "Environmental & Public Safety", to: "/safety-quality/environmental-protection" },
+                           { label: "Policies & Statements", to: "/policies" }
+                         ].map((item, index) => {
+                           const active = isSubActive(item.to);
+@@ -466,9 +466,9 @@ const Header = () => {
+                             >
+                               {[
+                                 { label: "Safety & Quality Overview", to: "/safety-quality" },
+-                                { label: "Approved Methods (RAMS)", to: "/safety-quality#rams" },
+-                                { label: "Accurate Record Keeping", to: "/safety-quality#records" },
+-                                { label: "Environmental & Public Safety", to: "/safety-quality#environment" },
++                                { label: "Approved Methods (RAMS)", to: "/safety-quality/rams" },
++                                { label: "Accurate Record Keeping", to: "/safety-quality/site-audits" },
++                                { label: "Environmental & Public Safety", to: "/safety-quality/environmental-protection" },
+                                 { label: "Policies & Statements", to: "/policies" }
+                               ].map((item, index) => {
+                                 const active = isSubActive(item.to);
+diff --git a/client/src/components/HealthSafetyCompliance.jsx b/client/src/components/HealthSafetyCompliance.jsx
+index 6db8497..ee2d0d2 100644
+--- a/client/src/components/HealthSafetyCompliance.jsx
++++ b/client/src/components/HealthSafetyCompliance.jsx
+@@ -18,6 +18,7 @@ import nuisancePreventionImg from '../assets/images/nuisance_prevention_communit
+ import ultrasonicFlawImg from '../assets/images/The Truth About Ultrasonic Flaw Detectors in the Field.jpeg';
+ import workplaceInspectionImg from '../assets/images/Enhance Compliance & Reduce Risks with Workplace Safety Software.jpeg';
+ import qualityAssuranceImg from '../assets/images/Boosting Reliability with Professional Software Quality Assurance Testing Services.jpeg';
++import leadershipResponsibilitiesImg from '../assets/images/leadership_responsibilities_street_works.jpg';
+ 
+ const sectionsData = {
+   "policy": {
+@@ -25,7 +26,7 @@ const sectionsData = {
+     title: "Leadership & Responsibilities",
+     badge: "Policy & Governance",
+     icon: "gavel",
+-    bgImage: healthSafetyPolicyBg,
++    bgImage: leadershipResponsibilitiesImg,
+     headline: "Health, Safety & Compliance Commitment",
+     description: "Bluegrid Utilities is committed to protecting employees, contractors, customers, the public and the environment through planned work, competent people, effective supervision and continuous improvement.",
+     overviewP1: "Management is responsible for providing suitable arrangements, competent supervision, resources and monitoring.",
+diff --git a/client/src/components/Management.jsx b/client/src/components/Management.jsx
+index d91989f..b397d31 100644
+--- a/client/src/components/Management.jsx
++++ b/client/src/components/Management.jsx
+@@ -45,7 +45,7 @@ const departmentTeams = [
+   }
+ ];
+ 
+-const MemberCard = ({ member }) => {
++export const MemberCard = ({ member }) => {
+   const [isHovered, setIsHovered] = useState(false);
+   const [isClicked, setIsClicked] = useState(false);
+   const isOpen = isHovered || isClicked;
+@@ -70,7 +70,7 @@ const MemberCard = ({ member }) => {
+         </div>
+ 
+         {/* Photo Container */}
+-        <div className="aspect-[4/4.5] w-full relative overflow-hidden bg-slate-900 flex items-center justify-center">
++        <div className="aspect-[4/6] w-full relative overflow-hidden bg-slate-900 flex items-center justify-center">
+           {member.img ? (
+             <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src={member.img} />
+           ) : (
+diff --git a/client/src/pages/CareerPage.jsx b/client/src/pages/CareerPage.jsx
+index d6aaea4..ef06774 100644
+--- a/client/src/pages/CareerPage.jsx
++++ b/client/src/pages/CareerPage.jsx
+@@ -3,31 +3,41 @@ import { Link } from 'react-router-dom';
+ import MotionSection from '../components/MotionSection';
+ import PageSEO from '../components/PageSEO';
+ 
++import imgCareersHero from '../assets/images/careers_hero_team.jpg';
++import imgFieldOperations from '../assets/images/careers_field_operations.jpg';
++import imgSupervision from '../assets/images/careers_supervision.jpg';
++import imgProjectSupport from '../assets/images/careers_project_support.jpg';
++import imgManagementSpecialist from '../assets/images/careers_management_specialist.jpg';
++
+ // Pack 14 Role Families
+ const roleFamilies = [
+   {
+     title: "Field operations",
+     code: "FIELD-OPS",
+     desc: "Operative/installer roles where vacancies are approved.",
+-    icon: "construction"
++    icon: "construction",
++    img: imgFieldOperations
+   },
+   {
+     title: "Supervision",
+     code: "SUPERVISION",
+     desc: "Team-leader or supervisor roles linked to live project requirements.",
+-    icon: "engineering"
++    icon: "engineering",
++    img: imgSupervision
+   },
+   {
+     title: "Project and operational support",
+     code: "PRJ-OPS",
+     desc: "Coordination, administration and reporting roles.",
+-    icon: "manage_accounts"
++    icon: "manage_accounts",
++    img: imgProjectSupport
+   },
+   {
+     title: "Management and specialist roles",
+     code: "MGMT-SPEC",
+     desc: "Only when an approved vacancy exists.",
+-    icon: "assignment"
++    icon: "assignment",
++    img: imgManagementSpecialist
+   }
+ ];
+ 
+@@ -75,8 +85,17 @@ const CareerPage = () => {
+         viewport={undefined}
+       >
+         {/* Pack 14: CAREERS — HERO */}
+-        <div className="bg-[#0f3a5e] text-white py-16 sm:py-24 border-b-4 border-[#0066ff]">
+-          <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 text-left space-y-6">
++        <div className="relative text-white py-16 sm:py-24 border-b-4 border-[#0066ff] overflow-hidden">
++          <div className="absolute inset-0 z-0">
++            <img
++              src={imgCareersHero}
++              alt="Bluegrid Utilities field team"
++              className="w-full h-full object-cover"
++            />
++            <div className="absolute inset-0 bg-gradient-to-r from-[#0f3a5e]/95 via-[#0f3a5e]/85 to-[#0f3a5e]/50" />
++            <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
++          </div>
++          <div className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 text-left space-y-6">
+             <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 font-outfit uppercase tracking-wider">
+               <Link to="/" className="hover:text-white transition-colors">Home</Link>
+               <span>/</span>
+@@ -169,13 +188,22 @@ const CareerPage = () => {
+               {roleFamilies.map((cat, idx) => (
+                 <div
+                   key={idx}
+-                  className="bg-white border border-slate-200 p-8 shadow-md hover:shadow-xl transition-all flex flex-col justify-between border-t-4 border-t-[#0f3a5e] group"
++                  className="bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all flex flex-col justify-between overflow-hidden group"
+                 >
+-                  <div className="space-y-4">
+-                    <div className="w-12 h-12 bg-slate-100 text-[#005f9e] flex items-center justify-center group-hover:bg-[#005f9e] group-hover:text-white transition-colors">
++                  <div className="relative h-36 sm:h-40 overflow-hidden">
++                    <img
++                      src={cat.img}
++                      alt={cat.title}
++                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
++                      loading="lazy"
++                    />
++                    <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/70 via-transparent to-transparent" />
++                    <div className="absolute bottom-3 left-3 w-11 h-11 bg-white/95 text-[#005f9e] flex items-center justify-center shadow">
+                       <span className="material-symbols-outlined text-2xl">{cat.icon}</span>
+                     </div>
++                  </div>
+ 
++                  <div className="space-y-4 p-8 pb-4 flex-1">
+                     <h3 className="text-lg font-bold text-[#0f3a5e] font-outfit">
+                       {cat.title}
+                     </h3>
+@@ -185,7 +213,7 @@ const CareerPage = () => {
+                     </p>
+                   </div>
+ 
+-                  <div className="pt-6 mt-6 border-t border-slate-100">
++                  <div className="px-8 pb-6 pt-4 border-t border-slate-100">
+                     <Link
+                       to="/careers/jobs"
+                       className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#005f9e] hover:text-[#0066ff] font-outfit"
+diff --git a/client/src/pages/ServicesPage.jsx b/client/src/pages/ServicesPage.jsx
+index 93c6d1f..4eb458a 100644
+--- a/client/src/pages/ServicesPage.jsx
++++ b/client/src/pages/ServicesPage.jsx
+@@ -17,6 +17,7 @@ import imgWaterMeterSupport from '../assets/images/water meter suoort bluegrids.
+ import imgComplianceVerification from '../assets/images/Workforce onboarding and compliance verification.jpg';
+ import imgGridWork from '../assets/images/utility_grid_work.png';
+ import imgProjectCoord from '../assets/images/Project coordination and reporting.jpg';
++import imgProjectDeliveryCapability from '../assets/images/project_delivery_capability_statement.jpg';
+ 
+ const smartWaterMeterBanners = [
+   {
+@@ -393,7 +394,7 @@ const servicesData = [
+     icon: "foundation",
+     desc: "Mobilisation, workforce coordination, supervision, progress reporting and operational escalation.",
+     intro: "Bluegrid Utilities supports utility programmes through structured mobilisation, workforce coordination, day-to-day operational management, progress reporting and escalation.",
+-    img: imgProjectCoord,
++    img: imgProjectDeliveryCapability,
+     ctaText: "Discuss a Project",
+     details: {
+       headline: "Organised field delivery from planning through to completion.",
+diff --git a/client/src/pages/about/AboutCompanyPage.jsx b/client/src/pages/about/AboutCompanyPage.jsx
+index bb157d3..230c19f 100644
+--- a/client/src/pages/about/AboutCompanyPage.jsx
++++ b/client/src/pages/about/AboutCompanyPage.jsx
+@@ -5,6 +5,8 @@ import aboutImage from '../../assets/images/about.jpeg';
+ import heroTwoImg from '../../assets/images/26411341-cb03-4736-aa5b-488fc975bdc5.JPG';
+ import workersImg from '../../assets/images/uk_utility_workers_site.png';
+ import AboutBanner from '../../components/AboutBanner';
++import { MemberCard } from '../../components/Management';
++import selbertImg from '../../assets/images/updated/SELBERT GEORGE.jpeg';
+ 
+ import imgManagement from '../../assets/images/Project coordination and reporting.jpg';
+ import imgWorkforce from '../../assets/images/uk_utility_workers_site.png';
+@@ -13,10 +15,32 @@ import imgPublicSector from '../../assets/images/Urban Skyline View.jpeg';
+ import imgCompliance from '../../assets/images/Workforce onboarding and compliance verification.jpg';
+ import imgSatisfaction from '../../assets/images/water meter suoort bluegrids.jpeg';
+ 
++import imgFocusWaterMetering from '../../assets/images/water meter suoort bluegrids.jpeg';
++import imgFocusCivilWorks from '../../assets/images/1550ea50-f62d-4c3b-828b-3713f9c44355.jpg';
++import imgFocusReinstatement from '../../assets/images/uk_utility_excavation.jpg';
++import imgFocusFieldMobilisation from '../../assets/images/dcf7a6e6-b3c4-4ee3-9740-8f88f8ba842a.jpg';
++
+ import imgInfrastructure from '../../assets/images/infrastructure.jpeg';
+ import imgProjectCoord from '../../assets/images/projectcordination.jpeg';
+ import imgComplianceBg from '../../assets/images/Workforce onboarding and compliance verification.jpg';
+ 
++const leadershipMembers = [
++  {
++    name: "Selbert George",
++    role: "Director and Project Director",
++    desc: "Active statutory director overseeing operational delivery, project management, workforce deployment and client coordination.",
++    img: selbertImg,
++    social: { linkedin: "#" }
++  },
++  {
++    name: "Syed Zulqurnain Shah",
++    role: "Director",
++    desc: "Active statutory director responsible for statutory governance, financial oversight and corporate compliance.",
++    img: null,
++    social: { linkedin: "#" }
++  }
++];
++
+ const corePillars = [
+   {
+     id: "management",
+@@ -203,7 +227,7 @@ const AboutCompanyPage = () => {
+           <hr className="border-slate-200 my-16" />
+ 
+           {/* CURRENT FOCUS SECTION (Pack 02) */}
+-          <div className="mb-20">
++          <div className="mb-20" id="how-we-work">
+             <div className="text-left max-w-3xl mb-12">
+               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
+                 Current Focus
+@@ -218,52 +242,96 @@ const AboutCompanyPage = () => {
+ 
+             {/* 4 Focus Points Grid */}
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+-                  <span className="material-symbols-outlined text-2xl">water_drop</span>
++              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] shadow-sm hover:shadow-lg transition-all overflow-hidden">
++                <div className="relative h-40 sm:h-48 overflow-hidden">
++                  <img
++                    src={imgFocusWaterMetering}
++                    alt="Smart Water Metering"
++                    className="w-full h-full object-cover"
++                    loading="lazy"
++                  />
++                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
++                  <div className="absolute bottom-3 left-3 w-11 h-11 bg-white/95 text-[#005f9e] flex items-center justify-center shadow">
++                    <span className="material-symbols-outlined text-2xl">water_drop</span>
++                  </div>
++                </div>
++                <div className="p-6 sm:p-8">
++                  <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
++                    Smart Water Metering
++                  </h3>
++                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
++                    Smart water-meter installation and associated utility support.
++                  </p>
+                 </div>
+-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+-                  Smart Water Metering
+-                </h3>
+-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+-                  Smart water-meter installation and associated utility support.
+-                </p>
+               </div>
+ 
+-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+-                  <span className="material-symbols-outlined text-2xl">construction</span>
++              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] shadow-sm hover:shadow-lg transition-all overflow-hidden">
++                <div className="relative h-40 sm:h-48 overflow-hidden">
++                  <img
++                    src={imgFocusCivilWorks}
++                    alt="Civil Engineering &amp; Access Works"
++                    className="w-full h-full object-cover"
++                    loading="lazy"
++                  />
++                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
++                  <div className="absolute bottom-3 left-3 w-11 h-11 bg-white/95 text-[#005f9e] flex items-center justify-center shadow">
++                    <span className="material-symbols-outlined text-2xl">construction</span>
++                  </div>
++                </div>
++                <div className="p-6 sm:p-8">
++                  <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
++                    Civil Engineering &amp; Access Works
++                  </h3>
++                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
++                    Civil engineering and access support where scope, competence and approvals are in place.
++                  </p>
+                 </div>
+-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+-                  Civil Engineering &amp; Access Works
+-                </h3>
+-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+-                  Civil engineering and access support where scope, competence and approvals are in place.
+-                </p>
+               </div>
+ 
+-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+-                  <span className="material-symbols-outlined text-2xl">layers</span>
++              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] shadow-sm hover:shadow-lg transition-all overflow-hidden">
++                <div className="relative h-40 sm:h-48 overflow-hidden">
++                  <img
++                    src={imgFocusReinstatement}
++                    alt="Reinstatement Support"
++                    className="w-full h-full object-cover"
++                    loading="lazy"
++                  />
++                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
++                  <div className="absolute bottom-3 left-3 w-11 h-11 bg-white/95 text-[#005f9e] flex items-center justify-center shadow">
++                    <span className="material-symbols-outlined text-2xl">layers</span>
++                  </div>
++                </div>
++                <div className="p-6 sm:p-8">
++                  <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
++                    Reinstatement Support
++                  </h3>
++                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
++                    Reinstatement support in line with project requirements.
++                  </p>
+                 </div>
+-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+-                  Reinstatement Support
+-                </h3>
+-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+-                  Reinstatement support in line with project requirements.
+-                </p>
+               </div>
+ 
+-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
+-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+-                  <span className="material-symbols-outlined text-2xl">assignment_turned_in</span>
++              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] shadow-sm hover:shadow-lg transition-all overflow-hidden">
++                <div className="relative h-40 sm:h-48 overflow-hidden">
++                  <img
++                    src={imgFocusFieldMobilisation}
++                    alt="Field Mobilisation &amp; Reporting"
++                    className="w-full h-full object-cover"
++                    loading="lazy"
++                  />
++                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f3a5e]/60 via-transparent to-transparent" />
++                  <div className="absolute bottom-3 left-3 w-11 h-11 bg-white/95 text-[#005f9e] flex items-center justify-center shadow">
++                    <span className="material-symbols-outlined text-2xl">assignment_turned_in</span>
++                  </div>
++                </div>
++                <div className="p-6 sm:p-8">
++                  <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
++                    Field Mobilisation &amp; Reporting
++                  </h3>
++                  <p className="text-sm text-slate-600 leading-relaxed font-medium">
++                    Field mobilisation, supervision, project coordination and completion reporting.
++                  </p>
+                 </div>
+-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+-                  Field Mobilisation &amp; Reporting
+-                </h3>
+-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
+-                  Field mobilisation, supervision, project coordination and completion reporting.
+-                </p>
+               </div>
+             </div>
+           </div>
+@@ -297,39 +365,15 @@ const AboutCompanyPage = () => {
+               </p>
+             </div>
+ 
+-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+-              {/* Selbert George */}
+-              <div className="bg-white border-2 border-slate-200 p-8 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-start gap-6">
+-                <div className="w-20 h-20 bg-slate-900 shrink-0 border border-slate-300 flex items-center justify-center overflow-hidden">
+-                  <span className="material-symbols-outlined text-4xl text-slate-400">person</span>
+-                </div>
+-                <div>
+-                  <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit">Selbert George</h3>
+-                  <p className="text-sm font-bold text-[#005f9e] font-outfit mb-3">Director and Project Director</p>
+-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+-                    Active statutory director overseeing operational delivery, project management, workforce deployment and client coordination.
+-                  </p>
+-                </div>
+-              </div>
+-
+-              {/* Syed Zulqurnain Shah */}
+-              <div className="bg-white border-2 border-slate-200 p-8 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-start gap-6">
+-                <div className="w-20 h-20 bg-slate-900 shrink-0 border border-slate-300 flex items-center justify-center overflow-hidden">
+-                  <span className="material-symbols-outlined text-4xl text-slate-400">shield_person</span>
+-                </div>
+-                <div>
+-                  <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit">Syed Zulqurnain Shah</h3>
+-                  <p className="text-sm font-bold text-[#005f9e] font-outfit mb-3">Director</p>
+-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
+-                    Active statutory director responsible for statutory governance, financial oversight and corporate compliance.
+-                  </p>
+-                </div>
+-              </div>
++            <div className="flex flex-col md:flex-row flex-wrap gap-8 justify-start items-stretch">
++              {leadershipMembers.map((member, idx) => (
++                <MemberCard key={idx} member={member} />
++              ))}
+             </div>
+           </div>
+ 
+           {/* RESPONSIBLE GROWTH SECTION (Pack 02) */}
+-          <div className="mb-20 bg-slate-100 border border-slate-200 p-8 sm:p-12 text-left">
++          <div className="mb-20 bg-slate-100 border border-slate-200 p-8 sm:p-12 text-left" id="growing-responsibly">
+             <div className="max-w-3xl">
+               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-xs font-black tracking-widest mb-3 font-outfit uppercase">
+                 Responsible Growth

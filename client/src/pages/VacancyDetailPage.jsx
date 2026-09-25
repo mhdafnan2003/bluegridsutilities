@@ -395,7 +395,7 @@ const VacancyDetailPage = () => {
           {/* Application Form Section (Point 50 Data Minimisation) */}
           {vacancy.isOpen && !vacancy.isExpired ? (
             <div id="application-form-section" className="mt-14 max-w-4xl mx-auto">
-              <ApplicationForm defaultRole={vacancy.title} />
+              <ApplicationForm vacancy={vacancy} />
             </div>
           ) : (
             <div className="mt-10 p-8 bg-white border border-slate-200 max-w-4xl mx-auto text-left space-y-3">

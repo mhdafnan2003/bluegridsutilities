@@ -2,9 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MotionSection from '../../components/MotionSection';
 import aboutImage from '../../assets/images/about.jpeg';
-import heroTwoImg from '../../assets/images/26411341-cb03-4736-aa5b-488fc975bdc5.JPG';
 import workersImg from '../../assets/images/uk_utility_workers_site.png';
-import AboutBanner from '../../components/AboutBanner';
+import DirectorBanner from '../../components/DirectorBanner';
 
 import imgManagement from '../../assets/images/Project coordination and reporting.jpg';
 import imgWorkforce from '../../assets/images/uk_utility_workers_site.png';
@@ -16,6 +15,46 @@ import imgSatisfaction from '../../assets/images/water meter suoort bluegrids.jp
 import imgInfrastructure from '../../assets/images/infrastructure.jpeg';
 import imgProjectCoord from '../../assets/images/projectcordination.jpeg';
 import imgComplianceBg from '../../assets/images/Workforce onboarding and compliance verification.jpg';
+
+import imgFocusMetering from '../../assets/images/Water meter installation support.jfif';
+import imgFocusCivils from '../../assets/images/uk_utility_excavation.jpg';
+import imgFocusReinstatement from '../../assets/images/civil_engineering_excavation.jpg';
+import imgFocusMobilisation from '../../assets/images/rams_workforce_briefing.jpg';
+
+const focusAreas = [
+  {
+    icon: "water_drop",
+    title: "Smart Water Metering",
+    desc: "Smart water-meter installation and associated utility support.",
+    image: imgFocusMetering,
+    alt: "Operatives in high-visibility vests installing a water meter at a residential verge",
+    position: "center 60%"
+  },
+  {
+    icon: "construction",
+    title: "Civil Engineering & Access Works",
+    desc: "Civil engineering and access support where scope, competence and approvals are in place.",
+    image: imgFocusCivils,
+    alt: "Operative working in a fenced excavation exposing utility ducts on a UK street",
+    position: "center"
+  },
+  {
+    icon: "layers",
+    title: "Reinstatement Support",
+    desc: "Reinstatement support in line with project requirements.",
+    image: imgFocusReinstatement,
+    alt: "Concrete being placed to reinstate a trench over utility ducts",
+    position: "center"
+  },
+  {
+    icon: "assignment_turned_in",
+    title: "Field Mobilisation & Reporting",
+    desc: "Field mobilisation, supervision, project coordination and completion reporting.",
+    image: imgFocusMobilisation,
+    alt: "Supervisor briefing a field team with a clipboard and tablet before works begin",
+    position: "center 30%"
+  }
+];
 
 const corePillars = [
   {
@@ -76,27 +115,8 @@ const AboutCompanyPage = () => {
       >
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           
-          {/* Top Hero Banner Component (Pack 02) */}
-          <AboutBanner 
-            badgeText="ABOUT BLUEGRID"
-            title="About Bluegrid Utilities"
-            description="Bluegrid Utilities is the trading name of Bluegrid Technology Ltd, a UK company operating in the utilities and infrastructure sector. Our current operational focus includes smart water-meter installation and associated utility project support."
-            bgImage={heroTwoImg}
-            imagePosition="center 35%"
-          >
-            <Link
-              to="/services"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold text-xs tracking-wider rounded-none shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 uppercase font-outfit"
-            >
-              Our Capabilities
-            </Link>
-            <Link
-              to="/contact"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-white/10 hover:bg-white/20 border-2 border-white/80 hover:border-white text-white font-bold text-xs tracking-wider rounded-none backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-0.5 uppercase font-outfit"
-            >
-              Contact Us
-            </Link>
-          </AboutBanner>
+          {/* Opening banner: message from the Managing Director */}
+          <DirectorBanner />
 
           {/* Main Grid: Story + Profile Card */}
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-stretch mb-20">
@@ -218,53 +238,33 @@ const AboutCompanyPage = () => {
 
             {/* 4 Focus Points Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-2xl">water_drop</span>
+              {focusAreas.map((area) => (
+                <div
+                  key={area.title}
+                  className="group bg-white border-2 border-slate-200 hover:border-[#005f9e] shadow-sm hover:shadow-lg transition-all overflow-hidden"
+                >
+                  <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
+                    <img
+                      src={area.image}
+                      alt={area.alt}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      style={{ objectPosition: area.position }}
+                    />
+                  </div>
+                  <div className="p-6 sm:p-8">
+                    <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
+                      <span className="material-symbols-outlined text-2xl">{area.icon}</span>
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                      {area.title}
+                    </h3>
+                    <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                      {area.desc}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
-                  Smart Water Metering
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                  Smart water-meter installation and associated utility support.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-2xl">construction</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
-                  Civil Engineering &amp; Access Works
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                  Civil engineering and access support where scope, competence and approvals are in place.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-2xl">layers</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
-                  Reinstatement Support
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                  Reinstatement support in line with project requirements.
-                </p>
-              </div>
-
-              <div className="bg-white border-2 border-slate-200 hover:border-[#005f9e] p-6 sm:p-8 shadow-sm hover:shadow-lg transition-all">
-                <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
-                  <span className="material-symbols-outlined text-2xl">assignment_turned_in</span>
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
-                  Field Mobilisation &amp; Reporting
-                </h3>
-                <p className="text-sm text-slate-600 leading-relaxed font-medium">
-                  Field mobilisation, supervision, project coordination and completion reporting.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
 

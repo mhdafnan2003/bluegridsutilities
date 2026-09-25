@@ -313,7 +313,7 @@ const Header = () => {
                           { label: "Careers at Bluegrid", to: "/careers" },
                           { label: "Current Vacancies", to: "/careers/jobs" },
                           { label: "Recruitment Process", to: "/careers#recruitment-process" },
-                          { label: "Candidate Privacy Notice", to: "/policies" }
+                          { label: "Candidate Privacy Notice", to: "/policies/candidate-privacy" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
                           return (
@@ -360,7 +360,8 @@ const Header = () => {
               to="/contact"
               className="bg-[#005f9e] hover:bg-[#004c80] text-white transition-all duration-200 px-3 sm:px-3.5 lg:px-4 py-2 sm:py-2.5 rounded-lg font-bold uppercase text-[10px] sm:text-[11px] lg:text-xs font-outfit tracking-wider flex items-center justify-center whitespace-nowrap shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer shrink-0"
             >
-              <span>Discuss Project</span>
+              <span className="lg:hidden">Contact</span>
+              <span className="hidden lg:inline">Discuss Project</span>
             </Link>
 
             {/* Mobile Hamburger toggle */}
@@ -575,7 +576,7 @@ const Header = () => {
                                 { label: "Careers at Bluegrid", to: "/careers" },
                                 { label: "Current Vacancies", to: "/careers/jobs" },
                                 { label: "Recruitment Process", to: "/careers#recruitment-process" },
-                                { label: "Candidate Privacy Notice", to: "/policies" }
+                                { label: "Candidate Privacy Notice", to: "/policies/candidate-privacy" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);
                                 return (

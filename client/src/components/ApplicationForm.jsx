@@ -1,636 +1,746 @@
-import React, { useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
+import { DEFAULT_VACANCY_SLUG, findLocalVacancy } from '../data/vacancies';
+import {
+  RIGHT_TO_WORK,
+  SPONSORSHIP,
+  DRIVING,
+  EXPERIENCE_YEARS,
+  INTERVIEW_AVAILABILITY,
+  CIS_STATUS,
+  EITHER_ROUTE,
+  CERTIFICATES,
+  CV_EXTENSIONS,
+  CV_ACCEPT,
+  CV_TYPES_LABEL,
+  CV_MAX_MB,
+  RECRUITMENT_EMAIL,
+  CANDIDATE_PRIVACY_URL,
+} from '../data/applicationOptions';
 
-const ApplicationForm = ({ defaultRole = "Water Meter Installation Operative – Digging & Reinstatement" }) => {
-  const [formData, setFormData] = useState({
-    fullName: '',
-    location: '',
-    phone: '',
-    email: '',
-    engagementRoute: 'Permanent full-time PAYE employment',
-    rightToWork: 'UK Citizen / Irish National',
-    drivingLicence: 'Full UK Driving Licence (Clean)',
-    relevantExperience: '',
-    experienceYears: '0-1 year',
-    nrswaStatus: 'No NRSWA Card Held',
-    catGennyStatus: 'No CAT & Genny Training',
-    cisStatus: 'Not Applicable (PAYE Applicant)',
-    certificates: [],
-    otherCertificates: '',
-    interviewAvailability: 'Immediate / Within 1 Week',
-    consent: false,
-  });
+// Every answer starts empty: the form never assumes anything about the candidate.
+const EMPTY = {
+  engagementRoute: '',
+  cisStatus: '',
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  town: '',
+  postcode: '',
+  rightToWork: '',
+  sponsorship: '',
+  drivingLicence: '',
+  certificates: [],
+  otherCertificates: '',
+  experienceYears: '',
+  relevantExperience: '',
+  interviewAvailability: '',
+  startDate: '',
+  roleRequirements: false,
+  declaration: false,
+  privacy: false,
+  website: '', // honeypot, hidden from people
+};
 
+// Order of fields as they appear on screen, used to order the error summary.
+const FIELD_ORDER = [
+  'engagementRoute', 'cisStatus', 'firstName', 'lastName', 'email', 'phone', 'town', 'postcode',
+  'rightToWork', 'sponsorship', 'drivingLicence', 'certificates', 'otherCertificates', 'experienceYears',
+  'relevantExperience', 'interviewAvailability', 'startDate', 'cv', 'roleRequirements', 'declaration', 'privacy',
+];
+
+const EMAIL_RE = /^[^\s@,;<>()]+@[^\s@,;<>()]+\.[^\s@,;<>()]{2,}$/;
+const PHONE_RE = /^[0-9+()\s.-]{7,25}$/;
+const UK_POSTCODE_RE = /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/;
+
+const todayIso = () => {
+  const d = new Date();
+  return new Date(d.getTime() - d.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+};
+
+/** Mirrors the server rules in careers.controller.js so candidates get the same message either way. */
+const validateField = (name, data, routes) => {
+  const v = typeof data[name] === 'string' ? data[name].trim() : data[name];
+  switch (name) {
+    case 'engagementRoute':
+      return routes.includes(v) ? '' : 'Select your engagement preference.';
+    case 'cisStatus':
+      if (!data.engagementRoute || data.engagementRoute === routes[0]) return '';
+      return CIS_STATUS.includes(v) ? '' : 'Select your CIS status.';
+    case 'firstName':
+      return v ? '' : 'Enter your first name.';
+    case 'lastName':
+      return v ? '' : 'Enter your last name.';
+    case 'email':
+      if (!v) return 'Enter your email address.';
+      return EMAIL_RE.test(v) ? '' : 'Enter an email address in the correct format, like name@example.com.';
+    case 'phone':
+      if (!v) return 'Enter a phone number.';
+      return PHONE_RE.test(v) && (v.match(/\d/g) || []).length >= 7 ? '' : 'Enter a phone number, like 07123 456789.';
+    case 'town':
+      return v ? '' : 'Enter the town you currently live in.';
+    case 'postcode':
+      return !v || UK_POSTCODE_RE.test(v.toUpperCase()) ? '' : 'Enter a valid UK postcode, for example CV1 2AB.';
+    case 'rightToWork':
+      return RIGHT_TO_WORK.includes(v) ? '' : 'Select your right-to-work status.';
+    case 'sponsorship':
+      return SPONSORSHIP.includes(v) ? '' : 'Answer the visa sponsorship question.';
+    case 'drivingLicence':
+      return DRIVING.includes(v) ? '' : 'Select your driving licence status.';
+    case 'interviewAvailability':
+      return INTERVIEW_AVAILABILITY.includes(v) ? '' : 'Select when you are available for an interview.';
+    case 'startDate':
+      if (!v) return '';
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(v)) return 'Enter a valid date.';
+      return v < todayIso() ? 'Your earliest start date cannot be in the past.' : '';
+    case 'roleRequirements':
+      return v ? '' : 'Confirm that you have read the requirements of the role.';
+    case 'declaration':
+      return v ? '' : 'Confirm that the information you have given is accurate and complete.';
+    case 'privacy':
+      return v ? '' : 'Confirm that you have read the Candidate Privacy Notice.';
+    default:
+      return '';
+  }
+};
+
+const validateCv = (file) => {
+  if (!file) return '';
+  const ext = (file.name.match(/\.[^.]+$/) || [''])[0].toLowerCase();
+  if (!CV_EXTENSIONS.includes(ext)) return `The CV must be a ${CV_TYPES_LABEL} file.`;
+  if (file.size === 0) return 'The selected file is empty.';
+  if (file.size > CV_MAX_MB * 1024 * 1024) return `The CV must be ${CV_MAX_MB} MB or smaller.`;
+  return '';
+};
+
+const inputCls = (hasError) =>
+  `w-full px-3.5 py-2.5 bg-white border text-slate-900 text-base sm:text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005f9e] focus-visible:ring-offset-1 transition-colors ${
+    hasError ? 'border-red-600' : 'border-slate-400 focus:border-[#005f9e]'
+  }`;
+const labelCls = 'block text-sm font-bold text-slate-800 mb-1';
+const hintCls = 'block text-xs text-slate-600 mb-1.5';
+
+const Req = () => <span aria-hidden="true" className="text-red-700"> *</span>;
+
+const FieldError = ({ id, message }) =>
+  message ? (
+    <p id={id} className="mt-1.5 text-sm font-semibold text-red-700 flex items-start gap-1">
+      <span className="sr-only">Error: </span>
+      {message}
+    </p>
+  ) : null;
+
+const SectionTitle = ({ n, children }) => (
+  <h3 className="flex items-center gap-2 text-base font-bold text-[#0f3a5e] font-outfit uppercase tracking-wide">
+    <span aria-hidden="true" className="w-6 h-6 bg-[#005f9e] text-white flex items-center justify-center text-xs font-bold">{n}</span>
+    {children}
+  </h3>
+);
+
+const ApplicationForm = ({ vacancy: vacancyProp }) => {
+  const uid = useId().replace(/:/g, '');
+  const id = (name) => `${uid}-${name}`;
+
+  const vacancy = { ...findLocalVacancy(vacancyProp?.slug || DEFAULT_VACANCY_SLUG), ...vacancyProp };
+  const routes = [...(vacancy.engagementTypes || []), EITHER_ROUTE];
+  const privacyUrl = vacancy.candidatePrivacyUrl || CANDIDATE_PRIVACY_URL;
+
+  const [data, setData] = useState(EMPTY);
   const [cvFile, setCvFile] = useState(null);
-  const [submitting, setSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [errors, setErrors] = useState({});
+  const [formError, setFormError] = useState('');
+  const [errorCount, setErrorCount] = useState(0); // bumps on every failed submit so focus moves each time
+  const [status, setStatus] = useState('idle'); // idle | submitting | success
+  const [result, setResult] = useState(null);
 
-  const certificateOptions = [
-    "NRSWA Operative (O1-O5, O8 / LA)",
-    "NRSWA Supervisor",
-    "EUSR National Water Hygiene (Blue Card)",
-    "EUSR SHEA Water",
-    "CAT & Genny (EUSR Category 1)",
-    "Emergency First Aid at Work",
-    "Manual Handling",
-    "Abrasive Wheels",
-    "Banksman / Traffic Marshall",
-    "Category A Asbestos Awareness",
-    "CSCS Green / Blue Card"
-  ];
+  const inFlight = useRef(false);
+  const summaryRef = useRef(null);
+  const successRef = useRef(null);
+  const fileRef = useRef(null);
 
-  const handleInputChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-  };
+  const showCis = Boolean(data.engagementRoute) && data.engagementRoute !== routes[0];
 
-  const handleCertToggle = (cert) => {
-    setFormData(prev => {
-      const exists = prev.certificates.includes(cert);
-      if (exists) {
-        return { ...prev, certificates: prev.certificates.filter(c => c !== cert) };
-      } else {
-        return { ...prev, certificates: [...prev.certificates, cert] };
-      }
-    });
-  };
-
-  const handleFileChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      const file = e.target.files[0];
-      if (file.size > 10 * 1024 * 1024) {
-        setErrorMsg('File size must be under 10MB.');
-        return;
-      }
-      setCvFile(file);
-      setErrorMsg('');
+  // Move focus to the error summary / confirmation when they appear, so screen readers announce them.
+  useEffect(() => {
+    if (errorCount && summaryRef.current) summaryRef.current.focus();
+  }, [errorCount]);
+  useEffect(() => {
+    if (status === 'success' && successRef.current) {
+      successRef.current.focus();
+      successRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
+  }, [status]);
+
+  const update = (name, value) => {
+    const next = { ...data, [name]: value };
+    setData(next);
+    // Once a field has been flagged, re-check it as the candidate corrects it.
+    if (errors[name]) setErrors((e) => ({ ...e, [name]: validateField(name, next, routes) }));
+    if (name === 'engagementRoute' && errors.cisStatus) setErrors((e) => ({ ...e, cisStatus: validateField('cisStatus', next, routes) }));
+  };
+
+  const onChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    update(name, type === 'checkbox' ? checked : value);
+  };
+
+  const toggleCert = (cert) =>
+    update('certificates', data.certificates.includes(cert) ? data.certificates.filter((c) => c !== cert) : [...data.certificates, cert]);
+
+  const onFile = (e) => {
+    const file = e.target.files?.[0] || null;
+    const msg = validateCv(file);
+    if (msg) {
+      e.target.value = '';
+      setCvFile(null);
+      setErrors((prev) => ({ ...prev, cv: msg }));
+      return;
+    }
+    setCvFile(file);
+    setErrors((prev) => ({ ...prev, cv: '' }));
+  };
+
+  const removeFile = () => {
+    setCvFile(null);
+    setErrors((prev) => ({ ...prev, cv: '' }));
+    if (fileRef.current) {
+      fileRef.current.value = '';
+      fileRef.current.focus();
+    }
+  };
+
+  const focusField = (name) => (e) => {
+    e.preventDefault();
+    const target = document.getElementById(id(name === 'engagementRoute' ? 'route-0' : name));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      target.focus({ preventScroll: true });
+    }
+  };
+
+  const showErrors = (fieldErrors, message) => {
+    setErrors(fieldErrors);
+    setFormError(message);
+    setErrorCount((n) => n + 1);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorMsg('');
+    if (inFlight.current || status === 'submitting') return; // duplicate-submit guard
 
-    if (!formData.fullName || !formData.email || !formData.phone || !formData.location) {
-      setErrorMsg('Please complete all required contact fields.');
+    const fieldErrors = {};
+    FIELD_ORDER.forEach((name) => {
+      const msg = name === 'cv' ? validateCv(cvFile) : validateField(name, data, routes);
+      if (msg) fieldErrors[name] = msg;
+    });
+    if (Object.keys(fieldErrors).length) {
+      showErrors(fieldErrors, 'There is a problem with your application');
       return;
     }
 
-    if (!formData.consent) {
-      setErrorMsg('You must confirm your consent to the privacy policy to submit your application.');
-      return;
-    }
+    inFlight.current = true;
+    setStatus('submitting');
+    setFormError('');
 
-    setSubmitting(true);
+    const fd = new FormData();
+    fd.append('roleSlug', vacancy.slug);
+    Object.entries(data).forEach(([k, v]) => {
+      if (k === 'certificates') v.forEach((c) => fd.append('certificates', c));
+      else if (k === 'cisStatus' && !showCis) fd.append(k, '');
+      else fd.append(k, typeof v === 'boolean' ? String(v) : v.trim());
+    });
+    if (cvFile) fd.append('cv', cvFile);
 
     try {
-      // Post to backend API
-      const payload = {
-        fullName: formData.fullName,
-        email: formData.email,
-        phone: formData.phone,
-        location: formData.location,
-        roleTitle: defaultRole,
-        engagementRoute: formData.engagementRoute,
-        rightToWork: formData.rightToWork,
-        drivingLicence: formData.drivingLicence,
-        relevantExperience: formData.relevantExperience,
-        experienceYears: formData.experienceYears,
-        nrswaStatus: formData.nrswaStatus,
-        catGennyStatus: formData.catGennyStatus,
-        cisStatus: formData.cisStatus,
-        certificates: formData.certificates,
-        otherCertificates: formData.otherCertificates,
-        interviewAvailability: formData.interviewAvailability,
-        cvFileName: cvFile ? cvFile.name : null,
-      };
+      const res = await fetch('/api/careers/apply', { method: 'POST', body: fd, headers: { Accept: 'application/json' } });
+      const isJson = (res.headers.get('content-type') || '').includes('application/json');
+      const body = isJson ? await res.json() : null;
 
-      const response = await fetch('/api/careers/apply', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      const result = await response.json().catch(() => ({ success: true }));
-
-      if (response.ok || result.success) {
-        setSubmitted(true);
-      } else {
-        // Fallback success indication for offline/static deployment
-        setSubmitted(true);
+      if (res.ok && body?.success) {
+        setResult(body.data || {});
+        setStatus('success');
+        return;
       }
-    } catch (err) {
-      // In case backend is offline or static hosting, still show success receipt
-      console.warn('API submission notice:', err);
-      setSubmitted(true);
+
+      setStatus('idle');
+      if (!body) {
+        showErrors({}, `We could not submit your application just now. Your answers have been kept, so please try again in a few minutes. If it keeps happening, email your CV to ${RECRUITMENT_EMAIL} quoting reference ${vacancy.reference}.`);
+      } else if (body.error?.fields) {
+        const mapped = { ...body.error.fields };
+        if (mapped.role) delete mapped.role;
+        showErrors(mapped, body.error.message || 'There is a problem with your application');
+      } else if (res.status === 429) {
+        showErrors({}, 'Too many applications have been sent from this connection. Please wait a few minutes and try again. Your answers have been kept.');
+      } else {
+        showErrors({}, body.error?.message || `Something went wrong. Your answers have been kept. Please try again, or email ${RECRUITMENT_EMAIL}.`);
+      }
+    } catch {
+      setStatus('idle');
+      showErrors({}, `We could not reach our server. Check your connection and try again; your answers have been kept. You can also email your CV to ${RECRUITMENT_EMAIL} quoting reference ${vacancy.reference}.`);
     } finally {
-      setSubmitting(false);
+      inFlight.current = false;
     }
   };
 
-  if (submitted) {
+  // ------------------------------------------------------------------------------------------
+  // Confirmation
+  // ------------------------------------------------------------------------------------------
+  if (status === 'success') {
     return (
-      <div className="bg-white border-2 border-emerald-500 p-8 sm:p-12 text-left shadow-2xl relative">
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-14 h-14 bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-3xl">
-            ✓
+      <div className="bg-white border-2 border-emerald-600 p-6 sm:p-10 text-left shadow-xl" role="status">
+        <div className="flex items-start gap-4 mb-6">
+          <div aria-hidden="true" className="w-12 h-12 shrink-0 bg-emerald-100 text-emerald-800 flex items-center justify-center">
+            <span className="material-symbols-outlined text-3xl">check_circle</span>
+          </div>
+          <h2 ref={successRef} tabIndex={-1} className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] font-outfit focus:outline-none">
+            Application submitted successfully
+          </h2>
+        </div>
+
+        <p className="text-slate-700 text-base leading-relaxed">
+          Thank you, {data.firstName.trim()}. Your application for <strong className="text-[#0f3a5e]">{result?.roleTitle || vacancy.title}</strong> has
+          been received by the Bluegrid Utilities recruitment team.
+        </p>
+
+        <dl className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 border border-slate-200 p-5 text-sm">
+          <div>
+            <dt className="text-slate-600 font-bold">Job reference</dt>
+            <dd className="text-[#0f3a5e] font-bold text-base">{result?.reference || vacancy.reference}</dd>
+          </div>
+          {result?.applicationId && (
+            <div>
+              <dt className="text-slate-600 font-bold">Your application ID</dt>
+              <dd className="text-[#0f3a5e] font-bold text-base">{result.applicationId}</dd>
+            </div>
+          )}
+          <div>
+            <dt className="text-slate-600 font-bold">CV</dt>
+            <dd className="text-[#0f3a5e]">{cvFile ? cvFile.name : 'No CV attached'}</dd>
           </div>
           <div>
-            <span className="text-xs font-black tracking-widest text-emerald-700 uppercase font-outfit">
-              Application Successfully Submitted
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] font-outfit">
-              Thank You, {formData.fullName.split(' ')[0]}!
-            </h3>
+            <dt className="text-slate-600 font-bold">We will contact you at</dt>
+            <dd className="text-[#0f3a5e] break-all">{data.email.trim()}</dd>
           </div>
-        </div>
+        </dl>
 
-        <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed bg-slate-50 p-6 border border-slate-200">
-          <p className="font-semibold text-[#0f3a5e]">
-            Your application for <span className="text-[#005f9e] underline">{defaultRole}</span> has been received by Bluegrid Utilities Recruitment.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-medium pt-2 border-t border-slate-200">
-            <div>
-              <span className="text-slate-400 uppercase font-bold block">Selected Route:</span>
-              <span className="text-[#0f3a5e] font-bold">{formData.engagementRoute}</span>
-            </div>
-            <div>
-              <span className="text-slate-400 uppercase font-bold block">Location:</span>
-              <span className="text-[#0f3a5e] font-bold">{formData.location}</span>
-            </div>
-            <div>
-              <span className="text-slate-400 uppercase font-bold block">Contact Phone:</span>
-              <span className="text-[#0f3a5e] font-bold">{formData.phone}</span>
-            </div>
-            <div>
-              <span className="text-slate-400 uppercase font-bold block">Contact Email:</span>
-              <span className="text-[#0f3a5e] font-bold">{formData.email}</span>
-            </div>
-          </div>
-        </div>
+        <p className="mt-5 text-sm text-slate-700">
+          {result?.confirmationEmailSent
+            ? 'We have also emailed you a copy of these details.'
+            : 'Please keep a note of your job reference and application ID.'}{' '}
+          If you have any questions, email <a className="text-[#005f9e] font-bold underline" href={`mailto:${RECRUITMENT_EMAIL}`}>{RECRUITMENT_EMAIL}</a> and
+          quote your application ID.
+        </p>
 
-        <div className="mt-6 p-4 bg-amber-50 border-l-4 border-amber-500 text-xs sm:text-sm text-amber-900">
-          <strong>Important Advisory:</strong> Please do <u>not</u> book or pay for any mandatory training courses until you have attended an interview and received written conditional selection from Bluegrid Utilities.
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-4">
-          <button
-            onClick={() => {
-              setSubmitted(false);
-              setFormData({
-                fullName: '',
-                location: '',
-                phone: '',
-                email: '',
-                engagementRoute: 'Permanent full-time PAYE employment',
-                rightToWork: 'UK Citizen / Irish National',
-                drivingLicence: 'Full UK Driving Licence (Clean)',
-                relevantExperience: '',
-                experienceYears: '0-1 year',
-                nrswaStatus: 'No NRSWA Card Held',
-                catGennyStatus: 'No CAT & Genny Training',
-                cisStatus: 'Not Applicable (PAYE Applicant)',
-                utrNumber: '',
-                certificates: [],
-                otherCertificates: '',
-                interviewAvailability: 'Immediate / Within 1 Week',
-                consent: false,
-              });
-              setCvFile(null);
-            }}
-            className="px-6 py-3 bg-[#0f3a5e] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#005f9e] transition-colors"
-          >
-            Submit Another Application
-          </button>
-          <a
-            href="mailto:Recruitment@bluegridutilities.com"
-            className="px-6 py-3 bg-slate-100 text-[#0f3a5e] text-xs font-bold uppercase tracking-widest hover:bg-slate-200 transition-colors border border-slate-300 inline-flex items-center gap-2"
-          >
-            <span className="material-symbols-outlined text-sm">mail</span>
-            Contact Recruitment Team
-          </a>
-        </div>
+        <p className="mt-5 p-4 bg-amber-50 border-l-4 border-amber-600 text-sm text-amber-950">
+          <strong>Please note:</strong> do not book or pay for any training courses until you have attended an interview and received written
+          confirmation from Bluegrid Utilities.
+        </p>
       </div>
     );
   }
 
+  // ------------------------------------------------------------------------------------------
+  // Form
+  // ------------------------------------------------------------------------------------------
+  const describedBy = (name, hint) => [hint && id(`${name}-hint`), errors[name] && id(`${name}-error`)].filter(Boolean).join(' ') || undefined;
+  const errorEntries = FIELD_ORDER.filter((k) => errors[k]).map((k) => [k, errors[k]]);
+  const submitting = status === 'submitting';
+
+  const textField = (name, label, { type = 'text', required = false, autoComplete, hint, inputMode, className = '', ...rest } = {}) => (
+    <div className={className}>
+      <label htmlFor={id(name)} className={labelCls}>
+        {label}
+        {required ? <Req /> : <span className="font-normal text-slate-600"> (optional)</span>}
+      </label>
+      {hint && <span id={id(`${name}-hint`)} className={hintCls}>{hint}</span>}
+      <input
+        id={id(name)}
+        name={name}
+        type={type}
+        required={required}
+        autoComplete={autoComplete}
+        inputMode={inputMode}
+        value={data[name]}
+        onChange={onChange}
+        aria-invalid={errors[name] ? 'true' : undefined}
+        aria-describedby={describedBy(name, hint)}
+        className={inputCls(errors[name])}
+        {...rest}
+      />
+      <FieldError id={id(`${name}-error`)} message={errors[name]} />
+    </div>
+  );
+
+  const selectField = (name, label, options, { required = false, hint, className = '' } = {}) => (
+    <div className={className}>
+      <label htmlFor={id(name)} className={labelCls}>
+        {label}
+        {required ? <Req /> : <span className="font-normal text-slate-600"> (optional)</span>}
+      </label>
+      {hint && <span id={id(`${name}-hint`)} className={hintCls}>{hint}</span>}
+      <select
+        id={id(name)}
+        name={name}
+        required={required}
+        value={data[name]}
+        onChange={onChange}
+        aria-invalid={errors[name] ? 'true' : undefined}
+        aria-describedby={describedBy(name, hint)}
+        className={inputCls(errors[name])}
+      >
+        <option value="">Please select</option>
+        {options.map((o) => (
+          <option key={o} value={o}>{o}</option>
+        ))}
+      </select>
+      <FieldError id={id(`${name}-error`)} message={errors[name]} />
+    </div>
+  );
+
+  const checkbox = (name, children) => (
+    <div>
+      <div className="flex items-start gap-3">
+        <input
+          id={id(name)}
+          name={name}
+          type="checkbox"
+          required
+          checked={data[name]}
+          onChange={onChange}
+          aria-invalid={errors[name] ? 'true' : undefined}
+          aria-describedby={errors[name] ? id(`${name}-error`) : undefined}
+          className="mt-0.5 w-5 h-5 shrink-0 accent-[#005f9e] focus-visible:ring-2 focus-visible:ring-[#005f9e] focus-visible:ring-offset-2"
+        />
+        <label htmlFor={id(name)} className="text-sm text-slate-800 leading-relaxed cursor-pointer">
+          {children}
+          <Req />
+        </label>
+      </div>
+      <FieldError id={id(`${name}-error`)} message={errors[name]} />
+    </div>
+  );
+
   return (
-    <form onSubmit={handleSubmit} className="bg-white border border-slate-200 p-6 sm:p-10 md:p-12 shadow-xl text-left space-y-8">
-      
-      {/* Form Header */}
+    <form
+      onSubmit={handleSubmit}
+      noValidate
+      aria-labelledby={id('title')}
+      aria-busy={submitting}
+      className="bg-white border border-slate-200 p-5 sm:p-10 md:p-12 shadow-xl text-left space-y-10"
+    >
+      {/* Role and reference */}
       <div className="border-b border-slate-200 pb-6">
-        <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-          <span className="px-3 py-1 bg-[#005f9e]/10 text-[#005f9e] text-[11px] font-black tracking-widest uppercase font-outfit">
-            Application Portal
-          </span>
-          <span className="text-xs text-slate-500 font-medium">
-            Status: <strong className="text-emerald-700">Immediate Recruitment</strong>
-          </span>
-        </div>
-        <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
-          Apply For: {defaultRole}
-        </h3>
-        <p className="text-slate-600 text-xs sm:text-sm mt-2">
-          Coventry &amp; surrounding operational areas. Complete all sections carefully. Applications are reviewed immediately upon receipt.
+        <p className="text-xs font-black tracking-widest uppercase text-[#005f9e] font-outfit">Apply for this role</p>
+        <h2 id={id('title')} className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
+          {vacancy.title}
+        </h2>
+        <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-slate-700">
+          <div className="flex gap-1.5">
+            <dt className="font-bold">Job reference:</dt>
+            <dd>{vacancy.reference}</dd>
+          </div>
+          {vacancy.location && (
+            <div className="flex gap-1.5">
+              <dt className="font-bold">Location:</dt>
+              <dd>{vacancy.location}</dd>
+            </div>
+          )}
+        </dl>
+        <p className="mt-3 text-sm text-slate-600">
+          Questions marked <span aria-hidden="true" className="text-red-700 font-bold">*</span>
+          <span className="sr-only">as required</span> must be answered. All other questions are optional.
         </p>
       </div>
 
-      {errorMsg && (
-        <div className="p-4 bg-red-50 border-l-4 border-red-500 text-red-700 text-xs sm:text-sm font-semibold">
-          {errorMsg}
+      {/* Error summary */}
+      {formError && (
+        <div
+          ref={summaryRef}
+          tabIndex={-1}
+          role="alert"
+          aria-labelledby={id('summary-title')}
+          className="p-5 bg-red-50 border-l-4 border-red-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-700"
+        >
+          <h3 id={id('summary-title')} className="text-base font-bold text-red-800">
+            {errorEntries.length ? 'There is a problem with your application' : 'Your application has not been sent'}
+          </h3>
+          {errorEntries.length ? (
+            <>
+              <p className="mt-1 text-sm text-red-900">Please correct the following. Everything else you entered has been kept.</p>
+              <ul className="mt-3 list-disc pl-5 space-y-1 text-sm">
+                {errorEntries.map(([k, msg]) => (
+                  <li key={k}>
+                    <a href={`#${id(k === 'engagementRoute' ? 'route-0' : k)}`} onClick={focusField(k)} className="text-red-800 font-semibold underline">
+                      {msg}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : (
+            <p className="mt-1 text-sm text-red-900">{formError}</p>
+          )}
         </div>
       )}
 
-      {/* 1. Engagement Route Section */}
-      <div className="space-y-4">
-        <div className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-none bg-[#005f9e] text-white flex items-center justify-center text-xs font-bold font-outfit">1</span>
-          <label className="text-sm sm:text-base font-bold text-[#0f3a5e] font-outfit uppercase tracking-wide">
-            Preferred Engagement Route <span className="text-red-500">*</span>
-          </label>
-        </div>
-        <p className="text-xs text-slate-500">
-          Bluegrid Utilities is recruiting via two distinct full-time routes (no part-time options available).
-        </p>
+      {/* Honeypot: hidden from people and assistive technology */}
+      <div aria-hidden="true" className="absolute -left-[9999px] w-px h-px overflow-hidden">
+        <label htmlFor={id('website')}>Leave this field empty</label>
+        <input id={id('website')} name="website" type="text" tabIndex={-1} autoComplete="off" value={data.website} onChange={onChange} />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
-          {[
-            {
-              id: 'paye',
-              value: 'Permanent full-time PAYE employment',
-              label: 'Permanent Full-Time PAYE',
-              sub: '£34,000 / year • Employment benefits • Open to all experience levels'
-            },
-            {
-              id: 'cis',
-              value: 'Self-employed CIS subcontract opportunity',
-              label: 'Self-Employed CIS Subcontract',
-              sub: '£180–£220 / day* • UTR required • Experienced & self-employed operatives'
-            },
-            {
-              id: 'either',
-              value: 'I would like to be considered for either route',
-              label: 'Considered for Either Route',
-              sub: 'Open to discuss both PAYE and CIS suitability during interview'
-            }
-          ].map((option) => (
-            <label
-              key={option.id}
-              className={`relative flex flex-col justify-between p-4 border-2 cursor-pointer transition-all duration-200 ${
-                formData.engagementRoute === option.value
-                  ? 'border-[#005f9e] bg-[#f0f7fc] shadow-md'
-                  : 'border-slate-200 bg-white hover:border-slate-300'
-              }`}
-            >
-              <div className="flex items-start justify-between gap-2 mb-2">
-                <span className="text-xs sm:text-sm font-bold text-[#0f3a5e] font-outfit">
-                  {option.label}
-                </span>
+      {/* 1. Role and engagement preference */}
+      <section className="space-y-4" aria-labelledby={id('s1')}>
+        <div id={id('s1')}><SectionTitle n="1">Engagement preference</SectionTitle></div>
+        <fieldset aria-describedby={describedBy('engagementRoute', vacancy.salaryRate)} aria-invalid={errors.engagementRoute ? 'true' : undefined}>
+          <legend className={labelCls}>
+            How would you like to work with us?
+            <Req />
+          </legend>
+          {vacancy.salaryRate && <span id={id('engagementRoute-hint')} className={hintCls}>{vacancy.salaryRate}</span>}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-1">
+            {routes.map((route, i) => (
+              <div
+                key={route}
+                className={`flex items-start gap-3 p-4 border-2 transition-colors ${
+                  data.engagementRoute === route ? 'border-[#005f9e] bg-[#f0f7fc]' : errors.engagementRoute ? 'border-red-600' : 'border-slate-300'
+                }`}
+              >
                 <input
+                  id={id(`route-${i}`)}
                   type="radio"
                   name="engagementRoute"
-                  value={option.value}
-                  checked={formData.engagementRoute === option.value}
-                  onChange={handleInputChange}
-                  className="mt-0.5 text-[#005f9e] focus:ring-[#005f9e]"
+                  value={route}
+                  required
+                  checked={data.engagementRoute === route}
+                  onChange={onChange}
+                  className="mt-0.5 w-5 h-5 shrink-0 accent-[#005f9e] focus-visible:ring-2 focus-visible:ring-[#005f9e] focus-visible:ring-offset-2"
                 />
+                <label htmlFor={id(`route-${i}`)} className="text-sm font-semibold text-[#0f3a5e] cursor-pointer">
+                  {route === EITHER_ROUTE ? 'Either route - I am open to both' : route}
+                </label>
               </div>
-              <p className="text-[11px] text-slate-600 leading-snug">
-                {option.sub}
-              </p>
-            </label>
-          ))}
-        </div>
-      </div>
-
-      {/* 2. Personal & Contact Details */}
-      <div className="space-y-4 pt-4 border-t border-slate-100">
-        <div className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-none bg-[#005f9e] text-white flex items-center justify-center text-xs font-bold font-outfit">2</span>
-          <label className="text-sm sm:text-base font-bold text-[#0f3a5e] font-outfit uppercase tracking-wide">
-            Personal &amp; Contact Details
-          </label>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              Full Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              name="fullName"
-              required
-              value={formData.fullName}
-              onChange={handleInputChange}
-              placeholder="e.g. John Smith"
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              Residential Location (City / Town / Postcode) <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              name="location"
-              required
-              value={formData.location}
-              onChange={handleInputChange}
-              placeholder="e.g. Coventry, CV1 2AB / West Midlands"
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              Telephone / Mobile Number <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              required
-              value={formData.phone}
-              onChange={handleInputChange}
-              placeholder="e.g. 07123 456789"
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              Email Address <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="email"
-              name="email"
-              required
-              value={formData.email}
-              onChange={handleInputChange}
-              placeholder="e.g. john.smith@example.com"
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none transition-colors"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Right to Work & Driving Licence */}
-      <div className="space-y-4 pt-4 border-t border-slate-100">
-        <div className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-none bg-[#005f9e] text-white flex items-center justify-center text-xs font-bold font-outfit">3</span>
-          <label className="text-sm sm:text-base font-bold text-[#0f3a5e] font-outfit uppercase tracking-wide">
-            Right to Work &amp; Driving Status
-          </label>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              UK Right-to-Work Status <span className="text-red-500">*</span>
-            </label>
-            <select
-              name="rightToWork"
-              value={formData.rightToWork}
-              onChange={handleInputChange}
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none transition-colors"
-            >
-              <option value="UK Citizen / Irish National">UK Citizen / Irish National</option>
-              <option value="EU Settled / Pre-Settled Status">EU Settled / Pre-Settled Status (Share Code)</option>
-              <option value="Valid UK Work Visa / Biometric Residence Permit">Valid UK Work Visa / BRP</option>
-              <option value="Require Visa Sponsorship (Subject to Eligibility)">Require Visa Sponsorship (Subject to Eligibility)</option>
-              <option value="Other / In Process">Other / In Process</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              Driving Licence Status <span className="text-red-500">*</span>
-            </label>
-            <select
-              name="drivingLicence"
-              value={formData.drivingLicence}
-              onChange={handleInputChange}
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none transition-colors"
-            >
-              <option value="Full UK Driving Licence (Clean)">Full UK Driving Licence (Clean - No endorsements)</option>
-              <option value="Full UK Driving Licence (With points / endorsements)">Full UK Driving Licence (With points/endorsements)</option>
-              <option value="Automatic Transmission Only">Automatic Transmission Only</option>
-              <option value="Provisional Licence Only">Provisional Licence Only</option>
-              <option value="No Driving Licence">No Driving Licence</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Utilities & Technical Tickets */}
-      <div className="space-y-4 pt-4 border-t border-slate-100">
-        <div className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-none bg-[#005f9e] text-white flex items-center justify-center text-xs font-bold font-outfit">4</span>
-          <label className="text-sm sm:text-base font-bold text-[#0f3a5e] font-outfit uppercase tracking-wide">
-            Industry Accreditations &amp; Card Status
-          </label>
-        </div>
-        <p className="text-xs text-slate-500">
-          Previous certification is advantageous. Inexperienced applicants will receive structured supervision and training guidance.
-        </p>
-
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              NRSWA Status
-            </label>
-            <select
-              name="nrswaStatus"
-              value={formData.nrswaStatus}
-              onChange={handleInputChange}
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-xs focus:border-[#005f9e] focus:bg-white focus:outline-none"
-            >
-              <option value="Valid NRSWA Operative Card">Valid NRSWA Operative Card (O1-O5, O8)</option>
-              <option value="Valid NRSWA Supervisor Card">Valid NRSWA Supervisor Card</option>
-              <option value="Expired NRSWA Card (Needs Renewal)">Expired NRSWA Card (Needs Renewal)</option>
-              <option value="Willing to undertake 5-Day NRSWA">Willing to undertake 5-Day NRSWA</option>
-              <option value="No NRSWA Card Held">No NRSWA Card Held</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              CAT &amp; Genny Status
-            </label>
-            <select
-              name="catGennyStatus"
-              value={formData.catGennyStatus}
-              onChange={handleInputChange}
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-xs focus:border-[#005f9e] focus:bg-white focus:outline-none"
-            >
-              <option value="Certified (EUSR Category 1)">Certified (EUSR Category 1 Locate Services)</option>
-              <option value="Experienced but Not Formally Certified">Experienced but Not Formally Certified</option>
-              <option value="Willing to Undertake Training">Willing to Undertake Training</option>
-              <option value="No CAT & Genny Training">No CAT &amp; Genny Training</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              CIS Status (If Subcontractor)
-            </label>
-            <select
-              name="cisStatus"
-              value={formData.cisStatus}
-              onChange={handleInputChange}
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-xs focus:border-[#005f9e] focus:bg-white focus:outline-none"
-            >
-              <option value="Registered with HMRC as CIS Subcontractor">Registered with HMRC as CIS Subcontractor</option>
-              <option value="Currently Applying for CIS Registration">Currently Applying for CIS Registration</option>
-              <option value="Not Registered / Seeking PAYE Route">Not Registered / Seeking PAYE Route</option>
-              <option value="Not Applicable (PAYE Applicant)">Not Applicable (PAYE Applicant)</option>
-            </select>
-          </div>
-        </div>
-
-        {formData.cisStatus.includes('Registered') && (
-          <div className="p-3 bg-blue-50/50 border border-blue-200 text-xs text-slate-700">
-            <span className="font-bold text-[#0f3a5e]">Note:</span> For self-employed CIS applicants, HMRC registration details and UTR numbers will be verified during the formal onboarding stage.
-          </div>
-        )}
-
-        <div className="pt-2">
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 font-outfit">
-            Select Any Valid Certificates You Currently Hold:
-          </label>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs text-slate-700">
-            {certificateOptions.map((cert, idx) => (
-              <label key={idx} className="flex items-center gap-2 p-2 bg-slate-50 hover:bg-slate-100 border border-slate-200 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={formData.certificates.includes(cert)}
-                  onChange={() => handleCertToggle(cert)}
-                  className="rounded text-[#005f9e] focus:ring-[#005f9e]"
-                />
-                <span className="leading-tight">{cert}</span>
-              </label>
             ))}
           </div>
+          <FieldError id={id('engagementRoute-error')} message={errors.engagementRoute} />
+        </fieldset>
+
+        {showCis &&
+          selectField('cisStatus', 'What is your CIS status?', CIS_STATUS, {
+            required: true,
+            hint: 'HMRC registration and UTR details are checked later, during onboarding.',
+            className: 'sm:max-w-md',
+          })}
+      </section>
+
+      {/* 2. Name and contact details */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s2')}>
+        <div id={id('s2')} className="pt-6"><SectionTitle n="2">Your details</SectionTitle></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {textField('firstName', 'First name', { required: true, autoComplete: 'given-name' })}
+          {textField('lastName', 'Last name', { required: true, autoComplete: 'family-name' })}
+          {textField('email', 'Email address', { type: 'email', required: true, autoComplete: 'email', spellCheck: false })}
+          {textField('phone', 'Phone number', { type: 'tel', required: true, autoComplete: 'tel', hint: 'A mobile number is best.' })}
         </div>
-      </div>
+      </section>
 
-      {/* 5. Experience & CV Upload */}
-      <div className="space-y-4 pt-4 border-t border-slate-100">
-        <div className="flex items-center gap-2">
-          <span className="w-6 h-6 rounded-none bg-[#005f9e] text-white flex items-center justify-center text-xs font-bold font-outfit">5</span>
-          <label className="text-sm sm:text-base font-bold text-[#0f3a5e] font-outfit uppercase tracking-wide">
-            Relevant Experience &amp; CV Upload
-          </label>
+      {/* 3. Current location */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s3')}>
+        <div id={id('s3')} className="pt-6"><SectionTitle n="3">Where you live</SectionTitle></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {textField('town', 'Current town', { required: true, autoComplete: 'address-level2' })}
+          {textField('postcode', 'Postcode', {
+            autoComplete: 'postal-code',
+            hint: 'Helps us plan travel to our work areas.',
+            className: 'sm:max-w-[12rem]',
+          })}
         </div>
+      </section>
 
-        <div>
-          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-            Summary of Work Experience / Practical Background
-          </label>
-          <textarea
-            name="relevantExperience"
-            rows="3"
-            value={formData.relevantExperience}
-            onChange={handleInputChange}
-            placeholder="Please outline any experience in manual digging, groundworks, plumbing, utilities, pipework, asphalt/tarmac reinstatement, or related physical trades. If entry-level/inexperienced, describe your practical background and enthusiasm to learn."
-            className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none transition-colors"
-          />
+      {/* 4. Right to work */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s4')}>
+        <div id={id('s4')} className="pt-6"><SectionTitle n="4">Right to work</SectionTitle></div>
+        {vacancy.rightToWorkSponsorship && <p className="text-sm text-slate-700">{vacancy.rightToWorkSponsorship}</p>}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {selectField('rightToWork', 'What is your right-to-work status in the UK?', RIGHT_TO_WORK, {
+            required: true,
+            hint: 'We check documents before anyone starts work.',
+          })}
+          {selectField('sponsorship', 'Will you now or in the future need visa sponsorship to work in the UK?', SPONSORSHIP, { required: true })}
         </div>
+      </section>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 pt-2">
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              Availability for Interview &amp; Start Date
-            </label>
-            <select
-              name="interviewAvailability"
-              value={formData.interviewAvailability}
-              onChange={handleInputChange}
-              className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 text-slate-900 text-sm focus:border-[#005f9e] focus:bg-white focus:outline-none"
-            >
-              <option value="Immediate / Within 1 Week">Immediate / Within 1 Week</option>
-              <option value="2 Weeks Notice Period">2 Weeks Notice Period</option>
-              <option value="1 Month Notice Period">1 Month Notice Period</option>
-              <option value="Specific Date Available Upon Discussion">Specific Date Available Upon Discussion</option>
-            </select>
-          </div>
+      {/* 5. Driving */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s5')}>
+        <div id={id('s5')} className="pt-6"><SectionTitle n="5">Driving</SectionTitle></div>
+        {selectField('drivingLicence', 'What driving licence do you hold?', DRIVING, { required: true, className: 'sm:max-w-md' })}
+      </section>
 
-          <div>
-            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1 font-outfit">
-              Upload CV (PDF, DOCX, DOC, or Image - Max 10MB)
-            </label>
-            <div className="relative border-2 border-dashed border-slate-300 hover:border-[#005f9e] bg-slate-50 p-4 text-center cursor-pointer transition-colors">
-              <input
-                type="file"
-                accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
-                onChange={handleFileChange}
-                className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
-              />
-              <div className="flex flex-col items-center justify-center">
-                <span className="material-symbols-outlined text-2xl text-[#005f9e] mb-1">upload_file</span>
-                <span className="text-xs font-semibold text-slate-700 font-outfit">
-                  {cvFile ? cvFile.name : "Click to select or drag & drop your CV file"}
-                </span>
-                <span className="text-[10px] text-slate-400 mt-0.5">
-                  {cvFile ? `${(cvFile.size / 1024 / 1024).toFixed(2)} MB attached` : "Optional but strongly recommended"}
-                </span>
+      {/* 6. Tickets and qualifications */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s6')}>
+        <div id={id('s6')} className="pt-6"><SectionTitle n="6">Tickets and qualifications</SectionTitle></div>
+        <fieldset aria-describedby={id('certificates-hint')}>
+          <legend className={labelCls}>
+            Which of these cards or tickets do you currently hold? <span className="font-normal text-slate-600">(optional)</span>
+          </legend>
+          <span id={id('certificates-hint')} className={hintCls}>Tick all that apply. Leave them all unticked if you hold none; training can be discussed at interview.</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 pt-1">
+            {CERTIFICATES.map((cert, i) => (
+              <div key={cert} className="flex items-start gap-2.5 p-2.5 bg-slate-50 border border-slate-200">
+                <input
+                  id={id(`cert-${i}`)}
+                  type="checkbox"
+                  name="certificates"
+                  value={cert}
+                  checked={data.certificates.includes(cert)}
+                  onChange={() => toggleCert(cert)}
+                  className="mt-0.5 w-5 h-5 shrink-0 accent-[#005f9e] focus-visible:ring-2 focus-visible:ring-[#005f9e] focus-visible:ring-offset-2"
+                />
+                <label htmlFor={id(`cert-${i}`)} className="text-sm text-slate-800 leading-snug cursor-pointer">{cert}</label>
               </div>
-            </div>
+            ))}
           </div>
-        </div>
-      </div>
+        </fieldset>
+        {textField('otherCertificates', 'Other cards, tickets or qualifications', { hint: 'For example, plant tickets or a trade qualification.', maxLength: 300 })}
+      </section>
 
-      {/* 6. Consent & Submission */}
-      <div className="pt-4 border-t border-slate-200 space-y-4">
-        <label className="flex items-start gap-3 cursor-pointer">
-          <input
-            type="checkbox"
-            name="consent"
-            checked={formData.consent}
-            onChange={handleInputChange}
-            required
-            className="mt-1 text-[#005f9e] focus:ring-[#005f9e] rounded"
-          />
-          <span className="text-xs text-slate-600 leading-relaxed">
-            I confirm that the information provided is accurate and complete. I understand that physical digging and outdoor manual work are essential parts of this role, and I agree to Bluegrid Utilities processing my personal data for recruitment and onboarding purposes in accordance with our{' '}
-            <a href="/about/policies" target="_blank" rel="noopener noreferrer" className="text-[#005f9e] font-bold underline hover:text-[#0f3a5e]">
-              Candidate Privacy Notice
-            </a>{' '}
-            and UK GDPR.
+      {/* 7. Experience */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s7')}>
+        <div id={id('s7')} className="pt-6"><SectionTitle n="7">Relevant experience</SectionTitle></div>
+        {selectField('experienceYears', 'How many years of relevant experience do you have?', EXPERIENCE_YEARS, { className: 'sm:max-w-md' })}
+        <div>
+          <label htmlFor={id('relevantExperience')} className={labelCls}>
+            Tell us about your relevant experience <span className="font-normal text-slate-600">(optional)</span>
+          </label>
+          <span id={id('relevantExperience-hint')} className={hintCls}>
+            For example digging, groundworks, plumbing, utilities, pipework or reinstatement. If you are new to this work, tell us about your practical background.
           </span>
-        </label>
-
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
-          <div className="text-[11px] text-slate-500">
-            For recruitment questions, contact <strong className="text-[#0f3a5e]">recruitment@bluegridutilities.com</strong>
-          </div>
-
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-8 py-4 uppercase font-outfit transition-all shadow-lg active:scale-95 disabled:opacity-50 cursor-pointer"
-          >
-            {submitting ? (
-              <>
-                <span className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                <span>Submitting Application...</span>
-              </>
-            ) : (
-              <>
-                <span>Submit Job Application</span>
-                <span className="material-symbols-outlined text-sm">send</span>
-              </>
-            )}
-          </button>
+          <textarea
+            id={id('relevantExperience')}
+            name="relevantExperience"
+            rows={5}
+            maxLength={3000}
+            value={data.relevantExperience}
+            onChange={onChange}
+            aria-describedby={describedBy('relevantExperience', true)}
+            className={inputCls(errors.relevantExperience)}
+          />
+          <FieldError id={id('relevantExperience-error')} message={errors.relevantExperience} />
         </div>
-      </div>
+      </section>
 
+      {/* 8. Availability: interview and start date are separate questions */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s8')}>
+        <div id={id('s8')} className="pt-6"><SectionTitle n="8">Availability</SectionTitle></div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {selectField('interviewAvailability', 'When are you available for an interview?', INTERVIEW_AVAILABILITY, { required: true })}
+          {textField('startDate', 'What is your earliest available start date?', {
+            type: 'date',
+            min: todayIso(),
+            hint: 'Leave blank if you are not sure yet.',
+          })}
+        </div>
+      </section>
+
+      {/* 9. CV */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s9')}>
+        <div id={id('s9')} className="pt-6"><SectionTitle n="9">CV</SectionTitle></div>
+        <div>
+          <label htmlFor={id('cv')} className={labelCls}>
+            Upload your CV <span className="font-normal text-slate-600">(optional, but it helps us assess your application)</span>
+          </label>
+          <span id={id('cv-hint')} className={hintCls}>
+            One file only. Accepted formats: {CV_TYPES_LABEL}. Maximum size: {CV_MAX_MB} MB.
+          </span>
+          <input
+            ref={fileRef}
+            id={id('cv')}
+            name="cv"
+            type="file"
+            accept={CV_ACCEPT}
+            onChange={onFile}
+            aria-invalid={errors.cv ? 'true' : undefined}
+            aria-describedby={describedBy('cv', true)}
+            className={`block w-full text-sm text-slate-700 border ${errors.cv ? 'border-red-600' : 'border-slate-400'} bg-white p-2 file:mr-4 file:py-2 file:px-4 file:border-0 file:bg-[#0f3a5e] file:text-white file:font-bold file:cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005f9e]`}
+          />
+          <FieldError id={id('cv-error')} message={errors.cv} />
+          {cvFile && (
+            <p className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-800">
+              <span>
+                Selected: <strong>{cvFile.name}</strong> ({(cvFile.size / 1024 / 1024).toFixed(2)} MB)
+              </span>
+              <button type="button" onClick={removeFile} className="text-[#005f9e] font-bold underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005f9e]">
+                Remove file<span className="sr-only"> {cvFile.name}</span>
+              </button>
+            </p>
+          )}
+        </div>
+      </section>
+
+      {/* 10. Declaration: accuracy and role requirements, kept apart from the privacy information */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s10')}>
+        <div id={id('s10')} className="pt-6"><SectionTitle n="10">Declaration</SectionTitle></div>
+        {(vacancy.essentialRequirements || []).length > 0 && (
+          <div className="bg-slate-50 border border-slate-200 p-4">
+            <h4 className="text-sm font-bold text-[#0f3a5e]">Requirements of this role</h4>
+            <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-slate-700">
+              {vacancy.essentialRequirements.map((r) => (
+                <li key={r}>{r}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <fieldset className="space-y-4">
+          <legend className="sr-only">Declaration</legend>
+          {checkbox('roleRequirements', 'I have read the requirements of this role, including that it involves physical outdoor excavation and reinstatement work.')}
+          {checkbox('declaration', 'I confirm that the information I have given in this application is accurate and complete.')}
+        </fieldset>
+      </section>
+
+      {/* 11. Privacy */}
+      <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s11')}>
+        <div id={id('s11')} className="pt-6"><SectionTitle n="11">Privacy</SectionTitle></div>
+        <p className="text-sm text-slate-700 leading-relaxed">
+          Our Candidate Privacy Notice explains how Bluegrid Utilities uses the personal information in your application, how long we keep it and
+          your rights. Please read it before you submit.
+        </p>
+        <p>
+          <a
+            href={privacyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-[#005f9e] font-bold underline hover:text-[#0f3a5e] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005f9e]"
+          >
+            Read the Candidate Privacy Notice
+            <span className="sr-only">(opens in a new tab)</span>
+            <span aria-hidden="true" className="material-symbols-outlined text-base">open_in_new</span>
+          </a>
+        </p>
+        {checkbox('privacy', 'I have read the Candidate Privacy Notice.')}
+      </section>
+
+      {/* Submit */}
+      <div className="pt-6 border-t border-slate-200 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4">
+        <p className="text-sm text-slate-600">
+          Recruitment questions: <a className="text-[#005f9e] font-bold underline" href={`mailto:${RECRUITMENT_EMAIL}`}>{RECRUITMENT_EMAIL}</a>
+        </p>
+        <button
+          type="submit"
+          disabled={submitting}
+          aria-disabled={submitting}
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-extrabold text-sm tracking-wider px-8 py-4 uppercase font-outfit transition-colors shadow-lg disabled:opacity-70 disabled:cursor-wait focus:outline-none focus-visible:ring-4 focus-visible:ring-[#005f9e]/40"
+        >
+          {submitting ? (
+            <>
+              <span aria-hidden="true" className="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <span>Submitting…</span>
+            </>
+          ) : (
+            <span>Submit application</span>
+          )}
+        </button>
+      </div>
+      <p className="sr-only" aria-live="polite">{submitting ? 'Submitting your application, please wait.' : ''}</p>
     </form>
   );
 };

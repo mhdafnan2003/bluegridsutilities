@@ -1,4 +1,66 @@
 {
+  "redirects": [
+    {
+      "source": "/career",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/health-safety",
+      "destination": "/safety-quality",
+      "permanent": true
+    },
+    {
+      "source": "/health-safety/:section",
+      "destination": "/safety-quality",
+      "permanent": true
+    },
+    {
+      "source": "/about/policies",
+      "destination": "/policies",
+      "permanent": true
+    },
+    {
+      "source": "/careers/water-meter-installation-operative",
+      "destination": "/careers/jobs/water-meter-installation-operative",
+      "permanent": true
+    },
+    {
+      "source": "/about/leadership",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about/directors",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about/missions",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about/visions",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about/history",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about/accreditations",
+      "destination": "/safety-quality",
+      "permanent": true
+    },
+    {
+      "source": "/news/:id",
+      "destination": "/news",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

@@ -1,1 +1,13 @@
+/career /careers 301
+/health-safety /safety-quality 301
+/health-safety/:section /safety-quality 301
+/about/policies /policies 301
+/careers/water-meter-installation-operative /careers/jobs/water-meter-installation-operative 301
+/about/leadership /about 301
+/about/directors /about 301
+/about/missions /about 301
+/about/visions /about 301
+/about/history /about 301
+/about/accreditations /safety-quality 301
+/news/:id /news 301
 /*    /index.html   200

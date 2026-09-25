@@ -1,218 +1,246 @@
 import nodemailer from 'nodemailer';
+import { config, isProduction } from '../config/index.js';
+import { escapeHtml as esc } from '../utils/text.js';
 
-const RECIPIENT_EMAIL = process.env.RECRUITMENT_EMAIL || 'ajmalpa308@gmail.com';
+/**
+ * Email delivery.
+ * - SMTP_USER + SMTP_PASS set  -> real SMTP (SMTP_HOST/PORT/SECURE/FROM).
+ * - Not set, production        -> delivery FAILS (503). We never pretend a message was sent.
+ * - Not set, development       -> Ethereal test inbox (preview URL logged and returned to the caller),
+ *                                 or MAIL_TRANSPORT=json to capture messages in memory with no network.
+ */
 
-// Configure transporter
-const getTransporter = async () => {
-  if (process.env.SMTP_USER && process.env.SMTP_PASS) {
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST || 'smtp.gmail.com',
-      port: Number(process.env.SMTP_PORT) || 465,
-      secure: process.env.SMTP_SECURE === 'false' ? false : true,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
+export class EmailError extends Error {
+  constructor(message, statusCode = 502) {
+    super(message);
+    this.statusCode = statusCode;
+    this.isEmailError = true;
   }
+}
 
-  // Fallback for development/testing: creates an Ethereal test account or local logger
-  try {
-    const testAccount = await nodemailer.createTestAccount();
-    return nodemailer.createTransport({
-      host: 'smtp.ethereal.email',
-      port: 587,
-      secure: false,
-      auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
-      },
-    });
-  } catch (err) {
-    console.warn('[Email Service] Could not generate test ethereal account:', err.message);
-    return null;
-  }
-};
+export const isSmtpConfigured = () => Boolean(process.env.SMTP_USER && process.env.SMTP_PASS);
 
-export const sendApplicationEmail = async (application) => {
-  const {
-    id,
-    fullName,
-    email,
-    phone,
-    location,
-    roleTitle,
-    engagementRoute,
-    rightToWork,
-    drivingLicence,
-    nrswaStatus,
-    catGennyStatus,
-    cisStatus,
-    utrNumber,
-    certificates,
-    otherCertificates,
-    relevantExperience,
-    interviewAvailability,
-    cvFileName,
-    submittedAt
-  } = application;
+let transportPromise = null;
 
-  const htmlContent = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-      <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f6f9; margin: 0; padding: 20px; color: #1e293b; }
-        .container { max-width: 650px; margin: 0 auto; background: #ffffff; border: 1px solid #e2e8f0; border-top: 5px solid #005f9e; }
-        .header { background: #0f3a5e; color: #ffffff; padding: 25px 30px; }
-        .header h1 { margin: 0; font-size: 20px; font-weight: 700; }
-        .header p { margin: 5px 0 0 0; font-size: 13px; color: #93c5fd; }
-        .content { padding: 30px; }
-        .badge { display: inline-block; padding: 4px 10px; background: #e0f2fe; color: #0369a1; font-weight: bold; font-size: 11px; text-transform: uppercase; margin-bottom: 15px; }
-        .section-title { font-size: 13px; font-weight: 800; color: #0f3a5e; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 2px solid #f1f5f9; padding-bottom: 6px; margin: 20px 0 12px 0; }
-        .field-row { display: flex; margin-bottom: 8px; font-size: 13px; }
-        .field-label { width: 180px; font-weight: 600; color: #64748b; }
-        .field-value { flex: 1; font-weight: 600; color: #0f172a; }
-        .highlight-box { background: #f8fafc; border: 1px solid #e2e8f0; padding: 15px; margin: 15px 0; }
-        .footer { background: #f1f5f9; padding: 20px 30px; font-size: 11px; color: #64748b; text-align: center; border-top: 1px solid #e2e8f0; }
-        .certs-list { margin: 0; padding-left: 20px; font-size: 13px; }
-      </style>
-    </head>
-    <body>
-      <div class="container">
-        <div class="header">
-          <h1>New Job Application Received</h1>
-          <p>Bluegrid Utilities Recruitment Portal • Ref: ${id}</p>
-        </div>
-        
-        <div class="content">
-          <div class="badge">Application Ref: ${id}</div>
-          
-          <div class="highlight-box">
-            <div class="field-row">
-              <span class="field-label">Position Applied:</span>
-              <span class="field-value" style="color: #005f9e; font-size: 14px;">${roleTitle || 'Water Meter Installation Operative'}</span>
-            </div>
-            <div class="field-row">
-              <span class="field-label">Preferred Route:</span>
-              <span class="field-value">${engagementRoute || 'Not specified'}</span>
-            </div>
-            <div class="field-row">
-              <span class="field-label">Submitted On:</span>
-              <span class="field-value">${new Date(submittedAt || Date.now()).toLocaleString('en-GB')}</span>
-            </div>
-          </div>
-
-          <div class="section-title">1. Candidate Contact Information</div>
-          <div class="field-row">
-            <span class="field-label">Full Name:</span>
-            <span class="field-value">${fullName}</span>
-          </div>
-          <div class="field-row">
-            <span class="field-label">Email Address:</span>
-            <span class="field-value"><a href="mailto:${email}">${email}</a></span>
-          </div>
-          <div class="field-row">
-            <span class="field-label">Telephone:</span>
-            <span class="field-value"><a href="tel:${phone}">${phone || 'Not provided'}</a></span>
-          </div>
-          <div class="field-row">
-            <span class="field-label">Residential Location:</span>
-            <span class="field-value">${location || 'Not provided'}</span>
-          </div>
-
-          <div class="section-title">2. Right to Work & Driving Status</div>
-          <div class="field-row">
-            <span class="field-label">UK Right-to-Work:</span>
-            <span class="field-value">${rightToWork || 'Not provided'}</span>
-          </div>
-          <div class="field-row">
-            <span class="field-label">Driving Licence:</span>
-            <span class="field-value">${drivingLicence || 'Not provided'}</span>
-          </div>
-
-          <div class="section-title">3. Accreditations & Subcontract Status</div>
-          <div class="field-row">
-            <span class="field-label">NRSWA Status:</span>
-            <span class="field-value">${nrswaStatus || 'None'}</span>
-          </div>
-          <div class="field-row">
-            <span class="field-label">CAT & Genny Status:</span>
-            <span class="field-value">${catGennyStatus || 'None'}</span>
-          </div>
-          <div class="field-row">
-            <span class="field-label">CIS / UTR Status:</span>
-            <span class="field-value">${cisStatus || 'Not applicable'}${utrNumber ? ` (UTR: ${utrNumber})` : ''}</span>
-          </div>
-
-          <div class="section-title">4. Certificates Held</div>
-          ${certificates && certificates.length > 0 ? `
-            <ul class="certs-list">
-              ${certificates.map(c => `<li>${c}</li>`).join('')}
-            </ul>
-          ` : '<p style="font-size: 13px; color: #64748b; margin: 0;">No prior certificates ticked.</p>'}
-          ${otherCertificates ? `<p style="font-size: 12px; margin-top: 5px;"><strong>Other:</strong> ${otherCertificates}</p>` : ''}
-
-          <div class="section-title">5. Practical Experience & Availability</div>
-          <div class="highlight-box" style="margin-top: 8px;">
-            <p style="margin: 0; font-size: 13px; line-height: 1.5; white-space: pre-wrap;">${relevantExperience || 'No experience summary provided.'}</p>
-          </div>
-          <div class="field-row">
-            <span class="field-label">Interview Availability:</span>
-            <span class="field-value">${interviewAvailability || 'Immediate'}</span>
-          </div>
-          <div class="field-row">
-            <span class="field-label">Uploaded CV:</span>
-            <span class="field-value">${cvFileName ? `📎 ${cvFileName}` : 'No CV attached'}</span>
-          </div>
-        </div>
-
-        <div class="footer">
-          This notification was automatically sent from the Bluegrid Utilities careers application form.<br>
-          Recipient: ${RECIPIENT_EMAIL}
-        </div>
-      </div>
-    </body>
-    </html>
-  `;
-
-  try {
-    const transporter = await getTransporter();
-
-    if (!transporter) {
-      console.log(`[Email Service] Notification to ${RECIPIENT_EMAIL}:`, {
-        applicationId: id,
-        applicant: fullName,
-        email,
-        phone,
-        roleTitle
-      });
-      return { success: true, mode: 'logged' };
-    }
-
-    const mailOptions = {
-      from: `"Bluegrid Recruitment Portal" <${process.env.SMTP_FROM || 'recruitment@bluegridutilities.com'}>`,
-      to: RECIPIENT_EMAIL,
-      replyTo: email,
-      subject: `New Job Application: ${fullName} – ${roleTitle || 'Water Meter Installation Operative'}`,
-      text: `New Application Ref: ${id}\nName: ${fullName}\nEmail: ${email}\nPhone: ${phone}\nRoute: ${engagementRoute}\nLocation: ${location}`,
-      html: htmlContent,
+const buildTransport = async () => {
+  if (isSmtpConfigured()) {
+    const port = Number(process.env.SMTP_PORT) || 465;
+    const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE !== 'false' : port === 465;
+    return {
+      mode: 'smtp',
+      from: process.env.SMTP_FROM || process.env.SMTP_USER,
+      transporter: nodemailer.createTransport({
+        host: process.env.SMTP_HOST || 'smtp.gmail.com',
+        port,
+        secure,
+        auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
+      }),
     };
+  }
+  if (isProduction()) return null;
 
-    const info = await transporter.sendMail(mailOptions);
-    console.log(`[Email Service] Message sent successfully to ${RECIPIENT_EMAIL}: %s`, info.messageId);
-    
-    // If using ethereal test account, log preview URL
-    const previewUrl = nodemailer.getTestMessageUrl(info);
-    if (previewUrl) {
-      console.log('[Email Service] Preview URL for test email: %s', previewUrl);
+  if (process.env.MAIL_TRANSPORT === 'json') {
+    return {
+      mode: 'json',
+      from: 'Bluegrid Utilities website <no-reply@localhost>',
+      transporter: nodemailer.createTransport({ jsonTransport: true }),
+    };
+  }
+
+  const account = await nodemailer.createTestAccount();
+  return {
+    mode: 'ethereal',
+    from: `"Bluegrid Utilities website" <${account.user}>`,
+    transporter: nodemailer.createTransport({
+      host: account.smtp.host,
+      port: account.smtp.port,
+      secure: account.smtp.secure,
+      auth: { user: account.user, pass: account.pass },
+    }),
+  };
+};
+
+const getTransport = () => {
+  if (!transportPromise) {
+    transportPromise = buildTransport().catch((err) => {
+      transportPromise = null; // allow a retry next time
+      throw err;
+    });
+  }
+  return transportPromise;
+};
+
+/**
+ * Send one message. Throws EmailError (with an HTTP status) if it cannot be delivered.
+ * `fallbackAddress` is the mailbox quoted in the error so the visitor can email us instead.
+ */
+export const sendMail = async ({ to, subject, text, html, replyTo, attachments, fallbackAddress }) => {
+  const fallback = fallbackAddress || to;
+  const unavailable = () =>
+    new EmailError(`Email delivery is not available right now. Please email ${fallback} directly.`, 503);
+
+  let transport;
+  try {
+    transport = await getTransport();
+  } catch (err) {
+    console.error('[Email] Could not create a mail transport:', err.message);
+    throw unavailable();
+  }
+  if (!transport) {
+    console.error('[Email] SMTP_USER/SMTP_PASS are not configured; refusing to pretend a message was sent.');
+    throw unavailable();
+  }
+
+  try {
+    const info = await transport.transporter.sendMail({
+      from: transport.from,
+      to,
+      replyTo,
+      subject,
+      text,
+      html,
+      attachments,
+    });
+    const result = { messageId: info.messageId, mode: transport.mode };
+    if (transport.mode === 'ethereal') {
+      result.previewUrl = nodemailer.getTestMessageUrl(info) || undefined;
+      console.log(`[Email] Ethereal preview: ${result.previewUrl}`);
     }
-
-    return { success: true, messageId: info.messageId, previewUrl };
-  } catch (error) {
-    console.error('[Email Service] Error sending email to ' + RECIPIENT_EMAIL + ':', error.message);
-    // Don't fail the whole user response if SMTP is unconfigured; return graceful status
-    return { success: false, error: error.message };
+    if (transport.mode === 'json') {
+      const parsed = JSON.parse(info.message);
+      result.captured = { to: parsed.to, replyTo: parsed.replyTo, subject: parsed.subject, attachments: (parsed.attachments || []).map((a) => a.filename) };
+    }
+    console.log(`[Email] Sent "${subject}" to ${to} (${transport.mode})`);
+    return result;
+  } catch (err) {
+    console.error(`[Email] Failed to send to ${to}:`, err.message);
+    throw new EmailError(`We could not send your message. Please email ${fallback} directly.`, 502);
   }
 };
+
+// ---------------------------------------------------------------------------------------------
+// Message bodies. Every user-supplied value goes through esc() before it reaches the HTML.
+// ---------------------------------------------------------------------------------------------
+
+const row = (label, value) =>
+  `<tr><th align="left" style="padding:6px 12px 6px 0;vertical-align:top;color:#475569;font-weight:700;white-space:nowrap">${esc(label)}</th>` +
+  `<td style="padding:6px 0;vertical-align:top;color:#111827">${esc(value || 'Not provided').replace(/\n/g, '<br>')}</td></tr>`;
+
+const section = (title, pairs) =>
+  `<h2 style="font-size:16px;color:#0F3A5E;margin:24px 0 6px">${esc(title)}</h2><table cellpadding="0" cellspacing="0" style="font-size:15px;line-height:22px">${pairs.map(([l, v]) => row(l, v)).join('')}</table>`;
+
+const wrap = (title, body) =>
+  `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${esc(title)}</title></head>` +
+  `<body style="font-family:Arial,Helvetica,sans-serif;color:#111827;margin:0;padding:24px;background:#ffffff">` +
+  `<h1 style="font-size:20px;color:#0F3A5E;margin:0 0 4px">${esc(title)}</h1>${body}</body></html>`;
+
+export const buildApplicationMessage = (a, cv) => {
+  const fmtDate = (iso) => new Date(iso).toLocaleString('en-GB', { timeZone: 'Europe/London' });
+  const rows = {
+    role: [
+      ['Role', a.roleTitle],
+      ['Job reference', a.reference],
+      ['Application ID', a.id],
+      ['Engagement preference', a.engagementRoute],
+      ...(a.cisStatus ? [['CIS status', a.cisStatus]] : []),
+      ['Submitted', fmtDate(a.submittedAt)],
+    ],
+    contact: [
+      ['First name', a.firstName],
+      ['Last name', a.lastName],
+      ['Email', a.email],
+      ['Telephone', a.phone],
+      ['Current town', a.town],
+      ['Postcode', a.postcode],
+    ],
+    work: [
+      ['Right to work', a.rightToWork],
+      ['Needs visa sponsorship', a.sponsorship],
+      ['Driving licence', a.drivingLicence],
+    ],
+    tickets: [
+      ['Cards and tickets held', a.certificates.length ? a.certificates.join('; ') : 'None selected'],
+      ['Other tickets', a.otherCertificates],
+    ],
+    exp: [
+      ['Years of relevant experience', a.experienceYears],
+      ['Experience summary', a.relevantExperience],
+      ['Interview availability', a.interviewAvailability],
+      ['Earliest start date', a.startDate],
+      ['CV', cv ? `${cv.filename} (${(cv.size / 1024).toFixed(0)} KB, attached)` : 'No CV attached'],
+    ],
+    decl: [
+      ['Role requirements read', 'Yes'],
+      ['Declaration confirmed', 'Yes'],
+      ['Candidate privacy notice read', 'Yes'],
+    ],
+  };
+  const html = wrap(
+    `New application: ${a.roleTitle}`,
+    section('Role', rows.role) +
+      section('Contact details', rows.contact) +
+      section('Right to work and driving', rows.work) +
+      section('Tickets and qualifications', rows.tickets) +
+      section('Experience and availability', rows.exp) +
+      section('Confirmations', rows.decl),
+  );
+  const textOf = (list) => list.map(([l, v]) => `${l}: ${v || 'Not provided'}`).join('\n');
+  const text = [
+    `New application: ${a.roleTitle} (${a.reference})`,
+    textOf(rows.role),
+    '',
+    textOf(rows.contact),
+    '',
+    textOf(rows.work),
+    '',
+    textOf(rows.tickets),
+    '',
+    textOf(rows.exp),
+    '',
+    textOf(rows.decl),
+  ].join('\n');
+  return {
+    subject: `Application ${a.reference}: ${a.fullName} - ${a.roleTitle}`,
+    html,
+    text,
+    attachments: cv ? [{ filename: cv.filename, content: cv.buffer, contentType: cv.contentType }] : undefined,
+  };
+};
+
+export const buildApplicantConfirmation = (a) => ({
+  subject: `We have received your application (${a.reference})`,
+  text: [
+    `Dear ${a.firstName},`,
+    '',
+    `Thank you for applying for ${a.roleTitle} at Bluegrid Utilities.`,
+    `Job reference: ${a.reference}`,
+    `Application ID: ${a.id}`,
+    '',
+    'Your application has been received by our recruitment team. If you have questions, reply to this email or contact recruitment@bluegridutilities.com and quote your application ID.',
+    '',
+    'Please do not book or pay for any training courses until you have attended an interview and received written confirmation from Bluegrid Utilities.',
+    '',
+    'Bluegrid Utilities',
+  ].join('\n'),
+});
+
+export const buildContactMessage = (c) => {
+  const rows = [
+    ['Reference', c.id],
+    ['Enquiry type', c.enquiryType],
+    ['Name', c.name],
+    ['Company', c.company],
+    ['Email', c.email],
+    ['Telephone', c.phone],
+    ['Service of interest', c.service],
+    ['Subject', c.subject],
+    ['Message', c.message],
+  ];
+  return {
+    subject: `Website enquiry ${c.id}: ${c.subject}`,
+    html: wrap('New website enquiry', `<table cellpadding="0" cellspacing="0" style="font-size:15px;line-height:22px;margin-top:16px">${rows.map(([l, v]) => row(l, v)).join('')}</table>`),
+    text: rows.map(([l, v]) => `${l}: ${v || 'Not provided'}`).join('\n'),
+  };
+};
+
+export const recipients = () => ({ recruitment: config.recruitmentEmail, enquiries: config.enquiriesEmail });

@@ -28,6 +28,7 @@ import OurHistoryPage from './pages/about/OurHistoryPage';
 import AccreditationsPage from './pages/about/AccreditationsPage';
 import BoardDirectorsPage from './pages/about/BoardDirectorsPage';
 import OurPoliciesPage from './pages/about/OurPoliciesPage';
+import CandidatePrivacyPage from './pages/CandidatePrivacyPage';
 import CareerPage from './pages/CareerPage';
 import VacanciesPage from './pages/VacanciesPage';
 import VacancyDetailPage from './pages/VacancyDetailPage';
@@ -218,6 +219,17 @@ const AnimatedRoutes = () => {
         }
       />
 
+      {/* Candidate Privacy Notice, linked from the job application form */}
+      <Route
+        path="/policies/candidate-privacy"
+        element={
+          <PageTransition>
+            <PageWrapper>
+              <CandidatePrivacyPage />
+            </PageWrapper>
+          </PageTransition>
+        }
+      />
       {/* Policies (Point 73: /policies) */}
       <Route
         path="/policies"

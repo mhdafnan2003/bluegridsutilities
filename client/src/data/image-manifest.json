@@ -1,0 +1,265 @@
+{
+ "team-van": {
+  "width": 1600,
+  "height": 1200,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "office-team": {
+  "width": 5120,
+  "height": 3840,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "meter-chamber": {
+  "width": 1536,
+  "height": 2048,
+  "webp": [
+   480,
+   960,
+   1536
+  ],
+  "jpg": 1536
+ },
+ "water-installation": {
+  "width": 735,
+  "height": 490,
+  "webp": [
+   480,
+   735
+  ],
+  "jpg": 735
+ },
+ "water-valve": {
+  "width": 640,
+  "height": 426,
+  "webp": [
+   480,
+   640
+  ],
+  "jpg": 640
+ },
+ "excavation-team": {
+  "width": 900,
+  "height": 1600,
+  "webp": [
+   480,
+   900
+  ],
+  "jpg": 900
+ },
+ "site-briefing": {
+  "width": 1600,
+  "height": 900,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "site-briefing-portrait": {
+  "width": 1536,
+  "height": 2048,
+  "webp": [
+   480,
+   960,
+   1536
+  ],
+  "jpg": 1536
+ },
+ "site-team-barriers": {
+  "width": 2048,
+  "height": 1154,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "site-dig": {
+  "width": 900,
+  "height": 1152,
+  "webp": [
+   480,
+   900
+  ],
+  "jpg": 900
+ },
+ "site-ground-work": {
+  "width": 900,
+  "height": 1600,
+  "webp": [
+   480,
+   900
+  ],
+  "jpg": 900
+ },
+ "street-works-lead": {
+  "width": 900,
+  "height": 1600,
+  "webp": [
+   480,
+   900
+  ],
+  "jpg": 900
+ },
+ "capability-meeting": {
+  "width": 1600,
+  "height": 1200,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "capability-meeting-wide": {
+  "width": 4032,
+  "height": 3024,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "careers-field": {
+  "width": 1600,
+  "height": 1067,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "careers-team": {
+  "width": 1920,
+  "height": 2831,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "careers-management": {
+  "width": 1600,
+  "height": 2133,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "careers-project-support": {
+  "width": 1600,
+  "height": 1067,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "careers-supervision": {
+  "width": 1600,
+  "height": 1067,
+  "webp": [
+   480,
+   960,
+   1600
+  ],
+  "jpg": 960
+ },
+ "rams-briefing": {
+  "width": 1376,
+  "height": 768,
+  "webp": [
+   480,
+   960,
+   1376
+  ],
+  "jpg": 1376
+ },
+ "community-care": {
+  "width": 1376,
+  "height": 768,
+  "webp": [
+   480,
+   960,
+   1376
+  ],
+  "jpg": 1376
+ },
+ "civils-excavation": {
+  "width": 1376,
+  "height": 768,
+  "webp": [
+   480,
+   960,
+   1376
+  ],
+  "jpg": 1376
+ },
+ "street-works-site": {
+  "width": 1376,
+  "height": 768,
+  "webp": [
+   480,
+   960,
+   1376
+  ],
+  "jpg": 1376
+ },
+ "portrait-selbert": {
+  "width": 1280,
+  "height": 1600,
+  "webp": [
+   480,
+   960,
+   1280
+  ],
+  "jpg": 1280
+ },
+ "portrait-albert": {
+  "width": 1122,
+  "height": 1402,
+  "webp": [
+   480,
+   960,
+   1122
+  ],
+  "jpg": 1122
+ },
+ "portrait-gautham": {
+  "width": 610,
+  "height": 832,
+  "webp": [
+   480,
+   610
+  ],
+  "jpg": 610
+ },
+ "office-planning": {
+  "width": 1254,
+  "height": 1254,
+  "webp": [
+   480,
+   960,
+   1254
+  ],
+  "jpg": 1254
+ }
+}

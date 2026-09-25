@@ -7,6 +7,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        navy: '#0f3a5e',
+        blue: '#005f9e',
+        tint: '#f3f7fa',
+        ink: '#1f2937',
         brand: {
           dark: '#0f3a5e',
           primary: '#005f9e',

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MotionSection from '../../components/MotionSection';
 import AboutBanner from '../../components/AboutBanner';
 import heroOneImg from '../../assets/images/updated/hero_blue_one.png';
@@ -6,6 +7,7 @@ import heroOneImg from '../../assets/images/updated/hero_blue_one.png';
 const policyDocuments = [
   { 
     name: "Candidate Privacy Notice", 
+    url: "/policies/candidate-privacy",
     category: "Recruitment Data Governance", 
     ref: "BG-POL-CPN-2026",
     reviewDate: "January 2026",
@@ -166,6 +168,15 @@ const OurPoliciesPage = () => {
                       Review: {doc.reviewDate}
                     </span>
 
+                    {doc.url ? (
+                      <Link
+                        to={doc.url}
+                        className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm uppercase"
+                      >
+                        <span>Read Notice</span>
+                        <span className="material-symbols-outlined text-xs">arrow_forward</span>
+                      </Link>
+                    ) : (
                     <button
                       onClick={() => handleRequest(doc.name)}
                       className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm active:scale-95 cursor-pointer uppercase"
@@ -173,6 +184,7 @@ const OurPoliciesPage = () => {
                       <span>Request Copy</span>
                       <span className="material-symbols-outlined text-xs">mail</span>
                     </button>
+                    )}
                   </div>
                 </div>
               ))}

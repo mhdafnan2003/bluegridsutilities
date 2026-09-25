@@ -3,20 +3,31 @@ import {
   getVacancies,
   getVacancyBySlug,
   submitApplication,
+  requireAdmin,
   manageGetVacancies,
   manageCreateVacancy,
   manageUpdateStatus,
-  managePreviewVacancy
+  managePreviewVacancy,
 } from '../controllers/careers.controller.js';
+import { parseApplicationUpload } from '../middleware/upload.js';
+import { rateLimit } from '../middleware/rateLimit.js';
+import { config } from '../config/index.js';
 
 const router = Router();
 
-// Public recruitment routes (Points 45, 49, 50, 51)
+const applyLimiter = rateLimit({
+  max: config.rateLimitMax,
+  windowMs: config.rateLimitWindowMinutes * 60 * 1000,
+  name: 'applications',
+});
+
+// Public recruitment routes
 router.get('/vacancies', getVacancies);
 router.get('/vacancies/:slug', getVacancyBySlug);
-router.post('/apply', submitApplication);
+router.post('/apply', applyLimiter, parseApplicationUpload, submitApplication);
 
-// Internal CMS / ATS vacancy management routes (Points 46–48, 51, 78)
+// Vacancy management: disabled unless ADMIN_TOKEN is set, then bearer-token protected
+router.use('/manage', requireAdmin);
 router.get('/manage/vacancies', manageGetVacancies);
 router.post('/manage/vacancies', manageCreateVacancy);
 router.post('/manage/vacancies/:id/status', manageUpdateStatus);
