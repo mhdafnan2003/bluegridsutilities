@@ -52,7 +52,7 @@ const seoMatrix = {
   },
   '/contact': {
     title: 'Contact Bluegrid Utilities | Project & Careers Enquiries',
-    description: 'For project, business or recruitment enquiries, contact Bluegrid Utilities. Operations office in Hemel Hempstead and registered office in Peterborough.',
+    description: 'For project, business or recruitment enquiries, contact Bluegrid Utilities. Operations and registered office in Hemel Hempstead.',
   },
   '/policies': {
     title: 'Policies & Company Information | Bluegrid Utilities',

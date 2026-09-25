@@ -194,9 +194,9 @@ const AboutCompanyPage = () => {
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit uppercase">Registered Office</p>
                       <address className="not-italic text-sm font-semibold text-slate-200 leading-snug">
-                        Stuart House, St. Johns Street<br />
-                        Peterborough, PE1 5DD<br />
-                        United Kingdom
+                        Office 68, Spaces, The Marylands Building<br />
+                        Maylands Avenue, Hemel Hempstead Industrial Estate<br />
+                        Hemel Hempstead, England, HP2 7TG
                       </address>
                     </div>
 

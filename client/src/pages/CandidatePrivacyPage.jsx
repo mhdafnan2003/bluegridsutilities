@@ -16,7 +16,7 @@ const SECTIONS = [
           Bluegrid Utilities is the trading name of Bluegrid Technology Ltd, a company registered in England and Wales (company number 16442340).
           Bluegrid Technology Ltd is responsible for the personal information you give us when you apply for a job.
         </p>
-        <p>Registered office: Stuart House, St. Johns Street, Peterborough, PE1 5DD, United Kingdom.</p>
+        <p>Registered office: Office 68, Spaces, The Marylands Building, Maylands Avenue, Hemel Hempstead Industrial Estate, Hemel Hempstead, England, HP2 7TG.</p>
       </>
     ),
   },

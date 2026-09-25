@@ -57,8 +57,8 @@ const Contact = () => {
     },
     { 
       label: "Registered Office", 
-      value: "Bluegrid Technology Ltd\nStuart House, St. Johns Street\nPeterborough, United Kingdom, PE1 5DD", 
-      href: "https://maps.google.com/?q=Stuart+House+St+Johns+Street+Peterborough+PE1+5DD",
+      value: "Bluegrid Technology Ltd\nOffice 68, Spaces, The Marylands Building\nMaylands Avenue, Hemel Hempstead Industrial Estate\nHemel Hempstead, England, HP2 7TG",
+      href: "https://maps.google.com/?q=Spaces+The+Marylands+Building+Maylands+Avenue+Hemel+Hempstead+HP2+7TG",
       note: "Registered office for corporate/legal purposes.",
       icon: "location_on" 
     }
@@ -180,7 +180,7 @@ const Contact = () => {
                   <p className="text-slate-300">Bluegrid Technology Ltd, trading as Bluegrid Utilities. Registered in England and Wales. Company No. 16442340.</p>
                   <div className="pt-2 border-t border-slate-700/60 space-y-1 text-[11px]">
                     <p><strong className="text-white font-semibold">Operations:</strong> Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG, United Kingdom</p>
-                    <p><strong className="text-white font-semibold">Registered Office:</strong> Stuart House, St. Johns Street, Peterborough, United Kingdom, PE1 5DD</p>
+                    <p><strong className="text-white font-semibold">Registered Office:</strong> Office 68, Spaces, The Marylands Building, Maylands Avenue, Hemel Hempstead Industrial Estate, Hemel Hempstead, England, HP2 7TG</p>
                   </div>
                 </div>
               </div>

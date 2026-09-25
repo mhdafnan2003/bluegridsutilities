@@ -145,6 +145,6 @@ Footer Legal Text
 BlueGrid Utilities is a trading name of Bluegrid Technology Ltd.
 Registered in England & Wales.
 Company Number: 16442340.
-Registered Office: Stuart House, St Johns Street, Peterborough, PE1 5DD, United Kingdom.
+Registered Office: Office 68, Spaces, The Marylands Building, Maylands Avenue, Hemel Hempstead Industrial Estate, Hemel Hempstead, England, HP2 7TG.
 
 Important: Do not put client logos like Anglian Water, Scottish Water, etc. unless you have written permission or a confirmed direct/indirect contract. Use “Sectors We Support” instead.
