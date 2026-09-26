@@ -70,7 +70,7 @@ const WhatWeDo = () => {
   };
 
   return (
-    <MotionSection as="section" className="py-24 bg-[#f0f6fc]/40 font-sans" id="what-we-do">
+    <MotionSection as="section" className="py-24 bg-[#f3f7fa]/40 font-sans" id="what-we-do">
       <style>{`
         .no-scrollbar::-webkit-scrollbar {
           display: none;
@@ -87,10 +87,10 @@ const WhatWeDo = () => {
           <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-sm font-medium tracking-wide mb-4">
             Core Capabilities
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-tight mb-6 font-outfit">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-brand-dark tracking-tight leading-tight mb-6 font-outfit">
             What We Do
           </h2>
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-2xl">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed max-w-2xl">
             We provide operational support for utility and infrastructure projects, including workforce onboarding, project coordination, technician deployment, compliance checks, and site readiness support.
           </p>
         </div>
@@ -120,7 +120,7 @@ const WhatWeDo = () => {
                 <h3 className="text-base font-bold text-white tracking-tight mb-2 font-outfit leading-snug group-hover:text-brand-light transition-colors duration-300">
                   {item.title}
                 </h3>
-                <p className="text-slate-300 text-[11px] leading-relaxed line-clamp-2 group-hover:text-slate-200 transition-colors duration-300">
+                <p className="text-body md:text-body-lg text-slate-300 leading-relaxed line-clamp-2 group-hover:text-slate-200 transition-colors duration-300">
                   {item.desc}
                 </p>
               </div>

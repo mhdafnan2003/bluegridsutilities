@@ -62,7 +62,7 @@ const recruitmentSteps = [
 
 const CareerPage = () => {
   return (
-    <div className="font-sans bg-slate-50 min-h-screen">
+    <div className="font-sans bg-[#f3f7fa] min-h-screen">
       <PageSEO />
 
       <MotionSection
@@ -75,12 +75,12 @@ const CareerPage = () => {
         viewport={undefined}
       >
         {/* Pack 14: CAREERS — HERO */}
-        <div className="bg-[#0f3a5e] text-white py-16 sm:py-24 border-b-4 border-[#0066ff]">
+        <div className="bg-[#0f3a5e] text-white py-16 sm:py-24 border-b-4 border-[#005f9e]">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 text-left space-y-6">
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 font-outfit uppercase tracking-wider">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
-              <span className="text-[#0066ff]">Careers</span>
+              <span className="text-[#005f9e]">Careers</span>
             </div>
 
             <span className="inline-block px-3.5 py-1.5 bg-white/10 text-white text-xs font-black tracking-widest font-outfit uppercase border border-white/20">
@@ -88,12 +88,12 @@ const CareerPage = () => {
             </span>
 
             {/* Pack 14 Heading */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight font-outfit max-w-4xl">
+            <h1 className="text-h1 md:text-h1-lg font-extrabold tracking-tight font-outfit max-w-4xl">
               Careers at Bluegrid Utilities
             </h1>
 
             {/* Pack 14 Intro */}
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
               Our utility projects depend on people who work safely, communicate clearly and take responsibility for the quality of their work. We recruit for field, supervisory, project-support and operational roles as project requirements arise.
             </p>
 
@@ -101,7 +101,7 @@ const CareerPage = () => {
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <Link
                 to="/careers/jobs"
-                className="inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
+                className="text-nav inline-flex items-center justify-center gap-2 bg-[#005f9e] hover:bg-[#004c80] text-white font-extrabold tracking-wide px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
               >
                 <span>View Current Vacancies</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -109,7 +109,7 @@ const CareerPage = () => {
 
               <a
                 href="mailto:recruitment@bluegridutilities.com"
-                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#0f3a5e] font-extrabold text-xs tracking-widest px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
+                className="text-nav inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-[#0f3a5e] font-extrabold tracking-wide px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
               >
                 <span>Recruitment Enquiries</span>
                 <span className="material-symbols-outlined text-sm">mail</span>
@@ -127,7 +127,7 @@ const CareerPage = () => {
               Working Here
             </span>
 
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
+            <h2 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
               Practical Work. Clear Expectations.
             </h2>
 
@@ -143,7 +143,7 @@ const CareerPage = () => {
               </span>
               <Link
                 to="/careers/jobs"
-                className="inline-flex items-center gap-2 text-[#0066ff] hover:text-[#0052cc] text-xs font-extrabold uppercase tracking-wider font-outfit"
+                className="inline-flex items-center gap-2 text-[#005f9e] hover:text-[#004c80] text-xs font-extrabold uppercase tracking-wider font-outfit"
               >
                 <span>View Live Vacancies</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -157,10 +157,10 @@ const CareerPage = () => {
               <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Role Categories
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Role Families
               </h2>
-              <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg mt-3 text-[#1f2937] leading-relaxed font-medium">
                 Bluegrid Utilities recruits across defined role families as authorised project requirements arise.
               </p>
             </div>
@@ -176,7 +176,7 @@ const CareerPage = () => {
                       <span className="material-symbols-outlined text-2xl">{cat.icon}</span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-[#0f3a5e] font-outfit">
+                    <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">
                       {cat.title}
                     </h3>
 
@@ -188,7 +188,7 @@ const CareerPage = () => {
                   <div className="pt-6 mt-6 border-t border-slate-100">
                     <Link
                       to="/careers/jobs"
-                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#005f9e] hover:text-[#0066ff] font-outfit"
+                      className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#005f9e] hover:text-[#005f9e] font-outfit"
                     >
                       <span>Check vacancies</span>
                       <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -205,10 +205,10 @@ const CareerPage = () => {
               <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Staged Process
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Recruitment Process
               </h2>
-              <p className="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg mt-3 text-[#1f2937] leading-relaxed font-medium">
                 A disciplined, five-step pathway ensuring transparent and authorised candidate progression.
               </p>
             </div>
@@ -241,7 +241,7 @@ const CareerPage = () => {
               Notice
             </span>
 
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
+            <h2 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
               Keep an Eye on New Opportunities
             </h2>
 
@@ -257,7 +257,7 @@ const CareerPage = () => {
               </span>
               <Link
                 to="/careers/jobs"
-                className="inline-flex items-center gap-2 text-[#0066ff] hover:text-[#0052cc] text-xs font-extrabold uppercase tracking-wider font-outfit"
+                className="inline-flex items-center gap-2 text-[#005f9e] hover:text-[#004c80] text-xs font-extrabold uppercase tracking-wider font-outfit"
               >
                 <span>View Current Vacancies</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -267,16 +267,16 @@ const CareerPage = () => {
 
           {/* Bottom Action CTA */}
           <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 shadow-xl text-center space-y-4">
-            <h3 className="text-2xl sm:text-3xl font-extrabold font-outfit">
+            <h3 className="text-h2 md:text-h2-lg font-extrabold font-outfit">
               View Current Vacancies
             </h3>
-            <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto font-medium">
+            <p className="text-body md:text-body-lg text-slate-200 max-w-2xl mx-auto font-medium">
               All approved vacancies are published on our Current Vacancies page with full role specifications and direct application routes.
             </p>
             <div className="pt-2">
               <Link
                 to="/careers/jobs"
-                className="inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95"
+                className="text-nav inline-flex items-center justify-center gap-2 bg-[#005f9e] hover:bg-[#004c80] text-white font-extrabold tracking-wide px-8 py-4 uppercase font-outfit transition-all shadow-md active:scale-95"
               >
                 <span>View Current Vacancies</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>

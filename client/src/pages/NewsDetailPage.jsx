@@ -14,9 +14,9 @@ const NewsDetailPage = () => {
       <div className="font-sans bg-white min-h-[60vh] flex items-center justify-center py-24 text-center px-4">
         <div className="max-w-md">
           <span className="material-symbols-outlined text-5xl text-slate-400 mb-4 block">newspaper</span>
-          <h1 className="text-2xl font-bold text-[#0f3a5e] font-outfit mb-3">Article Not Found</h1>
-          <p className="text-slate-600 text-sm mb-6 font-medium">There is currently no published article at this address. News releases are published following formal approval and verification.</p>
-          <Link to="/news" className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-widest hover:bg-[#005f9e] transition-colors shadow-sm">
+          <h1 className="text-h1 md:text-h1-lg font-bold text-[#0f3a5e] font-outfit mb-3">Article Not Found</h1>
+          <p className="text-body md:text-body-lg text-[#1f2937] mb-6 font-medium">There is currently no published article at this address. News releases are published following formal approval and verification.</p>
+          <Link to="/news" className="text-nav inline-flex items-center gap-2 px-6 py-3 bg-[#0f3a5e] text-white font-bold font-outfit uppercase tracking-wide hover:bg-[#005f9e] transition-colors shadow-sm">
             <span>Back to Newsroom</span>
           </Link>
         </div>
@@ -43,7 +43,7 @@ const NewsDetailPage = () => {
         </Link>
 
         {/* 1. Article Title Header on White Background */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 tracking-tight leading-[1.2] font-outfit mb-6 max-w-5xl">
+        <h1 className="text-h1 md:text-h1-lg font-bold text-slate-900 tracking-tight leading-[1.2] font-outfit mb-6 max-w-5xl">
           {article.title}
         </h1>
 
@@ -97,7 +97,7 @@ const NewsDetailPage = () => {
 
         {/* Spokesperson Quote Block */}
         {article.spokespersonQuote && (
-          <blockquote className="max-w-5xl my-10 p-6 sm:p-8 bg-[#f4f8fc] border-l-4 border-l-[#005f9e] shadow-sm text-left">
+          <blockquote className="max-w-5xl my-10 p-6 sm:p-8 bg-[#f3f7fa] border-l-4 border-l-[#005f9e] shadow-sm text-left">
             <p className="text-lg sm:text-xl font-bold font-outfit text-[#0f3a5e] leading-snug italic mb-4">
               "{article.spokespersonQuote}"
             </p>
@@ -110,7 +110,7 @@ const NewsDetailPage = () => {
         {/* Verified Facts & Figures Section */}
         {article.factsFigures && article.factsFigures.length > 0 && (
           <div className="max-w-5xl py-8 border-y border-slate-200 mb-12 space-y-4">
-            <h3 className="text-xl font-bold font-outfit text-slate-900 flex items-center gap-2.5">
+            <h3 className="text-h3 md:text-h3-lg font-bold font-outfit text-slate-900 flex items-center gap-2.5">
               <span className="material-symbols-outlined text-[#005f9e] text-2xl">verified</span>
               Verified Facts & Operational Details
             </h3>
@@ -128,7 +128,7 @@ const NewsDetailPage = () => {
         {/* Key Operational Takeaways fallback */}
         {(!article.factsFigures || article.factsFigures.length === 0) && article.keyTakeaways && article.keyTakeaways.length > 0 && (
           <div className="max-w-5xl py-8 border-y border-slate-200 mb-12 space-y-5">
-            <h3 className="text-xl font-bold font-outfit text-slate-900 flex items-center gap-2.5">
+            <h3 className="text-h3 md:text-h3-lg font-bold font-outfit text-slate-900 flex items-center gap-2.5">
               <span className="material-symbols-outlined text-[#005f9e] text-2xl">verified</span>
               Key Operational Highlights
             </h3>
@@ -144,7 +144,7 @@ const NewsDetailPage = () => {
         )}
 
         {/* Related Service Badge & Contact CTA Box */}
-        <div className="max-w-5xl bg-[#0f3a5e] text-white p-8 sm:p-10 mb-14 shadow-xl border-l-4 border-l-[#0066ff] text-left space-y-4">
+        <div className="max-w-5xl bg-[#0f3a5e] text-white p-8 sm:p-10 mb-14 shadow-xl border-l-4 border-l-[#005f9e] text-left space-y-4">
           {article.relatedService && (
             <div>
               <span className="text-[10px] font-black uppercase tracking-widest text-[#60a5fa] font-outfit block mb-1">
@@ -157,7 +157,7 @@ const NewsDetailPage = () => {
           )}
           
           <div className="pt-2">
-            <h4 className="text-lg font-bold font-outfit text-white uppercase mb-2">
+            <h4 className="text-h3 md:text-h3-lg font-bold font-outfit text-white uppercase mb-2">
               Operational Enquiries & Contact
             </h4>
             <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
@@ -168,7 +168,7 @@ const NewsDetailPage = () => {
           <div className="pt-2">
             <Link 
               to="/contact?subject=Newsroom%20Enquiry"
-              className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold text-xs uppercase tracking-widest px-6 py-3 transition-all font-outfit shadow-md border border-[#0066ff]"
+              className="text-nav inline-flex items-center gap-2 bg-[#005f9e] hover:bg-white hover:text-[#0f3a5e] text-white font-bold uppercase tracking-wide px-6 py-3 transition-all font-outfit shadow-md border border-[#005f9e]"
             >
               <span>Contact Us Today</span>
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -179,7 +179,7 @@ const NewsDetailPage = () => {
         {/* 4. Large Image Gallery Grid */}
         {article.gallery && article.gallery.length > 0 && (
           <div className="my-14">
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-outfit mb-6">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-slate-900 font-outfit mb-6">
               Operational Photo Gallery
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -206,7 +206,7 @@ const NewsDetailPage = () => {
             <span className="text-[11px] font-black text-[#005f9e] tracking-widest uppercase font-outfit">
               Keep Reading
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 font-outfit mt-1">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-slate-900 font-outfit mt-1">
               More News & Operational Updates
             </h2>
           </div>
@@ -253,7 +253,7 @@ const NewsDetailPage = () => {
                     <span>{rel.readTime}</span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-slate-900 font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-slate-900 font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
                     {rel.title}
                   </h3>
 

@@ -21,10 +21,10 @@ const BoardDirectorsPage = () => {
             <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
               Operational & Corporate Governance
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+            <h1 className="text-h1 md:text-h1-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
               Leadership & Management
             </h1>
-            <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed font-medium">
               Confirmed operational leadership and statutory directors driving workforce coordination, compliance standards, infrastructure deployment, and project delivery across UK utility operations.
             </p>
           </div>

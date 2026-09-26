@@ -34,7 +34,7 @@ const OurVisionsPage = () => {
             {/* Text Box Container - Neutral Dark Glass, No Blue Tint */}
             <div className="relative z-10 p-6 sm:p-10 md:p-12 max-w-4xl text-left text-white bg-slate-950/75 backdrop-blur-md border border-white/20 shadow-2xl m-6 sm:m-10 lg:m-12">
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#0066ff] text-white text-[11px] font-bold tracking-widest font-outfit uppercase border border-white/20 shadow-sm">
+                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-[11px] font-bold tracking-widest font-outfit uppercase border border-white/20 shadow-sm">
                   Future Roadmap & Ambitions
                 </span>
                 <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit uppercase flex items-center gap-2">
@@ -43,15 +43,15 @@ const OurVisionsPage = () => {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-5 tracking-tight font-outfit leading-tight">
+              <h1 className="text-h1 md:text-h1-lg font-bold text-white mb-5 tracking-tight font-outfit leading-tight">
                 Our Vision
               </h1>
 
-              <blockquote className="text-base sm:text-xl md:text-2xl font-bold text-white mb-5 tracking-tight font-outfit leading-snug border-l-4 border-[#0066ff] pl-4 sm:pl-5 py-1 bg-white/5 rounded-none">
+              <blockquote className="text-base sm:text-xl md:text-2xl font-bold text-white mb-5 tracking-tight font-outfit leading-snug border-l-4 border-[#005f9e] pl-4 sm:pl-5 py-1 bg-white/5 rounded-none">
                 "To build a dependable UK utility infrastructure business recognised for safety, disciplined operations, quality workmanship and transparent accountability."
               </blockquote>
 
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
                 Our vision guides our controlled growth. Bluegrid Utilities focuses on practical utility delivery through structured workforce mobilisation, smart water-meter installation, robust safety controls and dependable project partnerships.
               </p>
             </div>
@@ -62,7 +62,7 @@ const OurVisionsPage = () => {
             <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 text-xs font-black tracking-widest font-outfit uppercase mb-3">
               Strategic Vision & Roadmap
             </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight">
               Strategic Priorities
             </h2>
           </div>
@@ -126,7 +126,7 @@ const OurVisionsPage = () => {
                 </div>
 
                 {/* Overlapping Text Container Box - Upper Right Corner (50% on banner, 50% outside banner) */}
-                <div className="relative lg:absolute lg:top-6 lg:right-0 w-full lg:w-[54%] max-w-xl bg-[#f4f8fc] border border-slate-200/90 border-l-4 border-l-[#005f9e] p-6 sm:p-8 lg:p-10 shadow-2xl z-20 space-y-3 mt-6 lg:mt-0">
+                <div className="relative lg:absolute lg:top-6 lg:right-0 w-full lg:w-[54%] max-w-xl bg-[#f3f7fa] border border-slate-200/90 border-l-4 border-l-[#005f9e] p-6 sm:p-8 lg:p-10 shadow-2xl z-20 space-y-3 mt-6 lg:mt-0">
                   <div className="flex items-center gap-3">
                     <span className="w-10 h-10 rounded-none bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center border border-[#005f9e]/20 shrink-0 font-bold">
                       <span className="material-symbols-outlined text-xl">{item.icon}</span>
@@ -136,11 +136,11 @@ const OurVisionsPage = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight">
+                  <h3 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight">
                     {item.title}
                   </h3>
 
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                  <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
                     {item.desc}
                   </p>
                 </div>
@@ -164,13 +164,13 @@ const OurVisionsPage = () => {
           <div className="relative z-20 max-w-[90rem] mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
-                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#0066ff] text-white text-xs font-black tracking-widest font-outfit uppercase border border-white/20 shadow-md">
+                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-xs font-black tracking-widest font-outfit uppercase border border-white/20 shadow-md">
                   Partner With Us
                 </span>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight font-outfit leading-tight">
+                <h2 className="text-h2 md:text-h2-lg font-bold text-white tracking-tight font-outfit leading-tight">
                   Ready to Discuss Your Contract Requirements?
                 </h2>
-                <p className="text-slate-200 text-base sm:text-lg max-w-2xl leading-relaxed font-medium">
+                <p className="text-body md:text-body-lg text-slate-200 max-w-2xl leading-relaxed font-medium">
                   Our experienced management team and accredited field operatives are ready to support your utility contracts across the UK. Get in touch with us today.
                 </p>
               </div>
@@ -178,7 +178,7 @@ const OurVisionsPage = () => {
               <div className="lg:col-span-4 flex lg:justify-end">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-3 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white transition-all duration-300 px-8 py-4 font-black text-xs sm:text-sm tracking-widest font-outfit shadow-2xl active:scale-95 group border-2 border-[#0066ff] hover:border-white"
+                  className="text-nav inline-flex items-center gap-3 bg-[#005f9e] hover:bg-white hover:text-[#0f3a5e] text-white transition-all duration-300 px-8 py-4 font-black tracking-wide font-outfit shadow-2xl active:scale-95 group border-2 border-[#005f9e] hover:border-white"
                 >
                   <span>Get In Touch</span>
                   <span className="transition-transform duration-300 group-hover:translate-x-1.5">➔</span>

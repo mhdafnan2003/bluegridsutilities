@@ -64,7 +64,7 @@ const WhyChooseBlueGrid = () => {
             <span className="inline-block px-3.5 py-1 rounded-none bg-[#005f9e] text-white text-[11px] font-black tracking-widest mb-2 font-outfit uppercase">
               How We Work
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight font-outfit leading-tight mb-2">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-white tracking-tight font-outfit leading-tight mb-2">
               A Controlled Approach to Delivery
             </h2>
             <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed font-medium">
@@ -77,12 +77,12 @@ const WhyChooseBlueGrid = () => {
             {deliveryStages.map((item, idx) => (
               <div 
                 key={idx}
-                className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#0066ff]/60 p-5 sm:p-6 rounded-none transition-all duration-300 backdrop-blur-md group flex flex-col justify-between"
+                className="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#005f9e]/60 p-5 sm:p-6 rounded-none transition-all duration-300 backdrop-blur-md group flex flex-col justify-between"
               >
                 <div>
                   {/* Step and Icon */}
                   <div className="flex items-center justify-between mb-4">
-                    <span className="w-8 h-8 rounded-none bg-[#0066ff]/30 text-[#60a5fa] flex items-center justify-center font-black text-xs font-outfit border border-[#0066ff]/40">
+                    <span className="w-8 h-8 rounded-none bg-[#005f9e]/30 text-[#60a5fa] flex items-center justify-center font-black text-xs font-outfit border border-[#005f9e]/40">
                       {item.step}
                     </span>
                     <span className="material-symbols-outlined text-[#60a5fa] text-xl">
@@ -91,7 +91,7 @@ const WhyChooseBlueGrid = () => {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-white tracking-wide font-outfit mb-2 group-hover:text-[#60a5fa] transition-colors duration-300">
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-white tracking-wide font-outfit mb-2 group-hover:text-[#60a5fa] transition-colors duration-300">
                     {item.title}
                   </h3>
 
@@ -102,7 +102,7 @@ const WhyChooseBlueGrid = () => {
                 </div>
 
                 {/* Subtle Accent Line */}
-                <div className="w-8 h-0.5 bg-[#005f9e] group-hover:w-full group-hover:bg-[#0066ff] transition-all duration-500 mt-5" />
+                <div className="w-8 h-0.5 bg-[#005f9e] group-hover:w-full group-hover:bg-[#005f9e] transition-all duration-500 mt-5" />
               </div>
             ))}
           </div>
@@ -119,7 +119,7 @@ const WhyChooseBlueGrid = () => {
             <div className="flex flex-wrap items-center gap-3 shrink-0">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-6 py-3 rounded-none border border-white/10 transition-all duration-300 shadow-lg active:scale-95 font-outfit group"
+                className="text-nav inline-flex items-center gap-2 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold tracking-wide px-6 py-3 rounded-none border border-white/10 transition-all duration-300 shadow-lg active:scale-95 font-outfit group"
               >
                 <span>Work with Bluegrid Utilities</span>
                 <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
@@ -129,7 +129,7 @@ const WhyChooseBlueGrid = () => {
               
               <Link
                 to="/career"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-6 py-3 rounded-none border border-white/30 transition-all duration-300 font-outfit"
+                className="text-nav inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold tracking-wide px-6 py-3 rounded-none border border-white/30 transition-all duration-300 font-outfit"
               >
                 <span>Career Opportunities</span>
               </Link>

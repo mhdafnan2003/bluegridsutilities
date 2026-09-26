@@ -110,14 +110,14 @@ export default function LogoCloudSwap({
 
   return (
     <section
-      className={cn("w-full bg-[#f8fafc] px-4 py-12 sm:py-16 border-y border-slate-100 font-sans", className)}
+      className={cn("w-full bg-[#f3f7fa] px-4 py-12 sm:py-16 border-y border-slate-100 font-sans", className)}
     >
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-2xl font-bold tracking-tight text-[#0f3a5e] font-outfit sm:text-3xl">
+        <h2 className="text-h2 md:text-h2-lg font-bold tracking-tight text-[#0f3a5e] font-outfit">
           {title}
         </h2>
         {subtitle && (
-          <p className="mt-3 text-sm font-medium text-slate-600">{subtitle}</p>
+          <p className="text-body md:text-body-lg mt-3 font-medium text-[#1f2937]">{subtitle}</p>
         )}
       </div>
 

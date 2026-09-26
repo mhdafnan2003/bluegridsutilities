@@ -132,28 +132,28 @@ const Header = () => {
         }`}>
 
           {/* Navbar Logo */}
-          <div className={`flex items-center py-2 pr-2 sm:pr-4 lg:pr-6 shrink-0 ${isScrolled ? 'flex' : 'flex md:hidden'}`}>
+          <div className={`flex items-center py-2 pr-2 sm:pr-4 shrink-0 ${isScrolled ? 'flex' : 'flex md:hidden'}`}>
             <Link className="flex items-center gap-2" to="/">
               <img src={logo} alt="Bluegrid Utilities Logo" className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto object-contain transition-all duration-300" />
             </Link>
           </div>
 
           {/* Navigation Links - Centered with good gap */}
-          <nav className="hidden lg:flex items-stretch justify-center mx-auto h-full gap-1.5 lg:gap-2 xl:gap-3.5">
+          <nav className="hidden xl:flex items-stretch justify-center mx-auto h-full gap-1 2xl:gap-3">
             {navLinks.map((link) => {
               if (link.label === 'About') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-nav font-semibold font-outfit flex items-center gap-1 px-2 2xl:px-3 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
                       <span>{link.label}</span>
-                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                      <span className="material-symbols-outlined text-lg transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
                       <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -173,11 +173,11 @@ const Header = () => {
                             <Link
                               key={index}
                               to={item.to}
-                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
-                                active
-                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
-                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
-                              }`}
+                              className={`text-nav px-6 py-3 font-medium font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+ active
+ ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+ : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+ }`}
                             >
                               {item.label}
                             </Link>
@@ -194,14 +194,14 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-nav font-semibold font-outfit flex items-center gap-1 px-2 2xl:px-3 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
                       <span>{link.label}</span>
-                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                      <span className="material-symbols-outlined text-lg transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
                       <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -223,11 +223,11 @@ const Header = () => {
                             <Link
                               key={index}
                               to={item.to}
-                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
-                                active
-                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
-                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
-                              }`}
+                              className={`text-nav px-6 py-3 font-medium font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+ active
+ ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+ : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+ }`}
                             >
                               {item.label}
                             </Link>
@@ -244,14 +244,14 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-nav font-semibold font-outfit flex items-center gap-1 px-2 2xl:px-3 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
                       <span>{link.label}</span>
-                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                      <span className="material-symbols-outlined text-lg transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
                       <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -272,11 +272,11 @@ const Header = () => {
                             <Link
                               key={index}
                               to={item.to}
-                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
-                                active
-                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
-                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
-                              }`}
+                              className={`text-nav px-6 py-3 font-medium font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+ active
+ ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+ : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+ }`}
                             >
                               {item.label}
                             </Link>
@@ -293,14 +293,14 @@ const Header = () => {
                   <div key={link.label} className="relative group flex items-stretch">
                     <Link
                       to={link.to}
-                      className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center gap-1 px-1.5 lg:px-2 xl:px-2.5 cursor-pointer select-none relative ${
+                      className={`whitespace-nowrap transition-colors text-nav font-semibold font-outfit flex items-center gap-1 px-2 2xl:px-3 cursor-pointer select-none relative ${
                         isActive(link.to) 
                           ? 'text-[#005f9e]' 
                           : 'text-[#0f3a5e] hover:text-[#005f9e]'
                       }`}
                     >
                       <span>{link.label}</span>
-                      <span className="material-symbols-outlined text-[14px] lg:text-base transition-transform duration-300 group-hover:rotate-180">
+                      <span className="material-symbols-outlined text-lg transition-transform duration-300 group-hover:rotate-180">
                         keyboard_arrow_down
                       </span>
                       <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
@@ -320,11 +320,11 @@ const Header = () => {
                             <Link
                               key={index}
                               to={item.to}
-                              className={`px-6 py-3 text-[11px] lg:text-xs font-bold uppercase tracking-wider font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
-                                active
-                                  ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
-                                  : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
-                              }`}
+                              className={`text-nav px-6 py-3 font-medium font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
+ active
+ ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
+ : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
+ }`}
                             >
                               {item.label}
                             </Link>
@@ -340,7 +340,7 @@ const Header = () => {
                 <Link
                   key={link.label}
                   to={link.to}
-                  className={`whitespace-nowrap transition-colors text-[11px] lg:text-xs xl:text-sm font-bold uppercase tracking-wider font-outfit flex items-center relative group px-1.5 lg:px-2 xl:px-2.5 ${
+                  className={`whitespace-nowrap transition-colors text-nav font-semibold font-outfit flex items-center relative group px-2 2xl:px-3 ${
                     isActive(link.to) 
                       ? 'text-[#005f9e]' 
                       : 'text-[#0f3a5e] hover:text-[#005f9e]'
@@ -354,18 +354,18 @@ const Header = () => {
           </nav>
 
           {/* Right CTA / Hamburger Menu */}
-          <div className="flex items-center shrink-0 gap-2 sm:gap-3 ml-2 lg:ml-4 mr-2 sm:mr-4 lg:mr-6 my-auto">
+          <div className="flex items-center shrink-0 gap-2 sm:gap-3 ml-2 lg:ml-4 my-auto">
             {/* Discuss Project Button */}
             <Link
               to="/contact"
-              className="bg-[#005f9e] hover:bg-[#004c80] text-white transition-all duration-200 px-3 sm:px-3.5 lg:px-4 py-2 sm:py-2.5 rounded-lg font-bold uppercase text-[10px] sm:text-[11px] lg:text-xs font-outfit tracking-wider flex items-center justify-center whitespace-nowrap shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer shrink-0"
+              className="text-nav bg-[#005f9e] hover:bg-[#004c80] text-white transition-all duration-200 px-4 lg:px-5 py-2 sm:py-2.5 rounded-lg font-semibold font-outfit flex items-center justify-center whitespace-nowrap shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] cursor-pointer shrink-0"
             >
               <span className="lg:hidden">Contact</span>
               <span className="hidden lg:inline">Discuss Project</span>
             </Link>
 
             {/* Mobile Hamburger toggle */}
-            <div className="lg:hidden flex items-center shrink-0">
+            <div className="xl:hidden flex items-center shrink-0">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className="flex flex-col gap-1 justify-center items-center w-9 h-9 sm:w-10 sm:h-10 border rounded-lg bg-white shadow-sm transition-colors duration-300 border-slate-200 text-[#0f3a5e] shrink-0 hover:bg-slate-50"
@@ -387,21 +387,21 @@ const Header = () => {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: 'easeInOut' }}
-              className="lg:hidden overflow-hidden border-t bg-white border-slate-100 shadow-xl"
+              className="xl:hidden overflow-hidden border-t bg-white border-slate-100 shadow-xl"
             >
-              <div className="flex flex-col px-6 py-6 space-y-4 font-outfit uppercase tracking-wider text-sm font-bold">
+              <div className="flex flex-col px-6 py-6 space-y-4 font-outfit text-nav font-semibold">
                 {navLinks.map((link) => {
                   if (link.label === 'About') {
                     return (
                       <div key={link.label} className="flex flex-col">
                         <button
                           onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-semibold border-slate-50 ${
                             isActive('/about') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
                           }`}
                         >
                           <span>{link.label}</span>
-                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileAboutOpen ? 'rotate-180' : ''}`}>
+                          <span className={`material-symbols-outlined text-lg transform transition-transform duration-300 ${isMobileAboutOpen ? 'rotate-180' : ''}`}>
                             keyboard_arrow_down
                           </span>
                         </button>
@@ -411,7 +411,7 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                              className="pl-4 flex flex-col font-sans text-nav font-normal text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
                                 { label: "About Bluegrid Utilities", to: "/about" },
@@ -429,7 +429,7 @@ const Header = () => {
                                       setIsMobileAboutOpen(false);
                                     }}
                                     className={`transition-colors py-1 block text-left ${
-                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                      active ? 'text-[#005f9e] font-semibold' : 'hover:text-[#005f9e]'
                                     }`}
                                   >
                                     {item.label}
@@ -448,12 +448,12 @@ const Header = () => {
                       <div key={link.label} className="flex flex-col">
                         <button
                           onClick={() => setIsMobileHealthSafetyOpen(!isMobileHealthSafetyOpen)}
-                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-semibold border-slate-50 ${
                             isActive('/safety-quality') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
                           }`}
                         >
                           <span>{link.label}</span>
-                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileHealthSafetyOpen ? 'rotate-180' : ''}`}>
+                          <span className={`material-symbols-outlined text-lg transform transition-transform duration-300 ${isMobileHealthSafetyOpen ? 'rotate-180' : ''}`}>
                             keyboard_arrow_down
                           </span>
                         </button>
@@ -463,7 +463,7 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                              className="pl-4 flex flex-col font-sans text-nav font-normal text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
                                 { label: "Safety & Quality Overview", to: "/safety-quality" },
@@ -482,7 +482,7 @@ const Header = () => {
                                       setIsMobileHealthSafetyOpen(false);
                                     }}
                                     className={`transition-colors py-1 block text-left ${
-                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                      active ? 'text-[#005f9e] font-semibold' : 'hover:text-[#005f9e]'
                                     }`}
                                   >
                                     {item.label}
@@ -501,12 +501,12 @@ const Header = () => {
                       <div key={link.label} className="flex flex-col">
                         <button
                           onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-semibold border-slate-50 ${
                             isActive('/services') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
                           }`}
                         >
                           <span>{link.label}</span>
-                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`}>
+                          <span className={`material-symbols-outlined text-lg transform transition-transform duration-300 ${isMobileServicesOpen ? 'rotate-180' : ''}`}>
                             keyboard_arrow_down
                           </span>
                         </button>
@@ -516,7 +516,7 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                              className="pl-4 flex flex-col font-sans text-nav font-normal text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
                                 { label: "Our Capabilities", to: "/services" },
@@ -536,7 +536,7 @@ const Header = () => {
                                       setIsMobileServicesOpen(false);
                                     }}
                                     className={`transition-colors py-1 block text-left ${
-                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                      active ? 'text-[#005f9e] font-semibold' : 'hover:text-[#005f9e]'
                                     }`}
                                   >
                                     {item.label}
@@ -555,12 +555,12 @@ const Header = () => {
                       <div key={link.label} className="flex flex-col">
                         <button
                           onClick={() => setIsMobileCareersOpen(!isMobileCareersOpen)}
-                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-bold border-slate-50 ${
+                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-semibold border-slate-50 ${
                             isActive('/careers') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
                           }`}
                         >
                           <span>{link.label}</span>
-                          <span className={`material-symbols-outlined text-xs transform transition-transform duration-300 ${isMobileCareersOpen ? 'rotate-180' : ''}`}>
+                          <span className={`material-symbols-outlined text-lg transform transition-transform duration-300 ${isMobileCareersOpen ? 'rotate-180' : ''}`}>
                             keyboard_arrow_down
                           </span>
                         </button>
@@ -570,7 +570,7 @@ const Header = () => {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 flex flex-col font-sans normal-case text-xs text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
+                              className="pl-4 flex flex-col font-sans text-nav font-normal text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
                             >
                               {[
                                 { label: "Careers at Bluegrid", to: "/careers" },
@@ -588,7 +588,7 @@ const Header = () => {
                                       setIsMobileCareersOpen(false);
                                     }}
                                     className={`transition-colors py-1 block text-left ${
-                                      active ? 'text-[#005f9e] font-bold' : 'hover:text-[#005f9e]'
+                                      active ? 'text-[#005f9e] font-semibold' : 'hover:text-[#005f9e]'
                                     }`}
                                   >
                                     {item.label}
@@ -612,7 +612,7 @@ const Header = () => {
                       }`}
                     >
                       <span>{link.label}</span>
-                      <span className="text-[#005f9e] text-xs">➔</span>
+                      <span className="text-[#005f9e] text-sm">➔</span>
                     </Link>
                   );
                 })}
@@ -622,7 +622,7 @@ const Header = () => {
                   <Link
                     to="/contact"
                     onClick={() => setIsMenuOpen(false)}
-                    className="w-full bg-[#005f9e] hover:bg-[#004c80] text-white py-3 px-4 rounded-lg font-bold text-center text-xs tracking-wider uppercase font-outfit flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-all"
+                    className="text-nav w-full bg-[#005f9e] hover:bg-[#004c80] text-white py-3 px-4 rounded-lg font-semibold text-center font-outfit flex items-center justify-center gap-2 shadow-sm active:scale-[0.98] transition-all"
                   >
                     <span>Discuss a project</span>
                     <span className="material-symbols-outlined text-sm">arrow_forward</span>

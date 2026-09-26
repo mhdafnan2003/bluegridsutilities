@@ -456,16 +456,16 @@ const ServicesPage = () => {
             <div className="mb-6 text-left">
               <Link 
                 to="/services" 
-                className="inline-flex items-center gap-2 text-white/90 hover:text-white bg-black/40 backdrop-blur-md px-4 py-2 border border-white/20 font-bold text-xs uppercase tracking-wider transition-colors font-outfit shadow-md"
+                className="text-nav inline-flex items-center gap-2 text-white/90 hover:text-white bg-black/40 backdrop-blur-md px-4 py-2 border border-white/20 font-bold uppercase tracking-wide transition-colors font-outfit shadow-md"
               >
                 ← Back to Our Services
               </Link>
             </div>
 
             {/* Text Container Box Over Banner - Pure White Background */}
-            <div className="p-6 sm:p-10 md:p-12 max-w-3xl text-left text-[#0f3a5e] bg-white border border-slate-200/90 shadow-2xl space-y-4 border-l-4 border-l-[#0066ff]">
+            <div className="p-6 sm:p-10 md:p-12 max-w-3xl text-left text-[#0f3a5e] bg-white border border-slate-200/90 shadow-2xl space-y-4 border-l-4 border-l-[#005f9e]">
               <div className="flex flex-wrap items-center gap-3">
-                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#0066ff] text-white text-[11px] font-bold tracking-widest font-outfit uppercase border border-white/20 shadow-sm">
+                <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-[11px] font-bold tracking-widest font-outfit uppercase border border-white/20 shadow-sm">
                   {service.eyebrow || `Service ${service.num}`}
                 </span>
                 <span className="text-[#005f9e] font-bold text-xs tracking-widest font-outfit uppercase flex items-center gap-2">
@@ -474,18 +474,18 @@ const ServicesPage = () => {
                 </span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight uppercase">
+              <h1 className="text-h1 md:text-h1-lg font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight uppercase">
                 {service.title}
               </h1>
 
-              <p className="text-slate-700 text-base sm:text-lg font-medium leading-relaxed">
+              <p className="text-body md:text-body-lg text-[#1f2937] font-medium leading-relaxed">
                 {service.intro}
               </p>
 
               <div className="pt-2">
                 <Link
                   to={`/contact?subject=${encodeURIComponent(service.title)}`}
-                  className="inline-flex items-center gap-2 px-7 py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold text-xs tracking-widest uppercase font-outfit shadow-md transition-all"
+                  className="text-nav inline-flex items-center gap-2 px-7 py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold tracking-wide uppercase font-outfit shadow-md transition-all"
                 >
                   <span>Discuss a Project</span>
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -506,7 +506,7 @@ const ServicesPage = () => {
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] border border-[#005f9e]/20 text-xs font-black tracking-widest font-outfit uppercase mb-2">
                 Operational Framework
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">
                 Service Breakdown & Benefits
               </h2>
             </div>
@@ -515,12 +515,12 @@ const ServicesPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               
               {/* Card 1: Key Focus Areas */}
-              <div className="bg-[#f4f8fc] border border-slate-200/90 p-6 sm:p-8 text-left shadow-lg border-t-4 border-t-[#005f9e] space-y-4">
+              <div className="bg-[#f3f7fa] border border-slate-200/90 p-6 sm:p-8 text-left shadow-lg border-t-4 border-t-[#005f9e] space-y-4">
                 <div className="flex items-center gap-3 pb-3 border-b border-slate-200">
                   <span className="w-10 h-10 rounded-none bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center border border-[#005f9e]/20 shrink-0 font-bold">
                     <span className="material-symbols-outlined text-xl">checklist</span>
                   </span>
-                  <h3 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-wider font-outfit">
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] uppercase tracking-wider font-outfit">
                     Key Focus Areas
                   </h3>
                 </div>
@@ -536,12 +536,12 @@ const ServicesPage = () => {
               </div>
 
               {/* Card 2: Operational Benefits */}
-              <div className="bg-[#f4f8fc] border border-slate-200/90 p-6 sm:p-8 text-left shadow-lg border-t-4 border-t-emerald-600 space-y-4">
+              <div className="bg-[#f3f7fa] border border-slate-200/90 p-6 sm:p-8 text-left shadow-lg border-t-4 border-t-emerald-600 space-y-4">
                 <div className="flex items-center gap-3 pb-3 border-b border-slate-200">
                   <span className="w-10 h-10 rounded-none bg-emerald-500/10 text-emerald-600 flex items-center justify-center border border-emerald-500/20 shrink-0 font-bold">
                     <span className="material-symbols-outlined text-xl">verified</span>
                   </span>
-                  <h3 className="text-lg font-bold text-[#0f3a5e] uppercase tracking-wider font-outfit">
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] uppercase tracking-wider font-outfit">
                     Operational Benefits
                   </h3>
                 </div>
@@ -568,7 +568,7 @@ const ServicesPage = () => {
                   <span className="text-xs font-black tracking-widest text-[#005f9e] uppercase font-outfit block mb-2">
                     CORE OPERATIONAL SERVICES
                   </span>
-                  <h3 className="text-3xl md:text-5xl font-extrabold text-[#0f3a5e] uppercase tracking-tight font-outfit">
+                  <h3 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] uppercase tracking-tight font-outfit">
                     {serviceBannersMap[service.slug].title}
                   </h3>
                 </div>
@@ -602,19 +602,19 @@ const ServicesPage = () => {
                       </div>
 
                       {/* Text Container Box Over Image - Alternating Left/Right */}
-                      <div className={`relative z-10 text-[#0f3a5e] w-full max-w-3xl pt-16 sm:pt-20 bg-white border border-slate-200/90 p-6 sm:p-10 md:p-12 shadow-2xl space-y-4 ${isEven ? 'border-l-4 border-l-[#0066ff]' : 'border-r-4 border-r-[#0066ff]'}`}>
-                        <h4 className="text-3xl md:text-4xl lg:text-5xl font-extrabold font-outfit text-[#0f3a5e] uppercase tracking-tight leading-tight">
+                      <div className={`relative z-10 text-[#0f3a5e] w-full max-w-3xl pt-16 sm:pt-20 bg-white border border-slate-200/90 p-6 sm:p-10 md:p-12 shadow-2xl space-y-4 ${isEven ? 'border-l-4 border-l-[#005f9e]' : 'border-r-4 border-r-[#005f9e]'}`}>
+                        <h4 className="text-h2 md:text-h2-lg font-extrabold font-outfit text-[#0f3a5e] uppercase tracking-tight leading-tight">
                           {banner.title}
                         </h4>
 
-                        <p className="text-slate-600 text-sm md:text-base leading-relaxed font-medium max-w-2xl">
+                        <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium max-w-2xl">
                           {banner.desc}
                         </p>
 
                         {/* Highlights Grid inside Banner Container */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-6 border-t border-slate-200">
                           {banner.highlights.map((hl, hIdx) => (
-                            <div key={hIdx} className="bg-slate-50 p-3.5 border border-slate-200 flex items-center gap-2">
+                            <div key={hIdx} className="bg-[#f3f7fa] p-3.5 border border-slate-200 flex items-center gap-2">
                               <span className="w-2.5 h-2.5 bg-[#005f9e] rounded-full shrink-0"></span>
                               <span className="text-xs font-bold text-slate-700 font-outfit">{hl}</span>
                             </div>
@@ -631,9 +631,9 @@ const ServicesPage = () => {
 
 
           {/* Action Bar & CTA Buttons - Placed just above the news / next section at bottom */}
-          <div className="flex flex-wrap items-center justify-between gap-6 bg-[#0f3a5e] text-white p-6 sm:p-8 shadow-xl text-left border-l-4 border-l-[#0066ff] mt-16">
+          <div className="flex flex-wrap items-center justify-between gap-6 bg-[#0f3a5e] text-white p-6 sm:p-8 shadow-xl text-left border-l-4 border-l-[#005f9e] mt-16">
             <div className="max-w-2xl">
-              <h4 className="text-lg sm:text-xl font-bold font-outfit text-white">
+              <h4 className="text-h3 md:text-h3-lg font-bold font-outfit text-white">
                 {service.ctaText || `Discuss a ${service.title.toLowerCase()} requirement`}
               </h4>
               <p className="text-slate-300 text-xs sm:text-sm font-medium mt-1">
@@ -641,16 +641,16 @@ const ServicesPage = () => {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-4 shrink-0">
+            <div className="flex flex-wrap gap-4 md:shrink-0">
               <Link 
                 to={`/contact?subject=${encodeURIComponent(service.title)}`}
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold uppercase text-xs tracking-widest transition-all duration-300 shadow-lg active:scale-95 font-outfit cursor-pointer border border-[#0066ff]"
+                className="text-nav inline-flex items-center justify-center px-8 py-3.5 bg-[#005f9e] hover:bg-white hover:text-[#0f3a5e] text-white font-bold uppercase tracking-wide transition-all duration-300 shadow-lg active:scale-95 font-outfit cursor-pointer border border-[#005f9e]"
               >
                 {service.ctaText || "Discuss a project"}
               </Link>
               <Link 
                 to="/services"
-                className="inline-flex items-center justify-center px-8 py-3.5 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/30 font-bold uppercase text-xs tracking-widest transition-all duration-300 active:scale-95 font-outfit cursor-pointer"
+                className="text-nav inline-flex items-center justify-center px-8 py-3.5 bg-white/10 hover:bg-white hover:text-[#0f3a5e] text-white border border-white/30 font-bold uppercase tracking-wide transition-all duration-300 active:scale-95 font-outfit cursor-pointer"
               >
                 View All Services
               </Link>
@@ -681,16 +681,16 @@ const ServicesPage = () => {
           <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
             SERVICES
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+          <h1 className="text-h1 md:text-h1-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
             Utility Infrastructure Support
           </h1>
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium mt-4">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium mt-4">
             Bluegrid Utilities supports authorised utility programmes through field delivery, project coordination and associated infrastructure services. Each capability is mobilised in line with the scope, competence, resources and approvals required for the project.
           </p>
           <div className="mt-6">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest uppercase font-outfit transition-all shadow-md"
+              className="text-nav inline-flex items-center gap-2 px-7 py-3.5 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold tracking-wide uppercase font-outfit transition-all shadow-md"
             >
               <span>Discuss a Project</span>
               <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -700,10 +700,10 @@ const ServicesPage = () => {
 
         {/* Section Header (Pack 03 Section) */}
         <div className="text-left mb-14 max-w-3xl">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] font-outfit">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] font-outfit">
             Our Capabilities
           </h2>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mt-2">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium mt-2">
             Our service pages explain the areas in which Bluegrid can support utility delivery. The exact scope available on any project depends on the agreed requirements, competent resources, client instructions and applicable authorisations.
           </p>
         </div>
@@ -729,7 +729,7 @@ const ServicesPage = () => {
 
                 {/* Floating Light Card Container (Alternating Right and Left in Zig-Zag pattern) */}
                 <div className={`relative z-10 w-full p-4 sm:p-8 md:p-12 flex ${isEven ? 'justify-end' : 'justify-start'}`}>
-                  <div className="w-full max-w-[500px] lg:max-w-[540px] bg-[#f4f8fc] text-[#0f3a5e] p-8 sm:p-10 md:p-12 shadow-2xl text-left border border-slate-200/90 border-t-4 border-t-[#0066ff]">
+                  <div className="w-full max-w-[500px] lg:max-w-[540px] bg-[#f3f7fa] text-[#0f3a5e] p-8 sm:p-10 md:p-12 shadow-2xl text-left border border-slate-200/90 border-t-4 border-t-[#005f9e]">
                     
                     {/* Circular Icon Ring */}
                     <div className="w-14 h-14 rounded-full border-2 border-[#005f9e]/30 bg-[#005f9e]/10 flex items-center justify-center text-[#005f9e] mb-6 shrink-0 font-bold">
@@ -737,19 +737,19 @@ const ServicesPage = () => {
                     </div>
 
                     {/* Title */}
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] font-outfit mb-4 leading-tight">
+                    <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] font-outfit mb-4 leading-tight">
                       {service.hubTitle || service.title}
                     </h2>
 
                     {/* Description */}
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium mb-8">
+                    <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium mb-8">
                       {service.desc}
                     </p>
 
                     {/* Link Text: View capability → (Pack 03 Point 12) */}
                     <Link 
                       to={`/services/${service.slug}`}
-                      className="inline-flex items-center gap-3 bg-[#0066ff] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit uppercase border border-transparent"
+                      className="text-nav inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold tracking-wide px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg group/btn font-outfit uppercase border border-transparent"
                     >
                       <span>View capability</span>
                       <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover/btn:translate-x-1">
@@ -766,21 +766,21 @@ const ServicesPage = () => {
         </div>
 
         {/* Discuss a Project Section (Pack 03 Points 9, 13, 14) */}
-        <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-16 border-l-4 border-l-[#0066ff] shadow-2xl text-left">
+        <div className="bg-[#0f3a5e] text-white p-8 sm:p-12 md:p-16 border-l-4 border-l-[#005f9e] shadow-2xl text-left">
           <div className="max-w-4xl space-y-4">
-            <span className="text-xs font-black tracking-widest text-[#0066ff] uppercase font-outfit block">
+            <span className="text-xs font-black tracking-widest text-[#005f9e] uppercase font-outfit block">
               Direct Project Consultation
             </span>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold font-outfit text-white">
+            <h3 className="text-h2 md:text-h2-lg font-bold font-outfit text-white">
               Discuss a Project
             </h3>
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
               Every utility project requirement is defined by its scope, programme constraints, technical specifications and required authorisations. Contact Bluegrid Utilities to discuss how our field operations and project coordination teams can support your delivery needs.
             </p>
             <div className="pt-4">
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest uppercase font-outfit transition-all shadow-md active:scale-95"
+                className="text-nav inline-flex items-center gap-2 px-8 py-4 bg-[#005f9e] hover:bg-[#004c80] text-white font-extrabold tracking-wide uppercase font-outfit transition-all shadow-md active:scale-95"
               >
                 <span>Discuss a Project</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>

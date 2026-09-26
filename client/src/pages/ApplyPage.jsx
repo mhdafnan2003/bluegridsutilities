@@ -7,7 +7,7 @@ import heroThreeImg from '../assets/images/updated/water_meter_installation.png'
 
 const ApplyPage = () => {
   return (
-    <div className="font-sans bg-slate-50 min-h-screen">
+    <div className="font-sans bg-[#f3f7fa] min-h-screen">
       <MotionSection 
         as="section" 
         className="pb-16 md:pb-24" 
@@ -33,7 +33,7 @@ const ApplyPage = () => {
               <span className="text-[11px] font-black text-[#005f9e] tracking-widest uppercase font-outfit">
                 Immediate Recruitment
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">
                 Water Meter Installation Operative – Digging &amp; Reinstatement
               </h2>
               <p className="text-slate-600 text-xs sm:text-sm font-medium">
@@ -44,7 +44,7 @@ const ApplyPage = () => {
             <div className="flex flex-wrap gap-3 shrink-0">
               <Link 
                 to="/careers/water-meter-installation-operative"
-                className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold text-xs tracking-widest px-6 py-3.5 border border-transparent transition-all shadow-md active:scale-95 font-outfit"
+                className="text-nav inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold tracking-wide px-6 py-3.5 border border-transparent transition-all shadow-md active:scale-95 font-outfit"
               >
                 <span>Read Full Job Specs</span>
                 <span className="material-symbols-outlined text-sm">visibility</span>
@@ -67,7 +67,7 @@ const ApplyPage = () => {
               href="https://forms.office.com/r/K9vKw1hxcB" 
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-white text-[#0f3a5e] hover:text-[#005f9e] font-bold text-xs uppercase tracking-wider border border-slate-300 shadow-sm shrink-0"
+              className="text-nav inline-flex items-center gap-1.5 px-4 py-2 bg-white text-[#0f3a5e] hover:text-[#005f9e] font-bold uppercase tracking-wide border border-slate-300 shadow-sm shrink-0"
             >
               <span>Open Microsoft Form</span>
               <span className="material-symbols-outlined text-xs">open_in_new</span>

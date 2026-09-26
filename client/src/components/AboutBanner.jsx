@@ -25,10 +25,10 @@ const AboutBanner = ({ badgeText, title, description, bgImage, imagePosition = '
               <div className="w-10 h-1 bg-[#005f9e] mt-1.5 rounded-full" />
             </div>
           )}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight mb-4 font-outfit">
+          <h1 className="text-h1 md:text-h1-lg font-bold text-white tracking-tight leading-tight mb-4 font-outfit">
             {title}
           </h1>
-          <p className="text-slate-200 text-sm sm:text-base md:text-lg leading-relaxed font-medium max-w-xl">
+          <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium max-w-xl">
             {description}
           </p>
           {children && (

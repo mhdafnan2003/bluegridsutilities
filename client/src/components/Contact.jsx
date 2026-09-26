@@ -96,16 +96,16 @@ const Contact = () => {
           <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e] text-white text-[10px] sm:text-xs font-black tracking-widest mb-6 font-outfit shadow-sm uppercase">
             CONTACT
           </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 font-outfit leading-tight text-white uppercase">
+          <h1 className="text-h1 md:text-h1-lg font-bold tracking-tight mb-6 font-outfit leading-tight text-white uppercase">
             Contact Bluegrid Utilities
           </h1>
-          <p className="text-sm sm:text-base md:text-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
+          <p className="text-body md:text-body-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
             For project, business or general enquiries, contact Bluegrid Utilities using the approved Company details below. Recruitment enquiries should use the dedicated careers route.
           </p>
           <div className="mt-8">
             <a 
               href="#contact-form-section" 
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest uppercase font-outfit transition-all shadow-md active:scale-95"
+              className="text-nav inline-flex items-center gap-2 px-8 py-4 bg-[#005f9e] hover:bg-[#004c80] text-white font-extrabold tracking-wide uppercase font-outfit transition-all shadow-md active:scale-95"
             >
               <span>Send an Enquiry</span>
               <span className="material-symbols-outlined text-sm">arrow_downward</span>
@@ -125,7 +125,7 @@ const Contact = () => {
 
             {/* Left Side: Contact Directory */}
             <div className="lg:col-span-5 flex flex-col gap-6 w-full h-full text-left">
-              <div className="flex-1 rounded-none bg-[#f4f8fc] border border-slate-200 shadow-md w-full overflow-hidden divide-y divide-slate-200 flex flex-col justify-between">
+              <div className="flex-1 rounded-none bg-[#f3f7fa] border border-slate-200 shadow-md w-full overflow-hidden divide-y divide-slate-200 flex flex-col justify-between">
                 {contactRoutes.map((contact, i) => (
                   <div key={i} className="flex-1 flex flex-col justify-center px-8 py-5 hover:bg-white transition-colors duration-200 group">
                     <div className="flex items-start justify-between gap-4">
@@ -146,14 +146,14 @@ const Contact = () => {
                           </p>
                         )}
                         {contact.note && (
-                          <p className="text-[11px] text-slate-500 mt-1 font-medium italic">
+                          <p className="text-body md:text-body-lg text-slate-500 mt-1 font-medium italic">
                             {contact.note}
                           </p>
                         )}
                         {contact.ctaText && (
                           <a
                             href={contact.ctaHref}
-                            className="inline-flex items-center gap-1 text-xs font-bold text-[#0066ff] hover:text-[#0052cc] mt-2 uppercase tracking-wide font-outfit"
+                            className="inline-flex items-center gap-1 text-xs font-bold text-[#005f9e] hover:text-[#004c80] mt-2 uppercase tracking-wide font-outfit"
                           >
                             <span>{contact.ctaText}</span>
                             <span className="material-symbols-outlined text-xs">arrow_forward</span>
@@ -176,7 +176,7 @@ const Contact = () => {
                   className="h-10 w-auto object-contain brightness-0 invert opacity-95" 
                 />
                 <div className="space-y-2 text-xs text-slate-300 font-medium">
-                  <p className="text-white font-bold font-outfit text-sm">Legal Company Identity</p>
+                  <p className="text-body md:text-body-lg text-white font-bold font-outfit">Legal Company Identity</p>
                   <p className="text-slate-300">Bluegrid Technology Ltd, trading as Bluegrid Utilities. Registered in England and Wales. Company No. 16442340.</p>
                   <div className="pt-2 border-t border-slate-700/60 space-y-1 text-[11px]">
                     <p><strong className="text-white font-semibold">Operations:</strong> Office 68, Spaces, The Maylands Building, Hemel Hempstead, HP2 7TG, United Kingdom</p>
@@ -187,8 +187,8 @@ const Contact = () => {
             </div>
 
             {/* Right Side: Contact Form */}
-            <div id="contact-form-section" className="lg:col-span-7 bg-[#f4f8fc] p-8 md:p-12 rounded-none shadow-xl border border-slate-200 flex flex-col justify-center text-left">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] font-outfit mb-2">
+            <div id="contact-form-section" className="lg:col-span-7 bg-[#f3f7fa] p-8 md:p-12 rounded-none shadow-xl border border-slate-200 flex flex-col justify-center text-left">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] font-outfit mb-2">
                 Send an Enquiry
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium mb-8">
@@ -201,12 +201,12 @@ const Contact = () => {
                     <span className="material-symbols-outlined text-2xl text-emerald-600">check_circle</span>
                     Thank You for Contacting Bluegrid Utilities
                   </div>
-                  <p className="text-emerald-700 text-sm font-sans leading-relaxed">
+                  <p className="text-body md:text-body-lg text-emerald-700 font-sans leading-relaxed">
                     Your message has been received. Our team will review your enquiry and get back to you shortly.
                   </p>
                   <button 
                     onClick={() => setSubmitted(false)}
-                    className="px-6 py-2.5 bg-[#005f9e] text-white text-xs font-bold font-outfit uppercase tracking-widest rounded-none shadow hover:bg-[#004c80] transition-colors"
+                    className="text-nav px-6 py-2.5 bg-[#005f9e] text-white font-bold font-outfit uppercase tracking-wide rounded-none shadow hover:bg-[#004c80] transition-colors"
                   >
                     Send Another Message
                   </button>
@@ -332,7 +332,7 @@ const Contact = () => {
                   {/* Submit Button */}
                   <button 
                     type="submit"
-                    className="w-full py-4 bg-[#0066ff] hover:bg-[#005f9e] text-white rounded-none font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md font-outfit flex items-center justify-center gap-3 cursor-pointer"
+                    className="w-full py-4 bg-[#005f9e] hover:bg-[#005f9e] text-white rounded-none font-bold text-xs uppercase tracking-widest transition-all duration-300 shadow-md font-outfit flex items-center justify-center gap-3 cursor-pointer"
                   >
                     <span>Send enquiry</span>
                     <span className="material-symbols-outlined text-sm">send</span>

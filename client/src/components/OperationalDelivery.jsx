@@ -103,7 +103,7 @@ const OperationalDelivery = () => {
     : galleryItems.filter(item => item.category === galleryFilter);
 
   return (
-    <div className="font-sans bg-slate-50/50 min-h-screen text-slate-800 pb-20">
+    <div className="font-sans bg-slate-50/50 min-h-screen text-[#1f2937] pb-20">
       <PageSEO 
         customTitle="Utility Projects & Case Studies | Bluegrid Utilities"
         customDescription="Approved case studies showing how Bluegrid Utilities supports utility project mobilisation, field delivery and operational coordination."
@@ -133,23 +133,23 @@ const OperationalDelivery = () => {
             <span className="inline-block px-3.5 py-1.5 bg-[#005f9e] text-white text-xs font-bold tracking-widest uppercase font-outfit shadow-md">
               PROJECTS & CASE STUDIES
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight font-outfit">
+            <h1 className="text-h1 md:text-h1-lg font-extrabold text-white tracking-tight font-outfit">
               Utility Projects & Case Studies
             </h1>
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
               Approved case studies showing how Bluegrid Utilities supports utility project mobilisation, field delivery and operational coordination.
             </p>
 
             <div className="pt-4 flex flex-wrap gap-4">
               <Link
                 to="/contact"
-                className="px-7 py-3.5 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest uppercase font-outfit transition-all shadow-md active:scale-95"
+                className="text-nav px-7 py-3.5 bg-[#005f9e] hover:bg-[#004c80] text-white font-extrabold tracking-wide uppercase font-outfit transition-all shadow-md active:scale-95"
               >
                 Discuss a Project
               </Link>
               <Link
                 to="/services"
-                className="px-7 py-3.5 bg-white/10 hover:bg-white hover:text-slate-900 text-white font-extrabold text-xs tracking-widest uppercase font-outfit border border-white/30 transition-all"
+                className="text-nav px-7 py-3.5 bg-white/10 hover:bg-white hover:text-slate-900 text-white font-extrabold tracking-wide uppercase font-outfit border border-white/30 transition-all"
               >
                 Our Capabilities
               </Link>
@@ -170,11 +170,11 @@ const OperationalDelivery = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-5 py-2.5 text-xs font-bold font-outfit tracking-wider uppercase transition-all ${
-                activeTab === tab.id
-                  ? 'bg-[#005f9e] text-white shadow-sm'
-                  : 'bg-slate-50 text-[#0f3a5e] hover:bg-slate-100'
-              }`}
+              className={`text-nav px-5 py-2.5 font-bold font-outfit tracking-wide uppercase transition-all ${
+ activeTab === tab.id
+ ? 'bg-[#005f9e] text-white shadow-sm'
+ : 'bg-[#f3f7fa] text-[#0f3a5e] hover:bg-slate-100'
+ }`}
             >
               {tab.label}
             </button>
@@ -189,10 +189,10 @@ const OperationalDelivery = () => {
             <span className="text-xs font-bold tracking-widest text-[#005f9e] uppercase font-outfit block mb-2">
               Structured Methodology
             </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0f3a5e] font-outfit">
+            <h2 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] font-outfit">
               How We Deliver Authorised Work
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-[#1f2937] mt-2 leading-relaxed font-medium">
               We approach utility delivery through four disciplined stages designed to maintain safety, accuracy, and clear project visibility.
             </p>
           </div>
@@ -215,7 +215,7 @@ const OperationalDelivery = () => {
                     </div>
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#0f3a5e] font-outfit">
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">
                     {phase.title}
                   </h3>
 
@@ -249,16 +249,16 @@ const OperationalDelivery = () => {
               <span className="inline-block px-3.5 py-1 bg-[#005f9e]/10 text-[#005f9e] text-xs font-bold tracking-widest font-outfit uppercase border border-[#005f9e]/20 mb-3">
                 Governance & Permissions
               </span>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] font-outfit">
                 Case Study Reporting Architecture
               </h2>
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium mt-2">
+              <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium mt-2">
                 {caseStudyTemplate.templateNotice}
               </p>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-lg font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2 uppercase">
+              <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2 uppercase">
                 Standard Project Case Study Structure
               </h3>
               <p className="text-slate-600 text-xs sm:text-sm font-medium">
@@ -267,7 +267,7 @@ const OperationalDelivery = () => {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                 {caseStudyTemplate.frameworkSteps.map((step) => (
-                  <div key={step.num} className="p-5 bg-slate-50 border border-slate-200 space-y-2">
+                  <div key={step.num} className="p-5 bg-[#f3f7fa] border border-slate-200 space-y-2">
                     <span className="text-lg font-black text-[#005f9e] font-outfit">
                       {step.num}
                     </span>
@@ -296,10 +296,10 @@ const OperationalDelivery = () => {
             <span className="text-xs font-bold tracking-widest text-[#005f9e] uppercase font-outfit block mb-2">
               Authentic Photography
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] font-outfit">
+            <h2 className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] font-outfit">
               Operational Field Gallery
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-[#1f2937] mt-2 leading-relaxed font-medium">
               Photographs representing genuine utility activity, operatives, site coordination, and equipment handling.
             </p>
           </div>
@@ -310,11 +310,11 @@ const OperationalDelivery = () => {
               <button
                 key={cat}
                 onClick={() => setGalleryFilter(cat)}
-                className={`px-4 py-2 text-xs font-bold font-outfit uppercase tracking-wider transition-all border ${
-                  galleryFilter === cat
-                    ? 'bg-[#005f9e] text-white border-[#005f9e]'
-                    : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-                }`}
+                className={`text-nav px-4 py-2 font-bold font-outfit uppercase tracking-wide transition-all border ${
+ galleryFilter === cat
+ ? 'bg-[#005f9e] text-white border-[#005f9e]'
+ : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
+ }`}
               >
                 {cat}
               </button>
@@ -376,7 +376,7 @@ const OperationalDelivery = () => {
               </div>
               <div className="p-5 bg-slate-900 text-white flex items-center justify-between border-t border-slate-800">
                 <div>
-                  <span className="text-[10px] font-bold text-[#0066ff] uppercase tracking-widest font-outfit block">
+                  <span className="text-[10px] font-bold text-[#005f9e] uppercase tracking-widest font-outfit block">
                     {lightboxImage.category}
                   </span>
                   <h4 className="text-base font-bold text-white font-outfit mt-0.5">
@@ -385,7 +385,7 @@ const OperationalDelivery = () => {
                 </div>
                 <button 
                   onClick={() => setLightboxImage(null)}
-                  className="px-4 py-2 bg-[#005f9e] text-white text-xs font-bold uppercase tracking-wider font-outfit hover:bg-blue-600 transition-colors"
+                  className="text-nav px-4 py-2 bg-[#005f9e] text-white font-bold uppercase tracking-wide font-outfit hover:bg-[#004c80] transition-colors"
                 >
                   Close
                 </button>
@@ -415,16 +415,16 @@ const OperationalDelivery = () => {
           <span className="inline-block px-3.5 py-1.5 bg-[#005f9e] text-white text-xs font-black uppercase tracking-widest font-outfit shadow-md">
             Project Delivery Support
           </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit text-white">
+          <h2 className="text-h2 md:text-h2-lg font-extrabold uppercase tracking-tight font-outfit text-white">
             Discuss Your Project Requirements
           </h2>
-          <p className="text-slate-200 text-sm sm:text-base font-medium max-w-xl mx-auto leading-relaxed">
+          <p className="text-body md:text-body-lg text-slate-200 font-medium max-w-xl mx-auto leading-relaxed">
             Contact our operations and project management teams to discuss mobilisation, site access, or field support for your utility project.
           </p>
           <div className="pt-2">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white transition-all px-8 py-4 font-extrabold text-xs uppercase tracking-widest font-outfit shadow-xl active:scale-95"
+              className="text-nav inline-flex items-center gap-2 bg-[#005f9e] hover:bg-[#004c80] text-white transition-all px-8 py-4 font-extrabold uppercase tracking-wide font-outfit shadow-xl active:scale-95"
             >
               <span>Discuss a Project</span>
               <span className="material-symbols-outlined text-sm">arrow_forward</span>

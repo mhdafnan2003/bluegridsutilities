@@ -110,10 +110,10 @@ const OurPoliciesPage = () => {
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Approved Public Documents
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Policies & Corporate Information
               </h2>
-              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed font-medium">
                 For each policy document, we maintain approved versions with documented review dates. To request authorised copies for compliance or project files, use the contact route below.
               </p>
             </div>
@@ -150,7 +150,7 @@ const OurPoliciesPage = () => {
                     </div>
 
                     {/* Document Title & Category */}
-                    <h3 className="text-lg font-bold text-[#0f3a5e] tracking-tight font-outfit mb-1 group-hover:text-[#005f9e] transition-colors">
+                    <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] tracking-tight font-outfit mb-1 group-hover:text-[#005f9e] transition-colors">
                       {doc.name}
                     </h3>
                     <p className="text-[11px] font-bold text-[#005f9e] tracking-widest mb-3 font-outfit">
@@ -171,7 +171,7 @@ const OurPoliciesPage = () => {
                     {doc.url ? (
                       <Link
                         to={doc.url}
-                        className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm uppercase"
+                        className="text-nav inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-black tracking-wide px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm uppercase"
                       >
                         <span>Read Notice</span>
                         <span className="material-symbols-outlined text-xs">arrow_forward</span>
@@ -179,7 +179,7 @@ const OurPoliciesPage = () => {
                     ) : (
                     <button
                       onClick={() => handleRequest(doc.name)}
-                      className="inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-[10px] font-black tracking-widest px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm active:scale-95 cursor-pointer uppercase"
+                      className="text-nav inline-flex items-center gap-2 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-black tracking-wide px-4 py-2.5 transition-all duration-300 font-outfit border border-transparent shadow-sm active:scale-95 cursor-pointer uppercase"
                     >
                       <span>Request Copy</span>
                       <span className="material-symbols-outlined text-xs">mail</span>
@@ -198,10 +198,10 @@ const OurPoliciesPage = () => {
               <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block uppercase">
                 Compliance & Legal Governance
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold tracking-tight text-white font-outfit">
                 Need Specific Policy Details or Prequalification Evidence?
               </h2>
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
                 For formal contractor onboarding packs, policy statements, or specific compliance enquiries, please contact our operational governance team at{' '}
                 <a href="mailto:enquiries@bluegridutilities.com" className="text-[#60a5fa] underline hover:text-white transition-colors">
                   enquiries@bluegridutilities.com

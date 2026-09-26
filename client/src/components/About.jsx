@@ -31,10 +31,10 @@ const About = () => {
             <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
               About Bluegrid Utilities
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight mb-4">
+            <h1 className="text-h1 md:text-h1-lg font-bold text-[#0f3a5e] tracking-tight leading-tight mb-4">
               Company Profile
             </h1>
-            <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
               A UK-based utility infrastructure contractor focused on safe, reliable and high-quality operational delivery.
             </p>
           </div>
@@ -59,13 +59,13 @@ const About = () => {
 
               {/* Text Narrative */}
               <div className="space-y-4 text-left">
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight">
+                <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight">
                   Who We Are
                 </h2>
-                <p className="text-slate-700 text-base sm:text-lg font-semibold leading-relaxed">
+                <p className="text-body md:text-body-lg text-[#1f2937] font-semibold leading-relaxed">
                   Bluegrid Utilities is a UK utility infrastructure delivery business supporting water and wider infrastructure programmes through field operations, project mobilisation, civil engineering support and workforce coordination. We combine hands-on operational leadership with structured compliance, training and project-control processes.
                 </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
                   Our approach is built around safe mobilisation, clear accountability and dependable execution. We work within established supply chains and aim to build long-term relationships with infrastructure partners who value responsive delivery, quality workmanship and transparent communication.
                 </p>
               </div>
@@ -80,10 +80,10 @@ const About = () => {
                 <div className="relative z-10 space-y-6">
                   {/* Card Header */}
                   <div className="border-b border-white/15 pb-4">
-                    <span className="text-[#0066ff] font-bold text-xs tracking-widest block mb-1">
+                    <span className="text-[#005f9e] font-bold text-xs tracking-widest block mb-1">
                       Official Details
                     </span>
-                    <h3 className="text-2xl font-bold tracking-tight text-white">
+                    <h3 className="text-h3 md:text-h3-lg font-bold tracking-tight text-white">
                       Official Company Details
                     </h3>
                   </div>
@@ -92,17 +92,17 @@ const About = () => {
                   <div className="space-y-4 text-sm">
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Trading Name</p>
-                      <p className="text-base font-bold text-white">Bluegrid Utilities</p>
+                      <p className="text-body md:text-body-lg font-bold text-white">Bluegrid Utilities</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Legal Entity</p>
-                      <p className="text-base font-bold text-white">Bluegrid Technology Ltd</p>
+                      <p className="text-body md:text-body-lg font-bold text-white">Bluegrid Technology Ltd</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Company Number</p>
-                      <p className="text-base font-bold text-white tracking-wider">16442340</p>
+                      <p className="text-body md:text-body-lg font-bold text-white tracking-wider">16442340</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
@@ -116,7 +116,7 @@ const About = () => {
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1">Company Status</p>
-                      <p className="text-base font-bold text-emerald-400">Active</p>
+                      <p className="text-body md:text-body-lg font-bold text-emerald-400">Active</p>
                     </div>
                   </div>
                 </div>
@@ -124,7 +124,7 @@ const About = () => {
                 {/* Footer Tag */}
                 <div className="mt-8 pt-4 border-t border-white/15 relative z-10 flex items-center justify-between text-xs font-bold text-slate-300">
                   <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-none bg-[#0066ff]" />
+                    <span className="w-2 h-2 rounded-none bg-[#005f9e]" />
                     Registered in United Kingdom
                   </span>
                   <span className="text-[#60a5fa]">Active Status</span>
@@ -137,13 +137,13 @@ const About = () => {
       </MotionSection>
 
       {/* Mission & Vision Section (Boxy Cards) */}
-      <MotionSection as="section" className="py-20 bg-[#f8fafc] border-y border-slate-200">
+      <MotionSection as="section" className="py-20 bg-[#f3f7fa] border-y border-slate-200">
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
                     <div className="text-center max-w-3xl mx-auto mb-14">
             <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
               Purpose & Direction
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight">
               Mission & Vision
             </h2>
           </div>
@@ -170,10 +170,10 @@ const About = () => {
                 <span className="text-[#60a5fa] font-bold text-xs tracking-widest mb-2">
                   Our Mission
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 tracking-tight">
+                <h3 className="text-h2 md:text-h2-lg font-bold text-white mb-4 tracking-tight">
                   Mission Statement
                 </h3>
-                <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
                   To deliver utility infrastructure safely, efficiently and professionally while building long-term partnerships based on trust, quality and reliability.
                 </p>
               </div>
@@ -199,10 +199,10 @@ const About = () => {
                 <span className="text-[#60a5fa] font-bold text-xs tracking-widest mb-2">
                   Our Vision
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 tracking-tight">
+                <h3 className="text-h2 md:text-h2-lg font-bold text-white mb-4 tracking-tight">
                   Vision Statement
                 </h3>
-                <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
                   To build a respected utility infrastructure delivery business recognised for practical competence, safety, quality and dependable execution.
                 </p>
               </div>
@@ -220,10 +220,10 @@ const About = () => {
             <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
               Transparent Foundation
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight mb-4">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight mb-4">
               Company History & Growth
             </h2>
-            <p className="text-slate-600 text-base leading-relaxed">
+            <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed">
               Established to provide specialist utility infrastructure services throughout the UK with operational excellence.
             </p>
           </div>
@@ -246,14 +246,14 @@ const About = () => {
                 desc: "Built on long-term partnerships, continuous improvement and responsible infrastructure delivery."
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-[#f8fafc] border border-slate-200 p-8 rounded-none shadow-md flex flex-col justify-between">
+              <div key={idx} className="bg-[#f3f7fa] border border-slate-200 p-8 rounded-none shadow-md flex flex-col justify-between">
                 <div>
                   <div className="text-[#005f9e] font-black text-xs tracking-widest mb-3 flex items-center gap-2">
                     <span className="w-2 h-2 bg-[#005f9e]" />
                     Pillar {item.step}
                   </div>
-                  <h3 className="text-xl font-bold text-[#0f3a5e] mb-3">{item.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed font-medium">{item.desc}</p>
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] mb-3">{item.title}</h3>
+                  <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -263,17 +263,17 @@ const About = () => {
       </MotionSection>
 
       {/* Accreditations & Standards (Boxy Cards) */}
-      <MotionSection as="section" className="py-20 bg-[#f8fafc] border-t border-slate-200" id="accreditations">
+      <MotionSection as="section" className="py-20 bg-[#f3f7fa] border-t border-slate-200" id="accreditations">
         <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
           
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
               Operational Compliance
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight mb-4">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight mb-4">
               Accreditation & Standards
             </h2>
-            <p className="text-slate-600 text-base leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
               We operate under strict adherence to national and industry compliance standards to ensure safety and quality.
             </p>
           </div>
@@ -315,7 +315,7 @@ const About = () => {
                   <div className="w-10 h-10 rounded-none bg-[#005f9e] text-white border border-white/20 flex items-center justify-center mb-5 shadow-md">
                     <span className="material-symbols-outlined text-xl">{item.icon}</span>
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-white mb-2">{item.title}</h3>
                   <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">{item.desc}</p>
                 </div>
               </div>
@@ -333,10 +333,10 @@ const About = () => {
             <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
               Governance & Responsibility
             </span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight mb-4">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight mb-4">
               Our Core Policies
             </h2>
-            <p className="text-slate-600 text-base leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
               We operate under robust ethical and professional policies to foster safety, sustainability, and equal opportunity.
             </p>
           </div>

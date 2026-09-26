@@ -33,12 +33,12 @@ const GetInTouch = () => {
             </span>
 
             {/* Heading */}
-            <h2 className="font-outfit text-3xl sm:text-4xl md:text-5xl text-[#0b132b] leading-[1.2] font-bold tracking-tight">
+            <h2 className="text-h2 md:text-h2-lg font-outfit text-[#0f3a5e] leading-[1.2] font-bold tracking-tight">
               Discuss a Project
             </h2>
 
             {/* Description */}
-            <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-md font-sans font-medium">
+            <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed max-w-md font-sans font-medium">
               For business and project enquiries, contact Bluegrid Utilities through the approved Company enquiry route. Recruitment enquiries should use the separate careers contact route.
             </p>
 
@@ -46,13 +46,13 @@ const GetInTouch = () => {
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link 
                 to="/contact" 
-                className="inline-flex items-center justify-center px-6 py-3.5 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest uppercase font-outfit transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+                className="text-nav inline-flex items-center justify-center px-6 py-3.5 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold tracking-wide uppercase font-outfit transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
               >
                 Contact Bluegrid
               </Link>
               <Link 
                 to="/careers" 
-                className="inline-flex items-center justify-center px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-[#0f3a5e] border border-slate-300 font-bold text-xs tracking-widest uppercase font-outfit transition-all duration-300"
+                className="text-nav inline-flex items-center justify-center px-6 py-3.5 bg-slate-100 hover:bg-slate-200 text-[#0f3a5e] border border-slate-300 font-bold tracking-wide uppercase font-outfit transition-all duration-300"
               >
                 Careers
               </Link>

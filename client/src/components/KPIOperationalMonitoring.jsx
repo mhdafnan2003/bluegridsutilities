@@ -5,14 +5,14 @@ const KPIOperationalMonitoring = () => {
   return (
     <MotionSection 
       as="section" 
-      className="bg-white font-sans text-[#0B2545] antialiased overflow-x-hidden relative py-16" 
+      className="bg-white font-sans text-[#0f3a5e] antialiased overflow-x-hidden relative py-16" 
       id="kpi-monitoring"
     >
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Header Section */}
         <section className="text-center mb-12 max-w-2xl mx-auto">
           <span className="inline-block text-[14px] font-semibold text-[#0EA5E9] tracking-[0.2em] mb-4">Operational Intelligence</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-[#0B2545] mb-4 tracking-tight">KPI & Operational Monitoring</h2>
+          <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] mb-4 tracking-tight">KPI & Operational Monitoring</h2>
         </section>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
@@ -26,10 +26,10 @@ const KPIOperationalMonitoring = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-[#0B2545] text-2xl font-bold">6 Installs</h3>
+                    <h3 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold">6 Installs</h3>
                     <span className="h-2 w-2 rounded-full bg-[#0EA5E9] pulse-dot"></span>
                   </div>
-                  <p className="text-slate-500 text-[12px] tracking-wider font-bold">Per Team / Day</p>
+                  <p className="text-body md:text-body-lg text-slate-500 tracking-wider font-bold">Per Team / Day</p>
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1">
@@ -51,10 +51,10 @@ const KPIOperationalMonitoring = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-[#0B2545] text-2xl font-bold">30 Installations</h3>
+                    <h3 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold">30 Installations</h3>
                     <span className="h-2 w-2 rounded-full bg-[#0EA5E9] pulse-dot"></span>
                   </div>
-                  <p className="text-slate-500 text-[12px] tracking-wider font-bold">Per Week</p>
+                  <p className="text-body md:text-body-lg text-slate-500 tracking-wider font-bold">Per Week</p>
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1">
@@ -76,10 +76,10 @@ const KPIOperationalMonitoring = () => {
                 </div>
                 <div>
                   <div className="flex items-center gap-2">
-                    <h3 className="text-[#0B2545] text-2xl font-bold">120 Installations</h3>
+                    <h3 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold">120 Installations</h3>
                     <span className="h-2 w-2 rounded-full bg-[#0EA5E9] pulse-dot"></span>
                   </div>
-                  <p className="text-slate-500 text-[12px] tracking-wider font-bold">Per Month</p>
+                  <p className="text-body md:text-body-lg text-slate-500 tracking-wider font-bold">Per Month</p>
                 </div>
               </div>
               <div className="flex flex-col items-end gap-1">
@@ -97,7 +97,7 @@ const KPIOperationalMonitoring = () => {
           {/* Compliance Panel */}
           <div className="bg-blue-50 rounded-2xl p-8 border border-blue-100 relative overflow-hidden">
             <div className="flex items-center justify-between mb-8">
-              <h3 className="text-[#0B2545] text-2xl font-bold">Core Compliance</h3>
+              <h3 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold">Core Compliance</h3>
               <span className="material-symbols-outlined text-slate-300 cursor-pointer hover:text-[#0EA5E9] transition-colors">more_vert</span>
             </div>
             <div className="grid grid-cols-1 gap-6">
@@ -106,7 +106,7 @@ const KPIOperationalMonitoring = () => {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <span className="inline-block px-2 py-1 rounded bg-[#0EA5E9]/10 text-[#0EA5E9] text-[10px] font-bold mb-2">Operational</span>
-                    <h4 className="text-[#0B2545] font-bold text-lg">95%+ QA Target</h4>
+                    <h4 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold">95%+ QA Target</h4>
                   </div>
                   <span className="material-symbols-outlined text-[#0EA5E9] text-2xl">verified</span>
                 </div>
@@ -119,7 +119,7 @@ const KPIOperationalMonitoring = () => {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <span className="inline-block px-2 py-1 rounded bg-emerald-500/10 text-emerald-500 text-[10px] font-bold mb-2">Compliance</span>
-                    <h4 className="text-[#0B2545] font-bold text-lg">Active Safety Governance</h4>
+                    <h4 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold">Active Safety Governance</h4>
                   </div>
                   <span className="material-symbols-outlined text-emerald-500 text-2xl">shield_with_heart</span>
                 </div>
@@ -132,7 +132,7 @@ const KPIOperationalMonitoring = () => {
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <span className="inline-block px-2 py-1 rounded bg-purple-500/10 text-purple-500 text-[10px] font-bold mb-2">Reporting</span>
-                    <h4 className="text-[#0B2545] font-bold text-lg">Daily Operational Reporting</h4>
+                    <h4 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold">Daily Operational Reporting</h4>
                   </div>
                   <span className="material-symbols-outlined text-purple-500 text-2xl">insights</span>
                 </div>
@@ -153,8 +153,8 @@ const KPIOperationalMonitoring = () => {
         <div className="bg-blue-50 rounded-3xl p-8 border border-blue-100">
           <div className="flex items-end justify-between mb-8">
             <div>
-              <h3 className="text-[#0B2545] text-2xl font-bold mb-1">Performance Index</h3>
-              <p className="text-slate-500 text-sm">Efficiency vs Target Ratio</p>
+              <h3 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold mb-1">Performance Index</h3>
+              <p className="text-body md:text-body-lg text-slate-500">Efficiency vs Target Ratio</p>
             </div>
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
@@ -191,7 +191,7 @@ const KPIOperationalMonitoring = () => {
           <div className="flex justify-between items-center bg-white p-6 rounded-2xl border border-blue-100 shadow-sm">
             <div className="text-center flex-1">
               <p className="text-slate-400 text-[10px] font-black mb-1 tracking-widest">Target</p>
-              <p className="text-[#0B2545] font-bold text-2xl">140</p>
+              <p className="text-[#0f3a5e] font-bold text-2xl">140</p>
             </div>
             <div className="w-[1px] h-10 bg-slate-100"></div>
             <div className="text-center flex-1">

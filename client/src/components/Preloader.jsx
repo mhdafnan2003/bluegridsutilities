@@ -79,7 +79,7 @@ const Preloader = ({ onComplete }) => {
               className="w-36 h-[3px] bg-gray-100 rounded-full overflow-hidden relative"
             >
               <div
-                className="h-full bg-[#0160d8] rounded-full transition-all duration-75 ease-linear"
+                className="h-full bg-[#005f9e] rounded-full transition-all duration-75 ease-linear"
                 style={{ width: `${progress}%` }}
               />
             </motion.div>

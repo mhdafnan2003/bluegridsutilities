@@ -56,10 +56,10 @@ const Sectors = () => {
 
         {/* Header Area */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-gray-900 tracking-tight">
             Sectors We Support
           </h2>
-          <p className="text-gray-600 text-lg mt-5 ">
+          <p className="text-body md:text-body-lg text-[#1f2937] mt-5">
             We provide essential workforce support across the UK’s most critical infrastructure and utility sectors.
           </p>
         </div>
@@ -92,10 +92,10 @@ const Sectors = () => {
 
                 {/* Bottom Text Content */}
                 <div className="absolute bottom-0 left-0 w-full p-8 whitespace-normal text-left z-10">
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">
+                  <h3 className="text-h2 md:text-h2-lg font-bold text-white mb-3 tracking-tight">
                     {sector.title}
                   </h3>
-                  <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-2 md:line-clamp-3">
+                  <p className="text-body md:text-body-lg text-gray-300 leading-relaxed line-clamp-2 md:line-clamp-3">
                     {sector.desc}
                   </p>
                 </div>

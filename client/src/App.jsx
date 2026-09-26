@@ -450,7 +450,7 @@ const AnimatedRoutes = () => {
 
 const MainContent = () => {
   return (
-    <div className="min-h-screen bg-gray-50 scroll-smooth flex flex-col justify-between">
+    <div className="min-h-screen bg-[#f3f7fa] scroll-smooth flex flex-col justify-between">
       <PageSEO />
       <Header />
       <main className="flex-grow">
@@ -474,7 +474,7 @@ function App() {
           <Route
             path="/admin/*"
             element={
-              <Suspense fallback={<div className="min-h-screen bg-slate-50" />}>
+              <Suspense fallback={<div className="min-h-screen bg-[#f3f7fa]" />}>
                 <AdminApp />
               </Suspense>
             }

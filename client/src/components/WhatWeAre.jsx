@@ -13,13 +13,13 @@ const WhatWeAre = () => {
           <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20 uppercase">
             Supporting Utility Delivery in the UK
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-4">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-4">
             Supporting Utility Delivery in the UK
           </h2>
-          <p className="text-slate-700 text-base md:text-lg leading-relaxed font-medium mb-3">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium mb-3">
             Bluegrid Utilities is the trading name of Bluegrid Technology Ltd. We support authorised utility project delivery through a combination of field mobilisation, operational coordination and project support.
           </p>
-          <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
             Our current operational activity includes smart water-meter installation and associated utility support. We focus on controlled mobilisation, clear reporting, safe working and accurate completion records in line with the requirements of each project.
           </p>
         </div>
@@ -44,18 +44,18 @@ const WhatWeAre = () => {
           {/* Text Content */}
           <div className="lg:col-span-6 text-left flex flex-col justify-center">
             <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit mb-2">About Bluegrid</span>
-            <h3 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+            <h3 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
               Structured for Responsible Growth
             </h3>
             
-            <p className="text-slate-700 text-base leading-relaxed font-medium mb-6">
+            <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium mb-6">
               Bluegrid Utilities is building its capability in the UK utilities and infrastructure sector through disciplined project management, operational coordination and field delivery support. We aim to grow in step with our proven resources, competencies and authorised project opportunities.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 to="/about"
-                className="inline-flex items-center gap-2 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-6 py-3.5 font-outfit transition-colors shadow-md group uppercase"
+                className="text-nav inline-flex items-center gap-2 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold tracking-wide px-6 py-3.5 font-outfit transition-colors shadow-md group uppercase"
               >
                 <span>About Bluegrid</span>
                 <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
@@ -80,11 +80,11 @@ const WhatWeAre = () => {
               <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit uppercase block">
                 Health, Safety &amp; Quality
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold font-outfit tracking-tight text-white">
+              <h3 className="text-h2 md:text-h2-lg font-bold font-outfit tracking-tight text-white">
                 Safety and Quality Come Before Output
               </h3>
               
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
                 Productivity targets must never override safety, approved working methods, permits, technical requirements, environmental obligations or client instructions. We expect issues, defects, incidents and completion information to be recorded accurately and escalated through the appropriate project route.
               </p>
             </div>
@@ -92,7 +92,7 @@ const WhatWeAre = () => {
             <div className="lg:col-span-4 flex lg:justify-end">
               <Link
                 to="/safety-quality"
-                className="inline-flex items-center justify-center gap-2.5 bg-[#0066ff] hover:bg-white hover:text-[#0f3a5e] text-white font-bold text-xs tracking-widest px-7 py-4 border border-white/20 transition-all duration-300 shadow-lg font-outfit uppercase w-full sm:w-auto text-center"
+                className="text-nav inline-flex items-center justify-center gap-2.5 bg-[#005f9e] hover:bg-white hover:text-[#0f3a5e] text-white font-bold tracking-wide px-7 py-4 border border-white/20 transition-all duration-300 shadow-lg font-outfit uppercase w-full sm:w-auto text-center"
               >
                 <span>Safety &amp; Quality</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>

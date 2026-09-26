@@ -38,11 +38,11 @@ const NewsPage = () => {
                 <button
                   key={cat.id}
                   onClick={() => handleCategorySelect(cat.id)}
-                  className={`px-3.5 py-2.5 lg:px-4 lg:py-3 whitespace-nowrap shrink-0 rounded-none text-xs font-bold font-outfit tracking-wider transition-all duration-200 border ${
-                    isSelected 
-                      ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-sm' 
-                      : 'bg-white text-[#0f3a5e] border-slate-200/80 hover:border-[#005f9e] hover:text-[#005f9e] hover:bg-slate-50'
-                  }`}
+                  className={`text-nav px-3.5 py-2.5 lg:px-4 lg:py-3 whitespace-nowrap shrink-0 rounded-none font-bold font-outfit tracking-wide transition-all duration-200 border ${
+ isSelected 
+ ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-sm' 
+ : 'bg-white text-[#0f3a5e] border-slate-200/80 hover:border-[#005f9e] hover:text-[#005f9e] hover:bg-slate-50'
+ }`}
                 >
                   {cat.label}
                 </button>
@@ -100,11 +100,11 @@ const NewsPage = () => {
                         </span>
                       </div>
 
-                      <h3 className="text-lg md:text-xl font-bold text-brand-dark font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
+                      <h3 className="text-h3 md:text-h3-lg font-bold text-brand-dark font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
                         {article.title}
                       </h3>
 
-                      <p className="text-slate-600 text-sm font-sans leading-relaxed">
+                      <p className="text-body md:text-body-lg text-[#1f2937] font-sans leading-relaxed">
                         {article.snippet}
                       </p>
                     </div>
@@ -122,14 +122,14 @@ const NewsPage = () => {
             ) : (
               <div className="col-span-full bg-white border border-slate-200 p-12 text-center max-w-2xl mx-auto space-y-4 shadow-sm border-l-4 border-l-[#005f9e]">
                 <span className="material-symbols-outlined text-4xl text-[#005f9e]">campaign</span>
-                <h3 className="text-xl font-bold font-outfit text-[#0f3a5e]">No Operational Updates Published Yet</h3>
-                <p className="text-sm text-slate-600 font-medium leading-relaxed">
+                <h3 className="text-h3 md:text-h3-lg font-bold font-outfit text-[#0f3a5e]">No Operational Updates Published Yet</h3>
+                <p className="text-body md:text-body-lg text-[#1f2937] font-medium leading-relaxed">
                   Operational announcements, recruitment campaigns, and verified milestones from Bluegrid Utilities will appear here as approved events occur.
                 </p>
                 <div className="pt-2">
                   <a
                     href="mailto:enquiries@bluegridutilities.com"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
+                    className="text-nav inline-flex items-center gap-2 px-6 py-3 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold font-outfit uppercase tracking-wide transition-colors"
                   >
                     <span>General Enquiries</span>
                     <span className="material-symbols-outlined text-sm">mail</span>

@@ -72,17 +72,17 @@ const FeatureCards = () => {
   };
 
   return (
-    <section className="relative z-30 bg-slate-50 py-20 border-b border-slate-200/80" id="what-we-do">
+    <section className="relative z-30 bg-[#f3f7fa] py-20 border-b border-slate-200/80" id="what-we-do">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
         {/* Section Header */}
         <div className="mb-14 text-left max-w-3xl">
           <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 font-outfit border border-[#005f9e]/20 uppercase">
             What We Do
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-4">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit leading-tight mb-4">
             Our Capabilities
           </h2>
-          <p className="text-gray-600 text-sm md:text-base leading-relaxed font-medium">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
             Bluegrid Utilities supports authorised utility programmes through structured field mobilisation, operational coordination and practical delivery.
           </p>
         </div>
@@ -99,7 +99,7 @@ const FeatureCards = () => {
             <motion.div
               key={index}
               variants={cardVariants}
-              className="bg-white text-gray-800 shadow-lg hover:shadow-2xl hover:shadow-brand-primary/5 flex flex-col h-full overflow-hidden border border-gray-200 rounded-none group hover:-translate-y-2 transition-all duration-300 text-left"
+              className="bg-white text-[#1f2937] shadow-lg hover:shadow-2xl hover:shadow-brand-primary/5 flex flex-col h-full overflow-hidden border border-gray-200 rounded-none group hover:-translate-y-2 transition-all duration-300 text-left"
             >
               {/* Card Image Wrapper */}
               <div className="relative overflow-hidden h-72 sm:h-80 bg-gray-900 shrink-0">
@@ -119,7 +119,7 @@ const FeatureCards = () => {
               {/* Card Content */}
               <div className="p-5 flex-grow flex flex-col justify-between">
                 <div className="text-left">
-                  <h3 className="text-base sm:text-lg font-bold font-outfit text-[#111111] mb-2 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
+                  <h3 className="text-h3 md:text-h3-lg font-bold font-outfit text-[#1f2937] mb-2 tracking-tight group-hover:text-[#005f9e] transition-colors duration-300">
                     {card.title}
                   </h3>
                   <p className="text-xs text-gray-600 leading-relaxed mb-4 font-medium">
@@ -143,7 +143,7 @@ const FeatureCards = () => {
         <div className="mt-12 text-center">
           <Link
             to="/services"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest uppercase font-outfit transition-all duration-300 shadow-md hover:shadow-lg"
+            className="text-nav inline-flex items-center gap-3 px-8 py-4 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold tracking-wide uppercase font-outfit transition-all duration-300 shadow-md hover:shadow-lg"
           >
             <span>View all services</span>
             <span className="material-symbols-outlined text-sm">arrow_forward</span>

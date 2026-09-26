@@ -416,7 +416,7 @@ const HealthSafetyCompliance = () => {
               </span>
             </div>
             
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-tight font-outfit">
+            <h1 className="text-h1 md:text-h1-lg font-bold text-white tracking-tight leading-tight font-outfit">
               {currentSection.headline}
             </h1>
             
@@ -460,16 +460,16 @@ const HealthSafetyCompliance = () => {
                 <span className="text-xs font-bold text-brand-primary uppercase tracking-widest font-outfit">
                   Operational Overview
                 </span>
-                <h2 className="text-2xl md:text-4xl font-bold text-brand-dark font-outfit mt-1">
+                <h2 className="text-h2 md:text-h2-lg font-bold text-brand-dark font-outfit mt-1">
                   {currentSection.title}
                 </h2>
               </div>
 
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed font-sans font-normal">
+              <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-sans font-normal">
                 {currentSection.overviewP1}
               </p>
 
-              <p className="text-gray-600 text-base md:text-lg leading-relaxed font-sans font-normal">
+              <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-sans font-normal">
                 {currentSection.overviewP2}
               </p>
 
@@ -492,7 +492,7 @@ const HealthSafetyCompliance = () => {
                   <span className="px-3 py-1 rounded-none bg-white/20 backdrop-blur-md text-xs font-bold uppercase tracking-wider font-outfit">
                     Active Standard
                   </span>
-                  <p className="text-lg font-bold font-outfit mt-2">{currentSection.title}</p>
+                  <p className="text-body md:text-body-lg font-bold font-outfit mt-2">{currentSection.title}</p>
                 </div>
               </div>
             </div>
@@ -506,10 +506,10 @@ const HealthSafetyCompliance = () => {
             <span className="inline-block px-4 py-1.5 rounded-none bg-brand-primary/10 text-brand-primary text-xs md:text-sm font-bold tracking-wide mb-3 font-outfit uppercase">
               Core Protocols
             </span>
-            <h3 className="text-3xl md:text-4xl font-bold text-brand-dark font-outfit">
+            <h3 className="text-h2 md:text-h2-lg font-bold text-brand-dark font-outfit">
               Operational Pillars & Safe Execution
             </h3>
-            <p className="text-gray-500 text-base font-sans mt-2">
+            <p className="text-body md:text-body-lg text-gray-500 font-sans mt-2">
               Key standards driving our safety-led performance for {currentSection.title}.
             </p>
           </div>
@@ -541,7 +541,7 @@ const HealthSafetyCompliance = () => {
 
                 {/* Bottom Row: Title & Text Content */}
                 <div className="relative z-10 space-y-2 pt-6 border-t border-white/20 mt-6">
-                  <h4 className="text-xl md:text-2xl font-extrabold text-white font-outfit uppercase tracking-tight transition-colors">
+                  <h4 className="text-h3 md:text-h3-lg font-extrabold text-white font-outfit uppercase tracking-tight transition-colors">
                     {pillar.title}
                   </h4>
                   <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
@@ -564,10 +564,10 @@ const HealthSafetyCompliance = () => {
               <span className="px-4 py-1.5 rounded-none bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold tracking-wider font-outfit uppercase">
                 Eco-Friendly Operations
               </span>
-              <h3 className="text-3xl md:text-5xl font-bold text-white font-outfit">
+              <h3 className="text-h2 md:text-h2-lg font-bold text-white font-outfit">
                 Social Sustainability & Regional Recruitment
               </h3>
-              <p className="text-emerald-100 text-base md:text-lg leading-relaxed font-sans">
+              <p className="text-body md:text-body-lg text-emerald-100 leading-relaxed font-sans">
                 Sustainability extends directly to the communities we serve. We prioritize hiring local operatives, coordinate training to build long-term career opportunities in infrastructure, and partner with local supply chain vendors.
               </p>
             </div>
@@ -577,8 +577,8 @@ const HealthSafetyCompliance = () => {
                 <div className="w-12 h-12 rounded-none bg-emerald-400/20 text-emerald-300 flex items-center justify-center">
                   <span className="material-symbols-outlined text-2xl">co2</span>
                 </div>
-                <h4 className="text-xl font-bold font-outfit text-white">Carbon Footprint Reduction</h4>
-                <p className="text-emerald-100 text-sm leading-relaxed font-sans">
+                <h4 className="text-h3 md:text-h3-lg font-bold font-outfit text-white">Carbon Footprint Reduction</h4>
+                <p className="text-body md:text-body-lg text-emerald-100 leading-relaxed font-sans">
                   Deploying local field squads minimizes daily travel mileage, drastically lowering vehicle emissions and fuel consumption across UK utility contracts.
                 </p>
               </div>
@@ -587,8 +587,8 @@ const HealthSafetyCompliance = () => {
                 <div className="w-12 h-12 rounded-none bg-emerald-400/20 text-emerald-300 flex items-center justify-center">
                   <span className="material-symbols-outlined text-2xl">diversity_3</span>
                 </div>
-                <h4 className="text-xl font-bold font-outfit text-white">Community Career Building</h4>
-                <p className="text-emerald-100 text-sm leading-relaxed font-sans">
+                <h4 className="text-h3 md:text-h3-lg font-bold font-outfit text-white">Community Career Building</h4>
+                <p className="text-body md:text-body-lg text-emerald-100 leading-relaxed font-sans">
                   Our circular recruitment approach invests in local talents, supporting role-relevant training and competency to build a resilient regional workforce.
                 </p>
               </div>
@@ -602,10 +602,10 @@ const HealthSafetyCompliance = () => {
             <span className="px-4 py-1.5 rounded-none bg-white/15 text-blue-200 text-xs font-bold tracking-wider font-outfit uppercase">
               Compliance Checklist
             </span>
-            <h3 className="text-2xl md:text-4xl font-bold text-white font-outfit">
+            <h3 className="text-h2 md:text-h2-lg font-bold text-white font-outfit">
               Statutory Verification & Audit Checklist
             </h3>
-            <p className="text-slate-200 text-sm md:text-base font-sans">
+            <p className="text-body md:text-body-lg text-slate-200 font-sans">
               Non-negotiable verification points enforced for {currentSection.title}:
             </p>
           </div>
@@ -628,34 +628,34 @@ const HealthSafetyCompliance = () => {
             <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit">
               Section 20 Principles
             </span>
-            <h3 className="text-2xl md:text-3xl font-bold text-[#0f3a5e] font-outfit">
+            <h3 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] font-outfit">
               Safety first. Accurate delivery. Clear accountability.
             </h3>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
               In utility contracting, safety is not an aspiration; it is the condition under which all work takes place. Bluegrid Utilities operates on a straightforward principle: no job is so urgent that it cannot be done safely, correctly and in compliance with applicable standards.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
-            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+            <div className="bg-[#f3f7fa] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#005f9e]">
               <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Safety before output</h4>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
                 Field operatives and supervisors are empowered to stop work whenever site conditions are unsafe, utility information is uncertain or control measures cannot be maintained. Production targets never override safe working practices.
               </p>
             </div>
-            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+            <div className="bg-[#f3f7fa] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#005f9e]">
               <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Quality through accurate records</h4>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
                 Every installation, excavation and reinstatement is documented with clear photographic evidence, pre- and post-work records and supervisor sign-offs. Transparent records protect our clients, the public and our teams.
               </p>
             </div>
-            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+            <div className="bg-[#f3f7fa] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#005f9e]">
               <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Environmental and public considerations</h4>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
                 Utility works take place in public spaces, customer properties and sensitive environments. We manage noise, dust, waste, water protection and pedestrian access with care and respect for local communities.
               </p>
             </div>
-            <div className="bg-[#f4f8fc] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#0066ff]">
+            <div className="bg-[#f3f7fa] border border-slate-200 p-6 space-y-2 border-l-4 border-l-[#005f9e]">
               <h4 className="font-bold text-[#0f3a5e] font-outfit uppercase text-sm">Escalating serious issues</h4>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
                 When unexpected conditions arise on site—such as unmarked utilities, structural hazards, contaminated ground or customer disputes—our operatives follow defined escalation pathways to project supervisors and client representatives.
@@ -671,19 +671,19 @@ const HealthSafetyCompliance = () => {
             <div className="flex flex-wrap gap-3">
               <Link 
                 to="/about/policies" 
-                className="px-4 py-2 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider hover:bg-[#0066ff] transition-colors shadow-sm"
+                className="text-nav px-4 py-2 bg-[#0f3a5e] text-white font-bold font-outfit uppercase tracking-wide hover:bg-[#005f9e] transition-colors shadow-sm"
               >
                 Health & Safety Policy
               </Link>
               <Link 
                 to="/about/policies" 
-                className="px-4 py-2 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider hover:bg-[#0066ff] transition-colors shadow-sm"
+                className="text-nav px-4 py-2 bg-[#0f3a5e] text-white font-bold font-outfit uppercase tracking-wide hover:bg-[#005f9e] transition-colors shadow-sm"
               >
                 Quality Policy
               </Link>
               <Link 
                 to="/about/policies" 
-                className="px-4 py-2 bg-[#0f3a5e] text-white text-xs font-bold font-outfit uppercase tracking-wider hover:bg-[#0066ff] transition-colors shadow-sm"
+                className="text-nav px-4 py-2 bg-[#0f3a5e] text-white font-bold font-outfit uppercase tracking-wide hover:bg-[#005f9e] transition-colors shadow-sm"
               >
                 Environmental Policy
               </Link>

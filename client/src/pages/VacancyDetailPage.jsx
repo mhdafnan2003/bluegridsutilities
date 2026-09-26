@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import MotionSection from '../components/MotionSection';
 import ApplicationForm from '../components/ApplicationForm';
@@ -55,6 +55,11 @@ const VacancyDetailPage = () => {
   const { slug } = useParams();
   const [vacancy, setVacancy] = useState(defaultVacancyData);
   const [loading, setLoading] = useState(true);
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
+  // The form stays mounted after the first open so answers survive closing and reopening the popup.
+  const [hasOpenedApply, setHasOpenedApply] = useState(false);
+  const closeButtonRef = useRef(null);
+  const lastTriggerRef = useRef(null);
 
   useEffect(() => {
     const fetchSlug = slug || 'water-meter-installation-operative';
@@ -138,12 +143,35 @@ const VacancyDetailPage = () => {
     };
   }, [vacancy]);
 
-  const scrollToApply = () => {
-    const el = document.getElementById('application-form-section');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+  const openApply = (event) => {
+    lastTriggerRef.current = event?.currentTarget || null;
+    setHasOpenedApply(true);
+    setIsApplyOpen(true);
   };
+
+  const closeApply = () => {
+    setIsApplyOpen(false);
+    lastTriggerRef.current?.focus();
+  };
+
+  // Lock page scroll, focus the popup and close on Escape while it is open.
+  useEffect(() => {
+    if (!isApplyOpen) return undefined;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    closeButtonRef.current?.focus();
+    const onKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setIsApplyOpen(false);
+        lastTriggerRef.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isApplyOpen]);
 
   const formatDate = (dateStr) => {
     if (!dateStr) return 'To be confirmed';
@@ -164,253 +192,224 @@ const VacancyDetailPage = () => {
   const seoTitle = `${vacancy.title} - ${vacancy.location?.split(' ')[0] || 'UK'} | Bluegrid Utilities Careers`;
   const seoDescription = `Apply for ${vacancy.title} with Bluegrid Utilities in ${vacancy.location}. View role requirements, working details, closing date and application route.`;
 
+  const isOpen = vacancy.isOpen && !vacancy.isExpired;
+
+  const keyDetails = [
+    { icon: 'location_on', label: 'Location', value: vacancy.location },
+    { icon: 'work', label: 'Employment type', value: vacancy.employmentType },
+    { icon: 'schedule', label: 'Working pattern', value: vacancy.workingPattern },
+    { icon: 'event', label: 'Closing date', value: formatDate(vacancy.closingDate) },
+    { icon: 'tag', label: 'Reference', value: vacancy.reference },
+  ].filter((item) => item.value);
+
+  const listSection = (title, items, icon, iconClass = 'text-[#005f9e]') =>
+    items && items.length > 0 && (
+      <section className="bg-white border border-slate-200 p-6 sm:p-8">
+        <h2 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit mb-5">{title}</h2>
+        <ul className="space-y-3">
+          {items.map((item, idx) => (
+            <li key={idx} className="flex items-start gap-3 text-[#1f2937] text-base leading-relaxed">
+              <span aria-hidden="true" className={`material-symbols-outlined text-xl shrink-0 mt-0.5 ${iconClass}`}>{icon}</span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+
+  const applyButtonClass =
+    'text-nav inline-flex items-center justify-center bg-[#005f9e] hover:bg-[#004c80] text-white font-bold px-8 py-3.5 font-outfit transition-colors shadow-sm cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-[#005f9e]/40';
+
   return (
-    <div className="font-sans bg-slate-50 min-h-screen">
+    <div className="font-sans bg-[#f3f7fa] min-h-screen">
       <PageSEO customTitle={seoTitle} customDescription={seoDescription} />
 
       <MotionSection
         as="div"
-        className="pb-24"
+        className="pb-20"
         id="vacancy-detail-view"
         initial="hidden"
         animate="visible"
         whileInView={undefined}
         viewport={undefined}
       >
-        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 pt-8">
+        {/* Role header */}
+        <div className="bg-white border-b border-slate-200">
+          <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 pt-8 pb-10">
+            <nav aria-label="Breadcrumb" className="pb-6 flex items-center gap-2 text-xs font-semibold text-slate-500 font-outfit uppercase tracking-wider text-left">
+              <Link to="/" className="hover:text-[#005f9e] transition-colors">Home</Link>
+              <span>/</span>
+              <Link to="/careers" className="hover:text-[#005f9e] transition-colors">Careers</Link>
+              <span>/</span>
+              <Link to="/careers/jobs" className="hover:text-[#005f9e] transition-colors">Vacancies</Link>
+              <span>/</span>
+              <span className="text-[#0f3a5e] line-clamp-1">{vacancy.title}</span>
+            </nav>
 
-          {/* Breadcrumb Navigation */}
-          <div className="pb-6 flex items-center gap-2 text-xs font-semibold text-slate-500 font-outfit uppercase tracking-wider text-left">
-            <Link to="/" className="hover:text-[#005f9e] transition-colors">Home</Link>
-            <span>/</span>
-            <Link to="/careers" className="hover:text-[#005f9e] transition-colors">Careers</Link>
-            <span>/</span>
-            <Link to="/careers/jobs" className="hover:text-[#005f9e] transition-colors">Vacancies</Link>
-            <span>/</span>
-            <span className="text-[#0f3a5e] line-clamp-1">{vacancy.title}</span>
-          </div>
-
-          {/* Point 49 EXACT STRUCTURE: Role Header Box */}
-          <div className="bg-white border border-slate-200 p-6 sm:p-10 mb-10 shadow-md text-left border-l-4 border-l-[#005f9e]">
-            <div className="space-y-4 max-w-4xl">
-              {/* Reference and Status */}
-              <div className="flex flex-wrap items-center gap-3">
-                <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 bg-blue-50 border border-blue-200 text-[#005f9e] font-outfit">
-                  {vacancy.category || 'Field Operations'}
-                </span>
-                {vacancy.isOpen && !vacancy.isExpired ? (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold uppercase font-outfit border border-emerald-200">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                    Open for Applications
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 text-left">
+              <div className="space-y-4 max-w-5xl">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-[#f3f7fa] border border-slate-200 text-[#005f9e] font-outfit">
+                    {vacancy.category || 'Field Operations'}
                   </span>
-                ) : (
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-rose-50 text-rose-700 text-xs font-bold uppercase font-outfit border border-rose-200">
-                    Vacancy Closed / Expired
-                  </span>
-                )}
-              </div>
-
-              {/* Point 49: [ROLE TITLE] */}
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
-                {vacancy.title}
-              </h1>
-
-              {/* Point 49: [LOCATION] | [EMPLOYMENT TYPE] | [WORKING PATTERN] | Ref: [REFERENCE] */}
-              <div className="flex flex-wrap items-center gap-y-1 gap-x-3 text-xs sm:text-sm font-semibold text-slate-700 font-outfit">
-                <span>{vacancy.location}</span>
-                <span className="text-slate-300">|</span>
-                <span>{vacancy.employmentType}</span>
-                {vacancy.workingPattern && (
-                  <>
-                    <span className="text-slate-300">|</span>
-                    <span>{vacancy.workingPattern}</span>
-                  </>
-                )}
-                {vacancy.reference && (
-                  <>
-                    <span className="text-slate-300">|</span>
-                    <span className="text-slate-500">Ref: {vacancy.reference}</span>
-                  </>
-                )}
-              </div>
-
-              {/* Point 49: Closing date: [DATE AND TIME] */}
-              <div className="text-xs sm:text-sm font-bold text-[#005f9e] font-outfit pt-1">
-                Closing date: {formatDate(vacancy.closingDate)}
-              </div>
-
-              {/* Action Button */}
-              {vacancy.isOpen && !vacancy.isExpired ? (
-                <div className="pt-3">
-                  <button
-                    onClick={scrollToApply}
-                    className="inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-8 py-3.5 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
-                  >
-                    <span>Apply for this role</span>
-                    <span className="material-symbols-outlined text-sm">arrow_downward</span>
-                  </button>
+                  {isOpen ? (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold uppercase font-outfit border border-emerald-200">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      Open for applications
+                    </span>
+                  ) : (
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-rose-50 text-rose-700 text-xs font-bold uppercase font-outfit border border-rose-200">
+                      Vacancy closed
+                    </span>
+                  )}
                 </div>
-              ) : (
-                <div className="p-4 bg-slate-100 border border-slate-300 text-slate-600 text-xs font-medium">
-                  This vacancy has closed. In accordance with Bluegrid Utilities recruitment governance, applications are no longer accepted for this reference.
+
+                <h1 className="text-h1 md:text-h1-lg font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
+                  {vacancy.title}
+                </h1>
+
+                <ul className="flex flex-wrap gap-x-6 gap-y-2 text-sm sm:text-base text-slate-700 font-medium">
+                  {keyDetails.slice(0, 3).map(({ icon, label, value }) => (
+                    <li key={label} className="inline-flex items-center gap-1.5">
+                      <span aria-hidden="true" className="material-symbols-outlined text-lg text-[#005f9e]">{icon}</span>
+                      <span className="sr-only">{label}: </span>
+                      {value}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {isOpen && (
+                <div className="shrink-0 flex flex-col items-start lg:items-end gap-2">
+                  <button type="button" onClick={openApply} className={applyButtonClass}>
+                    Apply for this role
+                  </button>
+                  <p className="text-sm text-slate-500">Closes {formatDate(vacancy.closingDate)}</p>
                 </div>
               )}
             </div>
           </div>
+        </div>
 
-          {/* Point 49: Detailed Structure Body */}
-          <div className="bg-white border border-slate-200 p-6 sm:p-10 shadow-md text-left space-y-10 max-w-4xl mx-auto">
-            
-            {/* Point 49: Role summary */}
-            <section className="space-y-3">
-              <h2 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2">
-                Role summary
-              </h2>
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
-                {vacancy.roleSummary}
-              </p>
-            </section>
+        {/* Role details */}
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 pt-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-start text-left">
 
-            {/* Point 49: Key responsibilities */}
-            <section className="space-y-3">
-              <h2 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2">
-                Key responsibilities
-              </h2>
-              <ul className="space-y-2.5">
-                {(vacancy.keyResponsibilities || []).map((resp, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
-                    <span className="material-symbols-outlined text-[#005f9e] text-base shrink-0 mt-0.5">check_circle</span>
-                    <span>{resp}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* Point 49: Essential requirements */}
-            <section className="space-y-3">
-              <h2 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2">
-                Essential requirements
-              </h2>
-              <ul className="space-y-2.5">
-                {(vacancy.essentialRequirements || []).map((req, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
-                    <span className="material-symbols-outlined text-[#0066ff] text-base shrink-0 mt-0.5">verified</span>
-                    <span>{req}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
-
-            {/* Point 49: Desirable requirements */}
-            {vacancy.desirableRequirements && vacancy.desirableRequirements.length > 0 && (
-              <section className="space-y-3">
-                <h2 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2">
-                  Desirable requirements
-                </h2>
-                <ul className="space-y-2.5">
-                  {vacancy.desirableRequirements.map((des, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
-                      <span className="material-symbols-outlined text-slate-400 text-base shrink-0 mt-0.5">add_circle</span>
-                      <span>{des}</span>
-                    </li>
-                  ))}
-                </ul>
+            <div className="lg:col-span-2 space-y-6">
+              <section className="bg-white border border-slate-200 p-6 sm:p-8">
+                <h2 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit mb-4">Role summary</h2>
+                <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed">{vacancy.roleSummary}</p>
               </section>
-            )}
 
-            {/* Point 49: Qualifications/cards/licences */}
-            <section className="space-y-3">
-              <h2 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2">
-                Qualifications, cards and licences
-              </h2>
-              <ul className="space-y-2.5">
-                {(vacancy.requiredCardsLicences || []).map((card, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
-                    <span className="material-symbols-outlined text-[#005f9e] text-base shrink-0 mt-0.5">badge</span>
-                    <span>{card}</span>
-                  </li>
-                ))}
-              </ul>
-            </section>
+              {listSection('Key responsibilities', vacancy.keyResponsibilities, 'check_circle')}
 
-            {/* Point 49: Pay and benefits */}
-            <section className="space-y-3">
-              <h2 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit border-b border-slate-100 pb-2">
-                Pay and benefits
-              </h2>
-              {vacancy.salaryRate && (
-                <div className="p-4 bg-slate-50 border border-slate-200 text-[#0f3a5e] font-bold text-sm sm:text-base font-outfit">
-                  {vacancy.salaryRate}
-                </div>
-              )}
-              {vacancy.payAndBenefits && (
-                <ul className="space-y-2 pt-2">
-                  {vacancy.payAndBenefits.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
-                      <span className="material-symbols-outlined text-emerald-600 text-base shrink-0 mt-0.5">payments</span>
-                      <span>{item}</span>
-                    </li>
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+                {listSection('Essential requirements', vacancy.essentialRequirements, 'verified')}
+                {listSection('Desirable requirements', vacancy.desirableRequirements, 'add_circle', 'text-slate-400')}
+              </div>
+
+              {listSection('Qualifications, cards and licences', vacancy.requiredCardsLicences, 'badge')}
+            </div>
+
+            {/* Sidebar */}
+            <aside className="space-y-6 lg:sticky lg:top-28">
+              <div className="bg-white border border-slate-200 border-t-4 border-t-[#005f9e] p-6 sm:p-8">
+                <h2 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit mb-5">Key details</h2>
+                <dl className="space-y-4">
+                  {keyDetails.map(({ icon, label, value }) => (
+                    <div key={label} className="flex items-start gap-3">
+                      <span aria-hidden="true" className="material-symbols-outlined text-xl text-[#005f9e] shrink-0">{icon}</span>
+                      <div>
+                        <dt className="text-xs font-semibold uppercase tracking-wider text-slate-500">{label}</dt>
+                        <dd className="text-base text-[#1f2937] font-medium">{value}</dd>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </dl>
+
+                {isOpen ? (
+                  <button type="button" onClick={openApply} className={`${applyButtonClass} w-full mt-7`}>
+                    Apply for this role
+                  </button>
+                ) : (
+                  <p className="mt-7 p-4 bg-[#f3f7fa] border border-slate-200 text-slate-600 text-sm">
+                    Applications for this role are now closed. For upcoming field roles, email{' '}
+                    <a href="mailto:recruitment@bluegridutilities.com" className="text-[#005f9e] font-bold underline">
+                      recruitment@bluegridutilities.com
+                    </a>.
+                  </p>
+                )}
+              </div>
+
+              {(vacancy.salaryRate || vacancy.payAndBenefits?.length > 0) && (
+                <section className="bg-white border border-slate-200 p-6 sm:p-8">
+                  <h2 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit mb-4">Pay and benefits</h2>
+                  {vacancy.payAndBenefits?.length > 0 ? (
+                    <ul className="space-y-3">
+                      {vacancy.payAndBenefits.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-[#1f2937] text-base leading-relaxed">
+                          <span aria-hidden="true" className="material-symbols-outlined text-xl text-emerald-600 shrink-0 mt-0.5">payments</span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-[#0f3a5e] font-semibold">{vacancy.salaryRate}</p>
+                  )}
+                </section>
               )}
-            </section>
 
-            {/* Point 49: How to apply */}
-            <section className="space-y-2 bg-blue-50/60 p-6 border border-blue-200/80">
-              <h2 className="text-base font-bold text-[#0f3a5e] font-outfit uppercase">
-                How to apply
-              </h2>
-              <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
-                Submit your application using the button below. Please provide only the information requested for this vacancy.
-              </p>
-            </section>
-
-            {/* Point 49: Candidate privacy */}
-            <section className="space-y-2 bg-slate-50 p-6 border border-slate-200">
-              <h2 className="text-base font-bold text-[#0f3a5e] font-outfit uppercase">
-                Candidate privacy
-              </h2>
-              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                We use applicant information for recruitment and related checks in line with our Candidate Privacy Notice. Read the notice before submitting your application.{' '}
-                <Link to="/policies" className="text-[#0066ff] font-bold underline">
-                  Read Candidate Privacy Notice
+              <p className="text-sm text-slate-600 leading-relaxed px-1">
+                We use applicant information for recruitment and related checks in line with our{' '}
+                <Link to="/policies/candidate-privacy" className="text-[#005f9e] font-semibold underline">
+                  Candidate Privacy Notice
                 </Link>.
               </p>
-            </section>
-
-            {/* Point 49: Apply for this role CTA */}
-            {vacancy.isOpen && !vacancy.isExpired && (
-              <div className="pt-4 border-t border-slate-200 text-center sm:text-left">
-                <button
-                  onClick={scrollToApply}
-                  className="inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-10 py-4 uppercase font-outfit transition-all shadow-md active:scale-95 cursor-pointer"
-                >
-                  <span>Apply for this role</span>
-                  <span className="material-symbols-outlined text-sm">arrow_downward</span>
-                </button>
-              </div>
-            )}
+            </aside>
           </div>
-
-          {/* Application Form Section (Point 50 Data Minimisation) */}
-          {vacancy.isOpen && !vacancy.isExpired ? (
-            <div id="application-form-section" className="mt-14 max-w-4xl mx-auto">
-              <ApplicationForm vacancy={vacancy} />
-            </div>
-          ) : (
-            <div className="mt-10 p-8 bg-white border border-slate-200 max-w-4xl mx-auto text-left space-y-3">
-              <h3 className="text-lg font-bold text-[#0f3a5e] font-outfit">Recruitment Closed</h3>
-              <p className="text-slate-600 text-xs sm:text-sm">
-                Applications for {vacancy.title} are now closed. For general enquiries regarding upcoming utility field roles, please contact{' '}
-                <a href="mailto:recruitment@bluegridutilities.com" className="text-[#0066ff] font-bold underline">
-                  recruitment@bluegridutilities.com
-                </a>.
-              </p>
-            </div>
-          )}
-
         </div>
       </MotionSection>
+
+      {/* Application popup */}
+      {isOpen && hasOpenedApply && (
+        <div
+          className={`fixed inset-0 z-[60] flex items-end sm:items-center justify-center sm:p-6 ${isApplyOpen ? '' : 'hidden'}`}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="apply-dialog-title"
+        >
+          <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onClick={closeApply} aria-hidden="true" />
+
+          <div className="relative w-full max-w-4xl max-h-[100dvh] sm:max-h-[92vh] flex flex-col bg-white shadow-2xl sm:border sm:border-slate-200">
+            <div className="flex items-start justify-between gap-4 px-5 sm:px-8 py-5 border-b border-slate-200 border-t-4 border-t-[#005f9e] text-left">
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-wider text-[#005f9e] font-outfit">Application form</p>
+                <h2 id="apply-dialog-title" className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit mt-1">
+                  {vacancy.title}
+                </h2>
+                <p className="text-sm text-slate-600 mt-1">
+                  Ref: {vacancy.reference}
+                  {vacancy.location && <> · {vacancy.location}</>}
+                  {' '}· Questions marked <span className="text-red-700 font-bold">*</span> are required.
+                </p>
+              </div>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                onClick={closeApply}
+                className="shrink-0 w-10 h-10 inline-flex items-center justify-center text-slate-500 hover:text-[#0f3a5e] hover:bg-slate-100 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005f9e]"
+                aria-label="Close application form"
+              >
+                <span aria-hidden="true" className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+
+            <div className="overflow-y-auto overscroll-contain px-5 sm:px-8 py-6 sm:py-8">
+              <ApplicationForm vacancy={vacancy} embedded />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

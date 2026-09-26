@@ -40,7 +40,7 @@ const QuickInfo = () => {
   return (
     <MotionSection 
       as="section" 
-      className="py-24 bg-gradient-to-b from-white via-[#f8fafc] to-white relative font-sans overflow-hidden border-b border-slate-100" 
+      className="py-24 bg-gradient-to-b from-white via-[#f3f7fa] to-white relative font-sans overflow-hidden border-b border-slate-100" 
       id="values"
       initial="hidden"
       animate="visible"
@@ -60,7 +60,7 @@ const QuickInfo = () => {
           </span>
           
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight leading-tight font-outfit lg:max-w-xl">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-brand-dark tracking-tight leading-tight font-outfit lg:max-w-xl">
               Why Bluegrid?
             </h2>
             <p className="text-slate-500 font-sans font-medium text-base md:text-lg lg:text-xl max-w-2xl leading-relaxed lg:pb-1">
@@ -87,7 +87,7 @@ const QuickInfo = () => {
                 {/* Default white background */}
                 <div className="absolute inset-0 bg-white transition-opacity duration-500 group-hover:opacity-0" />
                 {/* Hover dark blue gradient background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/95 to-[#032879]/90 opacity-0 group-hover:opacity-95 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/95 to-[#0f3a5e]/90 opacity-0 group-hover:opacity-95 transition-opacity duration-500" />
               </div>
               
               <div className="space-y-6 w-full text-left relative z-10">
@@ -99,10 +99,10 @@ const QuickInfo = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <h4 className="text-lg md:text-xl font-bold text-brand-dark group-hover:text-white tracking-tight font-outfit transition-colors duration-300">
+                  <h4 className="text-h3 md:text-h3-lg font-bold text-brand-dark group-hover:text-white tracking-tight font-outfit transition-colors duration-300">
                     {feature.title}
                   </h4>
-                  <p className="text-gray-500 group-hover:text-slate-200 leading-relaxed text-sm md:text-base font-medium transition-colors duration-300">
+                  <p className="text-body md:text-body-lg text-gray-500 group-hover:text-slate-200 leading-relaxed font-medium transition-colors duration-300">
                     {feature.desc}
                   </p>
                 </div>

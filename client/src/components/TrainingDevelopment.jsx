@@ -50,7 +50,7 @@ const trainingFocus = [
 
 const TrainingDevelopment = () => {
   return (
-    <MotionSection as="section" className="py-24 bg-slate-50 overflow-hidden font-sans" id="training">
+    <MotionSection as="section" className="py-24 bg-[#f3f7fa] overflow-hidden font-sans" id="training">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="flex flex-col lg:flex-row items-center gap-16">
@@ -80,7 +80,7 @@ const TrainingDevelopment = () => {
                             <div className="w-12 h-12 rounded-2xl bg-white/15 text-white border border-white/20 backdrop-blur-md flex items-center justify-center mb-6">
                                {item.icon}
                             </div>
-                            <h4 className="text-lg font-bold text-white mb-2 leading-tight font-outfit">{item.title}</h4>
+                            <h4 className="text-h3 md:text-h3-lg font-bold text-white mb-2 leading-tight font-outfit">{item.title}</h4>
                             <p className="text-slate-200 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
                          </div>
                       </div>
@@ -95,14 +95,14 @@ const TrainingDevelopment = () => {
           {/* Right: Content */}
           <div className="lg:w-1/2 order-1 lg:order-2 text-center lg:text-left">
             <span className="text-brand-primary font-bold tracking-widest text-sm mb-4 block underline decoration-2 underline-offset-8 mx-auto lg:mx-0 w-fit">Capability Building</span>
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-8 font-outfit">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-brand-dark tracking-tight mb-8 font-outfit">
               Training & Professional Development
             </h2>
             <div className="space-y-6">
               <p className="text-xl text-gray-700 font-medium leading-relaxed italic border-l-4 border-brand-primary pl-6 text-left">
                 “Our management team continuously develops operational and leadership capabilities through ongoing professional development, infrastructure operations learning, project coordination training, and compliance-focused industry practices.”
               </p>
-              <p className="text-gray-500 text-lg leading-relaxed">
+              <p className="text-body md:text-body-lg text-gray-500 leading-relaxed">
                 By investing in the technical and behavioral growth of our staff, we ensure that every project is managed with the latest industry insights and a commitment to operational excellence. 
               </p>
             </div>

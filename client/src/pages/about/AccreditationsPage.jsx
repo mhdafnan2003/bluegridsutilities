@@ -32,10 +32,10 @@ const futureCertifications = [
         theme: {
           bg: "bg-blue-50/60",
           border: "border-blue-200",
-          accent: "bg-[#00529b]",
+          accent: "bg-[#005f9e]",
           text: "text-[#00386b]",
           tag: "bg-blue-100 text-blue-800 border-blue-300",
-          iconBg: "bg-[#00529b] text-white",
+          iconBg: "bg-[#005f9e] text-white",
           iconName: "health_and_safety"
         }
       },
@@ -66,10 +66,10 @@ const futureCertifications = [
         theme: {
           bg: "bg-indigo-50/60",
           border: "border-indigo-200",
-          accent: "bg-[#2563eb]",
-          text: "text-[#1e3a8a]",
+          accent: "bg-[#005f9e]",
+          text: "text-[#0f3a5e]",
           tag: "bg-indigo-100 text-indigo-800 border-indigo-300",
-          iconBg: "bg-[#2563eb] text-white",
+          iconBg: "bg-[#005f9e] text-white",
           iconName: "verified"
         }
       },
@@ -130,7 +130,7 @@ const AccreditationsPage = () => {
           {/* Current Accreditation Section */}
           <div className="mb-16">
             <div className="flex items-center gap-3 mb-6">
-              <span className="w-3 h-3 bg-[#0066ff] rounded-none animate-pulse" />
+              <span className="w-3 h-3 bg-[#005f9e] rounded-none animate-pulse" />
               <h2 className="text-xs font-black tracking-widest text-[#005f9e] font-outfit uppercase">
                 Current Status
               </h2>
@@ -150,11 +150,11 @@ const AccreditationsPage = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white font-outfit">
+                  <h3 className="text-h2 md:text-h2-lg font-bold tracking-tight text-white font-outfit">
                     CHAS Standard — Working Towards
                   </h3>
 
-                  <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+                  <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
                     Bluegrid Utilities is working towards CHAS Standard accreditation as part of its commitment to formal health-and-safety assurance and responsible contractor management.
                   </p>
 
@@ -195,10 +195,10 @@ const AccreditationsPage = () => {
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Accreditation Roadmap
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Supply-Chain & Governance Roadmap
               </h2>
-              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed font-medium">
                 Bluegrid Utilities evaluates and progresses company-level accreditations subject to business need, eligibility and procurement strategy.
               </p>
             </div>
@@ -212,7 +212,7 @@ const AccreditationsPage = () => {
                     <div className="w-10 h-10 bg-[#0f3a5e] text-white flex items-center justify-center shadow-md shrink-0">
                       <span className="material-symbols-outlined text-xl">{group.icon}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+                    <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">
                       {group.category}
                     </h3>
                   </div>
@@ -235,7 +235,7 @@ const AccreditationsPage = () => {
                                 <span className="material-symbols-outlined text-2xl">{cert.theme.iconName}</span>
                               </div>
                               <div>
-                                <h4 className={`text-lg font-bold ${cert.theme.text} tracking-tight font-outfit`}>
+                                <h4 className={`text-h3 md:text-h3-lg font-bold ${cert.theme.text} tracking-tight font-outfit`}>
                                   {cert.name}
                                 </h4>
                                 <span className={`inline-block text-[10px] font-bold tracking-wider font-outfit uppercase px-2 py-0.5 mt-0.5 border ${cert.theme.tag}`}>
@@ -277,16 +277,16 @@ const AccreditationsPage = () => {
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Individual Operative Qualifications
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Workforce Competence
               </h2>
-              <p className="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed font-medium">
                 Where relevant to the task, Bluegrid expects deployed personnel to hold appropriate competency evidence such as NRSWA / SWQR units, EUSR registrations, CSCS or equivalent site competence, CAT & Genny training, first aid, plant qualifications and project-specific training.
               </p>
             </div>
 
             {/* Distinction Banner Box */}
-            <div className="bg-slate-50 border border-slate-200 border-l-4 border-l-[#005f9e] p-6 sm:p-8 rounded-none shadow-md text-left space-y-3">
+            <div className="bg-[#f3f7fa] border border-slate-200 border-l-4 border-l-[#005f9e] p-6 sm:p-8 rounded-none shadow-md text-left space-y-3">
               <div className="flex items-center gap-3">
                 <span className="w-8 h-8 rounded-none bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center border border-[#005f9e]/20 font-bold shrink-0">
                   <span className="material-symbols-outlined text-lg">info</span>
@@ -308,10 +308,10 @@ const AccreditationsPage = () => {
               <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block uppercase">
                 Rigorous Governance & Audit Oversight
               </span>
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold tracking-tight text-white font-outfit">
                 Our Unwavering Accreditation Commitment
               </h2>
-              <p className="text-slate-200 text-sm sm:text-base leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg text-slate-200 leading-relaxed font-medium">
                 Every member of our field workforce undergoes strict pre-deployment verification, supporting adherence to UK statutory requirements, environmental standards, and principal contractor policies.
               </p>
             </div>

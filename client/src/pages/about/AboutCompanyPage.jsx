@@ -139,13 +139,13 @@ const AboutCompanyPage = () => {
                 <span className="text-xs font-bold text-[#005f9e] uppercase tracking-widest font-outfit">
                   Who We Are
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+                <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">
                   A Structured Approach to Utility Delivery
                 </h2>
-                <p className="text-slate-700 text-base sm:text-lg font-medium leading-relaxed">
+                <p className="text-body md:text-body-lg text-[#1f2937] font-medium leading-relaxed">
                   We are developing Bluegrid through controlled mobilisation, clear project management, accountable field coordination and accurate reporting. Our aim is to support authorised utility programmes safely, professionally and in line with the requirements of each project.
                 </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
                   We do not measure credibility by slogans or unsupported scale. We focus on the fundamentals that matter in field delivery: competent people, clear responsibilities, reliable information, safe working and prompt escalation when conditions change.
                 </p>
               </div>
@@ -158,10 +158,10 @@ const AboutCompanyPage = () => {
 
                 <div className="relative z-10 space-y-6">
                   <div className="border-b border-white/15 pb-4">
-                    <span className="text-[#0066ff] font-bold text-xs tracking-widest block mb-1 font-outfit">
+                    <span className="text-[#005f9e] font-bold text-xs tracking-widest block mb-1 font-outfit">
                       Official Details
                     </span>
-                    <h3 className="text-2xl font-bold tracking-tight text-white font-outfit">
+                    <h3 className="text-h3 md:text-h3-lg font-bold tracking-tight text-white font-outfit">
                       Official Company Details
                     </h3>
                   </div>
@@ -169,17 +169,17 @@ const AboutCompanyPage = () => {
                   <div className="space-y-4 text-sm">
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Trading Name</p>
-                      <p className="text-base font-bold text-white">Bluegrid Utilities</p>
+                      <p className="text-body md:text-body-lg font-bold text-white">Bluegrid Utilities</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Legal Entity</p>
-                      <p className="text-base font-bold text-white">Bluegrid Technology Ltd</p>
+                      <p className="text-body md:text-body-lg font-bold text-white">Bluegrid Technology Ltd</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit">Company Number</p>
-                      <p className="text-base font-bold text-white tracking-wider">16442340</p>
+                      <p className="text-body md:text-body-lg font-bold text-white tracking-wider">16442340</p>
                     </div>
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
@@ -202,14 +202,14 @@ const AboutCompanyPage = () => {
 
                     <div className="bg-white/5 border border-white/10 p-4 rounded-none">
                       <p className="text-[10px] font-bold text-[#60a5fa] tracking-widest mb-1 font-outfit uppercase">Company Status</p>
-                      <p className="text-base font-bold text-emerald-400">Active</p>
+                      <p className="text-body md:text-body-lg font-bold text-emerald-400">Active</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-white/15 relative z-10 flex items-center justify-between text-xs font-bold text-slate-300 font-outfit">
                   <span className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-none bg-[#0066ff]" />
+                    <span className="w-2 h-2 rounded-none bg-[#005f9e]" />
                     Registered in England &amp; Wales
                   </span>
                   <span className="text-[#60a5fa]">Active Status</span>
@@ -228,10 +228,10 @@ const AboutCompanyPage = () => {
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Current Focus
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Built Around Practical Delivery
               </h2>
-              <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed font-medium">
                 Bluegrid Utilities concentrates its resources on core delivery disciplines where competence, working procedures and verified controls are firmly established.
               </p>
             </div>
@@ -256,10 +256,10 @@ const AboutCompanyPage = () => {
                     <div className="w-12 h-12 bg-[#005f9e]/10 text-[#005f9e] flex items-center justify-center mb-4">
                       <span className="material-symbols-outlined text-2xl">{area.icon}</span>
                     </div>
-                    <h3 className="text-lg sm:text-xl font-bold text-[#0f3a5e] font-outfit mb-2">
+                    <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit mb-2">
                       {area.title}
                     </h3>
-                    <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                    <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
                       {area.desc}
                     </p>
                   </div>
@@ -269,15 +269,15 @@ const AboutCompanyPage = () => {
           </div>
 
           {/* ORGANISATION SECTION (Pack 02) */}
-          <div className="mb-20 bg-slate-50 border border-slate-200 p-8 sm:p-12 text-left">
+          <div className="mb-20 bg-[#f3f7fa] border border-slate-200 p-8 sm:p-12 text-left">
             <div className="max-w-3xl">
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-xs font-black tracking-widest mb-3 font-outfit uppercase">
                 Organisation
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
                 Clear Accountability
               </h2>
-              <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
                 Bluegrid operates through a defined management and project-support structure, with operational matters escalated through the project-management line to director level where required. This helps maintain clear accountability for delivery, commercial decisions, external representation and material risk.
               </p>
             </div>
@@ -289,10 +289,10 @@ const AboutCompanyPage = () => {
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Leadership
               </span>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
                 Company Leadership
               </h2>
-              <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed font-medium">
                 Statutory directors maintaining corporate governance, operational standards and commercial accountability.
               </p>
             </div>
@@ -304,8 +304,8 @@ const AboutCompanyPage = () => {
                   <span className="material-symbols-outlined text-4xl text-slate-400">person</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit">Selbert George</h3>
-                  <p className="text-sm font-bold text-[#005f9e] font-outfit mb-3">Director and Project Director</p>
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">Selbert George</h3>
+                  <p className="text-body md:text-body-lg font-bold text-[#005f9e] font-outfit mb-3">Director and Project Director</p>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                     Active statutory director overseeing operational delivery, project management, workforce deployment and client coordination.
                   </p>
@@ -318,8 +318,8 @@ const AboutCompanyPage = () => {
                   <span className="material-symbols-outlined text-4xl text-slate-400">shield_person</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-[#0f3a5e] font-outfit">Syed Zulqurnain Shah</h3>
-                  <p className="text-sm font-bold text-[#005f9e] font-outfit mb-3">Director</p>
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">Syed Zulqurnain Shah</h3>
+                  <p className="text-body md:text-body-lg font-bold text-[#005f9e] font-outfit mb-3">Director</p>
                   <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
                     Active statutory director responsible for statutory governance, financial oversight and corporate compliance.
                   </p>
@@ -334,10 +334,10 @@ const AboutCompanyPage = () => {
               <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e] text-white text-xs font-black tracking-widest mb-3 font-outfit uppercase">
                 Responsible Growth
               </span>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
+              <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit mb-4">
                 Growing Capability Responsibly
               </h2>
-              <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-medium">
+              <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
                 As Bluegrid grows, public claims must remain aligned with the Company’s actual workforce, contracts, resources, accreditations and geographical capability. We would rather describe a capability accurately than overstate what can be delivered.
               </p>
             </div>
@@ -349,7 +349,7 @@ const AboutCompanyPage = () => {
               <span className="text-[#60a5fa] font-bold text-xs tracking-widest font-outfit block uppercase">
                 Bluegrid Utilities
               </span>
-              <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-outfit">
+              <h3 className="text-h2 md:text-h2-lg font-bold tracking-tight text-white font-outfit">
                 Discuss Your Utility Infrastructure Requirements
               </h3>
               <p className="text-slate-200 text-xs sm:text-sm leading-relaxed font-medium">
@@ -360,14 +360,14 @@ const AboutCompanyPage = () => {
             <div className="shrink-0 relative z-10 flex flex-wrap gap-4">
               <Link 
                 to="/contact"
-                className="inline-flex items-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit uppercase"
+                className="text-nav inline-flex items-center gap-2 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold tracking-wide px-8 py-4 rounded-none border border-white/20 transition-all duration-300 shadow-lg active:scale-95 font-outfit uppercase"
               >
                 <span>Discuss a Project</span>
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </Link>
               <Link 
                 to="/services"
-                className="inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit uppercase"
+                className="text-nav inline-flex items-center gap-2 bg-transparent hover:bg-white/10 text-white font-bold tracking-wide px-8 py-4 rounded-none border border-white/30 transition-all duration-300 font-outfit uppercase"
               >
                 <span>Our Capabilities</span>
               </Link>

@@ -85,8 +85,8 @@ const MemberCard = ({ member }) => {
         {/* Content Overlay */}
         <div className={`bg-white p-5 absolute bottom-0 left-0 right-0 z-10 rounded-none border-t border-slate-200 flex flex-col justify-start h-[290px] sm:h-[310px] transition-all duration-500 ease-out ${isOpen ? 'translate-y-0' : 'translate-y-[215px] sm:translate-y-[230px]'}`}>
           <div className="mb-2">
-            <h3 className="text-lg sm:text-xl text-[#0f3a5e] font-bold tracking-tight leading-snug mb-1 font-outfit">{member.name}</h3>
-            <p className="text-[11px] text-[#005f9e] font-bold tracking-wider min-h-[28px] flex items-center font-outfit">{member.role}</p>
+            <h3 className="text-h3 md:text-h3-lg text-[#0f3a5e] font-bold tracking-tight leading-snug mb-1 font-outfit">{member.name}</h3>
+            <p className="text-body md:text-body-lg text-[#005f9e] font-bold tracking-wider min-h-[28px] flex items-center font-outfit">{member.role}</p>
           </div>
           
           <div className={`text-slate-600 text-xs leading-relaxed transition-all duration-500 space-y-2 flex-1 overflow-y-auto pr-1 pb-3 font-medium ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
@@ -120,7 +120,7 @@ const Management = () => {
   return (
     <MotionSection 
       as="section" 
-      className="py-16 md:py-24 bg-[#f8fafc] font-sans relative overflow-hidden" 
+      className="py-16 md:py-24 bg-[#f3f7fa] font-sans relative overflow-hidden" 
       id="management"
     >
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12">
@@ -129,11 +129,11 @@ const Management = () => {
         <div className="flex items-center justify-start md:justify-center overflow-x-auto gap-2 pb-6 mb-16 border-b border-slate-200 no-scrollbar">
           <button
             onClick={() => handleTabClick('all')}
-            className={`px-5 py-3 text-xs font-bold tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border ${
-              activeDeptId === 'all'
-                ? 'bg-[#0f3a5e] text-white border-[#0f3a5e] shadow-md'
-                : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
-            }`}
+            className={`text-nav px-5 py-3 font-bold tracking-wide font-outfit whitespace-nowrap transition-all duration-300 rounded-none border ${
+ activeDeptId === 'all'
+ ? 'bg-[#0f3a5e] text-white border-[#0f3a5e] shadow-md'
+ : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
+ }`}
           >
             All Departments
           </button>
@@ -142,11 +142,11 @@ const Management = () => {
             <button
               key={dept.id}
               onClick={() => handleTabClick(dept.id)}
-              className={`px-5 py-3 text-xs font-bold tracking-widest font-outfit whitespace-nowrap transition-all duration-300 rounded-none border flex items-center gap-2 ${
-                activeDeptId === dept.id
-                  ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-md'
-                  : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
-              }`}
+              className={`text-nav px-5 py-3 font-bold tracking-wide font-outfit whitespace-nowrap transition-all duration-300 rounded-none border flex items-center gap-2 ${
+ activeDeptId === dept.id
+ ? 'bg-[#005f9e] text-white border-[#005f9e] shadow-md'
+ : 'bg-white text-slate-600 border-slate-200 hover:border-[#005f9e] hover:text-[#005f9e]'
+ }`}
             >
               <span>{dept.name}</span>
             </button>
@@ -162,7 +162,7 @@ const Management = () => {
               <div className="flex items-center justify-between border-b border-slate-200 pb-4">
                 <div className="flex items-center gap-3">
                   <span className="w-3 h-3 bg-[#005f9e] rounded-none" />
-                  <h3 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit">
+                  <h3 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">
                     {dept.name} Department
                   </h3>
                 </div>

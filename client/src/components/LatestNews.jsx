@@ -19,10 +19,10 @@ const LatestNews = () => {
             <span className="inline-block px-3.5 py-1.5 rounded-none bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20">
               News & Operational Insights
             </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight leading-tight font-outfit">
               Latest News & Updates
             </h2>
-            <p className="mt-3 text-slate-600 text-sm sm:text-base font-medium leading-relaxed">
+            <p className="text-body md:text-body-lg mt-3 text-[#1f2937] font-medium leading-relaxed">
               Discover our recent announcements, project mobilisations, workforce training initiatives, and sector achievements across the UK.
             </p>
           </div>
@@ -30,7 +30,7 @@ const LatestNews = () => {
           <div className="hidden md:block shrink-0">
             <Link
               to="/news"
-              className="inline-flex items-center gap-2.5 bg-[#005f9e] hover:bg-[#0066ff] text-white font-bold text-xs tracking-widest px-7 py-4 rounded-none transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 font-outfit group"
+              className="text-nav inline-flex items-center gap-2.5 bg-[#005f9e] hover:bg-[#005f9e] text-white font-bold tracking-wide px-7 py-4 rounded-none transition-all duration-300 shadow-md hover:shadow-lg active:scale-95 font-outfit group"
             >
               <span>View All News</span>
               <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">
@@ -78,11 +78,11 @@ const LatestNews = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-lg md:text-xl font-bold text-[#0f3a5e] font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
+                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit group-hover:text-[#005f9e] transition-colors leading-snug">
                     {article.title}
                   </h3>
 
-                  <p className="text-slate-600 text-sm font-sans leading-relaxed line-clamp-3">
+                  <p className="text-body md:text-body-lg text-[#1f2937] font-sans leading-relaxed line-clamp-3">
                     {article.snippet}
                   </p>
                 </div>
@@ -103,7 +103,7 @@ const LatestNews = () => {
         <div className="mt-10 text-center md:hidden">
           <Link
             to="/news"
-            className="inline-flex items-center gap-2.5 bg-[#005f9e] hover:bg-[#0066ff] text-white font-bold text-xs tracking-widest px-8 py-4 rounded-none transition-all duration-300 shadow-md font-outfit w-full justify-center group"
+            className="text-nav inline-flex items-center gap-2.5 bg-[#005f9e] hover:bg-[#005f9e] text-white font-bold tracking-wide px-8 py-4 rounded-none transition-all duration-300 shadow-md font-outfit w-full justify-center group"
           >
             <span>View All News</span>
             <span className="material-symbols-outlined text-base transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>

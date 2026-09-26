@@ -117,14 +117,14 @@ const inputCls = (hasError) =>
   `w-full px-3.5 py-2.5 bg-white border text-slate-900 text-base sm:text-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#005f9e] focus-visible:ring-offset-1 transition-colors ${
     hasError ? 'border-red-600' : 'border-slate-400 focus:border-[#005f9e]'
   }`;
-const labelCls = 'block text-sm font-bold text-slate-800 mb-1';
+const labelCls = 'block text-sm font-bold text-[#1f2937] mb-1';
 const hintCls = 'block text-xs text-slate-600 mb-1.5';
 
 const Req = () => <span aria-hidden="true" className="text-red-700"> *</span>;
 
 const FieldError = ({ id, message }) =>
   message ? (
-    <p id={id} className="mt-1.5 text-sm font-semibold text-red-700 flex items-start gap-1">
+    <p id={id} className="text-body md:text-body-lg mt-1.5 font-semibold text-red-700 flex items-start gap-1">
       <span className="sr-only">Error: </span>
       {message}
     </p>
@@ -137,7 +137,7 @@ const SectionTitle = ({ n, children }) => (
   </h3>
 );
 
-const ApplicationForm = ({ vacancy: vacancyProp }) => {
+const ApplicationForm = ({ vacancy: vacancyProp, embedded = false }) => {
   const uid = useId().replace(/:/g, '');
   const id = (name) => `${uid}-${name}`;
 
@@ -287,22 +287,22 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
   // ------------------------------------------------------------------------------------------
   if (status === 'success') {
     return (
-      <div className="bg-white border-2 border-emerald-600 p-6 sm:p-10 text-left shadow-xl" role="status">
+      <div className={embedded ? 'text-left' : 'bg-white border-2 border-emerald-600 p-6 sm:p-10 text-left shadow-xl'} role="status">
         <div className="flex items-start gap-4 mb-6">
           <div aria-hidden="true" className="w-12 h-12 shrink-0 bg-emerald-100 text-emerald-800 flex items-center justify-center">
             <span className="material-symbols-outlined text-3xl">check_circle</span>
           </div>
-          <h2 ref={successRef} tabIndex={-1} className="text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] font-outfit focus:outline-none">
+          <h2 ref={successRef} tabIndex={-1} className="text-h2 md:text-h2-lg font-extrabold text-[#0f3a5e] font-outfit focus:outline-none">
             Application submitted successfully
           </h2>
         </div>
 
-        <p className="text-slate-700 text-base leading-relaxed">
+        <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed">
           Thank you, {data.firstName.trim()}. Your application for <strong className="text-[#0f3a5e]">{result?.roleTitle || vacancy.title}</strong> has
           been received by the Bluegrid Utilities recruitment team.
         </p>
 
-        <dl className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 border border-slate-200 p-5 text-sm">
+        <dl className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#f3f7fa] border border-slate-200 p-5 text-sm">
           <div>
             <dt className="text-slate-600 font-bold">Job reference</dt>
             <dd className="text-[#0f3a5e] font-bold text-base">{result?.reference || vacancy.reference}</dd>
@@ -323,7 +323,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
           </div>
         </dl>
 
-        <p className="mt-5 text-sm text-slate-700">
+        <p className="text-body md:text-body-lg mt-5 text-[#1f2937]">
           {result?.confirmationEmailSent
             ? 'We have also emailed you a copy of these details.'
             : 'Please keep a note of your job reference and application ID.'}{' '}
@@ -331,7 +331,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
           quote your application ID.
         </p>
 
-        <p className="mt-5 p-4 bg-amber-50 border-l-4 border-amber-600 text-sm text-amber-950">
+        <p className="text-body md:text-body-lg mt-5 p-4 bg-amber-50 border-l-4 border-amber-600 text-amber-950">
           <strong>Please note:</strong> do not book or pay for any training courses until you have attended an interview and received written
           confirmation from Bluegrid Utilities.
         </p>
@@ -411,7 +411,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
           aria-describedby={errors[name] ? id(`${name}-error`) : undefined}
           className="mt-0.5 w-5 h-5 shrink-0 accent-[#005f9e] focus-visible:ring-2 focus-visible:ring-[#005f9e] focus-visible:ring-offset-2"
         />
-        <label htmlFor={id(name)} className="text-sm text-slate-800 leading-relaxed cursor-pointer">
+        <label htmlFor={id(name)} className="text-sm text-[#1f2937] leading-relaxed cursor-pointer">
           {children}
           <Req />
         </label>
@@ -426,12 +426,12 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
       noValidate
       aria-labelledby={id('title')}
       aria-busy={submitting}
-      className="bg-white border border-slate-200 p-5 sm:p-10 md:p-12 shadow-xl text-left space-y-10"
+      className={embedded ? 'text-left space-y-10' : 'bg-white border border-slate-200 p-5 sm:p-10 md:p-12 shadow-xl text-left space-y-10'}
     >
-      {/* Role and reference */}
-      <div className="border-b border-slate-200 pb-6">
+      {/* Role and reference (the popup on the vacancy page shows its own header) */}
+      <div className={embedded ? 'sr-only' : 'border-b border-slate-200 pb-6'}>
         <p className="text-xs font-black tracking-widest uppercase text-[#005f9e] font-outfit">Apply for this role</p>
-        <h2 id={id('title')} className="mt-1 text-2xl sm:text-3xl font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
+        <h2 id={id('title')} className="text-h2 md:text-h2-lg mt-1 font-extrabold text-[#0f3a5e] tracking-tight font-outfit">
           {vacancy.title}
         </h2>
         <dl className="mt-3 flex flex-wrap gap-x-6 gap-y-1 text-sm text-slate-700">
@@ -446,7 +446,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
             </div>
           )}
         </dl>
-        <p className="mt-3 text-sm text-slate-600">
+        <p className="text-body md:text-body-lg mt-3 text-[#1f2937]">
           Questions marked <span aria-hidden="true" className="text-red-700 font-bold">*</span>
           <span className="sr-only">as required</span> must be answered. All other questions are optional.
         </p>
@@ -466,7 +466,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
           </h3>
           {errorEntries.length ? (
             <>
-              <p className="mt-1 text-sm text-red-900">Please correct the following. Everything else you entered has been kept.</p>
+              <p className="text-body md:text-body-lg mt-1 text-red-900">Please correct the following. Everything else you entered has been kept.</p>
               <ul className="mt-3 list-disc pl-5 space-y-1 text-sm">
                 {errorEntries.map(([k, msg]) => (
                   <li key={k}>
@@ -478,7 +478,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
               </ul>
             </>
           ) : (
-            <p className="mt-1 text-sm text-red-900">{formError}</p>
+            <p className="text-body md:text-body-lg mt-1 text-red-900">{formError}</p>
           )}
         </div>
       )}
@@ -503,7 +503,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
               <div
                 key={route}
                 className={`flex items-start gap-3 p-4 border-2 transition-colors ${
-                  data.engagementRoute === route ? 'border-[#005f9e] bg-[#f0f7fc]' : errors.engagementRoute ? 'border-red-600' : 'border-slate-300'
+                  data.engagementRoute === route ? 'border-[#005f9e] bg-[#f3f7fa]' : errors.engagementRoute ? 'border-red-600' : 'border-slate-300'
                 }`}
               >
                 <input
@@ -560,7 +560,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
       {/* 4. Right to work */}
       <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s4')}>
         <div id={id('s4')} className="pt-6"><SectionTitle n="4">Right to work</SectionTitle></div>
-        {vacancy.rightToWorkSponsorship && <p className="text-sm text-slate-700">{vacancy.rightToWorkSponsorship}</p>}
+        {vacancy.rightToWorkSponsorship && <p className="text-body md:text-body-lg text-[#1f2937]">{vacancy.rightToWorkSponsorship}</p>}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {selectField('rightToWork', 'What is your right-to-work status in the UK?', RIGHT_TO_WORK, {
             required: true,
@@ -586,7 +586,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
           <span id={id('certificates-hint')} className={hintCls}>Tick all that apply. Leave them all unticked if you hold none; training can be discussed at interview.</span>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 pt-1">
             {CERTIFICATES.map((cert, i) => (
-              <div key={cert} className="flex items-start gap-2.5 p-2.5 bg-slate-50 border border-slate-200">
+              <div key={cert} className="flex items-start gap-2.5 p-2.5 bg-[#f3f7fa] border border-slate-200">
                 <input
                   id={id(`cert-${i}`)}
                   type="checkbox"
@@ -596,7 +596,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
                   onChange={() => toggleCert(cert)}
                   className="mt-0.5 w-5 h-5 shrink-0 accent-[#005f9e] focus-visible:ring-2 focus-visible:ring-[#005f9e] focus-visible:ring-offset-2"
                 />
-                <label htmlFor={id(`cert-${i}`)} className="text-sm text-slate-800 leading-snug cursor-pointer">{cert}</label>
+                <label htmlFor={id(`cert-${i}`)} className="text-sm text-[#1f2937] leading-snug cursor-pointer">{cert}</label>
               </div>
             ))}
           </div>
@@ -665,7 +665,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
           />
           <FieldError id={id('cv-error')} message={errors.cv} />
           {cvFile && (
-            <p className="mt-2 flex flex-wrap items-center gap-3 text-sm text-slate-800">
+            <p className="text-body md:text-body-lg mt-2 flex flex-wrap items-center gap-3 text-[#1f2937]">
               <span>
                 Selected: <strong>{cvFile.name}</strong> ({(cvFile.size / 1024 / 1024).toFixed(2)} MB)
               </span>
@@ -681,7 +681,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
       <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s10')}>
         <div id={id('s10')} className="pt-6"><SectionTitle n="10">Declaration</SectionTitle></div>
         {(vacancy.essentialRequirements || []).length > 0 && (
-          <div className="bg-slate-50 border border-slate-200 p-4">
+          <div className="bg-[#f3f7fa] border border-slate-200 p-4">
             <h4 className="text-sm font-bold text-[#0f3a5e]">Requirements of this role</h4>
             <ul className="mt-2 list-disc pl-5 space-y-1 text-sm text-slate-700">
               {vacancy.essentialRequirements.map((r) => (
@@ -700,7 +700,7 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
       {/* 11. Privacy */}
       <section className="space-y-4 pt-2 border-t border-slate-200" aria-labelledby={id('s11')}>
         <div id={id('s11')} className="pt-6"><SectionTitle n="11">Privacy</SectionTitle></div>
-        <p className="text-sm text-slate-700 leading-relaxed">
+        <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed">
           Our Candidate Privacy Notice explains how Bluegrid Utilities uses the personal information in your application, how long we keep it and
           your rights. Please read it before you submit.
         </p>
@@ -721,14 +721,14 @@ const ApplicationForm = ({ vacancy: vacancyProp }) => {
 
       {/* Submit */}
       <div className="pt-6 border-t border-slate-200 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-4">
-        <p className="text-sm text-slate-600">
+        <p className="text-body md:text-body-lg text-[#1f2937]">
           Recruitment questions: <a className="text-[#005f9e] font-bold underline" href={`mailto:${RECRUITMENT_EMAIL}`}>{RECRUITMENT_EMAIL}</a>
         </p>
         <button
           type="submit"
           disabled={submitting}
           aria-disabled={submitting}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-extrabold text-sm tracking-wider px-8 py-4 uppercase font-outfit transition-colors shadow-lg disabled:opacity-70 disabled:cursor-wait focus:outline-none focus-visible:ring-4 focus-visible:ring-[#005f9e]/40"
+          className="text-nav w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-extrabold tracking-wide px-8 py-4 uppercase font-outfit transition-colors shadow-lg disabled:opacity-70 disabled:cursor-wait focus:outline-none focus-visible:ring-4 focus-visible:ring-[#005f9e]/40"
         >
           {submitting ? (
             <>

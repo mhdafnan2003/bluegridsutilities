@@ -53,7 +53,7 @@ const VacanciesPage = () => {
   };
 
   return (
-    <div className="font-sans bg-slate-50 min-h-screen">
+    <div className="font-sans bg-[#f3f7fa] min-h-screen">
       <MotionSection
         as="div"
         className="pb-24"
@@ -64,25 +64,25 @@ const VacanciesPage = () => {
         viewport={undefined}
       >
         {/* Header Banner */}
-        <div className="bg-[#0f3a5e] text-white py-16 sm:py-20 border-b-4 border-[#0066ff]">
+        <div className="bg-[#0f3a5e] text-white py-16 sm:py-20 border-b-4 border-[#005f9e]">
           <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 text-left space-y-4">
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 font-outfit uppercase tracking-wider">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <Link to="/careers" className="hover:text-white transition-colors">Careers</Link>
               <span>/</span>
-              <span className="text-[#0066ff]">Current Vacancies</span>
+              <span className="text-[#005f9e]">Current Vacancies</span>
             </div>
 
             <span className="inline-block px-3.5 py-1.5 bg-white/10 text-white text-xs font-black tracking-widest font-outfit uppercase border border-white/20">
               Approved Opportunities
             </span>
 
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight font-outfit">
+            <h1 className="text-h1 md:text-h1-lg font-extrabold tracking-tight font-outfit">
               Current Vacancies
             </h1>
 
-            <p className="text-slate-200 text-sm sm:text-base md:text-lg max-w-3xl leading-relaxed font-medium">
+            <p className="text-body md:text-body-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
               All vacancies currently approved for recruitment are listed below. Each vacancy should show the role title, location, employment type, working pattern where applicable, closing date and a clear route to apply.
             </p>
           </div>
@@ -102,24 +102,24 @@ const VacanciesPage = () => {
             <div className="bg-white border border-slate-200 p-8 sm:p-12 text-left max-w-3xl mx-auto shadow-md border-l-4 border-l-amber-500 space-y-4">
               <div className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-amber-600 text-2xl">info</span>
-                <h2 className="text-xl font-bold text-[#0f3a5e] font-outfit">No Live Vacancies</h2>
+                <h2 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">No Live Vacancies</h2>
               </div>
-              <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed">
                 There are no live vacancies at the moment. Please check this page again for future opportunities. For general recruitment enquiries, contact{' '}
-                <a href="mailto:recruitment@bluegridutilities.com" className="text-[#0066ff] font-bold underline">
+                <a href="mailto:recruitment@bluegridutilities.com" className="text-[#005f9e] font-bold underline">
                   recruitment@bluegridutilities.com
                 </a>.
               </p>
               <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-4">
                 <Link
                   to="/careers"
-                  className="px-6 py-3 bg-[#0f3a5e] hover:bg-[#005f9e] text-white text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
+                  className="text-nav px-6 py-3 bg-[#0f3a5e] hover:bg-[#005f9e] text-white font-bold font-outfit uppercase tracking-wide transition-colors"
                 >
                   Careers Overview
                 </Link>
                 <a
                   href="mailto:recruitment@bluegridutilities.com"
-                  className="px-6 py-3 bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-bold font-outfit uppercase tracking-wider transition-colors"
+                  className="text-nav px-6 py-3 bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 font-bold font-outfit uppercase tracking-wide transition-colors"
                 >
                   General Recruitment Enquiries
                 </a>
@@ -129,7 +129,7 @@ const VacanciesPage = () => {
             /* Live Vacancies Listing */
             <div className="space-y-6">
               <div className="flex items-center justify-between border-b border-slate-200 pb-4 text-left">
-                <h2 className="text-xl font-bold text-[#0f3a5e] font-outfit">
+                <h2 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">
                   Live Opportunities ({vacancies.length})
                 </h2>
                 <span className="text-xs text-slate-500 font-medium">
@@ -159,10 +159,10 @@ const VacanciesPage = () => {
                         </span>
                       </div>
 
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#0f3a5e] font-outfit">
+                      <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">
                         <Link
                           to={`/careers/jobs/${vacancy.slug}`}
-                          className="hover:text-[#0066ff] transition-colors"
+                          className="hover:text-[#005f9e] transition-colors"
                         >
                           {vacancy.title}
                         </Link>
@@ -200,10 +200,9 @@ const VacanciesPage = () => {
                     <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
                       <Link
                         to={`/careers/jobs/${vacancy.slug}`}
-                        className="inline-flex items-center justify-center gap-2 bg-[#0066ff] hover:bg-[#0052cc] text-white font-extrabold text-xs tracking-widest px-7 py-3.5 uppercase font-outfit transition-all shadow-md active:scale-95"
+                        className="text-nav inline-flex items-center justify-center gap-2 bg-[#005f9e] hover:bg-[#004c80] text-white font-extrabold tracking-wide px-7 py-3.5 uppercase font-outfit transition-all shadow-md active:scale-95"
                       >
                         <span>View Role &amp; Apply</span>
-                        <span className="material-symbols-outlined text-sm">arrow_forward</span>
                       </Link>
                     </div>
                   </div>
@@ -220,14 +219,14 @@ const VacanciesPage = () => {
               </h4>
               <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                 If your role is not currently listed above, you can send an exploratory enquiry with your CV and details of your current tickets to{' '}
-                <a href="mailto:recruitment@bluegridutilities.com" className="text-[#0066ff] font-bold underline">
+                <a href="mailto:recruitment@bluegridutilities.com" className="text-[#005f9e] font-bold underline">
                   recruitment@bluegridutilities.com
                 </a>.
               </p>
             </div>
             <a
               href="mailto:recruitment@bluegridutilities.com"
-              className="px-5 py-3 bg-white border border-slate-300 text-[#0f3a5e] hover:bg-slate-50 text-xs font-bold font-outfit uppercase tracking-wider shrink-0 transition-colors shadow-sm"
+              className="text-nav px-5 py-3 bg-white border border-slate-300 text-[#0f3a5e] hover:bg-slate-50 font-bold font-outfit uppercase tracking-wide shrink-0 transition-colors shadow-sm"
             >
               Contact Recruitment
             </a>

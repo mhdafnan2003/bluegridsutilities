@@ -28,7 +28,7 @@ const DirectorBanner = () => (
     />
 
     {/* Mobile / tablet */}
-    <div className="lg:hidden bg-[#f1f5fa] overflow-hidden shadow-sm">
+    <div className="lg:hidden bg-[#f3f7fa] overflow-hidden shadow-sm">
       <div className="relative aspect-[3/2] sm:aspect-[16/9] overflow-hidden">
         <img
           src={directorBanner}
@@ -49,14 +49,14 @@ const DirectorBanner = () => (
       </div>
 
       <div className="px-6 sm:px-8 pt-8 pb-9 text-left">
-        <h2 className="text-[1.75rem] sm:text-4xl leading-[1.1] font-bold tracking-tight text-[#0b1f4d] font-outfit">
+        <h2 className="text-h2 md:text-h2-lg leading-[1.1] font-bold tracking-tight text-[#0f3a5e] font-outfit">
           Building trust through the work we do.
         </h2>
-        <p className="mt-3 text-slate-700 text-lg leading-snug">
+        <p className="text-body md:text-body-lg mt-3 text-[#1f2937] leading-snug">
           Our people, our standards and the commitments we keep shape how we work.
         </p>
-        <p className="mt-6 text-[#0b1f4d] font-bold text-lg leading-tight font-outfit">Selbert George</p>
-        <p className="text-slate-500 text-base">Managing Director</p>
+        <p className="text-body md:text-body-lg mt-6 text-[#0f3a5e] font-bold leading-tight font-outfit">Selbert George</p>
+        <p className="text-body md:text-body-lg text-slate-500">Managing Director</p>
       </div>
     </div>
   </section>

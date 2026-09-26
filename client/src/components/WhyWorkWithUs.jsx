@@ -35,13 +35,13 @@ const WhyWorkWithUs = () => {
   ];
 
   return (
-    <section className="py-24 bg-[#f8fafc]">
+    <section className="py-24 bg-[#f3f7fa]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header Area */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 text-center md:text-left">
           <div className="max-w-3xl mx-auto md:mx-0">
-            <h2 className="text-4xl md:text-5xl font-bold text-brand-dark mb-6 tracking-tight">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-brand-dark mb-6 tracking-tight">
              Why Work With Us
             </h2>
           </div>
@@ -60,7 +60,7 @@ const WhyWorkWithUs = () => {
                 </svg>
               </div>
               
-              <h4 className="text-xl font-bold text-gray-900 mb-4 tracking-tight">
+              <h4 className="text-h3 md:text-h3-lg font-bold text-gray-900 mb-4 tracking-tight">
                 {benefit.title}
               </h4>
               

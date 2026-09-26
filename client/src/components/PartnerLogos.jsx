@@ -11,14 +11,14 @@ const supportedSectors = [
 
 const PartnerLogos = () => {
   return (
-    <section className="w-full bg-[#f8fafc] px-6 sm:px-8 lg:px-12 py-14 border-y border-slate-200 font-sans" id="sectors-we-support">
+    <section className="w-full bg-[#f3f7fa] px-6 sm:px-8 lg:px-12 py-14 border-y border-slate-200 font-sans" id="sectors-we-support">
       <div className="max-w-[90rem] mx-auto text-left">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <span className="text-[11px] font-black tracking-widest text-[#005f9e] uppercase font-outfit">
               Sector Delivery
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#0f3a5e] tracking-tight font-outfit mt-1">
+            <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight font-outfit mt-1">
               Sectors We Support
             </h2>
           </div>
@@ -40,7 +40,7 @@ const PartnerLogos = () => {
                 <h3 className="font-bold text-[#0f3a5e] text-sm font-outfit mb-1 leading-snug">
                   {sector.name}
                 </h3>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
+                <p className="text-body md:text-body-lg text-slate-500 leading-relaxed">
                   {sector.desc}
                 </p>
               </div>

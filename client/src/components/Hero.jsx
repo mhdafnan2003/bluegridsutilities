@@ -91,7 +91,7 @@ const Hero = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight font-outfit tracking-tight">
+          <h1 className="text-h1 md:text-h1-lg font-bold text-white leading-tight font-outfit tracking-tight">
             Utility Infrastructure Delivery Built Around Safety, Quality and Accountability
           </h1>
 
@@ -104,13 +104,13 @@ const Hero = () => {
           <div className="mt-5 sm:mt-6 flex flex-wrap items-center gap-3.5">
             <a
               href="/services"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold text-xs tracking-wider rounded-none shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 uppercase"
+              className="text-nav px-6 py-2.5 sm:px-7 sm:py-3 bg-[#005f9e] hover:bg-[#004c80] text-white font-bold tracking-wide rounded-none shadow-lg transition-all duration-300 transform hover:-translate-y-0.5 uppercase"
             >
               Our Capabilities
             </a>
             <a
               href="/contact"
-              className="px-6 py-2.5 sm:px-7 sm:py-3 bg-white/10 hover:bg-white/20 border-2 border-white/80 hover:border-white text-white font-bold text-xs tracking-wider rounded-none backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-0.5 uppercase"
+              className="text-nav px-6 py-2.5 sm:px-7 sm:py-3 bg-white/10 hover:bg-white/20 border-2 border-white/80 hover:border-white text-white font-bold tracking-wide rounded-none backdrop-blur-sm transition-all duration-300 transform hover:-translate-y-0.5 uppercase"
             >
               Discuss a Project
             </a>

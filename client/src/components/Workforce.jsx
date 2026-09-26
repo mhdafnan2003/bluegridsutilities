@@ -51,10 +51,10 @@ const Workforce = () => {
 
         {/* Header Section */}
         <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-brand-dark tracking-tight mb-4">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-brand-dark tracking-tight mb-4">
             Join Our Workforce
           </h2>
-          <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed">
             We are building a reliable workforce for upcoming utility and infrastructure projects across the UK. We welcome applications from candidates with experience or interest in our core areas.
           </p>
         </div>
@@ -68,8 +68,8 @@ const Workforce = () => {
               style={{ maskImage: 'radial-gradient(white, black)', WebkitMaskImage: '-webkit-radial-gradient(white, black)' }}
             >
 
-              <h3 className="text-xl font-bold text-gray-900 mb-3 tracking-tight z-10 relative">{role.title}</h3>
-              <p className="text-gray-500 text-sm leading-relaxed mb-12 relative z-10 max-w-[82%]">{role.desc}</p>
+              <h3 className="text-h3 md:text-h3-lg font-bold text-gray-900 mb-3 tracking-tight z-10 relative">{role.title}</h3>
+              <p className="text-body md:text-body-lg text-gray-500 leading-relaxed mb-12 relative z-10 max-w-[82%]">{role.desc}</p>
 
               {role.link ? (
                 <Link to={role.link} className="mt-auto flex items-center gap-3 relative z-10 w-fit">
@@ -92,7 +92,7 @@ const Workforce = () => {
               )}
 
               {/* Decorative Circle Bottom Right */}
-              <div className="absolute -bottom-12 -right-12 w-44 h-44 bg-slate-50 rounded-full transition-transform duration-700 ease-out group-hover:scale-110" />
+              <div className="absolute -bottom-12 -right-12 w-44 h-44 bg-[#f3f7fa] rounded-full transition-transform duration-700 ease-out group-hover:scale-110" />
 
               {/* Decorative Icon */}
               <div className="absolute bottom-8 right-8 text-brand-primary opacity-80 group-hover:opacity-100 transition-opacity duration-300 z-10">
@@ -106,7 +106,7 @@ const Workforce = () => {
 
         {/* Footer Note & Button */}
         {/* <div className="mt-16 flex flex-col items-center text-center max-w-2xl mx-auto">
-          <p className="text-sm text-gray-500 italic mb-8">
+          <p className="text-body md:text-body-lg text-gray-500 italic mb-8">
             * All applicants must complete our structured onboarding and compliance checks before project allocation.
           </p>
           <a href="#contact" className="bg-brand-primary hover:bg-brand-dark text-white px-10 py-4 rounded-full font-bold transition-colors duration-300 shadow-xl shadow-brand-primary/20">

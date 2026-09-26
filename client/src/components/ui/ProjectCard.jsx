@@ -21,10 +21,10 @@ const ProjectCard = React.forwardRef(
 
         {/* Card Content Section */}
         <div className="flex flex-1 flex-col p-6 text-left">
-          <h3 className="text-xl font-bold font-outfit text-brand-dark transition-colors duration-300 group-hover:text-brand-primary min-h-[3.5rem] flex items-center line-clamp-2">
+          <h3 className="text-h3 md:text-h3-lg font-bold font-outfit text-brand-dark transition-colors duration-300 group-hover:text-brand-primary min-h-[3.5rem] flex items-center line-clamp-2">
             {title}
           </h3>
-          <p className="mt-3 flex-grow text-gray-500 text-sm leading-relaxed min-h-[4.5rem] line-clamp-3">
+          <p className="text-body md:text-body-lg mt-3 flex-grow text-gray-500 leading-relaxed min-h-[4.5rem] line-clamp-3">
             {description}
           </p>
           
@@ -38,7 +38,7 @@ const ProjectCard = React.forwardRef(
     );
 
     const baseClasses = cn(
-      "group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white text-slate-800 shadow-md transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-xl",
+      "group relative flex cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-100 bg-white text-[#1f2937] shadow-md transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-xl",
       className
     );
 

@@ -1,26 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --brand-dark: #032879;
-  --brand-primary: #0160d8;
-  --brand-accent: #0160d8;
-}
-
-*,
-*::before,
-*::after {
-  font-family: Arial, Helvetica, sans-serif;
+  --brand-navy: #0f3a5e;
+  --brand-primary: #005f9e;
+  --brand-tint: #f3f7fa;
+  --brand-ink: #1f2937;
+  --brand-dark: var(--brand-navy);
+  --brand-accent: var(--brand-primary);
 }
 
 body {
-  @apply bg-gray-50 text-gray-800 antialiased selection:bg-brand-primary selection:text-white;
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-white text-ink text-body md:text-body-lg antialiased selection:bg-brand-primary selection:text-white;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   font-weight: 400;
   overflow-x: hidden;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
 }
 
 h1,
@@ -29,7 +31,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
@@ -76,7 +77,7 @@ h6 {
 }
 
 .mesh-gradient {
-  background-color: #032879;
+  background-color: #0f3a5e;
   background-image: radial-gradient(at 0% 0%, hsla(220, 100%, 15%, 1) 0, transparent 50%),
     radial-gradient(at 50% 0%, hsla(215, 100%, 30%, 1) 0, transparent 50%),
     radial-gradient(at 100% 0%, hsla(210, 100%, 20%, 1) 0, transparent 50%);
@@ -179,4 +180,4 @@ h6 {
   scrollbar-color: #cbd5e1 transparent;
 }
 
-
+

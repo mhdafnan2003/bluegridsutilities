@@ -20,12 +20,12 @@ const OperationalCoverage = () => {
   const active = serviceAreas.find(r => r.id === activeRegion);
 
   return (
-    <section className="py-20 md:py-28 bg-[#f8fafc] font-sans relative overflow-hidden" id="coverage">
+    <section className="py-20 md:py-28 bg-[#f3f7fa] font-sans relative overflow-hidden" id="coverage">
 
       {/* Decorative Background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-96 h-96 bg-[#005f9e]/5 blur-3xl rounded-full -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#0066ff]/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#005f9e]/5 blur-3xl rounded-full translate-x-1/2 translate-y-1/2" />
       </div>
 
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
@@ -35,10 +35,10 @@ const OperationalCoverage = () => {
           <span className="inline-block px-4 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-4 border border-[#005f9e]/20">
             Regional Delivery
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#0f3a5e] tracking-tight leading-tight mb-5">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] tracking-tight leading-tight mb-5">
             Operational Coverage &amp; Mobilisation
           </h2>
-          <p className="text-slate-600 text-base md:text-lg leading-relaxed font-medium">
+          <p className="text-body md:text-body-lg text-[#1f2937] leading-relaxed font-medium">
             Bluegrid Utilities is building operational delivery capability across England and can mobilise field squads regionally in line with project requirements and framework agreements.
           </p>
         </div>
@@ -54,20 +54,20 @@ const OperationalCoverage = () => {
                 <span className="material-symbols-outlined text-[#60a5fa] text-lg">map</span>
                 <div>
                   <p className="text-white font-black text-xs tracking-widest">Regional Mobilisation Map</p>
-                  <p className="text-slate-400 text-[10px] font-medium mt-0.5">England Regional Areas &amp; Project Hubs</p>
+                  <p className="text-body md:text-body-lg text-slate-400 font-medium mt-0.5">England Regional Areas &amp; Project Hubs</p>
                 </div>
                 {active && (
-                  <div className="ml-auto flex items-center gap-2 bg-[#005f9e]/40 border border-[#0066ff]/40 px-3 py-1.5">
+                  <div className="ml-auto flex items-center gap-2 bg-[#005f9e]/40 border border-[#005f9e]/40 px-3 py-1.5">
                     <span className="material-symbols-outlined text-[#60a5fa] text-sm">location_on</span>
                     <div>
                       <p className="text-white text-xs font-black tracking-wider">{active.label}</p>
-                      <p className="text-slate-400 text-[10px]">{active.nation}</p>
+                      <p className="text-body md:text-body-lg text-slate-400">{active.nation}</p>
                     </div>
                   </div>
                 )}
               </div>
               {/* Map Image */}
-              <div className="flex-1 relative overflow-hidden bg-[#e8f4f8] min-h-[380px] sm:min-h-[460px]">
+              <div className="flex-1 relative overflow-hidden bg-[#f3f7fa] min-h-[380px] sm:min-h-[460px]">
                 <img
                   src={ukMapImg}
                   alt="Bluegrid Utilities regional service coverage map"
@@ -118,7 +118,7 @@ const OperationalCoverage = () => {
                       onMouseEnter={() => setActiveRegion(area.id)}
                       onMouseLeave={() => setActiveRegion(null)}
                     >
-                      <span className={`w-2 h-2 rounded-none shrink-0 transition-colors duration-200 ${isActive ? 'bg-[#0066ff]' : 'bg-[#005f9e]'}`} />
+                      <span className={`w-2 h-2 rounded-none shrink-0 transition-colors duration-200 ${isActive ? 'bg-[#005f9e]' : 'bg-[#005f9e]'}`} />
                       <span className={`text-xs font-semibold transition-colors duration-200 ${isActive ? 'text-[#005f9e] font-bold' : 'text-slate-700'}`}>
                         {area.label}
                       </span>
@@ -139,7 +139,7 @@ const OperationalCoverage = () => {
             {/* CTA */}
             <a
               href="/contact"
-              className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold text-xs tracking-widest px-7 py-4 rounded-none border border-[#005f9e] transition-all duration-300 shadow-lg self-start group"
+              className="text-nav inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0f3a5e] text-white font-bold tracking-wide px-7 py-4 rounded-none border border-[#005f9e] transition-all duration-300 shadow-lg self-start group"
             >
               <span>Discuss Your Project</span>
               <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>

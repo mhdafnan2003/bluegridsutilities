@@ -34,17 +34,17 @@ const WhyJoinBlueGrid = () => {
             Careers & Opportunities
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-5 font-outfit">
+          <h2 className="text-h2 md:text-h2-lg font-bold text-white tracking-tight mb-5 font-outfit">
             Why Join Bluegrid Utilities?
           </h2>
 
-          <p className="text-slate-200 text-sm sm:text-base leading-relaxed mb-8 font-medium">
+          <p className="text-body md:text-body-lg text-slate-200 leading-relaxed mb-8 font-medium">
             From field technicians to operational leads, we want our people to reach their full potential. We support ongoing competency development, clear safety leadership, and long-term career progression across UK utility infrastructure.
           </p>
 
           <Link
             to="/career"
-            className="inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#0066ff] text-white font-bold text-xs tracking-widest px-7 py-4 rounded-none transition-all duration-300 shadow-lg group active:scale-95 border border-white/10 uppercase font-outfit"
+            className="text-nav inline-flex items-center gap-3 bg-[#005f9e] hover:bg-[#005f9e] text-white font-bold tracking-wide px-7 py-4 rounded-none transition-all duration-300 shadow-lg group active:scale-95 border border-white/10 uppercase font-outfit"
           >
             <span>Careers at Bluegrid</span>
             <span className="material-symbols-outlined text-sm transition-transform duration-300 group-hover:translate-x-1">
