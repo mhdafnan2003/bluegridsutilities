@@ -1,8 +1,8 @@
-import { db } from './index.js';
+import { Vacancy } from './schemas.js';
 import { findVacancy, insertVacancy, updateVacancy, addVacancyEvent } from '../models/vacancy.model.js';
 
 // Vacancies live on the website before the database existed. Seeded on first start (when the
-// vacancies table is empty) and by `npm run seed`.
+// vacancies collection is empty) and by `npm run seed`.
 export const SEED_VACANCIES = [
   {
     id: 'JOB-BG-01',
@@ -74,31 +74,29 @@ export const SEED_VACANCIES = [
  * Insert seed vacancies that are missing. With { overwrite: true }, existing seed vacancies are
  * reset to the seed content (applications are kept).
  */
-export const seedVacancies = ({ overwrite = false } = {}) => {
+export const seedVacancies = async ({ overwrite = false } = {}) => {
   const result = { inserted: [], updated: [], skipped: [] };
-  db.transaction(() => {
-    for (const { events, ...vacancy } of SEED_VACANCIES) {
-      const existing = findVacancy(vacancy.id);
-      if (!existing) {
-        insertVacancy(vacancy, { createdAt: events[0]?.createdAt });
-        for (const e of events) addVacancyEvent(vacancy.id, e);
-        result.inserted.push(vacancy.id);
-      } else if (overwrite) {
-        updateVacancy(vacancy.id, vacancy);
-        addVacancyEvent(vacancy.id, { changedBy: 'System', changeType: 'RESEEDED', notes: 'Reset to seed content' });
-        result.updated.push(vacancy.id);
-      } else {
-        result.skipped.push(vacancy.id);
-      }
+  for (const { events, ...vacancy } of SEED_VACANCIES) {
+    const existing = await findVacancy(vacancy.id);
+    if (!existing) {
+      await insertVacancy(vacancy, { createdAt: events[0]?.createdAt });
+      for (const e of events) await addVacancyEvent(vacancy.id, e);
+      result.inserted.push(vacancy.id);
+    } else if (overwrite) {
+      await updateVacancy(vacancy.id, vacancy);
+      await addVacancyEvent(vacancy.id, { changedBy: 'System', changeType: 'RESEEDED', notes: 'Reset to seed content' });
+      result.updated.push(vacancy.id);
+    } else {
+      result.skipped.push(vacancy.id);
     }
-  })();
+  }
   return result;
 };
 
-export const seedIfEmpty = () => {
-  const { n } = db.prepare('SELECT COUNT(*) AS n FROM vacancies').get();
+export const seedIfEmpty = async () => {
+  const n = await Vacancy.countDocuments();
   if (n > 0) return null;
-  const result = seedVacancies();
+  const result = await seedVacancies();
   console.log(`[DB] Seeded ${result.inserted.length} vacancy record(s): ${result.inserted.join(', ')}`);
   return result;
 };

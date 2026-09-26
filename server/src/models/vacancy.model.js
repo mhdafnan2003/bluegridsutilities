@@ -1,59 +1,45 @@
-import { db, now, parseList } from '../db/index.js';
+import { now, escapeRegExp } from '../db/index.js';
+import { Vacancy, Application } from '../db/schemas.js';
 
 export const VACANCY_STATUSES = ['draft', 'pending_approval', 'published', 'closed', 'archived'];
 
-const LIST_FIELDS = {
-  engagementTypes: 'engagement_types',
-  keyResponsibilities: 'key_responsibilities',
-  essentialRequirements: 'essential_requirements',
-  desirableRequirements: 'desirable_requirements',
-  requiredCardsLicences: 'required_cards_licences',
-  payAndBenefits: 'pay_and_benefits',
-};
+const LIST_FIELDS = [
+  'engagementTypes',
+  'keyResponsibilities',
+  'essentialRequirements',
+  'desirableRequirements',
+  'requiredCardsLicences',
+  'payAndBenefits',
+];
 
-const TEXT_FIELDS = {
-  slug: 'slug',
-  reference: 'reference',
-  title: 'title',
-  shortTitle: 'short_title',
-  town: 'town',
-  category: 'category',
-  location: 'location',
-  employmentType: 'employment_type',
-  workingPattern: 'working_pattern',
-  salaryRate: 'salary_rate',
-  openingDate: 'opening_date',
-  closingDate: 'closing_date',
-  status: 'status',
-  roleSummary: 'role_summary',
-  rightToWorkSponsorship: 'right_to_work_sponsorship',
-  applicationMethod: 'application_method',
-  hiringManager: 'hiring_manager',
-  approver: 'approver',
-  candidatePrivacyUrl: 'candidate_privacy_url',
-  seoTitle: 'seo_title',
-  seoDescription: 'seo_description',
-};
+const TEXT_FIELDS = [
+  'slug', 'reference', 'title', 'shortTitle', 'town', 'category', 'location', 'employmentType',
+  'workingPattern', 'salaryRate', 'openingDate', 'closingDate', 'status', 'roleSummary',
+  'rightToWorkSponsorship', 'applicationMethod', 'hiringManager', 'approver', 'candidatePrivacyUrl',
+  'seoTitle', 'seoDescription',
+];
 
-const fromRow = (row) => {
-  if (!row) return null;
-  const v = { id: row.id };
-  for (const [key, col] of Object.entries(TEXT_FIELDS)) v[key] = row[col] ?? null;
-  for (const [key, col] of Object.entries(LIST_FIELDS)) v[key] = parseList(row[col]);
-  v.displaySalary = Boolean(row.display_salary);
-  v.createdAt = row.created_at;
-  v.updatedAt = row.updated_at;
-  if (row.application_count !== undefined) v.applicationCount = row.application_count;
-  if (row.new_count !== undefined) v.newApplicationCount = row.new_count;
+/** Shape a Vacancy document (or a lean plain object) into the API's camelCase vacancy record. */
+const shape = (doc) => {
+  if (!doc) return null;
+  const v = { id: doc._id };
+  for (const key of TEXT_FIELDS) v[key] = doc[key] ?? null;
+  for (const key of LIST_FIELDS) v[key] = doc[key] || [];
+  v.displaySalary = Boolean(doc.displaySalary);
+  v.createdAt = doc.createdAt;
+  v.updatedAt = doc.updatedAt;
+  if (doc.applicationCount !== undefined) v.applicationCount = doc.applicationCount;
+  if (doc.newApplicationCount !== undefined) v.newApplicationCount = doc.newApplicationCount;
   return v;
 };
 
-const toColumns = (data) => {
-  const cols = {};
-  for (const [key, col] of Object.entries(TEXT_FIELDS)) if (key in data) cols[col] = data[key] ?? null;
-  for (const [key, col] of Object.entries(LIST_FIELDS)) if (key in data) cols[col] = JSON.stringify(data[key] || []);
-  if ('displaySalary' in data) cols.display_salary = data.displaySalary ? 1 : 0;
-  return cols;
+/** Only the keys present in `data` are copied onto the update/insert document. */
+const pickFields = (data) => {
+  const out = {};
+  for (const key of TEXT_FIELDS) if (key in data) out[key] = data[key] ?? null;
+  for (const key of LIST_FIELDS) if (key in data) out[key] = data[key] || [];
+  if ('displaySalary' in data) out.displaySalary = Boolean(data.displaySalary);
+  return out;
 };
 
 /** A vacancy is open only if published and not past its closing time. */
@@ -63,63 +49,84 @@ export const isVacancyOpen = (v) => {
   return true;
 };
 
-const WITH_COUNTS = `
-  SELECT v.*,
-    (SELECT COUNT(*) FROM applications a WHERE a.vacancy_id = v.id) AS application_count,
-    (SELECT COUNT(*) FROM applications a WHERE a.vacancy_id = v.id AND a.status = 'new') AS new_count
-  FROM vacancies v`;
-
-export const listVacancies = ({ withCounts = false } = {}) => {
-  const sql = withCounts
-    ? `${WITH_COUNTS} ORDER BY v.created_at DESC`
-    : 'SELECT * FROM vacancies ORDER BY created_at DESC';
-  return db.prepare(sql).all().map(fromRow);
+const withApplicationCounts = async (vacancies) => {
+  const list = Array.isArray(vacancies) ? vacancies : [vacancies];
+  const ids = list.filter(Boolean).map((v) => v._id);
+  if (!ids.length) return vacancies;
+  const rows = await Application.aggregate([
+    { $match: { vacancyId: { $in: ids } } },
+    { $group: { _id: '$vacancyId', total: { $sum: 1 }, newCount: { $sum: { $cond: [{ $eq: ['$status', 'new'] }, 1, 0] } } } },
+  ]);
+  const byId = Object.fromEntries(rows.map((r) => [r._id, r]));
+  for (const v of list) {
+    if (!v) continue;
+    v.applicationCount = byId[v._id]?.total || 0;
+    v.newApplicationCount = byId[v._id]?.newCount || 0;
+  }
+  return vacancies;
 };
 
-export const findVacancy = (idOrSlug) =>
-  fromRow(db.prepare(`${WITH_COUNTS} WHERE v.id = ? OR v.slug = ?`).get(idOrSlug, idOrSlug));
+export const listVacancies = async ({ withCounts = false } = {}) => {
+  const docs = await Vacancy.find().sort({ createdAt: -1 }).lean();
+  if (withCounts) await withApplicationCounts(docs);
+  return docs.map(shape);
+};
 
-export const slugExists = (slug, exceptId = '') =>
-  Boolean(db.prepare('SELECT 1 FROM vacancies WHERE slug = ? AND id != ?').get(slug, exceptId));
+export const findVacancy = async (idOrSlug) => {
+  const doc = await Vacancy.findOne({ $or: [{ _id: idOrSlug }, { slug: idOrSlug }] }).lean();
+  if (doc) await withApplicationCounts(doc);
+  return shape(doc);
+};
 
-export const referenceExists = (reference, exceptId = '') =>
-  Boolean(db.prepare('SELECT 1 FROM vacancies WHERE reference = ? COLLATE NOCASE AND id != ?').get(reference, exceptId));
+export const slugExists = async (slug, exceptId = '') =>
+  Boolean(await Vacancy.exists({ slug, _id: { $ne: exceptId } }));
 
-export const nextVacancyId = () => {
-  const rows = db.prepare("SELECT id FROM vacancies WHERE id LIKE 'JOB-BG-%'").all();
-  const max = rows.reduce((m, r) => Math.max(m, Number(r.id.slice(7)) || 0), 0);
+export const referenceExists = async (reference, exceptId = '') =>
+  Boolean(await Vacancy.exists({ reference: new RegExp(`^${escapeRegExp(reference)}$`, 'i'), _id: { $ne: exceptId } }));
+
+export const nextVacancyId = async () => {
+  const rows = await Vacancy.find({ _id: /^JOB-BG-/ }, { _id: 1 }).lean();
+  const max = rows.reduce((m, r) => Math.max(m, Number(r._id.slice(7)) || 0), 0);
   return `JOB-BG-${String(max + 1).padStart(2, '0')}`;
 };
 
-export const addVacancyEvent = (vacancyId, { changedBy, changeType, notes, createdAt }) => {
-  db.prepare('INSERT INTO vacancy_events (vacancy_id, changed_by, change_type, notes, created_at) VALUES (?, ?, ?, ?, ?)')
-    .run(vacancyId, changedBy, changeType, notes || null, createdAt || now());
+export const addVacancyEvent = async (vacancyId, { changedBy, changeType, notes, createdAt }) => {
+  await Vacancy.updateOne(
+    { _id: vacancyId },
+    { $push: { events: { changedBy, changeType, notes: notes || null, createdAt: createdAt || now() } } },
+  );
 };
 
-export const listVacancyEvents = (vacancyId) =>
-  db.prepare('SELECT changed_by AS changedBy, change_type AS changeType, notes, created_at AS timestamp FROM vacancy_events WHERE vacancy_id = ? ORDER BY created_at DESC, id DESC')
-    .all(vacancyId);
+/** Most recent first (insertion order reversed - ties keep their original recency order). */
+export const listVacancyEvents = async (vacancyId) => {
+  const doc = await Vacancy.findById(vacancyId, { events: 1 }).lean();
+  return (doc?.events || [])
+    .slice()
+    .reverse()
+    .map((e) => ({ changedBy: e.changedBy, changeType: e.changeType, notes: e.notes, timestamp: e.createdAt }));
+};
 
-export const insertVacancy = (data, { createdAt } = {}) => {
+export const insertVacancy = async (data, { createdAt } = {}) => {
   const stamp = createdAt || now();
-  const cols = { id: data.id, ...toColumns(data), created_at: stamp, updated_at: stamp };
-  const names = Object.keys(cols);
-  db.prepare(`INSERT INTO vacancies (${names.join(', ')}) VALUES (${names.map((n) => `@${n}`).join(', ')})`).run(cols);
+  await Vacancy.create({ _id: data.id, ...pickFields(data), createdAt: stamp, updatedAt: stamp });
   return findVacancy(data.id);
 };
 
-export const updateVacancy = (id, data) => {
-  const cols = toColumns(data);
+export const updateVacancy = async (id, data) => {
+  const cols = pickFields(data);
   if (!Object.keys(cols).length) return findVacancy(id);
-  cols.updated_at = now();
-  const sets = Object.keys(cols).map((c) => `${c} = @${c}`).join(', ');
-  db.prepare(`UPDATE vacancies SET ${sets} WHERE id = @id`).run({ ...cols, id });
+  cols.updatedAt = now();
+  await Vacancy.updateOne({ _id: id }, { $set: cols });
   return findVacancy(id);
 };
 
-/** Delete a vacancy. With { withApplications: true } its applications, CVs and notes are deleted too. */
-export const deleteVacancy = (id, { withApplications = false } = {}) =>
-  db.transaction(() => {
-    if (withApplications) db.prepare('DELETE FROM applications WHERE vacancy_id = ?').run(id); // files and events cascade
-    return db.prepare('DELETE FROM vacancies WHERE id = ?').run(id).changes > 0;
-  })();
+/**
+ * Delete a vacancy. With { withApplications: true } its applications (and their embedded CVs and
+ * notes) are deleted too. Note: this runs as two separate writes, not one transaction - a
+ * standalone (non replica-set) MongoDB instance cannot run multi-document transactions.
+ */
+export const deleteVacancy = async (id, { withApplications = false } = {}) => {
+  if (withApplications) await Application.deleteMany({ vacancyId: id });
+  const result = await Vacancy.deleteOne({ _id: id });
+  return result.deletedCount > 0;
+};

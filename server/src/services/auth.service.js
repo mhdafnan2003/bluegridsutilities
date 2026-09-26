@@ -68,13 +68,13 @@ export const loginIdProblem = (id) => (/^[a-z0-9._@+-]{3,254}$/i.test(id) ? null
  * - If ADMIN_ID changes, the account set up under the old ID is removed, so the old login stops working.
  * - Accounts created with `npm run admin:create` are not touched.
  */
-export const syncEnvAdmin = () => {
+export const syncEnvAdmin = async () => {
   const loginId = (process.env.ADMIN_ID || process.env.ADMIN_EMAIL || '').trim().toLowerCase();
   const password = process.env.ADMIN_PASSWORD || '';
   const name = (process.env.ADMIN_NAME || '').trim() || 'Administrator';
 
   if (!loginId && !password) {
-    if (countAdmins() === 0) console.warn('[Auth] No dashboard login yet. Set ADMIN_ID and ADMIN_PASSWORD in server/.env and restart.');
+    if ((await countAdmins()) === 0) console.warn('[Auth] No dashboard login yet. Set ADMIN_ID and ADMIN_PASSWORD in server/.env and restart.');
     return;
   }
   if (!loginId || !password) {
@@ -88,16 +88,16 @@ export const syncEnvAdmin = () => {
     return;
   }
 
-  const existing = findAdminByEmail(loginId);
+  const existing = await findAdminByEmail(loginId);
   if (!existing) {
-    createAdmin({ email: loginId, name, passwordHash: hashPassword(password), envManaged: true });
+    await createAdmin({ email: loginId, name, passwordHash: hashPassword(password), envManaged: true });
     console.log(`[Auth] Dashboard login "${loginId}" created from .env`);
   } else {
     if (!verifyPassword(password, existing.password_hash)) {
-      setAdminPassword(existing.id, hashPassword(password));
+      await setAdminPassword(existing.id, hashPassword(password));
       console.log(`[Auth] Dashboard password for "${loginId}" updated from .env`);
     }
-    updateEnvAdmin(existing.id, name);
+    await updateEnvAdmin(existing.id, name);
   }
-  for (const old of removeStaleEnvAdmins(loginId)) console.log(`[Auth] Removed old dashboard login "${old}" (ADMIN_ID changed)`);
+  for (const old of await removeStaleEnvAdmins(loginId)) console.log(`[Auth] Removed old dashboard login "${old}" (ADMIN_ID changed)`);
 };

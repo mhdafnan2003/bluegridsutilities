@@ -28,6 +28,10 @@ import {
   setApplicationStatus,
 } from '../models/application.model.js';
 
+// Every export below is async (the models now query MongoDB); Express 4 does not catch rejected
+// promises from route handlers itself, so each one is wrapped to forward errors to next(err).
+const ah = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
+
 const fail = (res, status, message, fields) =>
   res.status(status).json({ success: false, error: { message, ...(fields && { fields }) } });
 
@@ -40,43 +44,43 @@ const notFound = (res, what) => fail(res, 404, `${what} not found.`);
 // Constant-time-ish failure path: always run one scrypt so unknown emails take as long as bad passwords.
 const DUMMY_HASH = hashPassword('not-a-real-password');
 
-export const login = (req, res) => {
+export const login = ah(async (req, res) => {
   const email = clean(req.body?.email, 254).toLowerCase();
   const password = typeof req.body?.password === 'string' ? req.body.password.slice(0, 200) : '';
   if (!email || !password) return fail(res, 400, 'Enter your login ID and password.');
 
-  const user = findAdminByEmail(email);
+  const user = await findAdminByEmail(email);
   const ok = verifyPassword(password, user ? user.password_hash : DUMMY_HASH) && Boolean(user);
   if (!ok) return fail(res, 401, 'The login ID or password is incorrect.');
 
-  touchLogin(user.id);
+  await touchLogin(user.id);
   const admin = toPublicAdmin(user);
   const { token, expiresAt } = issueToken(admin);
   return res.status(200).json({ success: true, data: { token, expiresAt, user: admin } });
-};
+});
 
 export const me = (req, res) => res.status(200).json({ success: true, data: req.admin });
 
-export const changePassword = (req, res) => {
+export const changePassword = ah(async (req, res) => {
   if (req.admin.envManaged) {
     return fail(res, 403, 'This login is set in the server .env file. Change ADMIN_PASSWORD there and restart the server.');
   }
   const { currentPassword, newPassword } = req.body || {};
-  if (!verifyPassword(String(currentPassword || ''), getPasswordHash(req.admin.id))) {
+  if (!verifyPassword(String(currentPassword || ''), await getPasswordHash(req.admin.id))) {
     return fail(res, 400, 'Your current password is incorrect.', { currentPassword: 'Incorrect password.' });
   }
   const problem = passwordProblem(newPassword);
   if (problem) return fail(res, 400, problem, { newPassword: problem });
-  setAdminPassword(req.admin.id, hashPassword(newPassword));
+  await setAdminPassword(req.admin.id, hashPassword(newPassword));
   return res.status(200).json({ success: true, message: 'Password updated.' });
-};
+});
 
 // ---------------------------------------------------------------------------------------------
 // Overview
 // ---------------------------------------------------------------------------------------------
 
-export const getOverview = (req, res) => {
-  const vacancies = listVacancies({ withCounts: true });
+export const getOverview = ah(async (req, res) => {
+  const vacancies = await listVacancies({ withCounts: true });
   const byStatus = Object.fromEntries(VACANCY_STATUSES.map((s) => [s, 0]));
   for (const v of vacancies) byStatus[v.status] = (byStatus[v.status] || 0) + 1;
   const open = vacancies.filter(isVacancyOpen);
@@ -95,10 +99,10 @@ export const getOverview = (req, res) => {
           .sort((a, b) => b.applicationCount - a.applicationCount)
           .slice(0, 6),
       },
-      applications: getStats(),
+      applications: await getStats(),
     },
   });
-};
+});
 
 // ---------------------------------------------------------------------------------------------
 // Vacancies
@@ -125,9 +129,9 @@ const summary = (v) => ({
 
 const slugify = (s) => String(s).toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '').slice(0, 80);
 
-const uniqueSlug = (base, exceptId) => {
+const uniqueSlug = async (base, exceptId) => {
   let slug = base || 'vacancy';
-  for (let i = 2; slugExists(slug, exceptId); i += 1) slug = `${base}-${i}`;
+  for (let i = 2; await slugExists(slug, exceptId); i += 1) slug = `${base}-${i}`;
   return slug;
 };
 
@@ -141,7 +145,7 @@ const toIso = (value) => {
 const LISTS = ['keyResponsibilities', 'essentialRequirements', 'desirableRequirements', 'requiredCardsLicences', 'payAndBenefits'];
 
 /** Validate a create/update body. Returns { fields, values }; values only holds keys present in the body. */
-const parseVacancy = (body, { existing } = {}) => {
+const parseVacancy = async (body, { existing } = {}) => {
   const fields = {};
   const v = {};
   const has = (k) => Object.prototype.hasOwnProperty.call(body, k);
@@ -168,11 +172,11 @@ const parseVacancy = (body, { existing } = {}) => {
   if (has('reference')) {
     v.reference = clean(body.reference, 40).toUpperCase();
     if (v.reference && !/^[A-Z0-9][A-Z0-9-]{2,39}$/.test(v.reference)) fields.reference = 'Use 3-40 letters, numbers or hyphens.';
-    else if (v.reference && referenceExists(v.reference, existing?.id)) fields.reference = 'Another vacancy already uses this reference.';
+    else if (v.reference && (await referenceExists(v.reference, existing?.id))) fields.reference = 'Another vacancy already uses this reference.';
   }
   if (has('slug')) {
     v.slug = slugify(body.slug);
-    if (v.slug && slugExists(v.slug, existing?.id)) fields.slug = 'Another vacancy already uses this web address.';
+    if (v.slug && (await slugExists(v.slug, existing?.id))) fields.slug = 'Another vacancy already uses this web address.';
   }
   for (const k of ['openingDate', 'closingDate']) {
     if (has(k)) {
@@ -214,73 +218,73 @@ const withDefaults = (v) => {
   };
 };
 
-const makeReference = (v) => {
+const makeReference = async (v) => {
   const cat = String(v.category).replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase() || 'GEN';
   const town = String(v.town || '').replace(/[^A-Za-z]/g, '').slice(0, 3).toUpperCase();
   const base = `BG-${cat}${town ? `-${town}` : ''}-${new Date().getFullYear()}`;
   let ref = base;
-  for (let i = 2; referenceExists(ref); i += 1) ref = `${base}-${i}`;
+  for (let i = 2; await referenceExists(ref); i += 1) ref = `${base}-${i}`;
   return ref;
 };
 
-export const listAllVacancies = (req, res) => {
+export const listAllVacancies = ah(async (req, res) => {
   const status = clean(req.query.status, 30);
-  let data = listVacancies({ withCounts: true });
+  let data = await listVacancies({ withCounts: true });
   if (status) data = data.filter((v) => v.status === status);
   res.status(200).json({ success: true, count: data.length, data: data.map(summary) });
-};
+});
 
-export const getVacancy = (req, res) => {
-  const v = findVacancy(req.params.id);
+export const getVacancy = ah(async (req, res) => {
+  const v = await findVacancy(req.params.id);
   if (!v) return notFound(res, 'Vacancy');
   return res.status(200).json({
     success: true,
-    data: { ...v, isOpen: isVacancyOpen(v), isExpired: v.status === 'published' && !isVacancyOpen(v), events: listVacancyEvents(v.id) },
+    data: { ...v, isOpen: isVacancyOpen(v), isExpired: v.status === 'published' && !isVacancyOpen(v), events: await listVacancyEvents(v.id) },
   });
-};
+});
 
-export const createVacancy = (req, res) => {
+export const createVacancy = ah(async (req, res) => {
   const body = req.body || {};
-  const { fields, values } = parseVacancy(body);
+  const { fields, values } = await parseVacancy(body);
   const status = clean(body.status, 30) || 'draft';
   if (!['draft', 'pending_approval', 'published'].includes(status)) fields.status = 'New vacancies start as draft, pending approval or published.';
   if (status === 'published' && values.closingDate && new Date(values.closingDate) <= new Date()) fields.closingDate = 'A published vacancy needs a closing date in the future.';
   if (Object.keys(fields).length) return fail(res, 400, 'Some details are missing or invalid.', fields);
 
-  const id = nextVacancyId();
+  const id = await nextVacancyId();
   const record = withDefaults({
     ...values,
     id,
-    slug: values.slug || uniqueSlug(slugify(values.shortTitle || values.title)),
-    reference: values.reference || makeReference(values),
+    slug: values.slug || (await uniqueSlug(slugify(values.shortTitle || values.title))),
+    reference: values.reference || (await makeReference(values)),
     status,
     openingDate: values.openingDate || new Date().toISOString(),
     displaySalary: values.displaySalary ?? true,
   });
-  const vacancy = insertVacancy(record);
-  addVacancyEvent(id, { changedBy: req.admin.name, changeType: 'CREATED', notes: `Created as ${status.replace('_', ' ')}` });
+  const vacancy = await insertVacancy(record);
+  await addVacancyEvent(id, { changedBy: req.admin.name, changeType: 'CREATED', notes: `Created as ${status.replace('_', ' ')}` });
   return res.status(201).json({ success: true, message: 'Vacancy created.', data: vacancy });
-};
+});
 
-export const editVacancy = (req, res) => {
-  const existing = findVacancy(req.params.id);
+export const editVacancy = ah(async (req, res) => {
+  const existing = await findVacancy(req.params.id);
   if (!existing) return notFound(res, 'Vacancy');
   const { status, ...body } = req.body || {}; // eslint-disable-line no-unused-vars
-  const { fields, values } = parseVacancy(body, { existing });
+  const { fields, values } = await parseVacancy(body, { existing });
   if (Object.keys(fields).length) return fail(res, 400, 'Some details are missing or invalid.', fields);
   if (values.slug === '') delete values.slug;
   if (values.reference === '') delete values.reference;
 
   const changed = Object.keys(values).filter((k) => JSON.stringify(values[k] ?? null) !== JSON.stringify(existing[k] ?? null));
-  const vacancy = updateVacancy(existing.id, values);
+  const vacancy = await updateVacancy(existing.id, values);
   if (changed.length) {
-    addVacancyEvent(existing.id, { changedBy: req.admin.name, changeType: 'UPDATED', notes: `Edited: ${changed.join(', ')}` });
+    await addVacancyEvent(existing.id, { changedBy: req.admin.name, changeType: 'UPDATED', notes: `Edited: ${changed.join(', ')}` });
   }
   return res.status(200).json({ success: true, message: changed.length ? 'Vacancy updated.' : 'No changes to save.', data: vacancy });
-};
+});
 
-export const changeVacancyStatus = (req, res) => {
-  const vacancy = findVacancy(req.params.id);
+export const changeVacancyStatus = ah(async (req, res) => {
+  const vacancy = await findVacancy(req.params.id);
   if (!vacancy) return notFound(res, 'Vacancy');
   const status = clean(req.body?.status, 30);
   const notes = clean(req.body?.notes, 500);
@@ -289,45 +293,45 @@ export const changeVacancyStatus = (req, res) => {
   if (status === 'published' && vacancy.closingDate && new Date(vacancy.closingDate) <= new Date()) {
     return fail(res, 400, 'The closing date has passed. Edit the vacancy and set a new closing date before publishing.');
   }
-  const updated = updateVacancy(vacancy.id, { status });
-  addVacancyEvent(vacancy.id, { changedBy: req.admin.name, changeType: `STATUS_CHANGE (${vacancy.status} -> ${status})`, notes: notes || null });
+  const updated = await updateVacancy(vacancy.id, { status });
+  await addVacancyEvent(vacancy.id, { changedBy: req.admin.name, changeType: `STATUS_CHANGE (${vacancy.status} -> ${status})`, notes: notes || null });
   return res.status(200).json({ success: true, message: `Vacancy is now ${status.replace('_', ' ')}.`, data: updated });
-};
+});
 
-export const duplicateVacancy = (req, res) => {
-  const source = findVacancy(req.params.id);
+export const duplicateVacancy = ah(async (req, res) => {
+  const source = await findVacancy(req.params.id);
   if (!source) return notFound(res, 'Vacancy');
   const { id: _id, slug: _slug, reference: _ref, status: _s, createdAt: _c, updatedAt: _u, applicationCount: _a, newApplicationCount: _n, ...rest } = source; // eslint-disable-line no-unused-vars
-  const id = nextVacancyId();
-  const vacancy = insertVacancy({
+  const id = await nextVacancyId();
+  const vacancy = await insertVacancy({
     ...rest,
     id,
     title: `${source.title} (copy)`,
-    slug: uniqueSlug(source.slug),
-    reference: makeReference(source),
+    slug: await uniqueSlug(source.slug),
+    reference: await makeReference(source),
     status: 'draft',
     openingDate: new Date().toISOString(),
   });
-  addVacancyEvent(id, { changedBy: req.admin.name, changeType: 'CREATED', notes: `Duplicated from ${source.reference}` });
+  await addVacancyEvent(id, { changedBy: req.admin.name, changeType: 'CREATED', notes: `Duplicated from ${source.reference}` });
   return res.status(201).json({ success: true, message: 'Draft copy created.', data: vacancy });
-};
+});
 
-export const removeVacancy = (req, res) => {
-  const vacancy = findVacancy(req.params.id);
+export const removeVacancy = ah(async (req, res) => {
+  const vacancy = await findVacancy(req.params.id);
   if (!vacancy) return notFound(res, 'Vacancy');
   // Deleting applications (candidate data and CVs) must be asked for explicitly with ?withApplications=true.
-  const applications = countApplicationsForVacancy(vacancy.id);
+  const applications = await countApplicationsForVacancy(vacancy.id);
   const withApplications = req.query.withApplications === 'true';
   if (applications > 0 && !withApplications) {
     return fail(res, 409, `This vacancy has ${applications} application${applications === 1 ? '' : 's'}. Archive it, or confirm that the applications should be deleted too.`);
   }
-  deleteVacancy(vacancy.id, { withApplications });
+  await deleteVacancy(vacancy.id, { withApplications });
   console.log(`[Admin] ${req.admin.email} deleted vacancy ${vacancy.reference}${applications ? ` and ${applications} application(s)` : ''}`);
   return res.status(200).json({
     success: true,
     message: applications ? `Vacancy and ${applications} application${applications === 1 ? '' : 's'} deleted.` : 'Vacancy deleted.',
   });
-};
+});
 
 // ---------------------------------------------------------------------------------------------
 // Applications
@@ -340,42 +344,42 @@ const listQuery = (q) => ({
   sort: ['newest', 'oldest', 'name'].includes(q.sort) ? q.sort : 'newest',
 });
 
-export const getApplications = (req, res) => {
+export const getApplications = ah(async (req, res) => {
   const page = Math.max(1, Number.parseInt(req.query.page, 10) || 1);
   const pageSize = Math.min(100, Math.max(5, Number.parseInt(req.query.pageSize, 10) || 25));
-  const result = listApplications({ ...listQuery(req.query), page, pageSize });
+  const result = await listApplications({ ...listQuery(req.query), page, pageSize });
   res.status(200).json({ success: true, ...result });
-};
+});
 
-export const getApplication = (req, res) => {
-  const application = findApplication(req.params.id);
+export const getApplication = ah(async (req, res) => {
+  const application = await findApplication(req.params.id);
   if (!application) return notFound(res, 'Application');
-  const vacancy = findVacancy(application.vacancyId);
+  const vacancy = await findVacancy(application.vacancyId);
   return res.status(200).json({
     success: true,
-    data: { ...application, vacancy: vacancy ? summary(vacancy) : null, events: listApplicationEvents(application.id) },
+    data: { ...application, vacancy: vacancy ? summary(vacancy) : null, events: await listApplicationEvents(application.id) },
   });
-};
+});
 
-export const updateApplicationStatus = (req, res) => {
+export const updateApplicationStatus = ah(async (req, res) => {
   const status = clean(req.body?.status, 30);
   if (!APPLICATION_STATUSES.includes(status)) return fail(res, 400, `Status must be one of: ${APPLICATION_STATUSES.join(', ')}.`);
-  const application = setApplicationStatus(req.params.id, status, req.admin.name, clean(req.body?.note, 1000, { multiline: true }));
+  const application = await setApplicationStatus(req.params.id, status, req.admin.name, clean(req.body?.note, 1000, { multiline: true }));
   if (!application) return notFound(res, 'Application');
-  return res.status(200).json({ success: true, data: { ...application, events: listApplicationEvents(application.id) } });
-};
+  return res.status(200).json({ success: true, data: { ...application, events: await listApplicationEvents(application.id) } });
+});
 
-export const addApplicationNote = (req, res) => {
+export const addApplicationNote = ah(async (req, res) => {
   const note = clean(req.body?.note, 2000, { multiline: true });
   if (!note) return fail(res, 400, 'Write a note first.', { note: 'Write a note first.' });
-  const application = findApplication(req.params.id);
+  const application = await findApplication(req.params.id);
   if (!application) return notFound(res, 'Application');
-  addApplicationEvent(application.id, { actor: req.admin.name, type: 'NOTE', note });
-  return res.status(201).json({ success: true, data: listApplicationEvents(application.id) });
-};
+  await addApplicationEvent(application.id, { actor: req.admin.name, type: 'NOTE', note });
+  return res.status(201).json({ success: true, data: await listApplicationEvents(application.id) });
+});
 
-export const downloadCv = (req, res) => {
-  const file = getApplicationFile(req.params.id);
+export const downloadCv = ah(async (req, res) => {
+  const file = await getApplicationFile(req.params.id);
   if (!file) return notFound(res, 'CV');
   const safe = file.filename.replace(/["\\\r\n]/g, '_');
   res.setHeader('Content-Type', file.contentType);
@@ -384,12 +388,12 @@ export const downloadCv = (req, res) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Cache-Control', 'no-store');
   return res.end(file.data);
-};
+});
 
-export const removeApplication = (req, res) => {
-  if (!deleteApplication(req.params.id)) return notFound(res, 'Application');
+export const removeApplication = ah(async (req, res) => {
+  if (!(await deleteApplication(req.params.id))) return notFound(res, 'Application');
   return res.status(200).json({ success: true, message: 'Application and CV permanently deleted.' });
-};
+});
 
 const csvCell = (value) => {
   let s = Array.isArray(value) ? value.join('; ') : String(value ?? '');
@@ -397,8 +401,8 @@ const csvCell = (value) => {
   return /[",\r\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
 };
 
-export const exportApplications = (req, res) => {
-  const { data } = listApplications({ ...listQuery(req.query), page: 1, pageSize: 100000 });
+export const exportApplications = ah(async (req, res) => {
+  const { data } = await listApplications({ ...listQuery(req.query), page: 1, pageSize: 100000 });
   const columns = [
     ['Application ID', 'id'], ['Submitted', 'submittedAt'], ['Status', 'status'], ['Vacancy', 'vacancyTitle'], ['Reference', 'vacancyReference'],
     ['First name', 'firstName'], ['Last name', 'lastName'], ['Email', 'email'], ['Phone', 'phone'], ['Town', 'town'], ['Postcode', 'postcode'],
@@ -413,10 +417,10 @@ export const exportApplications = (req, res) => {
   res.setHeader('Content-Disposition', `attachment; filename="applications-${new Date().toISOString().slice(0, 10)}.csv"`);
   res.setHeader('Cache-Control', 'no-store');
   return res.send(`﻿${lines.join('\r\n')}`);
-};
+});
 
-export const getMeta = (req, res) => {
-  const vacancies = listVacancies();
+export const getMeta = ah(async (req, res) => {
+  const vacancies = await listVacancies();
   res.status(200).json({
     success: true,
     data: {
@@ -426,5 +430,4 @@ export const getMeta = (req, res) => {
       vacancies: vacancies.map((v) => ({ id: v.id, title: v.title, reference: v.reference, status: v.status })),
     },
   });
-};
-
+});

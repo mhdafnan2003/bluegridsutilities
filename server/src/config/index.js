@@ -14,7 +14,7 @@ export const config = {
   rateLimitMax: num(process.env.RATE_LIMIT_MAX, 5),
   rateLimitWindowMinutes: num(process.env.RATE_LIMIT_WINDOW_MINUTES, 10),
   trustProxy: process.env.TRUST_PROXY || '',
-  dbPath: process.env.DB_PATH || '',
+  mongoUri: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/bluegrid',
   // Admin dashboard sessions
   authSecret: process.env.AUTH_SECRET || '',
   sessionHours: num(process.env.SESSION_HOURS, 12),

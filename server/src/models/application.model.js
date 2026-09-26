@@ -1,145 +1,174 @@
-import { db, now, parseList } from '../db/index.js';
+import { now, escapeRegExp } from '../db/index.js';
+import { Application } from '../db/schemas.js';
 
 export const APPLICATION_STATUSES = ['new', 'reviewing', 'shortlisted', 'interview', 'offered', 'hired', 'rejected', 'withdrawn'];
 
-const fromRow = (row) => {
-  if (!row) return null;
+const shape = (doc) => {
+  if (!doc) return null;
   return {
-    id: row.id,
-    vacancyId: row.vacancy_id,
-    vacancyTitle: row.vacancy_title,
-    vacancyReference: row.vacancy_reference,
-    firstName: row.first_name,
-    lastName: row.last_name,
-    fullName: `${row.first_name} ${row.last_name}`.trim(),
-    email: row.email,
-    phone: row.phone,
-    town: row.town,
-    postcode: row.postcode,
-    engagementRoute: row.engagement_route,
-    cisStatus: row.cis_status,
-    rightToWork: row.right_to_work,
-    sponsorship: row.sponsorship,
-    drivingLicence: row.driving_licence,
-    certificates: parseList(row.certificates),
-    otherCertificates: row.other_certificates,
-    relevantExperience: row.relevant_experience,
-    experienceYears: row.experience_years,
-    interviewAvailability: row.interview_availability,
-    startDate: row.start_date,
-    status: row.status,
-    emailStatus: row.email_status,
-    emailError: row.email_error,
-    submittedAt: row.submitted_at,
-    updatedAt: row.updated_at,
-    cv: row.cv_filename ? { filename: row.cv_filename, contentType: row.cv_type, size: row.cv_size } : null,
+    id: doc._id,
+    vacancyId: doc.vacancyId,
+    vacancyTitle: doc.vacancyTitle,
+    vacancyReference: doc.vacancyReference,
+    firstName: doc.firstName,
+    lastName: doc.lastName,
+    fullName: `${doc.firstName} ${doc.lastName}`.trim(),
+    email: doc.email,
+    phone: doc.phone,
+    town: doc.town,
+    postcode: doc.postcode,
+    engagementRoute: doc.engagementRoute,
+    cisStatus: doc.cisStatus,
+    rightToWork: doc.rightToWork,
+    sponsorship: doc.sponsorship,
+    drivingLicence: doc.drivingLicence,
+    certificates: doc.certificates || [],
+    otherCertificates: doc.otherCertificates,
+    relevantExperience: doc.relevantExperience,
+    experienceYears: doc.experienceYears,
+    interviewAvailability: doc.interviewAvailability,
+    startDate: doc.startDate,
+    status: doc.status,
+    emailStatus: doc.emailStatus,
+    emailError: doc.emailError,
+    submittedAt: doc.submittedAt,
+    updatedAt: doc.updatedAt,
+    cv: doc.cv ? { filename: doc.cv.filename, contentType: doc.cv.contentType, size: doc.cv.size } : null,
   };
 };
 
-const SELECT = `
-  SELECT a.*, f.filename AS cv_filename, f.content_type AS cv_type, f.size AS cv_size
-  FROM applications a LEFT JOIN application_files f ON f.application_id = a.id`;
-
-export const insertApplication = (app, cv) => {
+export const insertApplication = async (app, cv) => {
   const stamp = app.submittedAt || now();
-  db.transaction(() => {
-    db.prepare(`
-      INSERT INTO applications (
-        id, vacancy_id, vacancy_title, vacancy_reference, first_name, last_name, email, phone, town, postcode,
-        engagement_route, cis_status, right_to_work, sponsorship, driving_licence, certificates, other_certificates,
-        relevant_experience, experience_years, interview_availability, start_date, status, email_status, submitted_at, updated_at
-      ) VALUES (
-        @id, @vacancyId, @vacancyTitle, @vacancyReference, @firstName, @lastName, @email, @phone, @town, @postcode,
-        @engagementRoute, @cisStatus, @rightToWork, @sponsorship, @drivingLicence, @certificates, @otherCertificates,
-        @relevantExperience, @experienceYears, @interviewAvailability, @startDate, 'new', 'pending', @stamp, @stamp
-      )`).run({ ...app, certificates: JSON.stringify(app.certificates || []), stamp });
-    if (cv) {
-      db.prepare('INSERT INTO application_files (application_id, filename, content_type, size, data) VALUES (?, ?, ?, ?, ?)')
-        .run(app.id, cv.filename, cv.contentType, cv.size, cv.buffer);
-    }
-    addApplicationEvent(app.id, { actor: 'Candidate', type: 'SUBMITTED', note: `Applied via website for ${app.vacancyReference}` });
-  })();
-  return findApplication(app.id);
+  const doc = await Application.create({
+    _id: app.id,
+    vacancyId: app.vacancyId,
+    vacancyTitle: app.vacancyTitle,
+    vacancyReference: app.vacancyReference,
+    firstName: app.firstName,
+    lastName: app.lastName,
+    email: app.email,
+    phone: app.phone,
+    town: app.town,
+    postcode: app.postcode,
+    engagementRoute: app.engagementRoute,
+    cisStatus: app.cisStatus,
+    rightToWork: app.rightToWork,
+    sponsorship: app.sponsorship,
+    drivingLicence: app.drivingLicence,
+    certificates: app.certificates || [],
+    otherCertificates: app.otherCertificates,
+    relevantExperience: app.relevantExperience,
+    experienceYears: app.experienceYears,
+    interviewAvailability: app.interviewAvailability,
+    startDate: app.startDate,
+    status: 'new',
+    emailStatus: 'pending',
+    submittedAt: stamp,
+    updatedAt: stamp,
+    cv: cv ? { filename: cv.filename, contentType: cv.contentType, size: cv.size, data: cv.buffer } : null,
+    events: [{ actor: 'Candidate', type: 'SUBMITTED', note: `Applied via website for ${app.vacancyReference}`, createdAt: stamp }],
+  });
+  return shape(doc.toObject());
 };
 
-export const findApplication = (id) => fromRow(db.prepare(`${SELECT} WHERE a.id = ?`).get(id));
+export const findApplication = async (id) => shape(await Application.findById(id).lean());
 
-export const hasRecentApplication = (email, vacancyId, sinceIso) =>
-  Boolean(db.prepare('SELECT 1 FROM applications WHERE email = ? AND vacancy_id = ? AND submitted_at >= ?').get(email, vacancyId, sinceIso));
+export const hasRecentApplication = async (email, vacancyId, sinceIso) =>
+  Boolean(await Application.exists({ email, vacancyId, submittedAt: { $gte: sinceIso } }));
 
 /** Filtered, paginated list. */
-export const listApplications = ({ vacancyId, status, q, page = 1, pageSize = 25, sort = 'newest' } = {}) => {
-  const where = [];
-  const params = {};
-  if (vacancyId) { where.push('a.vacancy_id = @vacancyId'); params.vacancyId = vacancyId; }
-  if (status) { where.push('a.status = @status'); params.status = status; }
+export const listApplications = async ({ vacancyId, status, q, page = 1, pageSize = 25, sort = 'newest' } = {}) => {
+  const where = {};
+  if (vacancyId) where.vacancyId = vacancyId;
+  if (status) where.status = status;
   if (q) {
-    where.push(`(a.first_name || ' ' || a.last_name LIKE @q OR a.email LIKE @q OR a.phone LIKE @q OR a.town LIKE @q OR a.postcode LIKE @q OR a.id LIKE @q)`);
-    params.q = `%${q}%`;
+    const re = new RegExp(escapeRegExp(q), 'i');
+    where.$or = [
+      { firstName: re }, { lastName: re }, { email: re }, { phone: re }, { town: re }, { postcode: re }, { _id: re },
+      { $expr: { $regexMatch: { input: { $concat: ['$firstName', ' ', '$lastName'] }, regex: escapeRegExp(q), options: 'i' } } },
+    ];
   }
-  const whereSql = where.length ? `WHERE ${where.join(' AND ')}` : '';
-  const order = sort === 'oldest' ? 'a.submitted_at ASC' : sort === 'name' ? 'a.last_name COLLATE NOCASE, a.first_name COLLATE NOCASE' : 'a.submitted_at DESC';
-  const total = db.prepare(`SELECT COUNT(*) AS n FROM applications a ${whereSql}`).get(params).n;
-  const rows = db.prepare(`${SELECT} ${whereSql} ORDER BY ${order} LIMIT @limit OFFSET @offset`)
-    .all({ ...params, limit: pageSize, offset: (page - 1) * pageSize });
-  return { total, page, pageSize, data: rows.map(fromRow) };
+
+  const total = await Application.countDocuments(where);
+  let query = Application.find(where);
+  if (sort === 'oldest') query = query.sort({ submittedAt: 1 });
+  else if (sort === 'name') query = query.collation({ locale: 'en', strength: 2 }).sort({ lastName: 1, firstName: 1 });
+  else query = query.sort({ submittedAt: -1 });
+  const docs = await query.skip((page - 1) * pageSize).limit(pageSize).lean();
+  return { total, page, pageSize, data: docs.map(shape) };
 };
 
-export const getApplicationFile = (id) =>
-  db.prepare('SELECT filename, content_type AS contentType, size, data FROM application_files WHERE application_id = ?').get(id);
-
-export const addApplicationEvent = (applicationId, { actor, type, fromStatus = null, toStatus = null, note = null }) => {
-  db.prepare('INSERT INTO application_events (application_id, actor, type, from_status, to_status, note, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)')
-    .run(applicationId, actor, type, fromStatus, toStatus, note, now());
+export const getApplicationFile = async (id) => {
+  const doc = await Application.findById(id, { cv: 1 }).lean();
+  if (!doc?.cv) return null;
+  return { filename: doc.cv.filename, contentType: doc.cv.contentType, size: doc.cv.size, data: doc.cv.data };
 };
 
-export const listApplicationEvents = (applicationId) =>
-  db.prepare('SELECT id, actor, type, from_status AS fromStatus, to_status AS toStatus, note, created_at AS createdAt FROM application_events WHERE application_id = ? ORDER BY created_at DESC, id DESC')
-    .all(applicationId);
+export const addApplicationEvent = async (applicationId, { actor, type, fromStatus = null, toStatus = null, note = null }) => {
+  await Application.updateOne(
+    { _id: applicationId },
+    { $push: { events: { actor, type, fromStatus, toStatus, note, createdAt: now() } } },
+  );
+};
 
-export const setApplicationStatus = (id, status, actor, note) => {
-  const current = findApplication(id);
+/** Most recent first (insertion order reversed - ties keep their original recency order). */
+export const listApplicationEvents = async (applicationId) => {
+  const doc = await Application.findById(applicationId, { events: 1 }).lean();
+  return (doc?.events || [])
+    .slice()
+    .reverse()
+    .map((e) => ({ id: String(e._id), actor: e.actor, type: e.type, fromStatus: e.fromStatus, toStatus: e.toStatus, note: e.note, createdAt: e.createdAt }));
+};
+
+export const setApplicationStatus = async (id, status, actor, note) => {
+  const current = await Application.findById(id).lean();
   if (!current) return null;
-  if (current.status === status) return current;
-  db.transaction(() => {
-    db.prepare('UPDATE applications SET status = ?, updated_at = ? WHERE id = ?').run(status, now(), id);
-    addApplicationEvent(id, { actor, type: 'STATUS_CHANGE', fromStatus: current.status, toStatus: status, note: note || null });
-  })();
-  return findApplication(id);
+  if (current.status === status) return shape(current);
+  const stamp = now();
+  const doc = await Application.findByIdAndUpdate(
+    id,
+    {
+      $set: { status, updatedAt: stamp },
+      $push: { events: { actor, type: 'STATUS_CHANGE', fromStatus: current.status, toStatus: status, note: note || null, createdAt: stamp } },
+    },
+    { new: true },
+  ).lean();
+  return shape(doc);
 };
 
-export const setEmailStatus = (id, emailStatus, emailError = null) => {
-  db.prepare('UPDATE applications SET email_status = ?, email_error = ? WHERE id = ?').run(emailStatus, emailError, id);
+export const setEmailStatus = async (id, emailStatus, emailError = null) => {
+  await Application.updateOne({ _id: id }, { $set: { emailStatus, emailError } });
 };
 
-export const deleteApplication = (id) => db.prepare('DELETE FROM applications WHERE id = ?').run(id).changes > 0;
+export const deleteApplication = async (id) => (await Application.deleteOne({ _id: id })).deletedCount > 0;
 
-export const countApplicationsForVacancy = (vacancyId) =>
-  db.prepare('SELECT COUNT(*) AS n FROM applications WHERE vacancy_id = ?').get(vacancyId).n;
+export const countApplicationsForVacancy = async (vacancyId) => Application.countDocuments({ vacancyId });
 
 /** Numbers for the dashboard overview. */
-export const getStats = () => {
+export const getStats = async () => {
   const byStatus = Object.fromEntries(APPLICATION_STATUSES.map((s) => [s, 0]));
-  for (const r of db.prepare('SELECT status, COUNT(*) AS n FROM applications GROUP BY status').all()) byStatus[r.status] = r.n;
+  for (const r of await Application.aggregate([{ $group: { _id: '$status', n: { $sum: 1 } } }])) byStatus[r._id] = r.n;
   const total = Object.values(byStatus).reduce((a, b) => a + b, 0);
 
   const day = 864e5;
   const since = (days) => new Date(Date.now() - days * day).toISOString();
-  const count = (from, to) => db.prepare('SELECT COUNT(*) AS n FROM applications WHERE submitted_at >= ? AND submitted_at < ?').get(from, to).n;
-  const last7 = count(since(7), now());
-  const prev7 = count(since(14), since(7));
+  const count = (from, to) => Application.countDocuments({ submittedAt: { $gte: from, $lt: to } });
+  const last7 = await count(since(7), now());
+  const prev7 = await count(since(14), since(7));
 
   // Daily counts for the last 30 days (UTC dates), zero-filled.
-  const rows = db.prepare("SELECT substr(submitted_at, 1, 10) AS d, COUNT(*) AS n FROM applications WHERE submitted_at >= ? GROUP BY d")
-    .all(new Date(Date.now() - 29 * day).toISOString().slice(0, 10));
-  const map = Object.fromEntries(rows.map((r) => [r.d, r.n]));
+  const rows = await Application.aggregate([
+    { $match: { submittedAt: { $gte: new Date(Date.now() - 29 * day).toISOString().slice(0, 10) } } },
+    { $group: { _id: { $substrCP: ['$submittedAt', 0, 10] }, n: { $sum: 1 } } },
+  ]);
+  const map = Object.fromEntries(rows.map((r) => [r._id, r.n]));
   const daily = [];
   for (let i = 29; i >= 0; i -= 1) {
     const d = new Date(Date.now() - i * day).toISOString().slice(0, 10);
     daily.push({ date: d, count: map[d] || 0 });
   }
 
-  const recent = db.prepare(`${SELECT} ORDER BY a.submitted_at DESC LIMIT 6`).all().map(fromRow);
-  const emailFailures = db.prepare("SELECT COUNT(*) AS n FROM applications WHERE email_status = 'failed'").get().n;
+  const recent = (await Application.find().sort({ submittedAt: -1 }).limit(6).lean()).map(shape);
+  const emailFailures = await Application.countDocuments({ emailStatus: 'failed' });
   return { total, byStatus, last7, prev7, daily, recent, emailFailures };
 };

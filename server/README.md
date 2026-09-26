@@ -1,6 +1,6 @@
 # Bluegrid Utilities - API server
 
-Express API for the website forms and vacancies, with a SQLite database and the recruitment dashboard API (the dashboard UI is at `/admin` in the client app).
+Express API for the website forms and vacancies, with a MongoDB database and the recruitment dashboard API (the dashboard UI is at `/admin` in the client app).
 
 ## Endpoints
 | Method | Endpoint | Description |
@@ -31,10 +31,10 @@ Express API for the website forms and vacancies, with a SQLite database and the 
 Responses are `{ success, data }` or `{ success: false, error: { message, fields? } }`.
 
 ## Database
-- SQLite via `better-sqlite3`, file `server/data/bluegrid.db` (override with `DB_PATH`). Tables are created automatically on start.
-- The live website vacancy (BG-WM-COV-2026) is seeded automatically when the vacancies table is empty. `npm run seed` inserts any missing seed vacancies; `npm run seed -- --force` resets them to the seed content (applications are kept). Seed content lives in `src/db/seed.js`.
-- Applications and CVs are stored in the database. The file is gitignored: it holds candidate personal data, so back it up and keep it private.
-- **Hosting:** the database needs a persistent disk (a VPS, or Render/Railway/Fly with a volume and `DB_PATH` pointing at it). Serverless platforms such as Vercel functions have no persistent disk, so data would be lost.
+- MongoDB via `mongoose`, connection string in `MONGODB_URI` (default: `mongodb://127.0.0.1:27017/bluegrid`, a local instance). Collections and indexes are created automatically on start.
+- The live website vacancy (BG-WM-COV-2026) is seeded automatically when the vacancies collection is empty. `npm run seed` inserts any missing seed vacancies; `npm run seed -- --force` resets them to the seed content (applications are kept). Seed content lives in `src/db/seed.js`.
+- Applications and CVs (as binary fields) are stored in the `applications` collection. This is candidate personal data: back up the database and keep access to it private.
+- **Hosting:** use a MongoDB instance with persistent storage (MongoDB Atlas, or a self-hosted instance with a persistent volume) and point `MONGODB_URI` at it. Serverless platforms such as Vercel functions have no local disk of their own, but that's fine here since MongoDB itself is a separate, network-reachable service.
 
 ## Dashboard access
 - Set `AUTH_SECRET` (required in production) and the login in `.env`: `ADMIN_ID` (email or username), `ADMIN_PASSWORD` (10+ characters), optional `ADMIN_NAME`.

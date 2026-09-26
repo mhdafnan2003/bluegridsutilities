@@ -18,9 +18,9 @@ import { requestLogger } from './middleware/requestLogger.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Database is opened and migrated on import; seed the live vacancy on first run and apply the dashboard login from .env.
-seedIfEmpty();
-syncEnvAdmin();
+// MongoDB is connected on import (see db/index.js); seed the live vacancy on first run and apply the dashboard login from .env.
+await seedIfEmpty();
+await syncEnvAdmin();
 
 const app = express();
 app.disable('x-powered-by');

@@ -72,13 +72,17 @@ const listShape = (v) => ({
   seoTitle: v.seoTitle,
 });
 
-export const getVacancies = (req, res) => {
-  const data = listVacancies().filter(isVacancyOpen).map(listShape);
-  res.status(200).json({ success: true, count: data.length, data });
-};
+// Express 4 does not catch a rejected promise from a route handler itself, so these forward errors to next(err).
+const ah = (fn) => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next);
 
-export const getVacancyBySlug = (req, res) => {
-  const vacancy = findVacancy(req.params.slug);
+export const getVacancies = ah(async (req, res) => {
+  const vacancies = await listVacancies();
+  const data = vacancies.filter(isVacancyOpen).map(listShape);
+  res.status(200).json({ success: true, count: data.length, data });
+});
+
+export const getVacancyBySlug = ah(async (req, res) => {
+  const vacancy = await findVacancy(req.params.slug);
   if (!vacancy || vacancy.status === 'archived' || vacancy.status === 'draft' || vacancy.status === 'pending_approval') {
     return res.status(404).json({ success: false, error: { message: 'Vacancy not found.' } });
   }
@@ -86,7 +90,7 @@ export const getVacancyBySlug = (req, res) => {
   const data = { ...vacancy, salaryRate: vacancy.displaySalary ? vacancy.salaryRate : null, isOpen: open, isExpired: !open };
   for (const key of INTERNAL_FIELDS) delete data[key];
   res.status(200).json({ success: true, data });
-};
+});
 
 // ---------------------------------------------------------------------------------------------
 // Applications
@@ -175,7 +179,7 @@ export const submitApplication = async (req, res, next) => {
     }
 
     const slug = clean(body.roleSlug, 100);
-    const vacancy = slug ? findVacancy(slug) : null;
+    const vacancy = slug ? await findVacancy(slug) : null;
     if (!vacancy || vacancy.status === 'archived') {
       return res.status(400).json({
         success: false,
@@ -198,7 +202,7 @@ export const submitApplication = async (req, res, next) => {
     }
 
     // Prevent accidental duplicate submissions (double click, retry after a slow response).
-    if (hasRecentApplication(values.email, vacancy.id, new Date(Date.now() - DUPLICATE_WINDOW_MS).toISOString())) {
+    if (await hasRecentApplication(values.email, vacancy.id, new Date(Date.now() - DUPLICATE_WINDOW_MS).toISOString())) {
       return res.status(409).json({
         success: false,
         error: { message: 'We have already received an application from this email address for this vacancy. If you need to change anything, please email ' + config.recruitmentEmail + '.' },
@@ -224,7 +228,7 @@ export const submitApplication = async (req, res, next) => {
       : null;
 
     // The database is the record of the application; the email to the recruitment inbox is a notification.
-    insertApplication({ ...application, vacancyId: vacancy.id, vacancyTitle: vacancy.title, vacancyReference: vacancy.reference }, cv);
+    await insertApplication({ ...application, vacancyId: vacancy.id, vacancyTitle: vacancy.title, vacancyReference: vacancy.reference }, cv);
     console.log(`[Careers] Application ${application.id} for ${vacancy.reference} saved`);
 
     let delivery = null;
@@ -235,9 +239,9 @@ export const submitApplication = async (req, res, next) => {
         fallbackAddress: config.recruitmentEmail,
         ...buildApplicationMessage(application, cv),
       });
-      setEmailStatus(application.id, 'sent');
+      await setEmailStatus(application.id, 'sent');
     } catch (err) {
-      setEmailStatus(application.id, 'failed', String(err.message).slice(0, 500));
+      await setEmailStatus(application.id, 'failed', String(err.message).slice(0, 500));
       console.warn(`[Careers] Notification email for ${application.id} failed (application is saved):`, err.message);
     }
 

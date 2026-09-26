@@ -1,38 +1,60 @@
-import { db, now } from '../db/index.js';
+import mongoose from 'mongoose';
+import { now } from '../db/index.js';
+import { AdminUser } from '../db/schemas.js';
 
 // `email` holds the login ID: an email address or a username.
+
+/** The public shape of an admin (camelCase, boolean envManaged) - used for req.admin and API responses. */
 const fromRow = (row) =>
   row
     ? { id: row.id, email: row.email, name: row.name, envManaged: Boolean(row.env_managed), createdAt: row.created_at, lastLoginAt: row.last_login_at }
     : null;
 
-export const countAdmins = () => db.prepare('SELECT COUNT(*) AS n FROM admin_users').get().n;
+/** The raw shape (snake_case, as the old SQLite rows were) - used internally for auth checks. */
+const toRaw = (doc) =>
+  doc
+    ? {
+        id: String(doc._id),
+        email: doc.email,
+        name: doc.name,
+        password_hash: doc.passwordHash,
+        env_managed: doc.envManaged,
+        created_at: doc.createdAt,
+        last_login_at: doc.lastLoginAt,
+      }
+    : null;
 
-export const findAdminByEmail = (email) => db.prepare('SELECT * FROM admin_users WHERE email = ? COLLATE NOCASE').get(email) || null;
+export const countAdmins = () => AdminUser.countDocuments();
 
-export const findAdminById = (id) => fromRow(db.prepare('SELECT * FROM admin_users WHERE id = ?').get(id));
+export const findAdminByEmail = async (email) => toRaw(await AdminUser.findOne({ email: String(email).toLowerCase() }).lean());
 
-export const getPasswordHash = (id) => db.prepare('SELECT password_hash FROM admin_users WHERE id = ?').get(id)?.password_hash || null;
-
-export const createAdmin = ({ email, name, passwordHash, envManaged = false }) => {
-  const info = db.prepare('INSERT INTO admin_users (email, name, password_hash, env_managed, created_at) VALUES (?, ?, ?, ?, ?)')
-    .run(email.toLowerCase(), name, passwordHash, envManaged ? 1 : 0, now());
-  return findAdminById(info.lastInsertRowid);
+export const findAdminById = async (id) => {
+  if (!mongoose.isValidObjectId(id)) return null;
+  return fromRow(toRaw(await AdminUser.findById(id).lean()));
 };
 
-export const setAdminPassword = (id, passwordHash) =>
-  db.prepare('UPDATE admin_users SET password_hash = ? WHERE id = ?').run(passwordHash, id);
+export const getPasswordHash = async (id) => {
+  if (!mongoose.isValidObjectId(id)) return null;
+  const doc = await AdminUser.findById(id, { passwordHash: 1 }).lean();
+  return doc?.passwordHash || null;
+};
 
-export const updateEnvAdmin = (id, name) =>
-  db.prepare('UPDATE admin_users SET name = ?, env_managed = 1 WHERE id = ?').run(name, id);
+export const createAdmin = async ({ email, name, passwordHash, envManaged = false }) => {
+  const doc = await AdminUser.create({ email: email.toLowerCase(), name, passwordHash, envManaged, createdAt: now() });
+  return findAdminById(doc._id);
+};
+
+export const setAdminPassword = (id, passwordHash) => AdminUser.updateOne({ _id: id }, { $set: { passwordHash } });
+
+export const updateEnvAdmin = (id, name) => AdminUser.updateOne({ _id: id }, { $set: { name, envManaged: true } });
 
 /** Remove accounts that were set from .env under a login ID that is no longer configured. */
-export const removeStaleEnvAdmins = (currentLogin) =>
-  db.prepare('SELECT email FROM admin_users WHERE env_managed = 1 AND email != ? COLLATE NOCASE').all(currentLogin).map((r) => {
-    db.prepare('DELETE FROM admin_users WHERE email = ?').run(r.email);
-    return r.email;
-  });
+export const removeStaleEnvAdmins = async (currentLogin) => {
+  const stale = await AdminUser.find({ envManaged: true, email: { $ne: currentLogin.toLowerCase() } }, { email: 1 }).lean();
+  if (stale.length) await AdminUser.deleteMany({ _id: { $in: stale.map((r) => r._id) } });
+  return stale.map((r) => r.email);
+};
 
-export const touchLogin = (id) => db.prepare('UPDATE admin_users SET last_login_at = ? WHERE id = ?').run(now(), id);
+export const touchLogin = (id) => AdminUser.updateOne({ _id: id }, { $set: { lastLoginAt: now() } });
 
 export const toPublicAdmin = fromRow;
