@@ -1,3 +1,4 @@
+import { Readable } from 'stream';
 import { clean, cleanList, isTrue } from '../utils/text.js';
 import { hashPassword, issueToken, passwordProblem, verifyPassword } from '../services/auth.service.js';
 import { findAdminByEmail, getPasswordHash, setAdminPassword, toPublicAdmin, touchLogin } from '../models/admin.model.js';
@@ -25,8 +26,10 @@ import {
   getStats,
   listApplicationEvents,
   listApplications,
+  listCvRefsForVacancy,
   setApplicationStatus,
 } from '../models/application.model.js';
+import { deleteCv, getSignedCvUrl } from '../services/cloudinary.service.js';
 
 // Every export below is async (the models now query MongoDB); Express 4 does not catch rejected
 // promises from route handlers itself, so each one is wrapped to forward errors to next(err).
@@ -325,7 +328,9 @@ export const removeVacancy = ah(async (req, res) => {
   if (applications > 0 && !withApplications) {
     return fail(res, 409, `This vacancy has ${applications} application${applications === 1 ? '' : 's'}. Archive it, or confirm that the applications should be deleted too.`);
   }
+  const cvRefs = withApplications ? await listCvRefsForVacancy(vacancy.id) : [];
   await deleteVacancy(vacancy.id, { withApplications });
+  for (const ref of cvRefs) deleteCv(ref.publicId, ref.resourceType); // best-effort cleanup, not awaited
   console.log(`[Admin] ${req.admin.email} deleted vacancy ${vacancy.reference}${applications ? ` and ${applications} application(s)` : ''}`);
   return res.status(200).json({
     success: true,
@@ -387,11 +392,21 @@ export const downloadCv = ah(async (req, res) => {
   res.setHeader('Content-Disposition', `attachment; filename="${safe}"; filename*=UTF-8''${encodeURIComponent(file.filename)}`);
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Cache-Control', 'no-store');
+
+  if (file.publicId) {
+    // Stored on Cloudinary as a private asset: fetch it here with a short-lived signed URL and
+    // stream it straight through, so the signed URL itself is never exposed to the browser.
+    const upstream = await fetch(getSignedCvUrl(file.publicId, file.resourceType));
+    if (!upstream.ok || !upstream.body) return fail(res, 502, 'The CV could not be retrieved from storage.');
+    return Readable.fromWeb(upstream.body).pipe(res);
+  }
   return res.end(file.data);
 });
 
 export const removeApplication = ah(async (req, res) => {
+  const file = await getApplicationFile(req.params.id);
   if (!(await deleteApplication(req.params.id))) return notFound(res, 'Application');
+  if (file?.publicId) deleteCv(file.publicId, file.resourceType); // best-effort cleanup, not awaited
   return res.status(200).json({ success: true, message: 'Application and CV permanently deleted.' });
 });
 

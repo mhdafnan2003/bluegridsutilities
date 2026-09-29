@@ -21,7 +21,7 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const departmentTeams = [
+export const departmentTeams = [
   {
     id: "directors",
     name: "Leadership",
@@ -45,7 +45,7 @@ const departmentTeams = [
   }
 ];
 
-const MemberCard = ({ member }) => {
+export const MemberCard = ({ member }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isClicked, setIsClicked] = useState(false);
   const isOpen = isHovered || isClicked;
@@ -70,7 +70,7 @@ const MemberCard = ({ member }) => {
         </div>
 
         {/* Photo Container */}
-        <div className="aspect-[4/4.5] w-full relative overflow-hidden bg-slate-900 flex items-center justify-center">
+        <div className="aspect-[3/4] w-full relative overflow-hidden bg-slate-900 flex items-center justify-center">
           {member.img ? (
             <img alt={member.name} className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" src={member.img} />
           ) : (

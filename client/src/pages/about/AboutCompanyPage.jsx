@@ -4,6 +4,7 @@ import MotionSection from '../../components/MotionSection';
 import aboutImage from '../../assets/images/about.jpeg';
 import workersImg from '../../assets/images/uk_utility_workers_site.png';
 import DirectorBanner from '../../components/DirectorBanner';
+import { MemberCard, departmentTeams } from '../../components/Management';
 
 import imgManagement from '../../assets/images/Project coordination and reporting.jpg';
 import imgWorkforce from '../../assets/images/uk_utility_workers_site.png';
@@ -297,34 +298,10 @@ const AboutCompanyPage = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Selbert George */}
-              <div className="bg-white border-2 border-slate-200 p-8 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-start gap-6">
-                <div className="w-20 h-20 bg-slate-900 shrink-0 border border-slate-300 flex items-center justify-center overflow-hidden">
-                  <span className="material-symbols-outlined text-4xl text-slate-400">person</span>
-                </div>
-                <div>
-                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">Selbert George</h3>
-                  <p className="text-body md:text-body-lg font-bold text-[#005f9e] font-outfit mb-3">Director and Project Director</p>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                    Active statutory director overseeing operational delivery, project management, workforce deployment and client coordination.
-                  </p>
-                </div>
-              </div>
-
-              {/* Syed Zulqurnain Shah */}
-              <div className="bg-white border-2 border-slate-200 p-8 shadow-sm hover:shadow-lg transition-all flex flex-col sm:flex-row items-start gap-6">
-                <div className="w-20 h-20 bg-slate-900 shrink-0 border border-slate-300 flex items-center justify-center overflow-hidden">
-                  <span className="material-symbols-outlined text-4xl text-slate-400">shield_person</span>
-                </div>
-                <div>
-                  <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">Syed Zulqurnain Shah</h3>
-                  <p className="text-body md:text-body-lg font-bold text-[#005f9e] font-outfit mb-3">Director</p>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
-                    Active statutory director responsible for statutory governance, financial oversight and corporate compliance.
-                  </p>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-8 justify-start items-stretch">
+              {departmentTeams[0].members.map((member) => (
+                <MemberCard key={member.name} member={member} />
+              ))}
             </div>
           </div>
 

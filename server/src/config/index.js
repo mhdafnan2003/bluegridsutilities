@@ -18,6 +18,11 @@ export const config = {
   // Admin dashboard sessions
   authSecret: process.env.AUTH_SECRET || '',
   sessionHours: num(process.env.SESSION_HOURS, 12),
+  // CV storage (Cloudinary). If unset, CVs are stored as binary data in MongoDB instead (fine for
+  // development; in production, set these so the database only holds a reference to each CV).
+  cloudinaryCloudName: process.env.CLOUDINARY_CLOUD_NAME || '',
+  cloudinaryApiKey: process.env.CLOUDINARY_API_KEY || '',
+  cloudinaryApiSecret: process.env.CLOUDINARY_API_SECRET || '',
 };
 
 export const isProduction = () => config.nodeEnv === 'production';

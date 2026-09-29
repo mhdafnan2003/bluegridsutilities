@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import MotionSection from '../components/MotionSection';
+import bannerImg from '../assets/images/field_delivery_support.jpg';
 
 const fallbackVacancies = [
   {
@@ -64,14 +66,32 @@ const VacanciesPage = () => {
         viewport={undefined}
       >
         {/* Header Banner */}
-        <div className="bg-[#0f3a5e] text-white py-16 sm:py-20 border-b-4 border-[#005f9e]">
-          <div className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 text-left space-y-4">
+        <div className="relative overflow-hidden bg-slate-950 text-white py-16 sm:py-20 border-b-4 border-[#005f9e]">
+          <motion.img
+            src={bannerImg}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ objectPosition: 'center 30%' }}
+            initial={{ opacity: 0, scale: 1.06 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.1, ease: 'easeOut' }}
+          />
+          {/* Neutral dark overlay (no blue tint over the image) so white text stays readable */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/40" />
+
+          <motion.div
+            className="relative z-10 max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-12 text-left space-y-4"
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+          >
             <div className="flex items-center gap-2 text-xs font-semibold text-slate-300 font-outfit uppercase tracking-wider">
               <Link to="/" className="hover:text-white transition-colors">Home</Link>
               <span>/</span>
               <Link to="/careers" className="hover:text-white transition-colors">Careers</Link>
               <span>/</span>
-              <span className="text-[#005f9e]">Current Vacancies</span>
+              <span className="text-[#60a5fa]">Current Vacancies</span>
             </div>
 
             <span className="inline-block px-3.5 py-1.5 bg-white/10 text-white text-xs font-black tracking-widest font-outfit uppercase border border-white/20">
@@ -85,7 +105,7 @@ const VacanciesPage = () => {
             <p className="text-body md:text-body-lg text-slate-200 max-w-3xl leading-relaxed font-medium">
               All vacancies currently approved for recruitment are listed below. Each vacancy should show the role title, location, employment type, working pattern where applicable, closing date and a clear route to apply.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Content Section */}
@@ -141,69 +161,59 @@ const VacanciesPage = () => {
                 {vacancies.map((vacancy) => (
                   <div
                     key={vacancy.id || vacancy.slug}
-                    className="bg-white border border-slate-200 p-6 sm:p-8 shadow-md hover:shadow-lg transition-all text-left border-l-4 border-l-[#005f9e] flex flex-col lg:flex-row lg:items-center justify-between gap-6"
+                    className="group relative bg-white border border-slate-200 hover:border-[#005f9e] shadow-sm hover:shadow-xl transition-all duration-300 text-left overflow-hidden"
                   >
-                    <div className="space-y-3 max-w-4xl">
-                      <div className="flex flex-wrap items-center gap-3">
-                        <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 bg-blue-50 border border-blue-200 text-[#005f9e] font-outfit">
-                          {vacancy.category || 'Field Operations'}
-                        </span>
-                        {vacancy.reference && (
-                          <span className="text-xs text-slate-400 font-medium font-outfit">
-                            Ref: {vacancy.reference}
-                          </span>
-                        )}
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold uppercase font-outfit border border-emerald-200">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    {/* Accent bar */}
+                    <div className="absolute left-0 top-0 h-full w-1.5 bg-[#005f9e]" />
+
+                    <div className="p-6 sm:p-8 pl-7 sm:pl-9 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                      <div className="space-y-3 max-w-4xl">
+                        <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-emerald-600 font-outfit">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                           Open for Applications
-                        </span>
+                        </div>
+
+                        <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">
+                          <Link
+                            to={`/careers/jobs/${vacancy.slug}`}
+                            className="group-hover:text-[#005f9e] transition-colors"
+                          >
+                            {vacancy.title}
+                          </Link>
+                        </h3>
+
+                        {/* Meta attributes: Location | Employment Type | Working Pattern */}
+                        <div className="flex flex-wrap items-center gap-y-1.5 gap-x-4 text-xs sm:text-sm text-slate-600 font-medium">
+                          <span className="flex items-center gap-1.5">
+                            <span className="material-symbols-outlined text-sm text-[#005f9e]">location_on</span>
+                            {vacancy.location}
+                          </span>
+                          <span className="flex items-center gap-1.5">
+                            <span className="material-symbols-outlined text-sm text-[#005f9e]">work</span>
+                            {vacancy.employmentType}
+                          </span>
+                          {vacancy.workingPattern && (
+                            <span className="flex items-center gap-1.5">
+                              <span className="material-symbols-outlined text-sm text-[#005f9e]">schedule</span>
+                              {vacancy.workingPattern}
+                            </span>
+                          )}
+                        </div>
+
+                        <div className="text-xs text-slate-500 font-medium pt-1">
+                          <span className="font-semibold text-slate-700">Closing date:</span>{' '}
+                          {formatDate(vacancy.closingDate)}
+                        </div>
                       </div>
 
-                      <h3 className="text-h3 md:text-h3-lg font-bold text-[#0f3a5e] font-outfit">
+                      <div className="shrink-0">
                         <Link
                           to={`/careers/jobs/${vacancy.slug}`}
-                          className="hover:text-[#005f9e] transition-colors"
+                          className="text-nav inline-flex items-center justify-center gap-2 bg-[#005f9e] group-hover:bg-[#004c80] text-white font-extrabold tracking-wide px-7 py-3.5 uppercase font-outfit transition-all shadow-md active:scale-95 w-full lg:w-auto"
                         >
-                          {vacancy.title}
+                          <span>View Role &amp; Apply</span>
                         </Link>
-                      </h3>
-
-                      {/* Meta attributes: Location | Employment Type | Working Pattern */}
-                      <div className="flex flex-wrap items-center gap-y-1 gap-x-4 text-xs sm:text-sm text-slate-600 font-medium">
-                        <span className="flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-sm text-[#005f9e]">location_on</span>
-                          {vacancy.location}
-                        </span>
-                        <span>•</span>
-                        <span className="flex items-center gap-1.5">
-                          <span className="material-symbols-outlined text-sm text-[#005f9e]">schedule</span>
-                          {vacancy.employmentType}
-                        </span>
-                        {vacancy.workingPattern && (
-                          <>
-                            <span>•</span>
-                            <span>{vacancy.workingPattern}</span>
-                          </>
-                        )}
                       </div>
-
-                      <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-2">
-                        {vacancy.roleSummary}
-                      </p>
-
-                      <div className="text-xs text-slate-500 font-medium pt-1">
-                        <span className="font-semibold text-slate-700">Closing date:</span>{' '}
-                        {formatDate(vacancy.closingDate)}
-                      </div>
-                    </div>
-
-                    <div className="shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
-                      <Link
-                        to={`/careers/jobs/${vacancy.slug}`}
-                        className="text-nav inline-flex items-center justify-center gap-2 bg-[#005f9e] hover:bg-[#004c80] text-white font-extrabold tracking-wide px-7 py-3.5 uppercase font-outfit transition-all shadow-md active:scale-95"
-                      >
-                        <span>View Role &amp; Apply</span>
-                      </Link>
                     </div>
                   </div>
                 ))}

@@ -9,6 +9,7 @@ import {
 } from '../services/email.service.js';
 import { findVacancy, isVacancyOpen, listVacancies } from '../models/vacancy.model.js';
 import { hasRecentApplication, insertApplication, setEmailStatus } from '../models/application.model.js';
+import { getSignedCvUrl, isCloudinaryConfigured, uploadCv } from '../services/cloudinary.service.js';
 
 // Allowed answers for select fields (mirrored in client/src/components/ApplicationForm.jsx).
 export const RIGHT_TO_WORK = [
@@ -97,6 +98,7 @@ export const getVacancyBySlug = ah(async (req, res) => {
 // ---------------------------------------------------------------------------------------------
 
 const DUPLICATE_WINDOW_MS = 2 * 60 * 1000;
+const CV_EMAIL_LINK_EXPIRY_SECONDS = 7 * 24 * 60 * 60; // 7 days
 
 const UK_POSTCODE_RE = /^[A-Z]{1,2}\d[A-Z\d]? ?\d[A-Z]{2}$/;
 
@@ -227,9 +229,33 @@ export const submitApplication = async (req, res, next) => {
         }
       : null;
 
+    // Upload the CV to Cloudinary when configured; the email attachment below still uses the buffer
+    // directly, so this never delays or risks the notification email. If the upload fails, the CV
+    // falls back to being stored in MongoDB (insertApplication does this whenever cv.publicId is unset).
+    if (cv && isCloudinaryConfigured()) {
+      try {
+        const { publicId, resourceType } = await uploadCv(cv.buffer, { applicationId: application.id, filename: cv.filename });
+        cv.publicId = publicId;
+        cv.resourceType = resourceType;
+      } catch (err) {
+        console.warn(`[Careers] Cloudinary upload failed for ${application.id}, storing the CV in the database instead:`, err.message);
+      }
+    }
+
     // The database is the record of the application; the email to the recruitment inbox is a notification.
     await insertApplication({ ...application, vacancyId: vacancy.id, vacancyTitle: vacancy.title, vacancyReference: vacancy.reference }, cv);
     console.log(`[Careers] Application ${application.id} for ${vacancy.reference} saved`);
+
+    // A signed Cloudinary link included in the email, alongside the attachment. Longer-lived than
+    // the one used for live admin downloads, since this one sits in an inbox and may be opened days later.
+    let cvUrl;
+    if (cv?.publicId) {
+      try {
+        cvUrl = getSignedCvUrl(cv.publicId, cv.resourceType, CV_EMAIL_LINK_EXPIRY_SECONDS);
+      } catch (err) {
+        console.warn(`[Careers] Could not build a Cloudinary link for ${application.id}'s CV (attachment is unaffected):`, err.message);
+      }
+    }
 
     let delivery = null;
     try {
@@ -237,7 +263,7 @@ export const submitApplication = async (req, res, next) => {
         to: config.recruitmentEmail,
         replyTo: application.email,
         fallbackAddress: config.recruitmentEmail,
-        ...buildApplicationMessage(application, cv),
+        ...buildApplicationMessage(application, cv, cvUrl),
       });
       await setEmailStatus(application.id, 'sent');
     } catch (err) {

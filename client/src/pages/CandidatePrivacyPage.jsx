@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import MotionSection from '../components/MotionSection';
 import PageSEO from '../components/PageSEO';
 import { RECRUITMENT_EMAIL } from '../data/applicationOptions';
 
@@ -109,10 +111,12 @@ const CandidatePrivacyPage = () => (
         </ol>
       </nav>
 
-      <h1 className="text-h1 md:text-h1-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">Candidate Privacy Notice</h1>
-      <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed">
-        This notice explains how Bluegrid Utilities uses the personal information you give us when you apply for a job with us.
-      </p>
+      <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: 'easeOut' }}>
+        <h1 className="text-h1 md:text-h1-lg font-bold text-[#0f3a5e] tracking-tight font-outfit">Candidate Privacy Notice</h1>
+        <p className="text-body md:text-body-lg mt-4 text-[#1f2937] leading-relaxed">
+          This notice explains how Bluegrid Utilities uses the personal information you give us when you apply for a job with us.
+        </p>
+      </motion.div>
 
       <nav aria-labelledby="cpn-contents" className="mt-8 bg-[#f3f7fa] border border-slate-200 p-5">
         <h2 id="cpn-contents" className="text-base font-bold text-[#0f3a5e]">Contents</h2>
@@ -127,7 +131,7 @@ const CandidatePrivacyPage = () => (
 
       <div className="mt-10 space-y-10 text-[#1f2937] leading-relaxed [&_p]:mt-3 [&_ul]:mt-3 [&_ul]:list-disc [&_ul]:pl-6 [&_li]:mt-1 [&_a]:text-[#005f9e] [&_a]:underline [&_a]:font-semibold">
         {SECTIONS.map((s) => (
-          <section key={s.id} id={s.id} aria-labelledby={`${s.id}-h`} className="scroll-mt-40">
+          <MotionSection as="section" key={s.id} id={s.id} aria-labelledby={`${s.id}-h`} className="scroll-mt-40" transition={{ duration: 0.5, ease: 'easeOut' }}>
             <h2 id={`${s.id}-h`} className="text-h2 md:text-h2-lg font-bold text-[#0f3a5e] font-outfit">{s.title}</h2>
             {s.pending ? (
               <p>
@@ -138,7 +142,7 @@ const CandidatePrivacyPage = () => (
             ) : (
               s.body
             )}
-          </section>
+          </MotionSection>
         ))}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import directorBanner from '../assets/images/director_message_banner.jpg';
 
 /**
@@ -8,10 +9,13 @@ import directorBanner from '../assets/images/director_message_banner.jpg';
  * followed by a text card (the banner's text is too small to read when scaled down).
  */
 const DirectorBanner = () => (
-  <section
+  <motion.section
     id="director-message-banner"
     aria-labelledby="director-banner-heading"
     className="mb-12 -mt-[50px] md:mt-0 -mx-6 sm:-mx-8 lg:mx-0"
+    initial={{ opacity: 0, y: 16 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, ease: 'easeOut' }}
   >
     <h1 id="director-banner-heading" className="sr-only">
       About Bluegrid Utilities
@@ -59,7 +63,7 @@ const DirectorBanner = () => (
         <p className="text-body md:text-body-lg text-slate-500">Managing Director</p>
       </div>
     </div>
-  </section>
+  </motion.section>
 );
 
 export default DirectorBanner;

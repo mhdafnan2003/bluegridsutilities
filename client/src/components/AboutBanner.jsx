@@ -1,21 +1,35 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const textVariants = {
+  hidden: { opacity: 0, y: 18 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
 
 const AboutBanner = ({ badgeText, title, description, bgImage, imagePosition = 'center', children }) => {
   return (
     <div className="relative w-full min-h-[400px] sm:min-h-[460px] md:min-h-[500px] flex items-center overflow-hidden bg-slate-950 font-sans mb-12">
       {/* Full Hero Image */}
-      <img 
-        src={bgImage} 
-        alt={title} 
+      <motion.img
+        src={bgImage}
+        alt={title}
         className="absolute inset-0 w-full h-full object-cover"
         style={{ objectPosition: imagePosition }}
+        initial={{ opacity: 0, scale: 1.06 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.1, ease: 'easeOut' }}
       />
-      
+
       {/* Dark Neutral Gradient Overlay (No blue tinting, no letterbox) */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/30 z-10 pointer-events-none" />
 
       {/* Direct Text Overlay */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-16 sm:py-20 md:py-24 text-left text-white">
+      <motion.div
+        className="relative z-20 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full py-16 sm:py-20 md:py-24 text-left text-white"
+        variants={textVariants}
+        initial="hidden"
+        animate="visible"
+      >
         <div className="max-w-2xl">
           {badgeText && (
             <div className="flex flex-col items-start mb-3">
@@ -37,7 +51,7 @@ const AboutBanner = ({ badgeText, title, description, bgImage, imagePosition = '
             </div>
           )}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

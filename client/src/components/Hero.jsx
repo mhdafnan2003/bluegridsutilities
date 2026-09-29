@@ -80,7 +80,7 @@ const Hero = () => {
           variants={contentVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-3xl flex flex-col items-start text-left"
+          className="max-w-5xl flex flex-col items-start text-left"
         >
           {/* Subtitle / Category Tag */}
           <div className="flex flex-col items-start mb-3">
@@ -91,12 +91,14 @@ const Hero = () => {
           </div>
 
           {/* Main Headline */}
-          <h1 className="text-h1 md:text-h1-lg font-bold text-white leading-tight font-outfit tracking-tight">
-            Utility Infrastructure Delivery Built Around Safety, Quality and Accountability
+          <h1 className="text-[28px] sm:text-4xl lg:text-[40px] xl:text-[44px] font-bold text-white leading-[1.15] font-outfit tracking-tight">
+            Utility Infrastructure Delivery Built Around{' '}
+            <br className="hidden lg:block" />
+            <span className="text-[#7cc0f5]">Safety, Quality and Accountability</span>
           </h1>
 
           {/* Description */}
-          <p className="text-xs sm:text-sm md:text-base text-slate-100 mt-3 sm:mt-4 max-w-2xl leading-relaxed font-sans font-medium">
+          <p className="text-xs sm:text-sm md:text-base text-slate-100 mt-3 sm:mt-4 max-w-xl leading-relaxed font-sans font-medium">
             Bluegrid Utilities supports smart water-meter installation, utility civils, reinstatement and associated project delivery through structured field operations and project coordination.
           </p>
 

@@ -33,7 +33,7 @@ Responses are `{ success, data }` or `{ success: false, error: { message, fields
 ## Database
 - MongoDB via `mongoose`, connection string in `MONGODB_URI` (default: `mongodb://127.0.0.1:27017/bluegrid`, a local instance). Collections and indexes are created automatically on start.
 - The live website vacancy (BG-WM-COV-2026) is seeded automatically when the vacancies collection is empty. `npm run seed` inserts any missing seed vacancies; `npm run seed -- --force` resets them to the seed content (applications are kept). Seed content lives in `src/db/seed.js`.
-- Applications and CVs (as binary fields) are stored in the `applications` collection. This is candidate personal data: back up the database and keep access to it private.
+- Applications are stored in the `applications` collection. CVs go to Cloudinary when `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` are set (uploaded as a private, authenticated asset - never a public URL - and only fetched server-side via a short-lived signed URL when an admin downloads it); otherwise CVs are stored as binary data directly on the application document, same as before. Either way this is candidate personal data: back up the database (and the Cloudinary account, if used) and keep access to it private.
 - **Hosting:** use a MongoDB instance with persistent storage (MongoDB Atlas, or a self-hosted instance with a persistent volume) and point `MONGODB_URI` at it. Serverless platforms such as Vercel functions have no local disk of their own, but that's fine here since MongoDB itself is a separate, network-reachable service.
 
 ## Dashboard access

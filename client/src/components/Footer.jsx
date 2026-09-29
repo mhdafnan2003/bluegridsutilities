@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { staggerContainer, staggerItem } from './motionVariants';
 import logo from '../assets/images/logo.png';
 
 const LinkedInIcon = () => (
@@ -49,10 +51,16 @@ const Footer = () => {
   return (
     <footer className="bg-[#0b1324] text-slate-300 font-sans border-t-4 border-[#005f9e]">
       <div className="max-w-[90rem] mx-auto px-6 sm:px-8 lg:px-12 py-12 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-x-12">
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-12 gap-x-6 gap-y-10 lg:gap-x-12"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
 
           {/* Company information */}
-          <div className="col-span-2 lg:col-span-4">
+          <motion.div variants={staggerItem} className="col-span-2 lg:col-span-4">
             <Link to="/" className="inline-block mb-5">
               <img
                 src={logo}
@@ -67,10 +75,10 @@ const Footer = () => {
                 <span className="text-slate-300 font-semibold">Registered office:</span> Office 68, Spaces, The Maylands Building, Maylands Avenue, Hemel Hempstead Industrial Estate, Hemel Hempstead, England, HP2 7TG
               </p>
             </address>
-          </div>
+          </motion.div>
 
           {/* Contact */}
-          <div className="col-span-2 lg:col-span-3">
+          <motion.div variants={staggerItem} className="col-span-2 lg:col-span-3">
             <h4 className={headingClass}>Contact Us</h4>
             <dl className="space-y-3">
               {contactItems.map(({ label, value, href }) => (
@@ -98,10 +106,10 @@ const Footer = () => {
                 </a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Navigation */}
-          <nav aria-label="Footer navigation" className="col-span-1 md:col-span-2 lg:col-span-2">
+          <motion.nav variants={staggerItem} aria-label="Footer navigation" className="col-span-1 md:col-span-2 lg:col-span-2">
             <h4 className={headingClass}>Navigation</h4>
             <ul className={linkListClass}>
               {navigationLinks.map(({ label, to }) => (
@@ -110,10 +118,10 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </nav>
+          </motion.nav>
 
           {/* Policies */}
-          <nav aria-label="Policies" className="col-span-1 md:col-span-2 lg:col-span-3">
+          <motion.nav variants={staggerItem} aria-label="Policies" className="col-span-1 md:col-span-2 lg:col-span-3">
             <h4 className={headingClass}>Policies &amp; Legal</h4>
             <ul className={linkListClass}>
               {policyLinks.map(({ label, to }) => (
@@ -122,9 +130,9 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-          </nav>
+          </motion.nav>
 
-        </div>
+        </motion.div>
       </div>
 
       {/* Copyright */}

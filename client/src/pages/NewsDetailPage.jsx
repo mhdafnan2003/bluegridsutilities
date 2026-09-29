@@ -1,5 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import { staggerContainer, staggerItem } from '../components/motionVariants';
 import { newsArticles } from '../data/newsData';
 
 const NewsDetailPage = () => {
@@ -43,12 +45,22 @@ const NewsDetailPage = () => {
         </Link>
 
         {/* 1. Article Title Header on White Background */}
-        <h1 className="text-h1 md:text-h1-lg font-bold text-slate-900 tracking-tight leading-[1.2] font-outfit mb-6 max-w-5xl">
+        <motion.h1
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+          className="text-h1 md:text-h1-lg font-bold text-slate-900 tracking-tight leading-[1.2] font-outfit mb-6 max-w-5xl"
+        >
           {article.title}
-        </h1>
+        </motion.h1>
 
         {/* Meta Info & Category Badge */}
-        <div className="flex flex-wrap items-center gap-3.5 mb-8 text-xs font-semibold font-outfit text-slate-500">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.1 }}
+          className="flex flex-wrap items-center gap-3.5 mb-8 text-xs font-semibold font-outfit text-slate-500"
+        >
           <span className="px-3.5 py-1.5 bg-[#d9ea9a] text-slate-900 font-bold uppercase tracking-wider text-xs rounded-none">
             {article.categoryLabel}
           </span>
@@ -71,16 +83,21 @@ const NewsDetailPage = () => {
               </span>
             </>
           )}
-        </div>
+        </motion.div>
 
         {/* 2. Main Featured Article Image - Expanded Width & Height */}
-        <div className="w-full h-[380px] sm:h-[500px] md:h-[620px] lg:h-[720px] overflow-hidden mb-12 bg-slate-100">
-          <img 
-            src={article.img} 
-            alt={article.title} 
+        <motion.div
+          initial={{ opacity: 0, scale: 1.03 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.15 }}
+          className="w-full h-[380px] sm:h-[500px] md:h-[620px] lg:h-[720px] overflow-hidden mb-12 bg-slate-100"
+        >
+          <img
+            src={article.img}
+            alt={article.title}
             className="w-full h-full object-cover"
           />
-        </div>
+        </motion.div>
 
         {/* 3. Brief Description & Content Paragraphs */}
         <div className="max-w-5xl space-y-6 text-slate-700 text-base md:text-xl leading-relaxed font-sans font-normal mb-14">
@@ -221,10 +238,16 @@ const NewsDetailPage = () => {
         </div>
 
         {/* Related News Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {otherNews.map((rel) => (
+            <motion.div key={rel.id} variants={staggerItem}>
             <Link
-              key={rel.id}
               to={`/news/${rel.id}`}
               className="bg-white border border-slate-200 rounded-none overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
@@ -270,8 +293,9 @@ const NewsDetailPage = () => {
                 </span>
               </div>
             </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
     </div>

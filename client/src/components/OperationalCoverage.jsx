@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import MotionSection from './MotionSection';
+import { staggerContainer, staggerItem } from './motionVariants';
 import ukMapImg from '../assets/images/uk_service_map.png';
 
 const serviceAreas = [
@@ -20,7 +23,7 @@ const OperationalCoverage = () => {
   const active = serviceAreas.find(r => r.id === activeRegion);
 
   return (
-    <section className="py-20 md:py-28 bg-[#f3f7fa] font-sans relative overflow-hidden" id="coverage">
+    <MotionSection as="section" className="py-20 md:py-28 bg-[#f3f7fa] font-sans relative overflow-hidden" id="coverage">
 
       {/* Decorative Background */}
       <div className="absolute inset-0 pointer-events-none">
@@ -86,19 +89,25 @@ const OperationalCoverage = () => {
           <div className="w-full lg:w-1/2 flex flex-col gap-6">
 
             {/* Stats Row - Qualitative Verified Metrics */}
-            <div className="grid grid-cols-3 gap-3">
+            <motion.div
+              className="grid grid-cols-3 gap-3"
+              variants={staggerContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+            >
               {[
                 { value: 'Regional', label: 'England Delivery', icon: 'grid_view' },
                 { value: 'Structured', label: 'Mobilisation Model', icon: 'local_shipping' },
                 { value: 'Supervised', label: 'Field Squads', icon: 'groups' },
               ].map((stat, i) => (
-                <div key={i} className="bg-white border border-slate-200 shadow-md p-4 md:p-5 text-center">
+                <motion.div key={i} variants={staggerItem} className="bg-white border border-slate-200 shadow-md p-4 md:p-5 text-center">
                   <span className="material-symbols-outlined text-[#005f9e] text-xl mb-1 block">{stat.icon}</span>
                   <p className="text-lg md:text-xl font-black text-[#0f3a5e] leading-tight mb-1">{stat.value}</p>
                   <p className="text-[9px] md:text-[10px] font-bold tracking-widest text-slate-500">{stat.label}</p>
-                </div>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
 
             {/* England Regions */}
             <div className="bg-white border border-slate-200 shadow-md overflow-hidden flex-1">
@@ -148,7 +157,7 @@ const OperationalCoverage = () => {
           </div>
         </div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 

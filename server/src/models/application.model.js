@@ -65,7 +65,16 @@ export const insertApplication = async (app, cv) => {
     emailStatus: 'pending',
     submittedAt: stamp,
     updatedAt: stamp,
-    cv: cv ? { filename: cv.filename, contentType: cv.contentType, size: cv.size, data: cv.buffer } : null,
+    cv: cv
+      ? {
+          filename: cv.filename,
+          contentType: cv.contentType,
+          size: cv.size,
+          // Cloudinary-backed CV (cv.publicId set by careers.controller after a successful upload) or,
+          // as a fallback, the raw bytes stored directly in MongoDB.
+          ...(cv.publicId ? { publicId: cv.publicId, resourceType: cv.resourceType } : { data: cv.buffer }),
+        }
+      : null,
     events: [{ actor: 'Candidate', type: 'SUBMITTED', note: `Applied via website for ${app.vacancyReference}`, createdAt: stamp }],
   });
   return shape(doc.toObject());
@@ -98,10 +107,13 @@ export const listApplications = async ({ vacancyId, status, q, page = 1, pageSiz
   return { total, page, pageSize, data: docs.map(shape) };
 };
 
+/** Returns either { filename, contentType, size, data } (bytes in MongoDB) or
+ *  { filename, contentType, size, publicId, resourceType } (stored on Cloudinary). */
 export const getApplicationFile = async (id) => {
   const doc = await Application.findById(id, { cv: 1 }).lean();
   if (!doc?.cv) return null;
-  return { filename: doc.cv.filename, contentType: doc.cv.contentType, size: doc.cv.size, data: doc.cv.data };
+  const { filename, contentType, size, data, publicId, resourceType } = doc.cv;
+  return publicId ? { filename, contentType, size, publicId, resourceType } : { filename, contentType, size, data };
 };
 
 export const addApplicationEvent = async (applicationId, { actor, type, fromStatus = null, toStatus = null, note = null }) => {
@@ -143,6 +155,12 @@ export const setEmailStatus = async (id, emailStatus, emailError = null) => {
 export const deleteApplication = async (id) => (await Application.deleteOne({ _id: id })).deletedCount > 0;
 
 export const countApplicationsForVacancy = async (vacancyId) => Application.countDocuments({ vacancyId });
+
+/** CV references to clean up on Cloudinary when applications for a vacancy are deleted in bulk. */
+export const listCvRefsForVacancy = async (vacancyId) => {
+  const docs = await Application.find({ vacancyId, 'cv.publicId': { $ne: null } }, { 'cv.publicId': 1, 'cv.resourceType': 1 }).lean();
+  return docs.map((d) => ({ publicId: d.cv.publicId, resourceType: d.cv.resourceType }));
+};
 
 /** Numbers for the dashboard overview. */
 export const getStats = async () => {

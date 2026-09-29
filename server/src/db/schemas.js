@@ -74,12 +74,16 @@ const ApplicationEventSchema = new Schema(
   { timestamps: false },
 ); // keeps its auto _id, used as the event's `id` in the admin timeline
 
+// Either `data` (the file's bytes, stored directly in MongoDB) or `publicId` (stored on
+// Cloudinary instead - see services/cloudinary.service.js) is set, never both.
 const CvSchema = new Schema(
   {
     filename: { type: String, required: true },
     contentType: { type: String, required: true },
     size: { type: Number, required: true },
-    data: { type: Buffer, required: true },
+    data: { type: Buffer, default: null },
+    publicId: { type: String, default: null },
+    resourceType: { type: String, default: null },
   },
   { _id: false },
 );

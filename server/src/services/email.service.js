@@ -126,15 +126,21 @@ const row = (label, value) =>
   `<tr><th align="left" style="padding:6px 12px 6px 0;vertical-align:top;color:#475569;font-weight:700;white-space:nowrap">${esc(label)}</th>` +
   `<td style="padding:6px 0;vertical-align:top;color:#111827">${esc(value || 'Not provided').replace(/\n/g, '<br>')}</td></tr>`;
 
+// Only ever used with a server-built Cloudinary URL, never with candidate-supplied text - esc()
+// still runs on both, but a real <a> tag is what makes the link clickable in HTML mail clients.
+const rowLink = (label, url, text) =>
+  `<tr><th align="left" style="padding:6px 12px 6px 0;vertical-align:top;color:#475569;font-weight:700;white-space:nowrap">${esc(label)}</th>` +
+  `<td style="padding:6px 0;vertical-align:top;color:#111827"><a href="${esc(url)}" style="color:#005F9E">${esc(text)}</a></td></tr>`;
+
 const section = (title, pairs) =>
-  `<h2 style="font-size:16px;color:#0F3A5E;margin:24px 0 6px">${esc(title)}</h2><table cellpadding="0" cellspacing="0" style="font-size:15px;line-height:22px">${pairs.map(([l, v]) => row(l, v)).join('')}</table>`;
+  `<h2 style="font-size:16px;color:#0F3A5E;margin:24px 0 6px">${esc(title)}</h2><table cellpadding="0" cellspacing="0" style="font-size:15px;line-height:22px">${pairs.map(([l, v, link]) => (link ? rowLink(l, link, v) : row(l, v))).join('')}</table>`;
 
 const wrap = (title, body) =>
   `<!DOCTYPE html><html><head><meta charset="utf-8"><title>${esc(title)}</title></head>` +
   `<body style="font-family:Arial,Helvetica,sans-serif;color:#111827;margin:0;padding:24px;background:#ffffff">` +
   `<h1 style="font-size:20px;color:#0F3A5E;margin:0 0 4px">${esc(title)}</h1>${body}</body></html>`;
 
-export const buildApplicationMessage = (a, cv) => {
+export const buildApplicationMessage = (a, cv, cvUrl) => {
   const fmtDate = (iso) => new Date(iso).toLocaleString('en-GB', { timeZone: 'Europe/London' });
   const rows = {
     role: [
@@ -167,7 +173,7 @@ export const buildApplicationMessage = (a, cv) => {
       ['Experience summary', a.relevantExperience],
       ['Interview availability', a.interviewAvailability],
       ['Earliest start date', a.startDate],
-      ['CV', cv ? `${cv.filename} (${(cv.size / 1024).toFixed(0)} KB, attached)` : 'No CV attached'],
+      ['CV', cv ? `${cv.filename} (${(cv.size / 1024).toFixed(0)} KB, attached)` : 'No CV attached', cvUrl],
     ],
     decl: [
       ['Role requirements read', 'Yes'],
@@ -184,7 +190,7 @@ export const buildApplicationMessage = (a, cv) => {
       section('Experience and availability', rows.exp) +
       section('Confirmations', rows.decl),
   );
-  const textOf = (list) => list.map(([l, v]) => `${l}: ${v || 'Not provided'}`).join('\n');
+  const textOf = (list) => list.map(([l, v, link]) => `${l}: ${v || 'Not provided'}${link ? ` (${link})` : ''}`).join('\n');
   const text = [
     `New application: ${a.roleTitle} (${a.reference})`,
     textOf(rows.role),

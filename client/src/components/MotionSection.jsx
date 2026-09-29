@@ -6,6 +6,8 @@ const defaultVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
+// For a staggered grid/list of cards, see staggerContainer/staggerItem in ./motionVariants.
+
 const MotionSection = ({
   as: Component = 'section',
   children,

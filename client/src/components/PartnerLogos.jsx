@@ -1,4 +1,7 @@
 import React from 'react';
+import MotionSection from './MotionSection';
+import { staggerContainer, staggerItem } from './motionVariants';
+import { motion } from 'framer-motion';
 
 const supportedSectors = [
   { name: "Water Utilities", icon: "water_drop", desc: "Network support & meter installations" },
@@ -11,7 +14,7 @@ const supportedSectors = [
 
 const PartnerLogos = () => {
   return (
-    <section className="w-full bg-[#f3f7fa] px-6 sm:px-8 lg:px-12 py-14 border-y border-slate-200 font-sans" id="sectors-we-support">
+    <MotionSection as="section" className="w-full bg-[#f3f7fa] px-6 sm:px-8 lg:px-12 py-14 border-y border-slate-200 font-sans" id="sectors-we-support">
       <div className="max-w-[90rem] mx-auto text-left">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
@@ -27,10 +30,18 @@ const PartnerLogos = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <motion.div
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {supportedSectors.map((sector, idx) => (
-            <div 
+            <motion.div
               key={idx}
+              variants={staggerItem}
+              whileHover={{ y: -4 }}
               className="bg-white border border-slate-200 p-5 shadow-sm hover:shadow-md hover:border-[#005f9e] transition-all flex flex-col justify-between group"
             >
               <div>
@@ -44,11 +55,11 @@ const PartnerLogos = () => {
                   {sector.desc}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </MotionSection>
   );
 };
 
