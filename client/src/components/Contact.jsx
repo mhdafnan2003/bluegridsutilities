@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MotionSection from './MotionSection';
 import logo from '../assets/images/logo.png';
+import contactHeroImg from '../assets/images/street_works_mobilisation.jpg';
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -89,8 +90,16 @@ const Contact = () => {
         whileInView={undefined}
         viewport={undefined}
       >
-        {/* Clean Neutral Dark Overlay - NO BLUE TINT */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/55 to-transparent z-10" />
+        {/* Background Photo */}
+        <img
+          src={contactHeroImg}
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-center z-0"
+        />
+        {/* Dark Overlay - even coverage so the centred text stays readable */}
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-[#0f3a5e]/60 z-10" />
         
         <div className="relative z-20 max-w-4xl mx-auto px-6 flex flex-col items-center">
           <span className="inline-block px-4 py-1.5 rounded-none bg-[#005f9e] text-white text-[10px] sm:text-xs font-black tracking-widest mb-6 font-outfit shadow-sm uppercase">

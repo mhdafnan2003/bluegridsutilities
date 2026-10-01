@@ -18,6 +18,14 @@ import imgComplianceVerification from '../assets/images/Workforce onboarding and
 import imgGridWork from '../assets/images/utility_grid_work.png';
 import imgProjectCoord from '../assets/images/Project coordination and reporting.jpg';
 
+// Unsplash Image Imports for Water Infrastructure Support Banners
+import imgUnsplashWaterHero from '../assets/images/unsplash_water_infrastructure_hero.jpg';
+import imgUnsplashCivilMobilisation from '../assets/images/unsplash_civil_mobilisation.jpg';
+import imgUnsplashUtilityWorkforce from '../assets/images/unsplash_utility_workforce.jpg';
+import imgUnsplashEngineeringSupervision from '../assets/images/unsplash_engineering_supervision.jpg';
+import imgUnsplashCivilCoordinationCad from '../assets/images/unsplash_civil_coordination_cad.jpg';
+import imgUnsplashWaterValvesNetwork from '../assets/images/unsplash_water_valves_network.jpg';
+
 const smartWaterMeterBanners = [
   {
     num: "01",
@@ -216,6 +224,49 @@ const infrastructureSupportBanners = [
   }
 ];
 
+const waterInfrastructureBanners = [
+  {
+    num: "01",
+    title: "Project mobilisation",
+    badge: "STRUCTURED MOBILISATION & LOGISTICS",
+    desc: "Structured site setup, plant logistics, operative onboarding, and coordinated mobilisation for water network framework contracts.",
+    img: imgUnsplashCivilMobilisation,
+    highlights: ["Structured Mobilisation Workflow", "Site Welfare & Compound Logistics", "Fleet & Tooling Supply Management"]
+  },
+  {
+    num: "02",
+    title: "Labour supply",
+    badge: "EUSR & CSCS QUALIFIED WORKFORCE",
+    desc: "Supply of accredited utility operatives, groundworkers, pipe layers, and meter technicians holding active EUSR National Water Hygiene, CSCS, and SHEA credentials.",
+    img: imgUnsplashUtilityWorkforce,
+    highlights: ["Vetted EUSR Water Hygiene Operatives", "CSCS Skilled Groundwork Resourcing", "Comprehensive Credential Audits"]
+  },
+  {
+    num: "03",
+    title: "Site supervision",
+    badge: "NRSWA & SHEA SITE MANAGERS",
+    desc: "Experienced site supervisors and NRSWA-qualified agents providing daily site oversight, RAMS enforcement, and quality assurance reporting across live water assets.",
+    img: imgUnsplashEngineeringSupervision,
+    highlights: ["NRSWA Supervisor Site Oversight", "Daily RAMS & Safety Toolbox Briefings", "Client Site Progress Sign-offs"]
+  },
+  {
+    num: "04",
+    title: "Project coordination",
+    badge: "PROGRAMME SCHEDULE & REPORTING",
+    desc: "Dedicated project coordinators managing customer appointment scheduling, council permit tracking, and live KPI progress reporting across water infrastructure schemes.",
+    img: imgUnsplashCivilCoordinationCad,
+    highlights: ["Customer Access & Appointment Booking", "Local Authority Permit Tracking", "Live Digital Dashboard Reporting"]
+  },
+  {
+    num: "05",
+    title: "Operational support",
+    badge: "TIER-1 CONTRACTOR ASSISTANCE",
+    desc: "Integrated back-office and field operational support assisting main water contractors with clean water pipework integration, asset coordination, and compliance records.",
+    img: imgUnsplashWaterValvesNetwork,
+    highlights: ["Water Mains & Asset Enabling", "Material & Plant Procurement", "Audit Trail & Compliance Archiving"]
+  }
+];
+
 const serviceBannersMap = {
   'smart-water-metering': {
     title: "Smart Water Metering",
@@ -254,12 +305,12 @@ const serviceBannersMap = {
     banners: infrastructureSupportBanners
   },
   'infrastructure-support': {
-    title: "Project Delivery & Field Support",
-    banners: infrastructureSupportBanners
+    title: "Water Infrastructure Support",
+    banners: waterInfrastructureBanners
   },
   'water-infrastructure-support': {
-    title: "Project Delivery & Field Support",
-    banners: infrastructureSupportBanners
+    title: "Water Infrastructure Support",
+    banners: waterInfrastructureBanners
   }
 };
 
@@ -304,7 +355,7 @@ const servicesData = [
     icon: "water",
     desc: "Practical field and project support for authorised water-infrastructure activities.",
     intro: "Bluegrid Utilities provides operational and field support for authorised water-infrastructure activities, with scope defined by the project, client requirements and competent resources available.",
-    img: imgInfra,
+    img: imgUnsplashWaterHero,
     ctaText: "Discuss a Project",
     details: {
       headline: "Delivery Without Compromising Standards",

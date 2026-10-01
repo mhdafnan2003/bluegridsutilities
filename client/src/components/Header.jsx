@@ -28,7 +28,6 @@ const Header = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileAboutOpen, setIsMobileAboutOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const [isMobileHealthSafetyOpen, setIsMobileHealthSafetyOpen] = useState(false);
   const [isMobileCareersOpen, setIsMobileCareersOpen] = useState(false);
@@ -141,54 +140,6 @@ const Header = () => {
           {/* Navigation Links - Centered with good gap */}
           <nav className="hidden xl:flex items-stretch justify-center mx-auto h-full gap-1 2xl:gap-3">
             {navLinks.map((link) => {
-              if (link.label === 'About') {
-                return (
-                  <div key={link.label} className="relative group flex items-stretch">
-                    <Link
-                      to={link.to}
-                      className={`whitespace-nowrap transition-colors text-nav font-semibold font-outfit flex items-center gap-1 px-2 2xl:px-3 cursor-pointer select-none relative ${
-                        isActive(link.to) 
-                          ? 'text-[#005f9e]' 
-                          : 'text-[#0f3a5e] hover:text-[#005f9e]'
-                      }`}
-                    >
-                      <span>{link.label}</span>
-                      <span className="material-symbols-outlined text-lg transition-transform duration-300 group-hover:rotate-180">
-                        keyboard_arrow_down
-                      </span>
-                      <span className={`absolute bottom-0 left-0 h-[3px] transition-all duration-300 bg-[#005f9e] ${isActive(link.to) ? 'w-full' : 'w-0 group-hover:w-full'}`}></span>
-                    </Link>
-
-                    {/* Dropdown Menu */}
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[18rem] bg-white border border-slate-100 shadow-2xl rounded-none py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                      <div className="flex flex-col">
-                        {[
-                          { label: "About Bluegrid Utilities", to: "/about" },
-                          { label: "Our Working Principles", to: "/about#how-we-work" },
-                          { label: "Responsible Growth", to: "/about#growing-responsibly" },
-                          { label: "Policies & Company Information", to: "/policies" }
-                        ].map((item, index) => {
-                          const active = isSubActive(item.to);
-                          return (
-                            <Link
-                              key={index}
-                              to={item.to}
-                              className={`text-nav px-6 py-3 font-medium font-outfit transition-all duration-200 text-left border-l-4 whitespace-nowrap ${
- active
- ? 'bg-blue-50/80 text-[#005f9e] border-[#005f9e]'
- : 'text-slate-600 border-transparent hover:bg-slate-50 hover:text-[#005f9e] hover:border-[#005f9e]'
- }`}
-                            >
-                              {item.label}
-                            </Link>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
               if (link.label === 'Services') {
                 return (
                   <div key={link.label} className="relative group flex items-stretch">
@@ -262,9 +213,9 @@ const Header = () => {
                       <div className="flex flex-col">
                         {[
                           { label: "Safety & Quality Overview", to: "/safety-quality" },
-                          { label: "Approved Methods (RAMS)", to: "/safety-quality#rams" },
-                          { label: "Accurate Record Keeping", to: "/safety-quality#records" },
-                          { label: "Environmental & Public Safety", to: "/safety-quality#environment" },
+                          { label: "Approved Methods (RAMS)", to: "/safety-quality/rams" },
+                          { label: "Accurate Record Keeping", to: "/safety-quality/quality-assurance" },
+                          { label: "Environmental & Public Safety", to: "/safety-quality/environmental-protection" },
                           { label: "Policies & Statements", to: "/policies" }
                         ].map((item, index) => {
                           const active = isSubActive(item.to);
@@ -391,58 +342,6 @@ const Header = () => {
             >
               <div className="flex flex-col px-6 py-6 space-y-4 font-outfit text-nav font-semibold">
                 {navLinks.map((link) => {
-                  if (link.label === 'About') {
-                    return (
-                      <div key={link.label} className="flex flex-col">
-                        <button
-                          onClick={() => setIsMobileAboutOpen(!isMobileAboutOpen)}
-                          className={`transition-colors py-2.5 border-b flex items-center justify-between text-left font-semibold border-slate-50 ${
-                            isActive('/about') ? 'text-[#005f9e]' : 'text-slate-800 hover:text-[#005f9e]'
-                          }`}
-                        >
-                          <span>{link.label}</span>
-                          <span className={`material-symbols-outlined text-lg transform transition-transform duration-300 ${isMobileAboutOpen ? 'rotate-180' : ''}`}>
-                            keyboard_arrow_down
-                          </span>
-                        </button>
-                        <AnimatePresence>
-                          {isMobileAboutOpen && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="pl-4 flex flex-col font-sans text-nav font-normal text-slate-500 py-2 space-y-2.5 border-l border-brand-primary/20 mt-1"
-                            >
-                              {[
-                                { label: "About Bluegrid Utilities", to: "/about" },
-                                { label: "Our Working Principles", to: "/about#how-we-work" },
-                                { label: "Responsible Growth", to: "/about#growing-responsibly" },
-                                { label: "Policies & Company Information", to: "/policies" }
-                              ].map((item, index) => {
-                                const active = isSubActive(item.to);
-                                return (
-                                  <Link
-                                    key={index}
-                                    to={item.to}
-                                    onClick={() => {
-                                      setIsMenuOpen(false);
-                                      setIsMobileAboutOpen(false);
-                                    }}
-                                    className={`transition-colors py-1 block text-left ${
-                                      active ? 'text-[#005f9e] font-semibold' : 'hover:text-[#005f9e]'
-                                    }`}
-                                  >
-                                    {item.label}
-                                  </Link>
-                                );
-                              })}
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    );
-                  }
-
                   if (link.label === 'Safety & Quality') {
                     return (
                       <div key={link.label} className="flex flex-col">
@@ -467,9 +366,9 @@ const Header = () => {
                             >
                               {[
                                 { label: "Safety & Quality Overview", to: "/safety-quality" },
-                                { label: "Approved Methods (RAMS)", to: "/safety-quality#rams" },
-                                { label: "Accurate Record Keeping", to: "/safety-quality#records" },
-                                { label: "Environmental & Public Safety", to: "/safety-quality#environment" },
+                                { label: "Approved Methods (RAMS)", to: "/safety-quality/rams" },
+                                { label: "Accurate Record Keeping", to: "/safety-quality/quality-assurance" },
+                                { label: "Environmental & Public Safety", to: "/safety-quality/environmental-protection" },
                                 { label: "Policies & Statements", to: "/policies" }
                               ].map((item, index) => {
                                 const active = isSubActive(item.to);

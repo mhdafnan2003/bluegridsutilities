@@ -200,7 +200,7 @@ const CareerPage = () => {
           </div>
 
           {/* Pack 14: RECRUITMENT PROCESS */}
-          <div>
+          <div id="recruitment-process" className="scroll-mt-32">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <span className="inline-block px-3.5 py-1.5 bg-[#005f9e]/10 text-[#005f9e] text-xs font-black tracking-widest mb-3 font-outfit border border-[#005f9e]/20 uppercase">
                 Staged Process
